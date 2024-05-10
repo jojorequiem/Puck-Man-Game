@@ -54,10 +54,10 @@
     </Compile>
     <Compile Include="src\PuckMan\Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\PuckMan\UI\MainMenuForm.cs">
+    <Compile Include="src\PuckMan\UI\Screens\MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\MainMenuForm.Designer.cs">
+    <Compile Include="src\PuckMan\UI\Screens\MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -69,9 +69,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="src\PuckMan\UI\MainMenuForm.resx">
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="assets\temp.md" />
+    <None Include="docs\temp.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -82,26 +84,24 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="README.md" />
+    <None Include="src\PuckMan\Assets\temp.md" />
+    <None Include="src\PuckMan\Engine\Components\temp.md" />
+    <None Include="src\PuckMan\Engine\Entities\temp.md" />
+    <None Include="src\PuckMan\Engine\Scenes\temp.md" />
+    <None Include="src\PuckMan\Engine\temp.md" />
+    <None Include="src\PuckMan\Game\Characters\temp.md" />
+    <None Include="src\PuckMan\Game\Items\temp.md" />
+    <None Include="src\PuckMan\Game\Levels\temp.md" />
+    <None Include="src\PuckMan\Game\Mechanics\temp.md" />
+    <None Include="src\PuckMan\UI\Controls\temp.md" />
+    <None Include="src\Tests\IntegrationTests\temp.md" />
+    <None Include="src\Tests\temp.md" />
+    <None Include="src\Tests\UnitTests\temp.md" />
+    <None Include="tools\temp.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\" />
-    <Folder Include="docs\" />
-    <Folder Include="src\PuckMan\Assets\" />
-    <Folder Include="src\PuckMan\Engine\Components\" />
-    <Folder Include="src\PuckMan\Engine\Entities\" />
-    <Folder Include="src\PuckMan\Engine\Scenes\" />
-    <Folder Include="src\PuckMan\Game\Characters\" />
-    <Folder Include="src\PuckMan\Game\Items\" />
-    <Folder Include="src\PuckMan\Game\Levels\" />
-    <Folder Include="src\PuckMan\Game\Mechanics\" />
-    <Folder Include="src\PuckMan\UI\Controls\" />
-    <Folder Include="src\PuckMan\UI\Screens\" />
-    <Folder Include="src\Tests\IntegrationTests\" />
-    <Folder Include="src\Tests\UnitTests\" />
-    <Folder Include="tools\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
