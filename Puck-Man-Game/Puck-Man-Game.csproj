@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\PuckMan\Game\Characters\Joueur.cs" />
     <Compile Include="src\PuckMan\Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\PuckMan\UI\Screens\Classement.cs">
