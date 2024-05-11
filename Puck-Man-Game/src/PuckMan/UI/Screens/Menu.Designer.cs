@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI
 {
-    partial class MainMenuForm
+    partial class Menu
     {
         /// <summary>
         /// Required designer variable.

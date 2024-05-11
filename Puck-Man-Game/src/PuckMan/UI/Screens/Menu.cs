@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.UI
 {
-    public partial class MainMenuForm : Form
+    public partial class Menu : Form
     {
-        public MainMenuForm()
+        public Menu()
         {
             InitializeComponent();
         }
