@@ -18,8 +18,7 @@ namespace Puck_Man_Game
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new src.PuckMan.UI.Menu());
-            ;
+      Application.Run(new Form1());
         }
     }
 }
