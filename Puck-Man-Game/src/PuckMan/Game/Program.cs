@@ -1,4 +1,5 @@
-﻿using Puck_Man_Game.src.PuckMan.Game.Characters;
+﻿using Puck_Man_Game.src.PuckMan.Engine.Entities;
+using Puck_Man_Game.src.PuckMan.Game.Characters;
 using Puck_Man_Game.src.PuckMan.UI;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,8 @@ namespace Puck_Man_Game
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new src.PuckMan.UI.Menu());
-            Joueur joueur1 = new Joueur("Alice", 3, 100);
-
-            // Affichage des informations du joueur
-            joueur1.getInfo();
-            ;
+            // Exemple d'utilisation : affichage du nom et des points de vie de l'ennemi
+            Ennemis.Egare.AfficherDetails();
         }
     }
 }

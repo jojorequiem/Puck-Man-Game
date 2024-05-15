@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\PuckMan\Game\Characters\Joueur.cs" />
+    <Compile Include="src\PuckMan\Engine\Characters\Joueur.cs" />
+    <Compile Include="src\PuckMan\Engine\Entities\Adversaire.cs" />
+    <Compile Include="src\PuckMan\Engine\Entities\Ennemis.cs" />
     <Compile Include="src\PuckMan\Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\PuckMan\UI\Screens\Classement.cs">
@@ -100,10 +102,9 @@
     <None Include="README.md" />
     <None Include="src\PuckMan\Assets\temp.md" />
     <None Include="src\PuckMan\Engine\Components\temp.md" />
-    <None Include="src\PuckMan\Engine\Entities\temp.md" />
     <None Include="src\PuckMan\Engine\Scenes\temp.md" />
     <None Include="src\PuckMan\Engine\temp.md" />
-    <None Include="src\PuckMan\Game\Characters\temp.md" />
+    <None Include="src\PuckMan\Engine\Characters\temp.md" />
     <None Include="src\PuckMan\Game\Items\temp.md" />
     <None Include="src\PuckMan\Game\Levels\temp.md" />
     <None Include="src\PuckMan\Game\Mechanics\temp.md" />
