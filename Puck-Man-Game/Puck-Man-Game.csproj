@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="assets\fonts\UseCustomFont.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="src\PuckMan\Engine\Characters\Joueur.cs" />
     <Compile Include="src\PuckMan\Engine\Entities\Adversaire.cs" />
     <Compile Include="src\PuckMan\Engine\Entities\Ennemis.cs" />
@@ -69,6 +75,12 @@
     <Compile Include="src\PuckMan\UI\Screens\MenuParametreJouer.Designer.cs">
       <DependentUpon>MenuParametreJouer.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\NouvellePartie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\NouvellePartie.Designer.cs">
+      <DependentUpon>NouvellePartie.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\PuckMan\UI\Screens\Parametres.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,7 +89,10 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\Classement.resx">
+      <DependentUpon>Classement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -88,7 +103,7 @@
     <EmbeddedResource Include="src\PuckMan\UI\Screens\Parametres.resx">
       <DependentUpon>Parametres.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="assets\temp.md" />
+    <None Include="assets\fonts\fonts_pixel_art.ttf" />
     <None Include="docs\temp.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -117,8 +132,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

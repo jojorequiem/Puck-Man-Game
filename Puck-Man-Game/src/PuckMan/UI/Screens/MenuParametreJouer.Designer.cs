@@ -41,6 +41,7 @@
             this.btnNouvellePartie.TabIndex = 1;
             this.btnNouvellePartie.Text = "NOUVELLE PARTIE";
             this.btnNouvellePartie.UseVisualStyleBackColor = true;
+            this.btnNouvellePartie.Click += new System.EventHandler(this.btnNouvellePartie_Click);
             // 
             // btnReprendreSauvegarde
             // 

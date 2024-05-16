@@ -1,4 +1,7 @@
-﻿namespace Puck_Man_Game.src.PuckMan.UI
+﻿using Puck_Man_Game.assets.fonts;
+
+namespace Puck_Man_Game.src.PuckMan.UI
+
 {
     partial class Menu
     {
@@ -63,6 +66,7 @@
             this.btnClassement.TabIndex = 10;
             this.btnClassement.Text = "CLASSEMENT";
             this.btnClassement.UseVisualStyleBackColor = true;
+            this.btnClassement.Click += new System.EventHandler(this.btnClassement_Click);
             // 
             // btnParametres
             // 
@@ -72,6 +76,7 @@
             this.btnParametres.TabIndex = 11;
             this.btnParametres.Text = "PARAMETRES";
             this.btnParametres.UseVisualStyleBackColor = true;
+            this.btnParametres.Click += new System.EventHandler(this.btnParametres_Click);
             // 
             // btnQuitter
             // 
@@ -83,7 +88,7 @@
             this.btnQuitter.UseVisualStyleBackColor = true;
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
-            // MainMenuForm
+            // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,7 +100,7 @@
             this.Controls.Add(this.btnJouer);
             this.MaximumSize = new System.Drawing.Size(1024, 768);
             this.MinimumSize = new System.Drawing.Size(1024, 768);
-            this.Name = "MainMenuForm";
+            this.Name = "Menu";
             this.Text = "Puck-Man";
             this.ResumeLayout(false);
 

@@ -31,6 +31,24 @@ namespace Puck_Man_Game.src.PuckMan.UI
         {
             Application.Exit();
         }
+
+        private void btnClassement_Click(object sender, EventArgs e)
+        {
+            Classement classementMenu = new Classement();
+            classementMenu.StartPosition = FormStartPosition.Manual;
+            classementMenu.Location = this.Location;
+            classementMenu.Show();
+            this.Hide(); // Masquer la fenêtre actuelle
+        }
+
+        private void btnParametres_Click(object sender, EventArgs e)
+        {
+            Parametres parametreMenu = new Parametres();
+            parametreMenu.StartPosition = FormStartPosition.Manual;
+            parametreMenu.Location = this.Location;
+            parametreMenu.Show();
+            this.Hide(); // Masquer la fenêtre actuelle
+        }
     }
 
 }

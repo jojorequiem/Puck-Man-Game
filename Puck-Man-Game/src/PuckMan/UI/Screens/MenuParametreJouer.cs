@@ -31,5 +31,13 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             mainMenuForm.Show(); // Afficher MainMenuForm à nouveau
         }
 
+        private void btnNouvellePartie_Click(object sender, EventArgs e)
+        {
+            NouvellePartie menuNouvellePartie = new NouvellePartie();
+            menuNouvellePartie.StartPosition = FormStartPosition.Manual;
+            menuNouvellePartie.Location = this.Location;
+            menuNouvellePartie.Show();
+            this.Hide(); // Masquer la fenêtre actuelle
+        }
     }
 }
