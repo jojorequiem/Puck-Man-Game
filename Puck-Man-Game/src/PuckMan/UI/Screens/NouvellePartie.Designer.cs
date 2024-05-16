@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // NouvellePartie
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.MaximumSize = new System.Drawing.Size(1024, 768);
+            this.MinimumSize = new System.Drawing.Size(1024, 768);
+            this.Name = "NouvellePartie";
             this.Text = "NouvellePartie";
+            this.Load += new System.EventHandler(this.NouvellePartie_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
