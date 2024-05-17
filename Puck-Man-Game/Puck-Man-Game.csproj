@@ -136,6 +136,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\background.png" />
     <Content Include="assets\fragment.png" />
     <Content Include="assets\joueur.png" />
     <Content Include="assets\mur.png" />

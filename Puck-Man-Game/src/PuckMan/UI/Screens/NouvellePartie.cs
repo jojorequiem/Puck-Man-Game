@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
@@ -18,36 +19,33 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
     public partial class NouvellePartie : Form
     {
+        static public Joueur J1 { get; set; }
+
         public NouvellePartie()
         {
-            //new Labyrinthe(this, 31, 23);
-            new Labyrinthe(this, 3, 3);
             InitializeComponent();
+            this.DoubleBuffered = true;
+            this.KeyDown += (sender, e) => J1.JoueurKeyDown(sender, e);
+            /*Panel gamePanel = new Panel
+            {
+                Location = new Point(0, 0),
+                Size = this.ClientSize,
+                BackColor = Color.Transparent
+                
+            };*/
+            Labyrinthe instanceLaby = new Labyrinthe(this, 23, 19);
+
+            J1 = new Joueur("Dodonut", 3, 1, instanceLaby.StartX * Labyrinthe.TailleCase, instanceLaby.StartY * Labyrinthe.TailleCase);
+            J1.Laby = instanceLaby;
+            J1.Skin.BringToFront();
+            this.Controls.Add(J1.Skin);
+            J1.Skin.BringToFront();
+            //Controls.Add(gamePanel);
         }
 
         private void NouvellePartie_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void NouvellePartie_KeyDown(object sender, KeyEventArgs e)
-        {
-            Labyrinthe.J1.getInfo();
-            switch (e.KeyCode)
-            {
-                case Keys.Left:
-                    Labyrinthe.J1.Deplacer(-1, 0); // Déplacer à gauche
-                    break;
-                case Keys.Right:
-                    Labyrinthe.J1.Deplacer(1, 0); // Déplacer à droite
-                    break;
-                case Keys.Up:
-                    Labyrinthe.J1.Deplacer(0, -1); // Déplacer vers le haut
-                    break;
-                case Keys.Down:
-                    Labyrinthe.J1.Deplacer(0, 1); // Déplacer vers le bas
-                    break;
-            }
         }
     }
     public class Case
@@ -56,7 +54,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public int Y { get; set; }
         public bool Solide { get; set; }
         public PictureBox Fond { get; set; }
-        //public PictureBox devant;
 
         //liaison avec le voisins
         public bool haut, bas, droite, gauche;
@@ -74,7 +71,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             Fond.Size = new Size(Labyrinthe.TailleCase, Labyrinthe.TailleCase);
         }
 
-        public void Actualiser_image()
+        public void ActualiserImage()
         {
             if (Solide)
                 Fond.Image = Puck_Man_Game.Properties.Resources.mur;
@@ -94,10 +91,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         public int Largeur;
         public int Hauteur;
+        public int StartX;
+        public int StartY;
         public Form Formulaire;
-        static public Joueur J1 { get; set; } // Property to access J1
 
-        public int Obtenir_coordonnée_valide(int deb, int fin)
+        public int ObtenirCoordonneeValide(int deb, int fin)
         {
             //une coordonnée est valide si elle est impair et entre deb et fin
             int coordonnée = random.Next(deb, fin);
@@ -110,7 +108,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             return coordonnée;
         }
 
-        public int Obtenir_coordonée_liaison(int sommet, int voisin)
+        public int ObtenirCoordoneeLiaison(int sommet, int voisin)
         {
             int liaison;
             if (voisin > sommet)
@@ -123,31 +121,31 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         }
 
         //return voisin du dessus, du dessous, à droite, à gauche
-        public Case Haut(Case sommet, int pas)
+        public Case Haut(int x, int y, int pas)
         {
-            if (sommet.Y - pas > 0)
-                return Lab[sommet.X / TailleCase, (sommet.Y - pas) / TailleCase];
+            if (y - pas > 0)
+                return Lab[x / TailleCase, (y - pas) / TailleCase];
             return null;
         }
 
-        public Case Bas(Case sommet, int pas)
+        public Case Bas(int x, int y, int pas)
         {
-            if (sommet.Y + pas < Hauteur * TailleCase)
-                return Lab[sommet.X / TailleCase, (sommet.Y + pas) / TailleCase];
+            if (y + pas < Hauteur * TailleCase)
+                return Lab[x / TailleCase, (y + pas) / TailleCase];
             return null;
         }
 
-        public Case Gauche(Case sommet, int pas)
+        public Case Gauche(int x, int y, int pas)
         {
-            if (sommet.X - pas > 0)
-                return Lab[(sommet.X - pas) / TailleCase, sommet.Y / TailleCase];
+            if (x - pas > 0)
+                return Lab[(x - pas) / TailleCase, y / TailleCase];
             return null;
         }
 
-        public Case Droite(Case sommet, int pas)
+        public Case Droite(int x, int y, int pas)
         {
-            if (sommet.X + pas < Largeur * TailleCase)
-                return Lab[(sommet.X + pas) / TailleCase, sommet.Y / TailleCase];
+            if (x + pas < Largeur * TailleCase)
+                return Lab[(x + pas) / TailleCase, y / TailleCase];
             return null;
         }
 
@@ -158,7 +156,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             return false;
         }
 
-        public void GénérationStructureLabyrinthe()
+        public void GenerationStructureLabyrinthe()
         {
             for (int x = 0; x < Largeur; x++)
             {
@@ -199,7 +197,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
         }
 
-        public void GénérationAléatoire()
+        public void GenerationAleatoire()
         {
             for (int x = 0; x < Largeur; x++)
             {
@@ -217,16 +215,22 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
         }
 
-        public void GénérationAvancée()
+        public void GenerationAvancee()
         {
             Visités = new Case[Largeur * TailleCase, Hauteur * TailleCase];
 
-            int startX = Obtenir_coordonnée_valide(1, Largeur - 1);
-            int startY = Obtenir_coordonnée_valide(1, Hauteur - 1);
+            int startX = ObtenirCoordonneeValide(1, Largeur - 1);
+            int startY = ObtenirCoordonneeValide(1, Hauteur - 1);
             Case sommet = Lab[startX, startY];
-            sommet.Fond.Image = Puck_Man_Game.Properties.Resources.vide;
-            J1 = new Joueur("Dodonut The Wild", 3, 1, startX*TailleCase, startY* TailleCase);
-            Formulaire.Controls.Add(J1.Skin);
+
+            StartX = startX;
+            StartY = startY;
+
+            sommet.Fond.Image = Puck_Man_Game.Properties.Resources.égaré;
+            sommet.Solide = false;
+
+            
+            //NouvellePartie.gamePanel.Controls.Add(NouvellePartie.J1.Skin);
 
             // Marquer la case de départ comme visitée
             Visités[startX * TailleCase, startY * TailleCase] = sommet;
@@ -243,25 +247,20 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
                 List<Case> voisinsNonVisites = new List<Case>();
 
-                Case haut = Haut(sommet, pas);
-                Case bas = Bas(sommet, pas);
-                Case gauche = Gauche(sommet, pas);
-                Case droite = Droite(sommet, pas);
+                Case haut = Haut(sommet.X, sommet.Y, pas);
+                Case bas = Bas(sommet.X, sommet.Y, pas);
+                Case gauche = Gauche(sommet.X, sommet.Y, pas);
+                Case droite = Droite(sommet.X, sommet.Y, pas);
 
                 //on ajoute les voisins valides non visités
-
-                // Voisin du haut 
                 if (haut != null && Visités[haut.X, (haut.Y)] == null)
-                    voisinsNonVisites.Add(Lab[haut.X / TailleCase, haut.Y / TailleCase]);
-                // Voisin du bas 
+                    voisinsNonVisites.Add(haut);
                 if (bas != null && Visités[bas.X, bas.Y] == null)
-                    voisinsNonVisites.Add(Lab[bas.X / TailleCase, bas.Y / TailleCase]);
-                // Voisin de gauche
+                    voisinsNonVisites.Add(bas);
                 if (gauche != null && Visités[gauche.X, gauche.Y] == null)
-                    voisinsNonVisites.Add(Lab[gauche.X / TailleCase, gauche.Y / TailleCase]);
-                // Voisin de droite
+                    voisinsNonVisites.Add(gauche);
                 if (droite != null && Visités[droite.X, droite.Y] == null)
-                    voisinsNonVisites.Add(Lab[droite.X / TailleCase, droite.Y / TailleCase]);
+                    voisinsNonVisites.Add(droite);
 
                 // Si la case actuelle a des voisins non visités
                 if (voisinsNonVisites.Count > 0)
@@ -270,8 +269,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     Case voisin = voisinsNonVisites[random.Next(0, voisinsNonVisites.Count)];
 
                     //coordonnées de la liason entre le sommet et son voisin
-                    int liaison_x = Obtenir_coordonée_liaison(sommet.X, voisin.X);
-                    int liaison_y = Obtenir_coordonée_liaison(sommet.Y, voisin.Y); ;
+                    int liaison_x = ObtenirCoordoneeLiaison(sommet.X, voisin.X);
+                    int liaison_y = ObtenirCoordoneeLiaison(sommet.Y, voisin.Y); ;
 
                     //on crée un chemin entre le sommet et son voisin
                     Lab[liaison_x / TailleCase, liaison_y / TailleCase].Solide = false;
@@ -332,10 +331,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     //on remplace les murs isolés
                     if (false && (x % 2 == 0 && y % 2 == 0))
                     {
-                        if (!EstSolide(Haut(Lab[x, y], TailleCase)) &&
-                            !EstSolide(Bas(Lab[x, y], TailleCase)) &&
-                            !EstSolide(Gauche(Lab[x, y], TailleCase)) &&
-                            !EstSolide(Droite(Lab[x, y], TailleCase)))
+                        if (!EstSolide(Haut(x * TailleCase, y * TailleCase, TailleCase)) &&
+                            !EstSolide(Bas(x * TailleCase, y * TailleCase, TailleCase)) &&
+                            !EstSolide(Gauche(x * TailleCase, y * TailleCase, TailleCase)) &&
+                            !EstSolide(Droite(x * TailleCase, y * TailleCase, TailleCase)))
                         {
 
                             /*
@@ -385,9 +384,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             Hauteur = hauteur;
             Lab = new Case[Largeur, hauteur];
 
-            GénérationStructureLabyrinthe();
-            //GénérationAléatoire();
-            GénérationAvancée();
+            GenerationStructureLabyrinthe();
+            //GenerationAléatoire();
+            GenerationAvancee();
         }
     }
 }
