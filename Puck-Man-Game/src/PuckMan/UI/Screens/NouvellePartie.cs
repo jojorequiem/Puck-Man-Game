@@ -34,7 +34,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 
             };*/
             Labyrinthe instanceLaby = new Labyrinthe(this, 23, 19);
-
             J1 = new Joueur("Dodonut", 3, 1, instanceLaby.StartX * Labyrinthe.TailleCase, instanceLaby.StartY * Labyrinthe.TailleCase);
             J1.Laby = instanceLaby;
             J1.Skin.BringToFront();
