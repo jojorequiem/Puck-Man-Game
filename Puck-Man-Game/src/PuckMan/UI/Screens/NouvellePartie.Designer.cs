@@ -34,12 +34,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1006, 721);
             this.MaximumSize = new System.Drawing.Size(1024, 768);
             this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "NouvellePartie";
             this.Text = "NouvellePartie";
             this.Load += new System.EventHandler(this.NouvellePartie_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NouvellePartie_KeyDown);
             this.ResumeLayout(false);
 
         }

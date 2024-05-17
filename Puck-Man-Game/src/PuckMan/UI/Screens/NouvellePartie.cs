@@ -1,10 +1,12 @@
-﻿using Puck_Man_Game.src.PuckMan.UI.Screens;
+﻿using Puck_Man_Game.src.PuckMan.Game.Characters;
+using Puck_Man_Game.src.PuckMan.UI.Screens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,41 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
+
+    public partial class NouvellePartie : Form
+    {
+        public NouvellePartie()
+        {
+            //new Labyrinthe(this, 31, 23);
+            new Labyrinthe(this, 3, 3);
+            InitializeComponent();
+        }
+
+        private void NouvellePartie_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NouvellePartie_KeyDown(object sender, KeyEventArgs e)
+        {
+            Labyrinthe.J1.getInfo();
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    Labyrinthe.J1.Deplacer(-1, 0); // Déplacer à gauche
+                    break;
+                case Keys.Right:
+                    Labyrinthe.J1.Deplacer(1, 0); // Déplacer à droite
+                    break;
+                case Keys.Up:
+                    Labyrinthe.J1.Deplacer(0, -1); // Déplacer vers le haut
+                    break;
+                case Keys.Down:
+                    Labyrinthe.J1.Deplacer(0, 1); // Déplacer vers le bas
+                    break;
+            }
+        }
+    }
     public class Case
     {
         public int X { get; set; }
@@ -40,9 +77,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public void Actualiser_image()
         {
             if (Solide)
-                Fond.Image = Puck_Man_Game.src.PuckMan.Assets.mur;
+                Fond.Image = Puck_Man_Game.Properties.Resources.mur;
             else
-                Fond.Image = Puck_Man_Game.src.PuckMan.Assets.vide;
+                Fond.Image = Puck_Man_Game.Properties.Resources.vide;
         }
     }
 
@@ -58,6 +95,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public int Largeur;
         public int Hauteur;
         public Form Formulaire;
+        static public Joueur J1 { get; set; } // Property to access J1
 
         public int Obtenir_coordonnée_valide(int deb, int fin)
         {
@@ -113,14 +151,14 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             return null;
         }
 
-        public bool Est_solide(Case sommet)
+        public bool EstSolide(Case sommet)
         {
             if (sommet != null)
                 return sommet.Solide;
             return false;
         }
 
-        public void Génération_structure_lab()
+        public void GénérationStructureLabyrinthe()
         {
             for (int x = 0; x < Largeur; x++)
             {
@@ -136,12 +174,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     if ((x == 0 || x == Largeur - 1 || y == 0 || y == Hauteur - 1)
                         || ((x + y) % 2 == 0 && x % 2 == 0))
                     {
-                        maCase.Fond.Image = PuckMan.Resources.mur;
+                        maCase.Fond.Image = Puck_Man_Game.Properties.Resources.mur;
                         maCase.Solide = true;
                     }
                     else if ((x + y) % 2 == 0 && x % 2 != 0)
                     {
-                        maCase.Fond.Image = PuckMan.Properties.Resources.vide;
+                        maCase.Fond.Image = Puck_Man_Game.Properties.Resources.vide;
                         maCase.Solide = false;
                     }
 
@@ -149,19 +187,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     else if (random.NextDouble() < 0.8)
                     {
                         Lab[x, y].Solide = true;
-                        Lab[x, y].Fond.Image = PuckMan.Properties.Resources.mur;
+                        Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.mur;
 
                     }
                     else
                     {
                         Lab[x, y].Solide = false;
-                        Lab[x, y].Fond.Image = PuckMan.Properties.Resources.vide;
+                        Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.vide;
                     }
                 }
             }
         }
 
-        public void Génération_aléatoire()
+        public void GénérationAléatoire()
         {
             for (int x = 0; x < Largeur; x++)
             {
@@ -171,22 +209,24 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                         && ((x + y) % 2 != 0))
                     {
                         if (random.NextDouble() < 0.5)
-                            Lab[x, y].Fond = PuckMan.Properties.Resources.mur;
+                            Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.mur;
                         else
-                            Lab[x, y].Fond = PuckMan.Properties.Resources.porte;
+                            Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.porte;
                     }
                 }
             }
         }
 
-        public void génération_avancée()
+        public void GénérationAvancée()
         {
             Visités = new Case[Largeur * TailleCase, Hauteur * TailleCase];
 
             int startX = Obtenir_coordonnée_valide(1, Largeur - 1);
             int startY = Obtenir_coordonnée_valide(1, Hauteur - 1);
             Case sommet = Lab[startX, startY];
-            sommet.Fond.Image = PuckMan.Properties.Resources.joueur;
+            sommet.Fond.Image = Puck_Man_Game.Properties.Resources.vide;
+            J1 = new Joueur("Dodonut The Wild", 3, 1, startX*TailleCase, startY* TailleCase);
+            Formulaire.Controls.Add(J1.Skin);
 
             // Marquer la case de départ comme visitée
             Visités[startX * TailleCase, startY * TailleCase] = sommet;
@@ -235,7 +275,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
                     //on crée un chemin entre le sommet et son voisin
                     Lab[liaison_x / TailleCase, liaison_y / TailleCase].Solide = false;
-                    Lab[liaison_x / TailleCase, liaison_y / TailleCase].Fond.Image = PuckMan.Properties.Resources.vide;
+                    Lab[liaison_x / TailleCase, liaison_y / TailleCase].Fond.Image = Puck_Man_Game.Properties.Resources.vide;
 
                     //on marque le voisin comme visité
                     Visités[voisin.X, voisin.Y] = voisin;
@@ -251,33 +291,36 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
 
             //ajout de fragments de souvenirs (collectables)
+            /*
             int nbr_fragments = 5;
             while (nbr_fragments > 0)
             {
                 int x = Obtenir_coordonnée_valide(1, Largeur - 1);
                 int y = Obtenir_coordonnée_valide(1, Hauteur - 1);
 
-                if (Lab[x, y].Fond.Image != PuckMan.Properties.Resources.joueur)
+                if (Lab[x, y].Fond.Image != Puck_Man_Game.Properties.Resources.joueur)
                 {
-                    Lab[x, y].Fond.Image = PuckMan.Properties.Resources.fragment;
+                    Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.fragment;
                     nbr_fragments -= 1;
                 }
-            }
+            }*/
 
             //faire une fonction public void génération(type, nombre) basé sur cette structure
 
+            /*
             int nbr_ennemies = 5;
             while (nbr_ennemies > 0)
             {
                 int x = Obtenir_coordonnée_valide(1, Largeur - 1);
                 int y = Obtenir_coordonnée_valide(1, Hauteur - 1);
 
-                if (Lab[x, y].Fond.Image != PuckMan.Properties.Resources.joueur)
+                if (Lab[x, y].Fond.Image != Puck_Man_Game.Properties.Resources.joueur)
                 {
-                    Lab[x, y].Fond.Image = PuckMan.Properties.Resources.égaré;
+                    Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.égaré;
                     nbr_ennemies -= 1;
                 }
             }
+            */
 
             string matrice = "";
 
@@ -289,10 +332,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     //on remplace les murs isolés
                     if (false && (x % 2 == 0 && y % 2 == 0))
                     {
-                        if (!Est_solide(Haut(Lab[x, y], TailleCase)) &&
-                            !Est_solide(Bas(Lab[x, y], TailleCase)) &&
-                            !Est_solide(Gauche(Lab[x, y], TailleCase)) &&
-                            !Est_solide(Droite(Lab[x, y], TailleCase)))
+                        if (!EstSolide(Haut(Lab[x, y], TailleCase)) &&
+                            !EstSolide(Bas(Lab[x, y], TailleCase)) &&
+                            !EstSolide(Gauche(Lab[x, y], TailleCase)) &&
+                            !EstSolide(Droite(Lab[x, y], TailleCase)))
                         {
 
                             /*
@@ -312,7 +355,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                         voisin.fond.Image = Properties.Resources.mur;*/
 
                             Lab[x, y].Solide = false;
-                            Lab[x, y].Fond.Image = PuckMan.Properties.Resources.vide;
+                            Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.vide;
 
                         }
                     }
@@ -332,9 +375,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 }
                 matrice += "\n";
             }
-            Debug.Write(matrice);
+            //Debug.Write(matrice);
         }
-
 
         public Labyrinthe(Form formulaire, int largeur, int hauteur)
         {
@@ -343,25 +385,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             Hauteur = hauteur;
             Lab = new Case[Largeur, hauteur];
 
-            Génération_structure_lab();
-            Génération_aléatoire();
-            //Génération_avancée();
+            GénérationStructureLabyrinthe();
+            //GénérationAléatoire();
+            GénérationAvancée();
         }
-
     }
 }
-
-/*
-public partial class NouvellePartie : Form
-    {
-        public NouvellePartie()
-        {
-            //InitializeComponent();
-        }
-
-        private void NouvellePartie_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
-}*/

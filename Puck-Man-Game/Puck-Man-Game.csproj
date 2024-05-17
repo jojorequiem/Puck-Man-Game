@@ -75,7 +75,9 @@
     <Compile Include="src\PuckMan\UI\Screens\MenuParametreJouer.Designer.cs">
       <DependentUpon>MenuParametreJouer.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\NouvellePartie.cs" />
+    <Compile Include="src\PuckMan\UI\Screens\NouvellePartie.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="src\PuckMan\UI\Screens\NouvellePartie.Designer.cs">
       <DependentUpon>NouvellePartie.cs</DependentUpon>
     </Compile>
@@ -116,7 +118,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="README.md" />
-    <None Include="src\PuckMan\Assets\temp.md" />
+    <None Include="assets\temp.md" />
     <None Include="src\PuckMan\Engine\Components\temp.md" />
     <None Include="src\PuckMan\Engine\Scenes\temp.md" />
     <None Include="src\PuckMan\Engine\temp.md" />
@@ -134,11 +136,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\PuckMan\Assets\joueur.png" />
-    <Content Include="src\PuckMan\Assets\mur.png" />
-    <Content Include="src\PuckMan\Assets\porte.png" />
-    <Content Include="src\PuckMan\Assets\vide.png" />
-    <Content Include="src\PuckMan\Assets\égaré.png" />
+    <Content Include="assets\fragment.png" />
+    <Content Include="assets\joueur.png" />
+    <Content Include="assets\mur.png" />
+    <Content Include="assets\porte.png" />
+    <Content Include="assets\vide.png" />
+    <Content Include="assets\égaré.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\PuckMan\Assets\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
