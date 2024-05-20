@@ -1,41 +1,18 @@
-﻿using System;
+﻿using Puck_Man_Game.src.PuckMan.UI.Screens;
+using System;
 
 namespace Puck_Man_Game.src.PuckMan.Engine.Entities
 {
-    internal class Adversaire
+    public class Adversaire : Entity
     {
-        public int Id { get; set; }
-        public string Nom { get; set; }
-
         public string Classe { get; set; }
-        public int Vitesse { get; set; }
-        public int Sante { get; set; }
-        public int DegatAttaque { get; set; }
-        public int IdItemDrop { get; set; }
-        public int NumeroMatrice { get; set; }
+        public int Degat { get; set; }
 
-        public Adversaire(int id, string nom, string classe, int vitesse, int sante, int degatAttaque, int idItemDrop, int numeroMatrice)
+        public Adversaire(string nom, int x, int y) : base(x, y, nom)
         {
-            Id = id;
-            Nom = nom;
-            Classe = classe;
-            Vitesse = vitesse;
-            Sante = sante;
-            DegatAttaque = degatAttaque;
-            IdItemDrop = idItemDrop;
-            NumeroMatrice = numeroMatrice;
-        }
-
-        public void AfficherDetails()
-        {
-            Console.WriteLine($"Nom : {Nom}");
-            Console.WriteLine($"Classe : {Classe}");
-            Console.WriteLine($"Vitesse : {Vitesse}");
-            Console.WriteLine($"Santé : {Sante}");
-            Console.WriteLine($"Dégât d'attaque : {DegatAttaque}");
-            Console.WriteLine($"ID de l'item drop : {IdItemDrop}");
-            Console.WriteLine($"Numéro de matrice : {NumeroMatrice}");
+            Image.Image = Puck_Man_Game.Properties.Resources.égaré;
+            if (nom == "égaré")
+                Degat = 1;
         }
     }
-
 }

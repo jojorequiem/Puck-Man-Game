@@ -52,9 +52,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\Engine\Characters\Joueur.cs" />
+    <Compile Include="src\PuckMan\Engine\Entities\Joueur.cs" />
     <Compile Include="src\PuckMan\Engine\Entities\Adversaire.cs" />
-    <Compile Include="src\PuckMan\Engine\Entities\Ennemis.cs" />
+    <Compile Include="src\PuckMan\Engine\Entities\Entity.cs" />
+    <Compile Include="src\PuckMan\Game\Collectable.cs" />
     <Compile Include="src\PuckMan\Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\PuckMan\UI\Screens\Classement.cs">
@@ -122,7 +123,6 @@
     <None Include="src\PuckMan\Engine\Components\temp.md" />
     <None Include="src\PuckMan\Engine\Scenes\temp.md" />
     <None Include="src\PuckMan\Engine\temp.md" />
-    <None Include="src\PuckMan\Engine\Characters\temp.md" />
     <None Include="src\PuckMan\Game\Items\temp.md" />
     <None Include="src\PuckMan\Game\Levels\temp.md" />
     <None Include="src\PuckMan\Game\Mechanics\temp.md" />

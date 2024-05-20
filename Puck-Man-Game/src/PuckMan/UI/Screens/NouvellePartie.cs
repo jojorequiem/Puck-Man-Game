@@ -1,4 +1,6 @@
-﻿using Puck_Man_Game.src.PuckMan.Game.Characters;
+﻿using Puck_Man_Game.src.PuckMan.Engine.Entities;
+using Puck_Man_Game.src.PuckMan.Game;
+using Puck_Man_Game.src.PuckMan.Game.Entities;
 using Puck_Man_Game.src.PuckMan.UI.Screens;
 using System;
 using System.Collections.Generic;
@@ -8,74 +10,73 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-
     public partial class NouvellePartie : Form
     {
         static public Joueur J1 { get; set; }
-
         public NouvellePartie()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             this.KeyDown += (sender, e) => J1.JoueurKeyDown(sender, e);
-            /*Panel gamePanel = new Panel
-            {
-                Location = new Point(0, 0),
-                Size = this.ClientSize,
-                BackColor = Color.Transparent
-                
-            };*/
-            Labyrinthe instanceLaby = new Labyrinthe(this, 23, 19);
-            J1 = new Joueur("Dodonut", 3, 1, instanceLaby.StartX * Labyrinthe.TailleCase, instanceLaby.StartY * Labyrinthe.TailleCase);
-            J1.Laby = instanceLaby;
-            J1.Skin.BringToFront();
-            this.Controls.Add(J1.Skin);
-            J1.Skin.BringToFront();
-            //Controls.Add(gamePanel);
+
+            Labyrinthe instanceLaby = new Labyrinthe(this, 21, 19);
+            J1 = new Joueur("Dodonut", 3, 1, instanceLaby.StartX * Labyrinthe.TailleCase, instanceLaby.StartY * Labyrinthe.TailleCase, instanceLaby);
+            instanceLaby.Entites[instanceLaby.StartX,instanceLaby.StartY] = J1;
+            instanceLaby.GenerationEntite(typeof(Collectable), "fragment", instanceLaby.NbrFragmentGenere);
+            LblFragmentCollecte.Text = "0";
+            LblFragmentGenere.Text = instanceLaby.NbrFragmentGenere.ToString();
+            instanceLaby.GenerationEntite(typeof(Adversaire),"égaré", 3);
+            this.Controls.Add(J1.Image);
+            J1.Image.BringToFront();
+            ActualiserAffichagePV();
         }
 
-        private void NouvellePartie_Load(object sender, EventArgs e)
+        public void ActualiserAffichagePV()
         {
+            LblPV.Text = J1.PV.ToString();
+        }
 
+        public void FragmentCollecte(int nbrFragmentCollectes)
+        {
+            LblFragmentCollecte.Text = (int.Parse(LblFragmentCollecte.Text) + 1).ToString();
+            if (int.Parse(LblFragmentCollecte.Text) >= J1.Laby.NbrFragmentGenere)
+            {
+                Debug.WriteLine("NIVEAU TERMINE");
+            }
         }
     }
-    public class Case
+    public class Case : Entity
     {
-        public int X { get; set; }
-        public int Y { get; set; }
         public bool Solide { get; set; }
-        public PictureBox Fond { get; set; }
 
         //liaison avec le voisins
         public bool haut, bas, droite, gauche;
 
-        public Case(int x, int y)
+        public Case(int x, int y, string nom) : base(x, y, nom)
         {
-            X = x;
-            Y = y;
             Solide = true;
-            Fond = new PictureBox();
-            Fond.Location = new Point(x, y);
-            Fond.BackColor = Color.Transparent;
-
-            Fond.SizeMode = PictureBoxSizeMode.StretchImage;
-            Fond.Size = new Size(Labyrinthe.TailleCase, Labyrinthe.TailleCase);
+            Image.Location = new Point(x, y);
+            Image.BackColor = Color.Transparent;
+            Image.SizeMode = PictureBoxSizeMode.StretchImage;
+            Image.Size = new Size(Labyrinthe.TailleCase, Labyrinthe.TailleCase);
         }
 
         public void ActualiserImage()
         {
             if (Solide)
-                Fond.Image = Puck_Man_Game.Properties.Resources.mur;
+                Image.Image = Puck_Man_Game.Properties.Resources.mur;
             else
-                Fond.Image = Puck_Man_Game.Properties.Resources.vide;
+                Image.Image = Puck_Man_Game.Properties.Resources.vide;
         }
     }
 
@@ -87,12 +88,14 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public static int pas = TailleCase * 2;
         public Case[,] Lab { get; set; }
         public Case[,] Visités { get; set; }
-
+        public Entity[,] Entites { get; set; }
         public int Largeur;
         public int Hauteur;
         public int StartX;
         public int StartY;
-        public Form Formulaire;
+        public int NbrFragmentGenere;
+        public int NbrAdversaires;
+        public NouvellePartie Formulaire;
 
         public int ObtenirCoordonneeValide(int deb, int fin)
         {
@@ -122,7 +125,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         //return voisin du dessus, du dessous, à droite, à gauche
         public Case Haut(int x, int y, int pas)
         {
-            if (y - pas > 0)
+            if (y - pas >= 0)
                 return Lab[x / TailleCase, (y - pas) / TailleCase];
             return null;
         }
@@ -136,7 +139,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         public Case Gauche(int x, int y, int pas)
         {
-            if (x - pas > 0)
+            if (x - pas >= 0)
                 return Lab[(x - pas) / TailleCase, y / TailleCase];
             return null;
         }
@@ -163,7 +166,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 {
 
                     //"case" est un mot clé en C# (switch case)
-                    Case maCase = new Case(x * TailleCase, y * TailleCase);
+                    Case maCase = new Case(x * TailleCase, y * TailleCase, "case");
                     Lab[x, y] = maCase;
 
                     //on génére une bordure de mur solide sur les côtés
@@ -171,12 +174,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     if ((x == 0 || x == Largeur - 1 || y == 0 || y == Hauteur - 1)
                         || ((x + y) % 2 == 0 && x % 2 == 0))
                     {
-                        maCase.Fond.Image = Puck_Man_Game.Properties.Resources.mur;
+                        maCase.Image.Image = Puck_Man_Game.Properties.Resources.mur;
                         maCase.Solide = true;
                     }
                     else if ((x + y) % 2 == 0 && x % 2 != 0)
                     {
-                        maCase.Fond.Image = Puck_Man_Game.Properties.Resources.vide;
+                        maCase.Image.Image = Puck_Man_Game.Properties.Resources.vide;
                         maCase.Solide = false;
                     }
 
@@ -184,18 +187,17 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     else if (random.NextDouble() < 0.8)
                     {
                         Lab[x, y].Solide = true;
-                        Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.mur;
+                        Lab[x, y].Image.Image = Puck_Man_Game.Properties.Resources.mur;
 
                     }
                     else
                     {
                         Lab[x, y].Solide = false;
-                        Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.vide;
+                        Lab[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
                     }
                 }
             }
         }
-
         public void GenerationAleatoire()
         {
             for (int x = 0; x < Largeur; x++)
@@ -206,9 +208,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                         && ((x + y) % 2 != 0))
                     {
                         if (random.NextDouble() < 0.5)
-                            Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.mur;
+                            Lab[x, y].Image.Image = Puck_Man_Game.Properties.Resources.mur;
                         else
-                            Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.porte;
+                            Lab[x, y].Image.Image = Puck_Man_Game.Properties.Resources.porte;
                     }
                 }
             }
@@ -224,12 +226,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
             StartX = startX;
             StartY = startY;
-
-            sommet.Fond.Image = Puck_Man_Game.Properties.Resources.égaré;
-            sommet.Solide = false;
-
-            
-            //NouvellePartie.gamePanel.Controls.Add(NouvellePartie.J1.Skin);
 
             // Marquer la case de départ comme visitée
             Visités[startX * TailleCase, startY * TailleCase] = sommet;
@@ -273,7 +269,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
                     //on crée un chemin entre le sommet et son voisin
                     Lab[liaison_x / TailleCase, liaison_y / TailleCase].Solide = false;
-                    Lab[liaison_x / TailleCase, liaison_y / TailleCase].Fond.Image = Puck_Man_Game.Properties.Resources.vide;
+                    Lab[liaison_x / TailleCase, liaison_y / TailleCase].Image.Image = Puck_Man_Game.Properties.Resources.vide;
 
                     //on marque le voisin comme visité
                     Visités[voisin.X, voisin.Y] = voisin;
@@ -287,101 +283,65 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 }
             }
 
-
-            //ajout de fragments de souvenirs (collectables)
-            /*
-            int nbr_fragments = 5;
-            while (nbr_fragments > 0)
-            {
-                int x = Obtenir_coordonnée_valide(1, Largeur - 1);
-                int y = Obtenir_coordonnée_valide(1, Hauteur - 1);
-
-                if (Lab[x, y].Fond.Image != Puck_Man_Game.Properties.Resources.joueur)
-                {
-                    Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.fragment;
-                    nbr_fragments -= 1;
-                }
-            }*/
-
-            //faire une fonction public void génération(type, nombre) basé sur cette structure
-
-            /*
-            int nbr_ennemies = 5;
-            while (nbr_ennemies > 0)
-            {
-                int x = Obtenir_coordonnée_valide(1, Largeur - 1);
-                int y = Obtenir_coordonnée_valide(1, Hauteur - 1);
-
-                if (Lab[x, y].Fond.Image != Puck_Man_Game.Properties.Resources.joueur)
-                {
-                    Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.égaré;
-                    nbr_ennemies -= 1;
-                }
-            }
-            */
-
             string matrice = "";
-
-            //ajout des liaisons
             for (int y = 0; y < Hauteur; y++)
             {
                 for (int x = 0; x < Largeur; x++)
                 {
-                    //on remplace les murs isolés
-                    if (false && (x % 2 == 0 && y % 2 == 0))
-                    {
-                        if (!EstSolide(Haut(x * TailleCase, y * TailleCase, TailleCase)) &&
-                            !EstSolide(Bas(x * TailleCase, y * TailleCase, TailleCase)) &&
-                            !EstSolide(Gauche(x * TailleCase, y * TailleCase, TailleCase)) &&
-                            !EstSolide(Droite(x * TailleCase, y * TailleCase, TailleCase)))
-                        {
-
-                            /*
-                            Case voisin;
-                            double rand = random.NextDouble();
-                            if (rand < 0.25)
-                                voisin = Haut(Lab[x, y], TailleCase);
-                            else if (rand < 0.5)
-                                voisin = Bas(Lab[x, y], TailleCase);
-                            else if (rand < 0.75)
-                                voisin = Gauche(Lab[x, y], TailleCase);
-                            else
-                                voisin = Droite(Lab[x, y], TailleCase);
-
-
-                            voisin.solide = true;
-                        voisin.fond.Image = Properties.Resources.mur;*/
-
-                            Lab[x, y].Solide = false;
-                            Lab[x, y].Fond.Image = Puck_Man_Game.Properties.Resources.vide;
-
-                        }
-                    }
-
+                    //RetirerMurIsoles(x, y);
                     if (Lab[x, y].Solide == true)
-                    {
-                        matrice += "1 ";
-                    }
+                        matrice += "X ";
                     else
-                    {
-                        matrice += "0 ";
-                    }
-
+                        matrice += ". ";
 
                     //on ajoute les cases au formulaire (sinon aucun affichage)
-                    Formulaire.Controls.Add(Lab[x, y].Fond);
+                    Formulaire.Controls.Add(Lab[x, y].Image);
                 }
                 matrice += "\n";
             }
             //Debug.Write(matrice);
         }
+        public void GenerationEntite(Type type, string nom, int nbr)
+        {
+            while (nbr > 0)
+            {
+                int x = ObtenirCoordonneeValide(1, Largeur - 1);
+                int y = ObtenirCoordonneeValide(1, Hauteur - 1);
+                //s'il n'y a pas déjà quelquechose à l'endroit prévu
+                if (Entites[x * TailleCase, y * TailleCase] is null)
+                {
+                    Entity instance = (Entity)Activator.CreateInstance(type, nom, x * TailleCase, y * TailleCase);
+                    Formulaire.Controls.Add(instance.Image);
+                    instance.Image.BringToFront();
+                    nbr -= 1;
+                    Entites[x * TailleCase, y * TailleCase] = instance;
+                }
+            }
+        }
+        public void RetirerMurIsoles(int x, int y)
+        {
+            if (x % 2 == 0 && y % 2 == 0)
+            {
+                if (!EstSolide(Haut(x * TailleCase, y * TailleCase, TailleCase)) &&
+                    !EstSolide(Bas(x * TailleCase, y * TailleCase, TailleCase)) &&
+                    !EstSolide(Gauche(x * TailleCase, y * TailleCase, TailleCase)) &&
+                    !EstSolide(Droite(x * TailleCase, y * TailleCase, TailleCase)))
+                {
+                    Lab[x, y].Solide = false;
+                    Lab[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
+                }
+            }
+        }
 
-        public Labyrinthe(Form formulaire, int largeur, int hauteur)
+        public Labyrinthe(NouvellePartie formulaire, int largeur, int hauteur)
         {
             Formulaire = formulaire;
             Largeur = largeur;
             Hauteur = hauteur;
             Lab = new Case[Largeur, hauteur];
+            Entites = new Entity[largeur * TailleCase, hauteur * TailleCase];
+            NbrFragmentGenere = 5;
+            NbrAdversaires = 3;
 
             GenerationStructureLabyrinthe();
             //GenerationAléatoire();

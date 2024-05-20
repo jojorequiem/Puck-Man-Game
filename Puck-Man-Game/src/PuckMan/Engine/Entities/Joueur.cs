@@ -1,4 +1,6 @@
-﻿using Puck_Man_Game.src.PuckMan.UI.Screens;
+﻿using Puck_Man_Game.src.PuckMan.Engine.Entities;
+using Puck_Man_Game.src.PuckMan.Game;
+using Puck_Man_Game.src.PuckMan.UI.Screens;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,52 +11,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Puck_Man_Game.src.PuckMan.Game.Characters
+namespace Puck_Man_Game.src.PuckMan.Game.Entities
 {
-    public class Joueur
+    public class Joueur : Entity
     {
         // Propriétés du joueur
-        public string Nom { get; set; }
-        public int PointsDeVie { get; set; }
         public int Niveau { get; set; }
-        public PictureBox Skin { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Speed;
         public Labyrinthe Laby;
         // Constructeur
-        public Joueur(string nom, int pointsDeVie, int niveau,int x, int y)
+        public Joueur(string nom, int pv, int niveau,int x, int y, Labyrinthe laby) : base(x, y, nom)
         {
-            Nom = nom;
-            PointsDeVie = pointsDeVie;
+            PV = pv;
             Niveau = niveau;
-            X = x;
-            Y = y;
-            Speed = Labyrinthe.TailleCase;
-            
-            Skin = new PictureBox
-            {
-                Location = new Point(X, Y),
-                //BackColor = Color.Transparent,
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                Size = new Size(Labyrinthe.TailleCase, Labyrinthe.TailleCase),
-                Visible = true,
-                Image = Puck_Man_Game.Properties.Resources.joueur
-            };
-            //SetAlphaImage();
-        }
-
-        private void SetAlphaImage()
-        {
-            var resourceImage = Puck_Man_Game.Properties.Resources.joueur; // Chargez votre ressource d'image
-            var bmp = new Bitmap(resourceImage);
-            Skin.Image = bmp;
+            Laby = laby;
+            Vitesse = Labyrinthe.TailleCase;
+            Image.Image = Puck_Man_Game.Properties.Resources.joueur;
         }
 
         public void Deplacer(int deltaX, int deltaY)
         {
             // Vérifie les collisions avec les murs voisins
-            Rectangle newBounds = new Rectangle(X+deltaX, Y+deltaY, Skin.Width, Skin.Height);
+            Rectangle newBounds = new Rectangle(X+deltaX, Y+deltaY, Image.Width, Image.Height);
             List<Case> voisins = new List<Case>();
             Case haut = Laby.Haut(X, Y, Labyrinthe.TailleCase);
             Case bas = Laby.Bas(X, Y, Labyrinthe.TailleCase);
@@ -75,26 +52,44 @@ namespace Puck_Man_Game.src.PuckMan.Game.Characters
                 Case case1 = voisins[i];
                 if (case1.Solide)
                 {
-                    Rectangle mur = new Rectangle(case1.X, case1.Y, case1.Fond.Width, case1.Fond.Height);
-                    if (newBounds.IntersectsWith(mur))
-                    {
-                        Debug.WriteLine("Collision");
-                        // Le joueur entre en collision avec un mur, on ne le déplace pas
-                        return;
-                    }
+                    if (newBounds.IntersectsWith(new Rectangle(case1.X, case1.Y, case1.Image.Width, case1.Image.Height)))
+                        return; // Le joueur entre en collision avec un mur, on ne le déplace pas
                 }
-
             }
 
             //déplacement uniquement si aucune collision
-            X += deltaX*Speed;
-            Y += deltaY*Speed;
-            Skin.Location = new Point(X, Y);
+            X += deltaX*Vitesse;
+            Y += deltaY*Vitesse;
+            if (Laby.Entites[X,Y]!= null)
+            {
+                if (Laby.Entites[X, Y] is Collectable collectable && collectable.Nom == "fragment")
+                {
+                    collectable.Collecte(Laby.Formulaire);
+                }   
+                    
+                if (Laby.Entites[X, Y] is Adversaire adversaire && adversaire.Nom == "égaré")
+                    RecoitDegats(adversaire.Degat);
+            }
+            Image.Location = new Point(X, Y);
+        }
+
+        public void RecoitDegats(int degats)
+        {
+            PV -= degats;
+            Debug.WriteLine(PV);
+            Laby.Formulaire.ActualiserAffichagePV();
+            if (PV <= 0)
+                Mort();
+            
+        }
+
+        public void Mort()
+        {
+            Debug.WriteLine("JE SUIS MORT NAAAAAAAAAAAAAAAAAAAAAN !!!!!");
         }
 
         public void JoueurKeyDown(object sender, KeyEventArgs e)
         {
-            GetInfo();
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -117,7 +112,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Characters
 
         public void GetInfo()
         {
-            Console.WriteLine($"{Nom} {PointsDeVie} {X} {Y}");
+            Console.WriteLine($"{Nom} {PV} {X} {Y}");
 
         }
     }
