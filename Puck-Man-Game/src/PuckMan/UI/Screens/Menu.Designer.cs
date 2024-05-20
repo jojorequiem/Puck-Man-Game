@@ -92,14 +92,14 @@ namespace Puck_Man_Game.src.PuckMan.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.ClientSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.MaximumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.MinimumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.btnParametres);
             this.Controls.Add(this.btnClassement);
             this.Controls.Add(this.lblTitreMenuPrincipal);
             this.Controls.Add(this.btnJouer);
-            this.MaximumSize = new System.Drawing.Size(1024, 768);
-            this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "Menu";
             this.Text = "Puck-Man";
             this.ResumeLayout(false);

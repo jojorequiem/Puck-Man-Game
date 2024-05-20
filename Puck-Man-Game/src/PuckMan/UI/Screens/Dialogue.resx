@@ -117,32 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="coeur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\coeur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fonts_pixel_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\fonts\fonts_pixel_art.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="fragment" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\fragment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="joueur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\joueur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="porte" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\porte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="vide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\vide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="égaré" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\égaré.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LblDialogue.Text" xml:space="preserve">
+    <value>Il était une fois dans un monde pas très lointaint, enfin je crois, une histoire : Bonjour, belle journée n'est ce pas ? Ta gueule. Le soleil doit te taper sur les nerfs. C'est dans ta gueule que j'vais taper. Ils vécurent heureux et eurent beaucoup d'enfants (dans leur cave). Fin</value>
   </data>
 </root>

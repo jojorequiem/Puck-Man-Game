@@ -1,5 +1,6 @@
 ﻿using Puck_Man_Game.src.PuckMan.Engine.Entities;
 using Puck_Man_Game.src.PuckMan.Game;
+using Puck_Man_Game.src.PuckMan.Game.Levels;
 using Puck_Man_Game.src.PuckMan.UI.Screens;
 using System;
 using System.Collections.Generic;
@@ -85,7 +86,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         public void Mort()
         {
-            Debug.WriteLine("JE SUIS MORT NAAAAAAAAAAAAAAAAAAAAAN !!!!!");
+            Program.ChargerScene(typeof(NouvellePartie), Laby.Formulaire);
         }
 
         public void JoueurKeyDown(object sender, KeyEventArgs e)

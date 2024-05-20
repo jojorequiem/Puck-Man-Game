@@ -30,11 +30,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
                 DejaCollecte=true;
                 Image.Hide();
                 if (Nom == "fragment")
-                {
-                    Console.WriteLine("Collecté");
-                    Formulaire.FragmentCollecte(1);
-                }
-                    
+                    Formulaire.FragmentCollecte();
                 else
                     Console.WriteLine("Erreur dans collectable");
 
