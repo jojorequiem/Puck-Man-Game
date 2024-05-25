@@ -19,7 +19,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnSuivantDialogue_Click(object sender, EventArgs e)
         {
-            Program.ChargerScene(typeof(NiveauSuivant), this);
+            Program.LoadScene(typeof(NiveauSuivant), this);
         }
     }
 }

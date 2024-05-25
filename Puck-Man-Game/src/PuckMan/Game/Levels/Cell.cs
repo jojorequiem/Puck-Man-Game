@@ -1,33 +1,35 @@
 ﻿using Puck_Man_Game.src.PuckMan.Engine.Entities;
+using src.PuckMan.Game.Levels;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.Game.Levels
 {
-    public class Case : Entity
+    public class Cell : Entity
     {
-        public bool Solide { get; set; }
-
+        public bool IsWall { get; set; }
+        
         //liaison avec le voisins
-        public bool haut, bas, droite, gauche;
+        public bool topConnection, bottomConnection, rightConnection, leftConnection;
 
-        public Case(int x, int y, string nom) : base(x, y, nom)
+        public Cell(int x, int y, string name) : base(x, y, name)
         {
-            Solide = true;
+            IsWall = true;
             Image.Location = new Point(x, y);
             Image.BackColor = Color.Transparent;
             Image.SizeMode = PictureBoxSizeMode.StretchImage;
-            Image.Size = new Size(Labyrinthe.TailleCase, Labyrinthe.TailleCase);
+            Image.Size = new Size(Maze.cellSize, Maze.cellSize);
         }
 
-        public void ActualiserImage()
+        public void UpdateImage()
         {
-            if (Solide)
+            if (IsWall)
                 Image.Image = Puck_Man_Game.Properties.Resources.mur;
             else
                 Image.Image = Puck_Man_Game.Properties.Resources.vide;

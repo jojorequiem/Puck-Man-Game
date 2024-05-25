@@ -15,12 +15,12 @@ namespace Puck_Man_Game.src.PuckMan.Game
     public class Collectable : Entity
     {
         public bool DejaCollecte;
-        public Collectable(string nom, int x, int y) : base(x, y, nom)
+        public Collectable(string name, int x, int y) : base(x, y, name)
         {
             DejaCollecte = false;
-            if (Nom == "fragment")
+            if (EntityName == "fragment")
                 Image.Image = Puck_Man_Game.Properties.Resources.fragment;
-            if (Nom == "égaré")
+            if (EntityName == "égaré")
                 Image.Image = Puck_Man_Game.Properties.Resources.égaré;
 
         }
@@ -29,7 +29,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
             if (!DejaCollecte){
                 DejaCollecte=true;
                 Image.Hide();
-                if (Nom == "fragment")
+                if (EntityName == "fragment")
                     Formulaire.FragmentCollecte();
                 else
                     Console.WriteLine("Erreur dans collectable");

@@ -19,12 +19,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnNiveauSuivant_Click(object sender, EventArgs e)
         {
-            Program.ChargerScene(typeof(NouvellePartie), this);
+            Program.LoadScene(typeof(NouvellePartie), this);
         }
 
         private void BtnRetourMenu_Click(object sender, EventArgs e)
         {
-            Program.ChargerScene(typeof(Menu), this);
+            Program.LoadScene(typeof(Menu), this);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Puck_Man_Game
             Application.Run(new src.PuckMan.UI.Menu());
         }
 
-        static public void ChargerScene(Type type, Form formulaire)
+        static public void LoadScene(Type type, Form formulaire)
         {
             // Ferme la forme actuelle et crée une nouvelle instance
             Form instance = (Form)Activator.CreateInstance(type);

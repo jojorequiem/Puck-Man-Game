@@ -52,12 +52,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\Engine\Entities\Joueur.cs" />
-    <Compile Include="src\PuckMan\Engine\Entities\Adversaire.cs" />
+    <Compile Include="src\PuckMan\Engine\Entities\Player.cs" />
+    <Compile Include="src\PuckMan\Engine\Entities\Enemy.cs" />
     <Compile Include="src\PuckMan\Engine\Entities\Entity.cs" />
     <Compile Include="src\PuckMan\Game\Collectable.cs" />
-    <Compile Include="src\PuckMan\Game\Levels\Case.cs" />
-    <Compile Include="src\PuckMan\Game\Levels\Labyrinthe.cs" />
+    <Compile Include="src\PuckMan\Game\Levels\Cell.cs" />
+    <Compile Include="src\PuckMan\Game\Levels\Maze.cs" />
     <Compile Include="src\PuckMan\Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\PuckMan\UI\Screens\Classement.cs">
@@ -144,7 +144,6 @@
     <None Include="src\PuckMan\Engine\Scenes\temp.md" />
     <None Include="src\PuckMan\Engine\temp.md" />
     <None Include="src\PuckMan\Game\Items\temp.md" />
-    <None Include="src\PuckMan\Game\Levels\temp.md" />
     <None Include="src\PuckMan\Game\Mechanics\temp.md" />
     <None Include="src\PuckMan\UI\Controls\temp.md" />
     <None Include="src\Tests\IntegrationTests\temp.md" />

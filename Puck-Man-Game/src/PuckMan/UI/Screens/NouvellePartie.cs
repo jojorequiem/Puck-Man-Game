@@ -3,6 +3,7 @@ using Puck_Man_Game.src.PuckMan.Game;
 using Puck_Man_Game.src.PuckMan.Game.Entities;
 using Puck_Man_Game.src.PuckMan.Game.Levels;
 using Puck_Man_Game.src.PuckMan.UI.Screens;
+using src.PuckMan.Game.Levels;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -25,50 +26,50 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
     public partial class NouvellePartie : Form
     {
         public bool ModeHistoire;
-        static public Joueur J1 { get; set; }
+        static public Player P1 { get; set; }
         public NouvellePartie()
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.DoubleBuffered = true;
-            this.KeyDown += (sender, e) => J1.JoueurKeyDown(sender, e);
+            this.KeyDown += (sender, e) => P1.PlayerKeyDown(sender, e);
 
             ModeHistoire = true;
 
-            Labyrinthe instanceLaby = new Labyrinthe(this, 21, 19);
-            J1 = new Joueur("Dodonut", 3, 1, instanceLaby.StartX * Labyrinthe.TailleCase, instanceLaby.StartY * Labyrinthe.TailleCase, instanceLaby);
-            instanceLaby.Entites[instanceLaby.StartX * Labyrinthe.TailleCase,instanceLaby.StartY * Labyrinthe.TailleCase] = J1;
-            instanceLaby.GenerationEntite(typeof(Collectable), "fragment", instanceLaby.NbrFragmentGenere);
-            instanceLaby.GenerationEntite(typeof(Adversaire), "égaré", instanceLaby.NbrAdversaires);
+            Maze instanceMaze = new Maze(this, 21, 19);
+            P1 = new Player("Dodonut", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
+            instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
+            instanceMaze.GenerateEntities(typeof(Collectable), "fragment", instanceMaze.numGeneratedFragments);
+            instanceMaze.GenerateEntities(typeof(Enemy), "égaré", instanceMaze.numberOfOpponents);
             LblFragmentCollecte.Text = "0";
-            LblFragmentGenere.Text = instanceLaby.NbrFragmentGenere.ToString();
+            LblFragmentGenere.Text = instanceMaze.numGeneratedFragments.ToString();
 
-            this.Controls.Add(J1.Image);
-            J1.Image.BringToFront();
-            ActualiserAffichagePV();
+            this.Controls.Add(P1.Image);
+            P1.Image.BringToFront();
+            UpdateHPdisplay();
         }
 
-        public void ActualiserAffichagePV()
+        public void UpdateHPdisplay()
         {
-            LblPV.Text = J1.PV.ToString();
+            LblPV.Text = P1.HP.ToString();
         }
 
         public void FragmentCollecte()
         {
             LblFragmentCollecte.Text = (int.Parse(LblFragmentCollecte.Text) + 1).ToString();
-            if (int.Parse(LblFragmentCollecte.Text) >= J1.Laby.NbrFragmentGenere)
+            if (int.Parse(LblFragmentCollecte.Text) >= P1.MazeMatrix.numGeneratedFragments)
                 NiveauSuivant();
         }
 
         public void NiveauSuivant()
         {
             if (ModeHistoire) {
-                Program.ChargerScene(typeof(Dialogue), this);
+                Program.LoadScene(typeof(Dialogue), this);
             }
             else
             {
-                Program.ChargerScene(typeof(NiveauSuivant), this);
+                Program.LoadScene(typeof(NiveauSuivant), this);
             }
         }
     }
