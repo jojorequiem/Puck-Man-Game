@@ -27,7 +27,7 @@ namespace src.PuckMan.Game.Levels
         public int numberOfOpponents;
         public NouvellePartie MazeForm;
 
-        public int getValidCoordinates(int start, int end)
+        public int GetValidCoordinates(int start, int end)
         {
             //une coordinate est valide si elle est impair et entre start et end
             int coordinate = random.Next(start, end);
@@ -81,7 +81,7 @@ namespace src.PuckMan.Game.Levels
             return null;
         }
 
-        public bool isWall(Cell node)
+        public bool IsWall(Cell node)
         {
             if (node != null)
                 return node.IsWall;
@@ -95,22 +95,21 @@ namespace src.PuckMan.Game.Levels
                 for (int y = 0; y < height; y++)
                 {
 
-                    //"Cell" est un mot clé en C# (switch Cell)
-                    Cell myCell = new Cell(x * cellSize, y * cellSize, "Cell");
-                    MazeMatrix[x, y] = myCell;
+                    Cell cell = new Cell(x * cellSize, y * cellSize, "Cell");
+                    MazeMatrix[x, y] = cell;
 
                     //on génére une bordure de mur solide sur les côtés
                     //et un semi quadrillage
                     if ((x == 0 || x == width - 1 || y == 0 || y == height - 1)
                         || ((x + y) % 2 == 0 && x % 2 == 0))
                     {
-                        myCell.Image.Image = Puck_Man_Game.Properties.Resources.mur;
-                        myCell.IsWall = true;
+                        cell.Image.Image = Puck_Man_Game.Properties.Resources.mur;
+                        cell.IsWall = true;
                     }
                     else if ((x + y) % 2 == 0 && x % 2 != 0)
                     {
-                        myCell.Image.Image = Puck_Man_Game.Properties.Resources.vide;
-                        myCell.IsWall = false;
+                        cell.Image.Image = Puck_Man_Game.Properties.Resources.vide;
+                        cell.IsWall = false;
                     }
 
                     //remplit 80% des connections avec des murs
@@ -118,7 +117,6 @@ namespace src.PuckMan.Game.Levels
                     {
                         MazeMatrix[x, y].IsWall = true;
                         MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.mur;
-
                     }
                     else
                     {
@@ -151,15 +149,15 @@ namespace src.PuckMan.Game.Levels
         {
             VisitedNodes = new Cell[width * cellSize, height * cellSize];
 
-            int startPositionX = getValidCoordinates(1, width - 1);
-            int startPositionY = getValidCoordinates(1, height - 1);
-            Cell node = MazeMatrix[startX, startY];
+            int startPositionX = GetValidCoordinates(1, width - 1);
+            int startPositionY = GetValidCoordinates(1, height - 1);
+            Cell node = MazeMatrix[startPositionX, startPositionY];
 
-            startPositionX = startX;
-            startPositionY = startY;
+            startX = startPositionX;
+            startY = startPositionY;
 
             // Marquer la Cell de départ comme visitée
-            VisitedNodes[startX * cellSize, startY * cellSize] = node;
+            VisitedNodes[startPositionX * cellSize, startPositionY * cellSize] = node;
 
             // Créer une pile pour stocker les Cells à explorer
             Stack<Cell> pile = new Stack<Cell>();
@@ -196,7 +194,7 @@ namespace src.PuckMan.Game.Levels
 
                     //coordinates de la liason entre le node et son neighbors
                     int connectionX = GetConnectionCoordinate(node.X, neighbors.X);
-                    int connectionY = GetConnectionCoordinate(node.Y, neighbors.Y); ;
+                    int connectionY = GetConnectionCoordinate(node.Y, neighbors.Y);
 
                     //on crée un chemin entre le node et son neighbors
                     MazeMatrix[connectionX / cellSize, connectionY / cellSize].IsWall = false;
@@ -215,7 +213,7 @@ namespace src.PuckMan.Game.Levels
             }
         }
 
-        public void displayMazeMatrix()
+        public void DisplayMazeMatrix()
         {
             string MazeMatrixString = "";
             for (int y = 0; y < height; y++)
@@ -240,8 +238,8 @@ namespace src.PuckMan.Game.Levels
         {
             while (number > 0)
             {
-                int x = getValidCoordinates(1, width - 1);
-                int y = getValidCoordinates(1, height - 1);
+                int x = GetValidCoordinates(1, width - 1);
+                int y = GetValidCoordinates(1, height - 1);
                 //s'il n'y a step déjà quelquechose à l'endroit prévu
                 if (Entities[x * cellSize, y * cellSize] is null)
                 {
@@ -257,10 +255,10 @@ namespace src.PuckMan.Game.Levels
         {
             if (x % 2 == 0 && y % 2 == 0)
             {
-                if (!isWall(Top(x * cellSize, y * cellSize, cellSize)) &&
-                    !isWall(Bottom(x * cellSize, y * cellSize, cellSize)) &&
-                    !isWall(Left(x * cellSize, y * cellSize, cellSize)) &&
-                    !isWall(Right(x * cellSize, y * cellSize, cellSize)))
+                if (!IsWall(Top(x * cellSize, y * cellSize, cellSize)) &&
+                    !IsWall(Bottom(x * cellSize, y * cellSize, cellSize)) &&
+                    !IsWall(Left(x * cellSize, y * cellSize, cellSize)) &&
+                    !IsWall(Right(x * cellSize, y * cellSize, cellSize)))
                 {
                     MazeMatrix[x, y].IsWall = false;
                     MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.coeur;
@@ -280,7 +278,7 @@ namespace src.PuckMan.Game.Levels
             InitMaze();
             //RandomMazeGeneration();
             MazeGenerationByDFS();
-            displayMazeMatrix();
+            DisplayMazeMatrix();
         }
     }
 }
