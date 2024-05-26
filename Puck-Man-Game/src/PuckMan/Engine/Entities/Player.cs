@@ -36,6 +36,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             if (CheckWallCollision(deltaX, deltaY))
                 return; // Le joueur entre en collision avec un mur, on ne le déplace pas
 
+
             // Déplacement uniquement si aucune collision
             X += deltaX * EntitySpeed;
             Y += deltaY * EntitySpeed;
