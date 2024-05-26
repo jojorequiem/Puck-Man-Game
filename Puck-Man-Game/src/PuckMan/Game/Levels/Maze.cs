@@ -153,13 +153,13 @@ namespace src.PuckMan.Game.Levels
 
             int startPositionX = getValidCoordinates(1, width - 1);
             int startPositionY = getValidCoordinates(1, height - 1);
-            Cell node = MazeMatrix[startX, startY];
+            Cell node = MazeMatrix[startPositionX, startPositionY];
 
-            startPositionX = startX;
-            startPositionY = startY;
+            startX = startPositionX;
+            startY = startPositionY;
 
             // Marquer la Cell de départ comme visitée
-            VisitedNodes[startX * cellSize, startY * cellSize] = node;
+            VisitedNodes[startPositionX * cellSize, startPositionY * cellSize] = node;
 
             // Créer une pile pour stocker les Cells à explorer
             Stack<Cell> pile = new Stack<Cell>();
@@ -196,7 +196,7 @@ namespace src.PuckMan.Game.Levels
 
                     //coordinates de la liason entre le node et son neighbors
                     int connectionX = GetConnectionCoordinate(node.X, neighbors.X);
-                    int connectionY = GetConnectionCoordinate(node.Y, neighbors.Y); ;
+                    int connectionY = GetConnectionCoordinate(node.Y, neighbors.Y);
 
                     //on crée un chemin entre le node et son neighbors
                     MazeMatrix[connectionX / cellSize, connectionY / cellSize].IsWall = false;

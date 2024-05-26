@@ -32,8 +32,24 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         public void MovePlayer(int deltaX, int deltaY)
         {
-            // Vérifie les collisions avec les murs neighbors
-            Rectangle newBounds = new Rectangle(X+deltaX, Y+deltaY, Image.Width, Image.Height);
+            // Vérifie les collisions avec les murs
+            if (CheckWallCollision(deltaX, deltaY))
+                return; // Le joueur entre en collision avec un mur, on ne le déplace pas
+
+            // Déplacement uniquement si aucune collision
+            X += deltaX * EntitySpeed;
+            Y += deltaY * EntitySpeed;
+
+            // Gestion des interactions avec les entités
+            HandleEntityInteractions();
+
+            // Met à jour l'emplacement de l'image
+            Image.Location = new Point(X, Y);
+        }
+
+        private bool CheckWallCollision(int deltaX, int deltaY)
+        {
+            Rectangle newBounds = new Rectangle(X + deltaX, Y + deltaY, Image.Width, Image.Height);
             List<Cell> neighbors = new List<Cell>();
             Cell topConnection = MazeMatrix.Top(X, Y, Maze.cellSize);
             Cell bottomConnection = MazeMatrix.Bottom(X, Y, Maze.cellSize);
@@ -49,30 +65,27 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             if (rightConnection != null)
                 neighbors.Add(rightConnection);
 
-            for (int i = 0; i<= neighbors.Count-1; i++)
+            foreach (Cell myCell in neighbors)
             {
-                Cell myCell = neighbors[i];
-                if (myCell.IsWall)
-                {
-                    if (newBounds.IntersectsWith(new Rectangle(myCell.X, myCell.Y, myCell.Image.Width, myCell.Image.Height)))
-                        return; // Le Player entre en collision avec un mur, on ne le déplace pas
-                }
+                if (myCell.IsWall && newBounds.IntersectsWith(new Rectangle(myCell.X, myCell.Y, myCell.Image.Width, myCell.Image.Height)))
+                    return true; // Le joueur entre en collision avec un mur
             }
 
-            //déplacement uniquement si aucune collision
-            X += deltaX*EntitySpeed;
-            Y += deltaY*EntitySpeed;
-            if (MazeMatrix.Entities[X,Y]!= null)
+            return false; // Pas de collision avec un mur
+        }
+
+        private void HandleEntityInteractions()
+        {
+            if (MazeMatrix.Entities[X, Y] != null)
             {
                 if (MazeMatrix.Entities[X, Y] is Collectable collectable && collectable.EntityName == "fragment")
                 {
                     collectable.Collecte(MazeMatrix.MazeForm);
-                }   
-                    
+                }
+
                 if (MazeMatrix.Entities[X, Y] is Enemy adversaire && adversaire.EntityName == "égaré")
                     DamageReceived(adversaire.Damage);
             }
-            Image.Location = new Point(X, Y);
         }
 
         public void DamageReceived(int hitDamage)

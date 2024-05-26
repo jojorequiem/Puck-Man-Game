@@ -9,8 +9,8 @@ namespace Puck_Man_Game
 {
     public static class Program
     {
-        public static int LargeurFenetre = 1100;
-        public static int HauteurFenetre = 787;
+        public static int LargeurFenetre = 1200;
+        public static int HauteurFenetre = 800;
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
