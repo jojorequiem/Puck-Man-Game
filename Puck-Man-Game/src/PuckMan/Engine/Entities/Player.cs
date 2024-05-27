@@ -20,6 +20,10 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         // Propriétés du Player
         public int Level { get; set; }
         public Maze MazeMatrix;
+        private readonly Timer moveTimer;
+        private int moveDeltaX;
+        private int moveDeltaY;
+
         // Constructeur
         public Player(string name, int hp, int level, int x, int y, Maze mazeMatrix) : base(x, y, name)
         {
@@ -28,6 +32,16 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             MazeMatrix = mazeMatrix;
             EntitySpeed = Maze.cellSize;
             Image.Image = Puck_Man_Game.Properties.Resources.joueur;
+            moveTimer = new Timer
+            {
+                Interval = 100
+            };
+            moveTimer.Tick += MoveTimer_Tick;
+        }
+
+        private void MoveTimer_Tick(object sender, EventArgs e)
+        {
+            MovePlayer(moveDeltaX, moveDeltaY);
         }
 
         public void MovePlayer(int deltaX, int deltaY)
@@ -96,34 +110,45 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             MazeMatrix.MazeForm.UpdateHPdisplay();
             if (HP <= 0)
                 HandlePlayerDeath();
-            
+
         }
 
         public void HandlePlayerDeath()
         {
             Program.LoadScene(typeof(NouvellePartie), MazeMatrix.MazeForm);
         }
-
         public void PlayerKeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    MovePlayer(-1, 0); // leftConnection
+                    moveDeltaX = -1;
+                    moveDeltaY = 0;
                     break;
                 case Keys.Right:
-                    MovePlayer(1, 0); // rightConnection
+                    moveDeltaX = 1;
+                    moveDeltaY = 0;
                     break;
                 case Keys.Up:
-                    MovePlayer(0, -1); // topConnection
+                    moveDeltaX = 0;
+                    moveDeltaY = -1;
                     break;
                 case Keys.Down:
-                    MovePlayer(0, 1); // bottomConnection
+                    moveDeltaX = 0;
+                    moveDeltaY = 1;
                     break;
                 default:
-                    MovePlayer(0, 0);
-                    break;
+                    return;
             }
+            if (!moveTimer.Enabled)
+            {
+                moveTimer.Start(); // Démarre le déplacement continu
+            }
+        }
+
+        public void PlayerKeyUp(object sender, KeyEventArgs e)
+        {
+            // Ne rien faire ici car le joueur continue à se déplacer jusqu'à une collision
         }
     }
 }

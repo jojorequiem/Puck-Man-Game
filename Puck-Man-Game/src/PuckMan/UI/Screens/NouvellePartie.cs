@@ -27,6 +27,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
     {
         public bool ModeHistoire;
         static public Player P1 { get; set; }
+      
+
         public NouvellePartie()
         {
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.DoubleBuffered = true;
             this.KeyDown += (sender, e) => P1.PlayerKeyDown(sender, e);
+            this.KeyUp += (sender, e) => P1.PlayerKeyUp(sender, e);
 
             ModeHistoire = true;
 
