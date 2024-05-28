@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class Parametres : Form
+    public partial class Parametres : FormComponent
     {
         public Parametres()
         {

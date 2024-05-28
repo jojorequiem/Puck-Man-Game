@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class MenuParametreJouer : Form
+    public partial class MenuParametreJouer : FormComponent
     {
         
-        public MenuParametreJouer()
+        public MenuParametreJouer() : base()
         {
             InitializeComponent();
         }

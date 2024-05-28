@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -71,6 +73,9 @@
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\Dialogue.Designer.cs">
       <DependentUpon>Dialogue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\FormComponent.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\Menu.cs">
       <SubType>Form</SubType>
@@ -127,7 +132,7 @@
     <EmbeddedResource Include="src\PuckMan\UI\Screens\Parametres.resx">
       <DependentUpon>Parametres.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="assets\fonts\fonts_pixel_art.ttf" />
+    <EmbeddedResource Include="assets\fonts\fonts_pixel_art.ttf" />
     <None Include="docs\temp.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
