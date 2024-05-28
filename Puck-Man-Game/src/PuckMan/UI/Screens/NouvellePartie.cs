@@ -40,7 +40,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
             ModeHistoire = true;
 
-            Maze instanceMaze = new Maze(this, 21, 19);
+            Maze instanceMaze = new Maze(this, 25, 13);
             P1 = new Player("Dodonut", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
             instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
             instanceMaze.GenerateEntities(typeof(Collectable), "fragment", instanceMaze.numGeneratedFragments);

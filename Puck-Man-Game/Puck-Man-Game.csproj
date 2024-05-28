@@ -155,6 +155,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\rightGif128.gif" />
+    <None Include="Resources\leftGif128.gif" />
+    <None Include="Resources\bottomGif128.gif" />
+    <None Include="Resources\topGif128.gif" />
     <None Include="assets\background.png" />
     <None Include="assets\coeur.png" />
     <Content Include="assets\fragment.png" />

@@ -12,6 +12,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Puck_Man_Game.src.PuckMan.Game.Entities
 {
@@ -20,9 +21,20 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         // Propriétés du Player
         public int Level { get; set; }
         public Maze MazeMatrix;
+
+        // Timer pour gérer le déplacement continu
         private readonly Timer moveTimer;
         private int moveDeltaX;
         private int moveDeltaY;
+        private int lastValidDeltaX;
+        private int lastValidDeltaY;
+
+        // Images du joueur pour les quatre direction
+        public System.Drawing.Image ImageUp { get; set; }
+        public System.Drawing.Image ImageDown { get; set; }
+        public System.Drawing.Image ImageLeft { get; set; }
+        public System.Drawing.Image ImageRight { get; set; }
+        public System.Drawing.Image ImageIdle { get; set; } // Image du joueur à l'arrêt
 
         // Constructeur
         public Player(string name, int hp, int level, int x, int y, Maze mazeMatrix) : base(x, y, name)
@@ -34,32 +46,83 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             Image.Image = Puck_Man_Game.Properties.Resources.joueur;
             moveTimer = new Timer
             {
-                Interval = 100
+                Interval = 120
             };
             moveTimer.Tick += MoveTimer_Tick;
+            // Initialiser les directions
+            moveDeltaX = 0;
+            moveDeltaY = 0;
+            lastValidDeltaX = 0;
+            lastValidDeltaY = 0;
+
+            LoadDefaultImages();
         }
 
         private void MoveTimer_Tick(object sender, EventArgs e)
         {
-            MovePlayer(moveDeltaX, moveDeltaY);
+            if (moveDeltaX != 0 || moveDeltaY != 0)
+            {
+                MovePlayer(moveDeltaX, moveDeltaY);
+            }
+            else if (lastValidDeltaX != 0 || lastValidDeltaY != 0)
+            {
+                MovePlayer(lastValidDeltaX, lastValidDeltaY);
+            }
         }
-
+        private void LoadDefaultImages()
+        {
+            ImageUp = Puck_Man_Game.Properties.Resources.topGif128;
+            ImageDown = Puck_Man_Game.Properties.Resources.bottomGif128;
+            ImageLeft = Puck_Man_Game.Properties.Resources.leftGif128;
+            ImageRight = Puck_Man_Game.Properties.Resources.rightGif128;
+            ImageIdle = Puck_Man_Game.Properties.Resources.bottomGif128;
+            Image.Image = ImageIdle; // Initialisation avec l'image droite
+        }
+        private void UpdateSkin(int deltaX, int deltaY)
+        {
+            if (deltaX == -1)
+            {
+                Image.Image = ImageLeft;
+            }
+            else if (deltaX == 1)
+            {
+                Image.Image = ImageRight;
+            }
+            else if (deltaY == -1)
+            {
+                Image.Image = ImageUp;
+            }
+            else if (deltaY == 1)
+            {
+                Image.Image = ImageDown;
+            }
+        }
         public void MovePlayer(int deltaX, int deltaY)
         {
             // Vérifie les collisions avec les murs
             if (CheckWallCollision(deltaX, deltaY))
-                return; // Le joueur entre en collision avec un mur, on ne le déplace pas
+            {
+                moveDeltaX = 0;
+                moveDeltaY = 0;
+                Image.Image = ImageIdle;
+                return;
+            }
+                // Le joueur entre en collision avec un mur, on ne le déplace pas
 
 
             // Déplacement uniquement si aucune collision
             X += deltaX * EntitySpeed;
             Y += deltaY * EntitySpeed;
 
+            lastValidDeltaX = deltaX;
+            lastValidDeltaY = deltaY;
+
             // Gestion des interactions avec les entités
             HandleEntityInteractions();
 
             // Met à jour l'emplacement de l'image
             Image.Location = new Point(X, Y);
+            UpdateSkin(deltaX, deltaY);
         }
 
         private bool CheckWallCollision(int deltaX, int deltaY)
@@ -117,6 +180,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         {
             Program.LoadScene(typeof(NouvellePartie), MazeMatrix.MazeForm);
         }
+
         public void PlayerKeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
