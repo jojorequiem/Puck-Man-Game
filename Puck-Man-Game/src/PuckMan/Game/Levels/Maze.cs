@@ -13,7 +13,7 @@ namespace src.PuckMan.Game.Levels
     public class Maze
     {
         private static readonly Random random = new Random();
-        public static int cellSize = 32;
+        public static int cellSize = 40;
         //on effectue des step de 2 en 2 car on ne veut intéragir que avec les nodes, step avec les connections
         public static int step = cellSize * 2;
         public Cell[,] MazeMatrix { get; set; }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class Dialogue : Form
+    public partial class Dialogue : FormComponent
     {
-        public Dialogue()
+        public Dialogue() : base() // Déplacez base() après InitializeComponent()
         {
             InitializeComponent();
         }

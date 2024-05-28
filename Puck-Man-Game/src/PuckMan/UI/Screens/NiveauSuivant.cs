@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class NiveauSuivant : Form
+    public partial class NiveauSuivant : FormComponent
     {
         public NiveauSuivant()
         {

@@ -23,13 +23,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class NouvellePartie : Form
+    public partial class NouvellePartie : FormComponent
     {
         public bool ModeHistoire;
         static public Player P1 { get; set; }
       
 
-        public NouvellePartie()
+        public NouvellePartie() : base()
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -40,7 +40,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
             ModeHistoire = true;
 
-            Maze instanceMaze = new Maze(this, 21, 19);
+            Maze instanceMaze = new Maze(this, 25, 19);
             P1 = new Player("Dodonut", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
             instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
             instanceMaze.GenerateEntities(typeof(Collectable), "fragment", instanceMaze.numGeneratedFragments);

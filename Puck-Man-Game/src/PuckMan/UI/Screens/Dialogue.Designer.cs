@@ -35,21 +35,23 @@
             // 
             // LblDialogue
             // 
-            this.LblDialogue.Font = new System.Drawing.Font("Segoe Script", 16.8F);
+            this.LblDialogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.LblDialogue.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LblDialogue.Location = new System.Drawing.Point(193, 78);
+            this.LblDialogue.Location = new System.Drawing.Point(314, 114);
+            this.LblDialogue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblDialogue.Name = "LblDialogue";
-            this.LblDialogue.Size = new System.Drawing.Size(692, 458);
+            this.LblDialogue.Size = new System.Drawing.Size(519, 372);
             this.LblDialogue.TabIndex = 1;
             this.LblDialogue.Text = resources.GetString("LblDialogue.Text");
             this.LblDialogue.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // BtnSuivantDialogue
             // 
-            this.BtnSuivantDialogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSuivantDialogue.Location = new System.Drawing.Point(462, 598);
+            this.BtnSuivantDialogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.BtnSuivantDialogue.Location = new System.Drawing.Point(395, 476);
+            this.BtnSuivantDialogue.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSuivantDialogue.Name = "BtnSuivantDialogue";
-            this.BtnSuivantDialogue.Size = new System.Drawing.Size(178, 46);
+            this.BtnSuivantDialogue.Size = new System.Drawing.Size(335, 69);
             this.BtnSuivantDialogue.TabIndex = 2;
             this.BtnSuivantDialogue.Text = "Suivant";
             this.BtnSuivantDialogue.UseVisualStyleBackColor = true;
@@ -57,14 +59,15 @@
             // 
             // Dialogue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
-            this.MaximumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
-            this.MinimumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.BtnSuivantDialogue);
             this.Controls.Add(this.LblDialogue);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(1200, 800);
+            this.MinimumSize = new System.Drawing.Size(1200, 800);
             this.Name = "Dialogue";
             this.Text = "Dialoguecs";
             this.ResumeLayout(false);

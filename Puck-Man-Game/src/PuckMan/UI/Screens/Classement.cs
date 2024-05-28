@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class Classement : Form
+    public partial class Classement : FormComponent
     {
         public Classement()
         {
