@@ -22,12 +22,13 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         public int Level { get; set; }
         public Maze MazeMatrix;
 
-        // Timer pour gérer le déplacement continu
+        // Timer pour gérer le déplacemet continu
         private readonly Timer moveTimer;
         private int moveDeltaX;
         private int moveDeltaY;
         private int lastValidDeltaX;
         private int lastValidDeltaY;
+        private int tickSpeed = 80;
 
         // Images du joueur pour les quatre direction
         public System.Drawing.Image ImageUp { get; set; }
@@ -46,7 +47,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             Image.Image = Puck_Man_Game.Properties.Resources.joueur;
             moveTimer = new Timer
             {
-                Interval = 120
+                Interval = tickSpeed
             };
             moveTimer.Tick += MoveTimer_Tick;
             // Initialiser les directions
@@ -69,6 +70,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 MovePlayer(lastValidDeltaX, lastValidDeltaY);
             }
         }
+
         private void LoadDefaultImages()
         {
             ImageUp = Puck_Man_Game.Properties.Resources.topGif128;
@@ -118,6 +120,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             lastValidDeltaY = deltaY;
 
             // Gestion des interactions avec les entités
+            HandleEnemyInteractions(X, Y);
             HandleEntityInteractions();
 
             // Met à jour l'emplacement de l'image
@@ -151,6 +154,19 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
             return false; // Pas de collision avec un mur
         }
+        private void HandleEnemyInteractions(int newX, int newY)
+        {
+
+            if (newX != X || newY != Y)
+            {
+      
+                if (MazeMatrix.Entities[newX, newY] is Enemy adversaire)
+                {
+                    DamageReceived(adversaire.Damage);
+       
+                }
+            }
+        }
 
         private void HandleEntityInteractions()
         {
@@ -161,8 +177,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                     collectable.Collecte(MazeMatrix.MazeForm);
                 }
 
-                if (MazeMatrix.Entities[X, Y] is Enemy adversaire && adversaire.EntityName == "égaré")
-                    DamageReceived(adversaire.Damage);
             }
         }
 

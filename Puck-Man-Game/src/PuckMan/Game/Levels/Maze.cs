@@ -1,4 +1,5 @@
 ﻿using Puck_Man_Game.src.PuckMan.Engine.Entities;
+using Puck_Man_Game.src.PuckMan.Game;
 using Puck_Man_Game.src.PuckMan.Game.Levels;
 using Puck_Man_Game.src.PuckMan.UI.Screens;
 using System;
@@ -7,6 +8,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers; // Importe le namespace System.Timers
+
 
 namespace src.PuckMan.Game.Levels
 {
@@ -14,6 +17,7 @@ namespace src.PuckMan.Game.Levels
     {
         private static readonly Random random = new Random();
         public static int cellSize = 40;
+
         //on effectue des step de 2 en 2 car on ne veut intéragir que avec les nodes, step avec les connections
         public static int step = cellSize * 2;
         public Cell[,] MazeMatrix { get; set; }
@@ -234,23 +238,49 @@ namespace src.PuckMan.Game.Levels
             Debug.Write(MazeMatrix);
         }
 
-        public void GenerateEntities(Type type, string name, int number)
+        public void GenerateFragments(Type type, string name, int number)
         {
             while (number > 0)
             {
                 int x = GetValidCoordinates(1, width - 1);
                 int y = GetValidCoordinates(1, height - 1);
-                //s'il n'y a step déjà quelquechose à l'endroit prévu
+                // Vérifier s'il n'y a rien déjà à l'endroit prévu
                 if (Entities[x * cellSize, y * cellSize] is null)
                 {
-                    Entity instance = (Entity)Activator.CreateInstance(type, name, x * cellSize, y * cellSize);
-                    MazeForm.Controls.Add(instance.Image);
-                    instance.Image.BringToFront();
+                    Entity fragment = (Entity)Activator.CreateInstance(type, name, x * cellSize, y * cellSize);
+                    MazeForm.Controls.Add(fragment.Image);
+                    fragment.Image.BringToFront();
                     number -= 1;
-                    Entities[x * cellSize, y * cellSize] = instance;
+                    Entities[x * cellSize, y * cellSize] = fragment;
                 }
             }
         }
+        public void GenerateEnemies(string name, int number)
+        {
+            while (number > 0)
+            {
+                int x = GetValidCoordinates(1, width - 1);
+                int y = GetValidCoordinates(1, height - 1);
+
+                // Vérifier si l'emplacement est vide
+                if (Entities[x * cellSize, y * cellSize] is null)
+                {
+                    // Créer une instance de la classe Enemy avec les attributs spécifiques
+                    Enemy enemy = new Enemy(name, 3, x * cellSize, y * cellSize, this); // Changer les valeurs par défaut si nécessaire
+
+                    // Ajouter l'image de l'ennemi au formulaire
+                    MazeForm.Controls.Add(enemy.Image);
+                    enemy.Image.BringToFront();
+
+                    // Décrémenter le nombre d'ennemis restants à générer
+                    number -= 1;
+
+                    // Ajouter l'ennemi à la matrice d'entités
+                    Entities[x * cellSize, y * cellSize] = enemy;
+                }
+            }
+        }
+        
         public void RemoveIsolatedWalls(int x, int y)
         {
             if (x % 2 == 0 && y % 2 == 0)
@@ -274,7 +304,7 @@ namespace src.PuckMan.Game.Levels
             MazeMatrix = new Cell[width, height];
             Entities = new Entity[width * cellSize, height * cellSize];
             numGeneratedFragments = 1;
-            numberOfOpponents = 7;
+            numberOfOpponents = 1;
             InitMaze();
             //RandomMazeGeneration();
             MazeGenerationByDFS();

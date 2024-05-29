@@ -43,8 +43,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             Maze instanceMaze = new Maze(this, 25, 19);
             P1 = new Player("Dodonut", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
             instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
-            instanceMaze.GenerateEntities(typeof(Collectable), "fragment", instanceMaze.numGeneratedFragments);
-            instanceMaze.GenerateEntities(typeof(Enemy), "égaré", instanceMaze.numberOfOpponents);
+            instanceMaze.GenerateFragments(typeof(Collectable), "fragment", instanceMaze.numGeneratedFragments);
+            instanceMaze.GenerateEnemies("égaré", instanceMaze.numberOfOpponents); // Modification de cette ligne
             LblFragmentCollecte.Text = "0";
             LblFragmentGenere.Text = instanceMaze.numGeneratedFragments.ToString();
 
