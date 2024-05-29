@@ -29,11 +29,11 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                 Interval = 200
             };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
- 
+
             moveDeltaX = 0;
             moveDeltaY = 0;
 
-            moveEnemyTimer.Start(); 
+            moveEnemyTimer.Start();
 
             switch (name)
             {
@@ -42,7 +42,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                     Image.Image = Puck_Man_Game.Properties.Resources.égaré;
                     break;
                 default:
-  
+
                     break;
             }
         }
@@ -50,15 +50,15 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         {
             List<Point> possibleMoves = new List<Point>();
 
-    
+
             foreach (Point direction in GetPossibleDirections())
             {
-                int deltaX = direction.X * Maze.cellSize; 
-                int deltaY = direction.Y * Maze.cellSize; 
+                int deltaX = direction.X * Maze.cellSize;
+                int deltaY = direction.Y * Maze.cellSize;
 
                 if (!CheckWallCollision(deltaX, deltaY))
                 {
- 
+
                     possibleMoves.Add(direction);
                 }
             }
@@ -86,14 +86,14 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
 
         private void MoveEnemy(int deltaX, int deltaY)
         {
-           
+
             if (!CheckWallCollision(deltaX, deltaY))
             {
-            
+
                 X += deltaX;
                 Y += deltaY;
 
-            
+
                 Image.Location = new Point(X, Y);
             }
         }
@@ -119,9 +119,10 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
             foreach (Cell myCell in neighbors)
             {
                 if (myCell.IsWall && newBounds.IntersectsWith(new Rectangle(myCell.X, myCell.Y, myCell.Image.Width, myCell.Image.Height)))
-                    return true; 
+                    return true;
             }
 
-            return false; 
+            return false;
+        }
     }
 }
