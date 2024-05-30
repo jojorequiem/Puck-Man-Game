@@ -23,6 +23,8 @@ namespace src.PuckMan.Game.Levels
         public Cell[,] MazeMatrix { get; set; }
         public Cell[,] VisitedNodes { get; set; }
         public Entity[,] Entities { get; set; }
+
+
         public int width;
         public int height;
         public int startX;
@@ -303,8 +305,8 @@ namespace src.PuckMan.Game.Levels
             height = mazeHeight;
             MazeMatrix = new Cell[width, height];
             Entities = new Entity[width * cellSize, height * cellSize];
-            numGeneratedFragments = 1;
-            numberOfOpponents = 1;
+            numGeneratedFragments = 5;
+            numberOfOpponents = 2;
             InitMaze();
             //RandomMazeGeneration();
             MazeGenerationByDFS();

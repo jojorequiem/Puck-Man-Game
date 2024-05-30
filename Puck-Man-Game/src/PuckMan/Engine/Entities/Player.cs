@@ -28,7 +28,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         private int moveDeltaY;
         private int lastValidDeltaX;
         private int lastValidDeltaY;
-        private int tickSpeed = 80;
+        private int tickSpeed = 180;
 
         // Images du joueur pour les quatre direction
         public System.Drawing.Image ImageUp { get; set; }
@@ -113,8 +113,8 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
 
             // Déplacement uniquement si aucune collision
-            X += deltaX * EntitySpeed;
-            Y += deltaY * EntitySpeed;
+            X += deltaX * EntitySpeed * 2;
+            Y += deltaY * EntitySpeed * 2;
 
             lastValidDeltaX = deltaX;
             lastValidDeltaY = deltaY;

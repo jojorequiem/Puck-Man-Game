@@ -12,26 +12,25 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
     {
         public string EnemyClass { get; set; }
         public int Damage { get; set; }
-
-        public Maze MazeMatrix;
+        public Maze MazeMatrix { get; set; }
 
         private readonly Timer moveEnemyTimer;
-        private int moveDeltaX;
-        private int moveDeltaY;
+        private Point previousDirection;
+
         public Enemy(string name, int hp, int x, int y, Maze mazeMatrix) : base(x, y, name)
         {
             HP = hp;
             MazeMatrix = mazeMatrix;
             EntitySpeed = Maze.cellSize;
             Image.Image = Puck_Man_Game.Properties.Resources.joueur;
+
             moveEnemyTimer = new Timer
             {
-                Interval = 200
+                Interval = 180
             };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
 
-            moveDeltaX = 0;
-            moveDeltaY = 0;
+            previousDirection = new Point(0, 0);
 
             moveEnemyTimer.Start();
 
@@ -42,14 +41,13 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                     Image.Image = Puck_Man_Game.Properties.Resources.égaré;
                     break;
                 default:
-
                     break;
             }
         }
+
         private void MoveEnemyTimer_Tick(object sender, EventArgs e)
         {
             List<Point> possibleMoves = new List<Point>();
-
 
             foreach (Point direction in GetPossibleDirections())
             {
@@ -58,42 +56,47 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
 
                 if (!CheckWallCollision(deltaX, deltaY))
                 {
-
                     possibleMoves.Add(direction);
                 }
             }
 
             if (possibleMoves.Count > 0)
             {
-                Random random = new Random();
-                Point randomMove = possibleMoves[random.Next(possibleMoves.Count)];
+                // Exclure la direction opposée à la précédente pour éviter les allers-retours
+                Point oppositePreviousDirection = new Point(-previousDirection.X, -previousDirection.Y);
+                possibleMoves.Remove(oppositePreviousDirection);
 
-                MoveEnemy(randomMove.X * Maze.cellSize, randomMove.Y * Maze.cellSize);
+                // Si après avoir exclu la direction opposée, il n'y a plus de mouvements possibles
+                if (possibleMoves.Count == 0)
+                {
+                    possibleMoves.Add(oppositePreviousDirection); // Réajouter la direction opposée
+                }
+
+                Random random = new Random();
+                Point selectedMove = possibleMoves[random.Next(possibleMoves.Count)];
+
+                MoveEnemy(selectedMove.X * Maze.cellSize, selectedMove.Y * Maze.cellSize);
+                previousDirection = selectedMove;
             }
         }
 
         private List<Point> GetPossibleDirections()
         {
-            List<Point> directions = new List<Point>();
-
-            directions.Add(new Point(0, -1)); // Haut
-            directions.Add(new Point(0, 1));  // Bas
-            directions.Add(new Point(-1, 0)); // Gauche
-            directions.Add(new Point(1, 0));  // Droite
-
-            return directions;
+            return new List<Point>
+            {
+                new Point(0, -1), // Haut
+                new Point(0, 1),  // Bas
+                new Point(-1, 0), // Gauche
+                new Point(1, 0)   // Droite
+            };
         }
 
         private void MoveEnemy(int deltaX, int deltaY)
         {
-
             if (!CheckWallCollision(deltaX, deltaY))
             {
-
                 X += deltaX;
                 Y += deltaY;
-
-
                 Image.Location = new Point(X, Y);
             }
         }
@@ -101,28 +104,38 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         private bool CheckWallCollision(int deltaX, int deltaY)
         {
             Rectangle newBounds = new Rectangle(X + deltaX, Y + deltaY, Image.Width, Image.Height);
-            List<Cell> neighbors = new List<Cell>();
-            Cell topConnection = MazeMatrix.Top(X, Y, Maze.cellSize);
-            Cell bottomConnection = MazeMatrix.Bottom(X, Y, Maze.cellSize);
-            Cell leftConnection = MazeMatrix.Left(X, Y, Maze.cellSize);
-            Cell rightConnection = MazeMatrix.Right(X, Y, Maze.cellSize);
+            List<Cell> neighbors = GetNeighborCells();
 
-            if (topConnection != null)
-                neighbors.Add(topConnection);
-            if (bottomConnection != null)
-                neighbors.Add(bottomConnection);
-            if (leftConnection != null)
-                neighbors.Add(leftConnection);
-            if (rightConnection != null)
-                neighbors.Add(rightConnection);
-
-            foreach (Cell myCell in neighbors)
+            foreach (Cell cell in neighbors)
             {
-                if (myCell.IsWall && newBounds.IntersectsWith(new Rectangle(myCell.X, myCell.Y, myCell.Image.Width, myCell.Image.Height)))
+                if (cell.IsWall && newBounds.IntersectsWith(new Rectangle(cell.X, cell.Y, cell.Image.Width, cell.Image.Height)))
+                {
                     return true;
+                }
             }
 
             return false;
+        }
+
+        private List<Cell> GetNeighborCells()
+        {
+            List<Cell> neighbors = new List<Cell>();
+
+            Cell top = MazeMatrix.Top(X, Y, Maze.cellSize);
+            Cell bottom = MazeMatrix.Bottom(X, Y, Maze.cellSize);
+            Cell left = MazeMatrix.Left(X, Y, Maze.cellSize);
+            Cell right = MazeMatrix.Right(X, Y, Maze.cellSize);
+
+            if (top != null)
+                neighbors.Add(top);
+            if (bottom != null)
+                neighbors.Add(bottom);
+            if (left != null)
+                neighbors.Add(left);
+            if (right != null)
+                neighbors.Add(right);
+
+            return neighbors;
         }
     }
 }
