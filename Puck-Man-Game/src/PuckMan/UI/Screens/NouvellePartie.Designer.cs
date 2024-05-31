@@ -44,7 +44,7 @@
             this.LblPV.BackColor = System.Drawing.Color.Transparent;
             this.LblPV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPV.ForeColor = System.Drawing.Color.Transparent;
-            this.LblPV.Location = new System.Drawing.Point(1089, 17);
+            this.LblPV.Location = new System.Drawing.Point(1117, 20);
             this.LblPV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblPV.Name = "LblPV";
             this.LblPV.Size = new System.Drawing.Size(20, 24);
@@ -57,7 +57,7 @@
             this.LblFragmentCollecte.BackColor = System.Drawing.Color.Transparent;
             this.LblFragmentCollecte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFragmentCollecte.ForeColor = System.Drawing.Color.Transparent;
-            this.LblFragmentCollecte.Location = new System.Drawing.Point(956, 56);
+            this.LblFragmentCollecte.Location = new System.Drawing.Point(1117, 74);
             this.LblFragmentCollecte.Name = "LblFragmentCollecte";
             this.LblFragmentCollecte.Size = new System.Drawing.Size(20, 24);
             this.LblFragmentCollecte.TabIndex = 1;
@@ -69,7 +69,7 @@
             this.LblFragmentGenere.BackColor = System.Drawing.Color.Transparent;
             this.LblFragmentGenere.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFragmentGenere.ForeColor = System.Drawing.Color.Transparent;
-            this.LblFragmentGenere.Location = new System.Drawing.Point(991, 56);
+            this.LblFragmentGenere.Location = new System.Drawing.Point(1152, 74);
             this.LblFragmentGenere.Name = "LblFragmentGenere";
             this.LblFragmentGenere.Size = new System.Drawing.Size(20, 24);
             this.LblFragmentGenere.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(974, 56);
+            this.label1.Location = new System.Drawing.Point(1135, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(15, 24);
             this.label1.TabIndex = 3;
@@ -91,7 +91,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Puck_Man_Game.Properties.Resources.coeur;
-            this.pictureBox1.Location = new System.Drawing.Point(908, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(1069, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,7 +102,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::Puck_Man_Game.Properties.Resources.fragment;
-            this.pictureBox2.Location = new System.Drawing.Point(908, 53);
+            this.pictureBox2.Location = new System.Drawing.Point(1069, 71);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -115,7 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1182, 755);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);

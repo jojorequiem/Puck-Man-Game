@@ -60,8 +60,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         public void FragmentCollecte()
         {
-            LblFragmentCollecte.Text = (int.Parse(LblFragmentCollecte.Text) + 1).ToString();
-            if (int.Parse(LblFragmentCollecte.Text) >= P1.MazeMatrix.numGeneratedFragments)
+            int nbrFragment = int.Parse(LblFragmentCollecte.Text) + 1;
+            LblFragmentCollecte.Text = (nbrFragment).ToString();
+            if (nbrFragment >= P1.MazeMatrix.numGeneratedFragments)
                 NiveauSuivant();
         }
 

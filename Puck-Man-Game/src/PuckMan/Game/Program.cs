@@ -14,7 +14,7 @@ namespace Puck_Man_Game
         public static int HauteurFenetre = 700;
         public static Color BackgroundColor = Color.Black;
         public static Color TextColor = Color.White;
-        public static Color ButtonColor = Color.Maroon;
+        public static Color ButtonColor = Color.DarkGray;
 
         /*
                     this.ClientSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);

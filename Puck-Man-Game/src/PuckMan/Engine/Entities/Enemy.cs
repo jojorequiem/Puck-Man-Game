@@ -12,15 +12,15 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
     {
         public string EnemyClass { get; set; }
         public int Damage { get; set; }
-        public Maze MazeMatrix { get; set; }
+        public Maze Maze { get; set; }
 
         private readonly Timer moveEnemyTimer;
         private Point previousDirection;
 
-        public Enemy(string name, int hp, int x, int y, Maze mazeMatrix) : base(x, y, name)
+        public Enemy(string name, int hp, int x, int y, Maze maze) : base(x, y, name)
         {
             HP = hp;
-            MazeMatrix = mazeMatrix;
+            Maze = maze;
             EntitySpeed = Maze.cellSize;
             Image.Image = Puck_Man_Game.Properties.Resources.joueur;
 
@@ -75,7 +75,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                 Random random = new Random();
                 Point selectedMove = possibleMoves[random.Next(possibleMoves.Count)];
 
-                MoveEnemy(selectedMove.X * Maze.cellSize, selectedMove.Y * Maze.cellSize);
+                MoveEnemy(selectedMove.X * Maze.cellSize, selectedMove.Y * Maze.cellSize );
                 previousDirection = selectedMove;
             }
         }
@@ -105,7 +105,6 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         {
             Rectangle newBounds = new Rectangle(X + deltaX, Y + deltaY, Image.Width, Image.Height);
             List<Cell> neighbors = GetNeighborCells();
-
             foreach (Cell cell in neighbors)
             {
                 if (cell.IsWall && newBounds.IntersectsWith(new Rectangle(cell.X, cell.Y, cell.Image.Width, cell.Image.Height)))
@@ -113,28 +112,20 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                     return true;
                 }
             }
-
             return false;
         }
 
         private List<Cell> GetNeighborCells()
         {
             List<Cell> neighbors = new List<Cell>();
-
-            Cell top = MazeMatrix.Top(X, Y, Maze.cellSize);
-            Cell bottom = MazeMatrix.Bottom(X, Y, Maze.cellSize);
-            Cell left = MazeMatrix.Left(X, Y, Maze.cellSize);
-            Cell right = MazeMatrix.Right(X, Y, Maze.cellSize);
-
-            if (top != null)
-                neighbors.Add(top);
-            if (bottom != null)
-                neighbors.Add(bottom);
-            if (left != null)
-                neighbors.Add(left);
-            if (right != null)
-                neighbors.Add(right);
-
+            Cell top = Maze.Top(X, Y, Maze.cellSize);
+            Cell bottom = Maze.Bottom(X, Y, Maze.cellSize);
+            Cell left = Maze.Left(X, Y, Maze.cellSize);
+            Cell right = Maze.Right(X, Y, Maze.cellSize);
+            if (top != null) neighbors.Add(top);
+            if (bottom != null) neighbors.Add(bottom);
+            if (left != null) neighbors.Add(left);
+            if (right != null) neighbors.Add(right);
             return neighbors;
         }
     }

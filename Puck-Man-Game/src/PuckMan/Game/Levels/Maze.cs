@@ -23,7 +23,7 @@ namespace src.PuckMan.Game.Levels
         public Cell[,] MazeMatrix { get; set; }
         public Cell[,] VisitedNodes { get; set; }
         public Entity[,] Entities { get; set; }
-
+        public List<Enemy> EnemyList { get; set; }
 
         public int width;
         public int height;
@@ -273,7 +273,7 @@ namespace src.PuckMan.Game.Levels
                     // Ajouter l'image de l'ennemi au formulaire
                     MazeForm.Controls.Add(enemy.Image);
                     enemy.Image.BringToFront();
-
+                    EnemyList.Add(enemy);
                     // Décrémenter le nombre d'ennemis restants à générer
                     number -= 1;
 
@@ -307,6 +307,7 @@ namespace src.PuckMan.Game.Levels
             Entities = new Entity[width * cellSize, height * cellSize];
             numGeneratedFragments = 5;
             numberOfOpponents = 2;
+            EnemyList = new List<Enemy>();
             InitMaze();
             //RandomMazeGeneration();
             MazeGenerationByDFS();

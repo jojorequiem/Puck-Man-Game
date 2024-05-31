@@ -14,13 +14,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
+
 namespace Puck_Man_Game.src.PuckMan.Game.Entities
 {
     public class Player : Entity
     {
         // Propriétés du Player
         public int Level { get; set; }
-        public Maze MazeMatrix;
+        public Maze Maze;
 
         // Timer pour gérer le déplacemet continu
         private readonly Timer moveTimer;
@@ -38,11 +39,11 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         public System.Drawing.Image ImageIdle { get; set; } // Image du joueur à l'arrêt
 
         // Constructeur
-        public Player(string name, int hp, int level, int x, int y, Maze mazeMatrix) : base(x, y, name)
+        public Player(string name, int hp, int level, int x, int y, Maze maze) : base(x, y, name)
         {
             HP = hp;
             Level = level;
-            MazeMatrix = mazeMatrix;
+            Maze = maze;
             EntitySpeed = Maze.cellSize;
             Image.Image = Puck_Man_Game.Properties.Resources.joueur;
             moveTimer = new Timer
@@ -132,10 +133,10 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         {
             Rectangle newBounds = new Rectangle(X + deltaX, Y + deltaY, Image.Width, Image.Height);
             List<Cell> neighbors = new List<Cell>();
-            Cell topConnection = MazeMatrix.Top(X, Y, Maze.cellSize);
-            Cell bottomConnection = MazeMatrix.Bottom(X, Y, Maze.cellSize);
-            Cell leftConnection = MazeMatrix.Left(X, Y, Maze.cellSize);
-            Cell rightConnection = MazeMatrix.Right(X, Y, Maze.cellSize);
+            Cell topConnection = Maze.Top(X, Y, Maze.cellSize);
+            Cell bottomConnection = Maze.Bottom(X, Y, Maze.cellSize);
+            Cell leftConnection = Maze.Left(X, Y, Maze.cellSize);
+            Cell rightConnection = Maze.Right(X, Y, Maze.cellSize);
 
             if (topConnection != null)
                 neighbors.Add(topConnection);
@@ -156,27 +157,22 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         }
         private void HandleEnemyInteractions(int newX, int newY)
         {
-
-            if (newX != X || newY != Y)
+            foreach (Enemy adversaire in Maze.EnemyList)
             {
-      
-                if (MazeMatrix.Entities[newX, newY] is Enemy adversaire)
-                {
+                Rectangle newBounds = new Rectangle(X, Y, Image.Width, Image.Height);
+                if (newBounds.IntersectsWith(new Rectangle(adversaire.X, adversaire.Y, adversaire.Image.Width, adversaire.Image.Height)))
                     DamageReceived(adversaire.Damage);
-       
-                }
             }
         }
 
         private void HandleEntityInteractions()
         {
-            if (MazeMatrix.Entities[X, Y] != null)
+            if (Maze.Entities[X, Y] != null)
             {
-                if (MazeMatrix.Entities[X, Y] is Collectable collectable && collectable.EntityName == "fragment")
+                if (Maze.Entities[X, Y] is Collectable collectable && collectable.EntityName == "fragment")
                 {
-                    collectable.Collecte(MazeMatrix.MazeForm);
+                    collectable.Collecte(Maze.MazeForm);
                 }
-
             }
         }
 
@@ -184,7 +180,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         {
             HP -= hitDamage;
             Debug.WriteLine(HP);
-            MazeMatrix.MazeForm.UpdateHPdisplay();
+            Maze.MazeForm.UpdateHPdisplay();
             if (HP <= 0)
                 HandlePlayerDeath();
 
@@ -192,7 +188,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         public void HandlePlayerDeath()
         {
-            Program.LoadScene(typeof(NouvellePartie), MazeMatrix.MazeForm);
+            Program.LoadScene(typeof(NouvellePartie), Maze.MazeForm);
         }
 
         public void PlayerKeyDown(object sender, KeyEventArgs e)
