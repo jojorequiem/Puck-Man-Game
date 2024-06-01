@@ -18,26 +18,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             InitializeComponent();
         }
 
-        private Point savedLocation; // Variable pour stocker la position de la fenêtre
-
-
         private void btnRetour_Click(object sender, EventArgs e)
         {
-            savedLocation = this.Location; // Enregistrer la position actuelle de la fenêtre
-            this.Hide(); // Masquer la fenêtre actuelle
-            Menu mainMenuForm = new Menu();
-            mainMenuForm.StartPosition = FormStartPosition.Manual; // Définir le démarrage de la nouvelle fenêtre à manuel
-            mainMenuForm.Location = savedLocation; // Définir la position de la nouvelle fenêtre à la position enregistrée
-            mainMenuForm.Show(); // Afficher MainMenuForm à nouveau
+            DisplayForm(new Menu(), this);
         }
 
         private void btnNouvellePartie_Click(object sender, EventArgs e)
         {
-            NouvellePartie menuNouvellePartie = new NouvellePartie();
-            menuNouvellePartie.StartPosition = FormStartPosition.Manual;
-            menuNouvellePartie.Location = this.Location;
-            menuNouvellePartie.Show();
-            this.Hide(); // Masquer la fenêtre actuelle
+            DisplayForm(new ModeHistoire(), this);
+        }
+
+        private void BtnModeInfini_Click(object sender, EventArgs e)
+        {
+            DisplayForm(new NouvellePartie(), this);
         }
     }
 }

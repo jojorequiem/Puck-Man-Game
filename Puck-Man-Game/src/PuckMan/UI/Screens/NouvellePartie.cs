@@ -28,7 +28,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public bool ModeHistoire;
         static public Player P1 { get; set; }
       
-
         public NouvellePartie() : base()
         {
             InitializeComponent();
@@ -37,10 +36,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.DoubleBuffered = true;
             this.KeyDown += (sender, e) => P1.PlayerKeyDown(sender, e);
             this.KeyUp += (sender, e) => P1.PlayerKeyUp(sender, e);
-
             ModeHistoire = true;
 
-            Maze instanceMaze = new Maze(this, 25, 19);
+            //Maze instanceMaze = new Maze(this, 25, 19);
+            Maze instanceMaze = new Maze(this, 11, 7);
             P1 = new Player("Dodonut", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
             instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
             instanceMaze.GenerateFragments(typeof(Collectable), "fragment", instanceMaze.numGeneratedFragments);
@@ -53,23 +52,30 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             UpdateHPdisplay();
         }
 
+        public void Destructeur()
+        {
+            P1.Maze.EnemyList.Clear();
+            P1.Maze.FragmentList.Clear();
+            
+        }
+
         public void UpdateHPdisplay()
         {
             LblPV.Text = P1.HP.ToString();
         }
-
-        public void FragmentCollecte()
+        public void UpdateFragmentdisplay()
         {
-            int nbrFragment = int.Parse(LblFragmentCollecte.Text) + 1;
-            LblFragmentCollecte.Text = (nbrFragment).ToString();
-            if (nbrFragment >= P1.MazeMatrix.numGeneratedFragments)
-                NiveauSuivant();
+            LblFragmentCollecte.Text = P1.Maze.FragmentList.Count().ToString();
         }
 
         public void NiveauSuivant()
         {
+            Debug.WriteLine("NIVEAU SUIVANT");
+            Destructeur();
+            P1.isDead = true;
             if (ModeHistoire) {
                 Program.LoadScene(typeof(Dialogue), this);
+                
             }
             else
             {

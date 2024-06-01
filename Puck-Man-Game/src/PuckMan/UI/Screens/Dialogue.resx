@@ -117,7 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LblDialogue.Text" xml:space="preserve">
-    <value>Il était une fois dans un monde pas très lointain, enfin je crois, une histoire : Bonjour, belle journée n'est ce pas ? Ta gueule. Le soleil doit te taper sur les nerfs. C'est dans ta gueule que j'vais taper. Ils vécurent heureux et eurent beaucoup d'enfants (dans leur cave). Fin</value>
-  </data>
 </root>

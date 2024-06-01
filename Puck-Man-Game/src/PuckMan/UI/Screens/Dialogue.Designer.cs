@@ -28,54 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dialogue));
-            this.LblDialogue = new System.Windows.Forms.Label();
-            this.BtnSuivantDialogue = new System.Windows.Forms.Button();
+            this.BtnDialogueSuivant = new System.Windows.Forms.Button();
+            this.LblTitre = new System.Windows.Forms.Label();
+            this.Panel = new System.Windows.Forms.Panel();
+            this.FlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.Panel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // LblDialogue
+            // BtnDialogueSuivant
             // 
-            this.LblDialogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.LblDialogue.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LblDialogue.Location = new System.Drawing.Point(314, 114);
-            this.LblDialogue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LblDialogue.Name = "LblDialogue";
-            this.LblDialogue.Size = new System.Drawing.Size(519, 372);
-            this.LblDialogue.TabIndex = 1;
-            this.LblDialogue.Text = resources.GetString("LblDialogue.Text");
-            this.LblDialogue.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnDialogueSuivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.BtnDialogueSuivant.Location = new System.Drawing.Point(321, 594);
+            this.BtnDialogueSuivant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnDialogueSuivant.Name = "BtnDialogueSuivant";
+            this.BtnDialogueSuivant.Size = new System.Drawing.Size(932, 85);
+            this.BtnDialogueSuivant.TabIndex = 2;
+            this.BtnDialogueSuivant.Text = "Suivant";
+            this.BtnDialogueSuivant.UseVisualStyleBackColor = true;
+            this.BtnDialogueSuivant.Click += new System.EventHandler(this.BtnDialogueSuivant_Click);
             // 
-            // BtnSuivantDialogue
+            // LblTitre
             // 
-            this.BtnSuivantDialogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.BtnSuivantDialogue.Location = new System.Drawing.Point(395, 476);
-            this.BtnSuivantDialogue.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnSuivantDialogue.Name = "BtnSuivantDialogue";
-            this.BtnSuivantDialogue.Size = new System.Drawing.Size(335, 69);
-            this.BtnSuivantDialogue.TabIndex = 2;
-            this.BtnSuivantDialogue.Text = "Suivant";
-            this.BtnSuivantDialogue.UseVisualStyleBackColor = true;
-            this.BtnSuivantDialogue.Click += new System.EventHandler(this.BtnSuivantDialogue_Click);
+            this.LblTitre.AutoSize = true;
+            this.LblTitre.BackColor = System.Drawing.Color.Black;
+            this.LblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LblTitre.Location = new System.Drawing.Point(311, 66);
+            this.LblTitre.Name = "LblTitre";
+            this.LblTitre.Size = new System.Drawing.Size(956, 58);
+            this.LblTitre.TabIndex = 10;
+            this.LblTitre.Text = "Chapitre 1 : Confrontation avec l’inconnue";
+            this.LblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Panel
+            // 
+            this.Panel.AutoScroll = true;
+            this.Panel.Controls.Add(this.FlowPanel);
+            this.Panel.Location = new System.Drawing.Point(284, 145);
+            this.Panel.Name = "Panel";
+            this.Panel.Size = new System.Drawing.Size(969, 432);
+            this.Panel.TabIndex = 11;
+            // 
+            // FlowPanel
+            // 
+            this.FlowPanel.AutoSize = true;
+            this.FlowPanel.Location = new System.Drawing.Point(26, 3);
+            this.FlowPanel.Name = "FlowPanel";
+            this.FlowPanel.Size = new System.Drawing.Size(873, 438);
+            this.FlowPanel.TabIndex = 0;
             // 
             // Dialogue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1184, 761);
-            this.Controls.Add(this.BtnSuivantDialogue);
-            this.Controls.Add(this.LblDialogue);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(1200, 800);
-            this.MinimumSize = new System.Drawing.Size(1200, 800);
+            this.ClientSize = new System.Drawing.Size(1576, 927);
+            this.Controls.Add(this.Panel);
+            this.Controls.Add(this.LblTitre);
+            this.Controls.Add(this.BtnDialogueSuivant);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1594, 974);
+            this.MinimumSize = new System.Drawing.Size(1594, 974);
             this.Name = "Dialogue";
             this.Text = "Dialoguecs";
+            this.Panel.ResumeLayout(false);
+            this.Panel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label LblDialogue;
-        private System.Windows.Forms.Button BtnSuivantDialogue;
+        private System.Windows.Forms.Button BtnDialogueSuivant;
+        private System.Windows.Forms.Label LblTitre;
+        private System.Windows.Forms.Panel Panel;
+        private System.Windows.Forms.FlowLayoutPanel FlowPanel;
     }
 }

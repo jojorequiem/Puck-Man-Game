@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
@@ -15,22 +16,38 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public Parametres()
         {
             InitializeComponent();
+            LblMainValue.Text = Program.VolumePrincipale.ToString();
+            TrackBarMain.Value = Program.VolumePrincipale;
+            LblMusicValue.Text = Program.VolumeMusique.ToString();
+            TrackBarMusic.Value = Program.VolumeMusique;
+            LblSoundValue.Text = Program.VolumeSon.ToString();
+            TrackBarSound.Value = Program.VolumeSon;
         }
-        private Point savedLocation; // Variable pour stocker la position de la fenêtre
 
-        private void btnSauvegarder_Click(object sender, EventArgs e)
+        private void BtnRetour_Click(object sender, EventArgs e)
         {
-
+            DisplayForm(new Menu(), this);
         }
 
-        private void btnRetour_Click(object sender, EventArgs e)
+        private void TrackBarMain_ValueChanged(object sender, EventArgs e)
         {
-            savedLocation = this.Location; // Enregistrer la position actuelle de la fenêtre
-            this.Hide(); // Masquer la fenêtre actuelle
-            Menu mainMenuForm = new Menu();
-            mainMenuForm.StartPosition = FormStartPosition.Manual; // Définir le démarrage de la nouvelle fenêtre à manuel
-            mainMenuForm.Location = savedLocation; // Définir la position de la nouvelle fenêtre à la position enregistrée
-            mainMenuForm.Show(); // Afficher MainMenuForm à nouveau
+            Program.VolumePrincipale = TrackBarMain.Value;
+            LblMainValue.Text = TrackBarMain.Value.ToString();
+            Program.UpdateVolume();
+        }
+
+        private void TrackBarMusic_ValueChanged(object sender, EventArgs e)
+        {
+            Program.VolumeMusique = TrackBarMusic.Value;
+            LblMusicValue.Text = TrackBarMusic.Value.ToString();
+            Program.UpdateVolume();
+        }
+
+        private void TrackBarSound_ValueChanged(object sender, EventArgs e)
+        {
+            Program.VolumeSon = TrackBarSound.Value;
+            LblSoundValue.Text = TrackBarSound.Value.ToString();
+            Program.UpdateVolume();
         }
     }
 }

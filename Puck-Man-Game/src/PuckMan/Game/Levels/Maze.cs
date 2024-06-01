@@ -24,6 +24,7 @@ namespace src.PuckMan.Game.Levels
         public Cell[,] VisitedNodes { get; set; }
         public Entity[,] Entities { get; set; }
         public List<Enemy> EnemyList { get; set; }
+        public List<Collectable> FragmentList { get; set; }
 
         public int width;
         public int height;
@@ -58,7 +59,7 @@ namespace src.PuckMan.Game.Levels
             return connection;
         }
 
-        //return neighbors du dessus, du dessous, à droite, à gauche
+        //return respectivement le neighbor du dessus, du dessous, à gauche, à droite
         public Cell Top(int x, int y, int step)
         {
             if (y - step >= 0)
@@ -87,6 +88,21 @@ namespace src.PuckMan.Game.Levels
             return null;
         }
 
+        //return les voisins non null
+        public List<Cell> GetNeighborCells(int X, int Y)
+        {
+            List<Cell> neighbors = new List<Cell>();
+            Cell top = Top(X, Y, cellSize);
+            Cell bottom = Bottom(X, Y, cellSize);
+            Cell left = Left(X, Y, cellSize);
+            Cell right = Right(X, Y, cellSize);
+            if (top != null) neighbors.Add(top);
+            if (bottom != null) neighbors.Add(bottom);
+            if (left != null) neighbors.Add(left);
+            if (right != null) neighbors.Add(right);
+            return neighbors;
+        }
+
         public bool IsWall(Cell node)
         {
             if (node != null)
@@ -104,8 +120,7 @@ namespace src.PuckMan.Game.Levels
                     Cell cell = new Cell(x * cellSize, y * cellSize, "Cell");
                     MazeMatrix[x, y] = cell;
 
-                    //on génére une bordure de mur solide sur les côtés
-                    //et un semi quadrillage
+                    //on génére une bordure de mur solide sur les côtés et un semi quadrillage
                     if ((x == 0 || x == width - 1 || y == 0 || y == height - 1)
                         || ((x + y) % 2 == 0 && x % 2 == 0))
                     {
@@ -132,7 +147,6 @@ namespace src.PuckMan.Game.Levels
                 }
             }
         }
-        
         public void RandomMazeGeneration()
         {
             for (int x = 0; x < width; x++)
@@ -249,14 +263,17 @@ namespace src.PuckMan.Game.Levels
                 // Vérifier s'il n'y a rien déjà à l'endroit prévu
                 if (Entities[x * cellSize, y * cellSize] is null)
                 {
-                    Entity fragment = (Entity)Activator.CreateInstance(type, name, x * cellSize, y * cellSize);
+                    //Entity fragment = (Entity)Activator.CreateInstance(type, name, x * cellSize, y * cellSize);
+                    Collectable fragment = new Collectable(name, x * cellSize, y * cellSize);
                     MazeForm.Controls.Add(fragment.Image);
                     fragment.Image.BringToFront();
+                    FragmentList.Add(fragment);
                     number -= 1;
                     Entities[x * cellSize, y * cellSize] = fragment;
                 }
             }
         }
+
         public void GenerateEnemies(string name, int number)
         {
             while (number > 0)
@@ -293,7 +310,11 @@ namespace src.PuckMan.Game.Levels
                     !IsWall(Right(x * cellSize, y * cellSize, cellSize)))
                 {
                     MazeMatrix[x, y].IsWall = false;
-                    MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.coeur;
+                    MazeMatrix[x, y].Image.Hide();
+                    Collectable soin = new Collectable("soin", x * cellSize, y * cellSize);
+                    MazeForm.Controls.Add(soin.Image);
+                    soin.Image.BringToFront();
+                    Entities[x * cellSize, y * cellSize] = soin;
                 }
             }
         }
@@ -305,9 +326,10 @@ namespace src.PuckMan.Game.Levels
             height = mazeHeight;
             MazeMatrix = new Cell[width, height];
             Entities = new Entity[width * cellSize, height * cellSize];
-            numGeneratedFragments = 5;
-            numberOfOpponents = 2;
+            numGeneratedFragments = 1;
+            numberOfOpponents = 1;
             EnemyList = new List<Enemy>();
+            FragmentList = new List<Collectable>();
             InitMaze();
             //RandomMazeGeneration();
             MazeGenerationByDFS();

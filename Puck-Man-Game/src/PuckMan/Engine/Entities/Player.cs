@@ -22,6 +22,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         // Propriétés du Player
         public int Level { get; set; }
         public Maze Maze;
+        public bool isDead;
 
         // Timer pour gérer le déplacemet continu
         private readonly Timer moveTimer;
@@ -38,10 +39,13 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         public System.Drawing.Image ImageRight { get; set; }
         public System.Drawing.Image ImageIdle { get; set; } // Image du joueur à l'arrêt
 
+        public int maxHP;
         // Constructeur
         public Player(string name, int hp, int level, int x, int y, Maze maze) : base(x, y, name)
         {
+            isDead = false;
             HP = hp;
+            maxHP = hp;
             Level = level;
             Maze = maze;
             EntitySpeed = Maze.cellSize;
@@ -62,6 +66,9 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         private void MoveTimer_Tick(object sender, EventArgs e)
         {
+            // Gestion des interactions avec les entités
+            HandleEnemyInteractions();
+            HandleEntityInteractions();
             if (moveDeltaX != 0 || moveDeltaY != 0)
             {
                 MovePlayer(moveDeltaX, moveDeltaY);
@@ -100,53 +107,35 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 Image.Image = ImageDown;
             }
         }
-        public void MovePlayer(int deltaX, int deltaY)
+        public bool MovePlayer(int deltaX, int deltaY)
         {
             // Vérifie les collisions avec les murs
             if (CheckWallCollision(deltaX, deltaY))
             {
+                Maze.Entities[X, Y] = null;
                 moveDeltaX = 0;
                 moveDeltaY = 0;
                 Image.Image = ImageIdle;
-                return;
+                Maze.Entities[X, Y] = this;
+                return false; // Le joueur entre en collision avec un mur, on ne le déplace pas
             }
-                // Le joueur entre en collision avec un mur, on ne le déplace pas
-
-
+                
             // Déplacement uniquement si aucune collision
-            X += deltaX * EntitySpeed * 2;
-            Y += deltaY * EntitySpeed * 2;
+            X += deltaX * EntitySpeed;
+            Y += deltaY * EntitySpeed ;
 
             lastValidDeltaX = deltaX;
             lastValidDeltaY = deltaY;
 
-            // Gestion des interactions avec les entités
-            HandleEnemyInteractions(X, Y);
-            HandleEntityInteractions();
-
-            // Met à jour l'emplacement de l'image
+            // Met à jour l'affichage
             Image.Location = new Point(X, Y);
             UpdateSkin(deltaX, deltaY);
+            return true;
         }
-
         private bool CheckWallCollision(int deltaX, int deltaY)
         {
             Rectangle newBounds = new Rectangle(X + deltaX, Y + deltaY, Image.Width, Image.Height);
-            List<Cell> neighbors = new List<Cell>();
-            Cell topConnection = Maze.Top(X, Y, Maze.cellSize);
-            Cell bottomConnection = Maze.Bottom(X, Y, Maze.cellSize);
-            Cell leftConnection = Maze.Left(X, Y, Maze.cellSize);
-            Cell rightConnection = Maze.Right(X, Y, Maze.cellSize);
-
-            if (topConnection != null)
-                neighbors.Add(topConnection);
-            if (bottomConnection != null)
-                neighbors.Add(bottomConnection);
-            if (leftConnection != null)
-                neighbors.Add(leftConnection);
-            if (rightConnection != null)
-                neighbors.Add(rightConnection);
-
+            List<Cell> neighbors = Maze.GetNeighborCells(X, Y);
             foreach (Cell myCell in neighbors)
             {
                 if (myCell.IsWall && newBounds.IntersectsWith(new Rectangle(myCell.X, myCell.Y, myCell.Image.Width, myCell.Image.Height)))
@@ -155,7 +144,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
             return false; // Pas de collision avec un mur
         }
-        private void HandleEnemyInteractions(int newX, int newY)
+        private void HandleEnemyInteractions()
         {
             foreach (Enemy adversaire in Maze.EnemyList)
             {
@@ -169,7 +158,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         {
             if (Maze.Entities[X, Y] != null)
             {
-                if (Maze.Entities[X, Y] is Collectable collectable && collectable.EntityName == "fragment")
+                if (Maze.Entities[X, Y] is Collectable collectable)
                 {
                     collectable.Collecte(Maze.MazeForm);
                 }
@@ -179,16 +168,28 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         public void DamageReceived(int hitDamage)
         {
             HP -= hitDamage;
-            Debug.WriteLine(HP);
             Maze.MazeForm.UpdateHPdisplay();
             if (HP <= 0)
                 HandlePlayerDeath();
+        }
 
+        public void Heal(int healValue)
+        {
+            if (HP + healValue > maxHP)
+                HP = maxHP;
+            else
+                HP += healValue;
+            Debug.WriteLine(HP);
+            Maze.MazeForm.UpdateHPdisplay();
         }
 
         public void HandlePlayerDeath()
         {
-            Program.LoadScene(typeof(NouvellePartie), Maze.MazeForm);
+            if (!isDead)
+            {
+                isDead = true;
+                Program.LoadScene(typeof(NouvellePartie), Maze.MazeForm);
+            }
         }
 
         public void PlayerKeyDown(object sender, KeyEventArgs e)

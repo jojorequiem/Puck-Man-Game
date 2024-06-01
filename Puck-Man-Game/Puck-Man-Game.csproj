@@ -56,8 +56,8 @@
     </Compile>
     <Compile Include="src\PuckMan\Engine\Entities\Player.cs" />
     <Compile Include="src\PuckMan\Engine\Entities\Enemy.cs" />
-    <Compile Include="src\PuckMan\Engine\Entities\Entity.cs" />
-    <Compile Include="src\PuckMan\Game\Collectable.cs" />
+    <Compile Include="src\PuckMan\Engine\Components\Entity.cs" />
+    <Compile Include="src\PuckMan\Engine\Entities\Collectable.cs" />
     <Compile Include="src\PuckMan\Game\Levels\Cell.cs" />
     <Compile Include="src\PuckMan\Game\Levels\Maze.cs" />
     <Compile Include="src\PuckMan\Game\Program.cs" />
@@ -74,7 +74,7 @@
     <Compile Include="src\PuckMan\UI\Screens\Dialogue.Designer.cs">
       <DependentUpon>Dialogue.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FormComponent.cs">
+    <Compile Include="src\PuckMan\UI\FormComponent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\Menu.cs">
@@ -88,6 +88,12 @@
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\MenuParametreJouer.Designer.cs">
       <DependentUpon>MenuParametreJouer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\ModeHistoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\ModeHistoire.Designer.cs">
+      <DependentUpon>ModeHistoire.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\NiveauSuivant.cs">
       <SubType>Form</SubType>
@@ -123,6 +129,9 @@
     <EmbeddedResource Include="src\PuckMan\UI\Screens\MenuParametreJouer.resx">
       <DependentUpon>MenuParametreJouer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\ModeHistoire.resx">
+      <DependentUpon>ModeHistoire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\NiveauSuivant.resx">
       <DependentUpon>NiveauSuivant.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,7 +142,6 @@
       <DependentUpon>Parametres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="assets\fonts\fonts_pixel_art.ttf" />
-    <None Include="docs\temp.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -146,26 +154,32 @@
     <None Include="README.md" />
     <None Include="assets\temp.md" />
     <None Include="src\PuckMan\Engine\Components\temp.md" />
-    <None Include="src\PuckMan\Engine\Scenes\temp.md" />
     <None Include="src\PuckMan\Engine\temp.md" />
-    <None Include="src\PuckMan\Game\Items\temp.md" />
-    <None Include="src\PuckMan\Game\Mechanics\temp.md" />
-    <None Include="src\PuckMan\UI\Controls\temp.md" />
-    <None Include="src\Tests\IntegrationTests\temp.md" />
-    <None Include="src\Tests\temp.md" />
-    <None Include="src\Tests\UnitTests\temp.md" />
-    <None Include="tools\temp.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\dialogue\chapitre1_p2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="src\PuckMan\UI\Screens\chapitre1_p1.txt" />
+    <Content Include="src\PuckMan\UI\Screens\chapitre1_p2.txt" />
     <None Include="Resources\rightGif128.gif" />
     <None Include="Resources\leftGif128.gif" />
     <None Include="Resources\bottomGif128.gif" />
     <None Include="Resources\topGif128.gif" />
     <None Include="assets\background.png" />
     <None Include="assets\coeur.png" />
+    <Content Include="assets\audio\menu_music.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\audio\musiqueMenu.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\dialogue\chapitre1_p1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\fragment.png" />
     <Content Include="assets\joueur.png" />
     <Content Include="assets\mur.png" />
@@ -173,8 +187,17 @@
     <Content Include="assets\vide.png" />
     <Content Include="assets\égaré.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="src\PuckMan\Assets\" />
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
