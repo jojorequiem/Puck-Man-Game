@@ -26,7 +26,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
     public partial class NouvellePartie : FormComponent
     {
         public bool ModeHistoire;
-        static public Player P1 { get; set; }
+        public Player P1 { get; set; }
       
         public NouvellePartie() : base()
         {
@@ -37,13 +37,22 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.KeyDown += (sender, e) => P1.PlayerKeyDown(sender, e);
             this.KeyUp += (sender, e) => P1.PlayerKeyUp(sender, e);
             ModeHistoire = true;
+            if (ModeHistoire)
+                Program.PlayMusic("assets/audio/musiqueModeHistoire.mp3");
+            else
+                Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
 
-            //Maze instanceMaze = new Maze(this, 25, 19);
-            Maze instanceMaze = new Maze(this, 11, 7);
-            P1 = new Player("Dodonut", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
+            //Maze instanceMaze = new Maze(this, 25, 15);
+            Maze instanceMaze = new Maze(this, 7, 5);
+            P1 = new Player("joueur", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
             instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
-            instanceMaze.GenerateFragments(typeof(Collectable), "fragment", instanceMaze.numGeneratedFragments);
-            instanceMaze.GenerateEnemies("égaré", instanceMaze.numberOfOpponents); // Modification de cette ligne
+            instanceMaze.GenerateCollectable("fragment", instanceMaze.numGeneratedFragments);
+            //instanceMaze.GenerateCollectable("potion degat", 1);
+            instanceMaze.GenerateCollectable("portail teleportation", 1);
+            instanceMaze.GenerateEnemy("égaré", instanceMaze.numberOfOpponents);
+
+            instanceMaze.DisplayMazeMatrix();
+
             LblFragmentCollecte.Text = "0";
             LblFragmentGenere.Text = instanceMaze.numGeneratedFragments.ToString();
 
@@ -56,7 +65,15 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             P1.Maze.EnemyList.Clear();
             P1.Maze.FragmentList.Clear();
-            
+            P1.Maze.MazeForm.Dispose();
+            for (int x = 0; x < P1.Maze.width; x++)
+            {
+                for (int y = 0; y < P1.Maze.height; y++)
+                {
+                    P1.Maze.Entities[x, y] = null;
+                }
+            }
+            Dispose();
         }
 
         public void UpdateHPdisplay()
@@ -70,6 +87,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         public void NiveauSuivant()
         {
+            Program.PlayMusic("assets/audio/finishLevel.wav");
             Debug.WriteLine("NIVEAU SUIVANT");
             Destructeur();
             P1.isDead = true;

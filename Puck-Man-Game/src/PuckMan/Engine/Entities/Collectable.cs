@@ -1,11 +1,14 @@
 ﻿ using Puck_Man_Game.src.PuckMan.Engine.Entities;
+using Puck_Man_Game.src.PuckMan.Game.Entities;
 using Puck_Man_Game.src.PuckMan.UI.Screens;
+using src.PuckMan.Game.Levels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +25,11 @@ namespace Puck_Man_Game.src.PuckMan.Game
             if (EntityName == "fragment")
                 Image.Image = Puck_Man_Game.Properties.Resources.fragment;
             if (EntityName == "soin")
-                Image.Image = Puck_Man_Game.Properties.Resources.coeur;
+                Image.Image = Puck_Man_Game.Properties.Resources.healPotion;
+            if (EntityName == "potion degat")
+                Image.Image = Puck_Man_Game.Properties.Resources.deathPotion;
+            if (EntityName == "portail teleportation")
+                Image.Image = Puck_Man_Game.Properties.Resources.portal;
 
         }
         public void Collecte(NouvellePartie Formulaire)
@@ -31,11 +38,12 @@ namespace Puck_Man_Game.src.PuckMan.Game
             {
                 DejaCollecte = true;
                 Image.Hide();
+                Player player = Formulaire.P1;
                 if (EntityName == "fragment")
                 {
-                    NouvellePartie.P1.Maze.FragmentList.Remove(this);
+                    player.Maze.FragmentList.Remove(this);
                     Formulaire.UpdateFragmentdisplay();
-                    if (NouvellePartie.P1.Maze.FragmentList.Count() <= 0)
+                    if (player.Maze.FragmentList.Count() <= 0)
                     {
                         Formulaire.NiveauSuivant();
                     }
@@ -43,8 +51,46 @@ namespace Puck_Man_Game.src.PuckMan.Game
 
                 else if (EntityName == "soin")
                 {
-                    NouvellePartie.P1.Heal(1);
+                    player.Heal(1);
                 }
+
+                else if (EntityName == "potion degat")
+                {
+                    player.DamageReceived(1);
+                }
+
+                else if (EntityName == "portail teleportation")
+                {
+                    DejaCollecte = false;
+                    Image.Show();
+                    int newX = 0;int newY = 0;
+                    while (player.Maze.MazeMatrix[newX / Maze.cellSize, newY / Maze.cellSize].IsWall || player.Maze.Entities[newX, newY] !=null)
+                    {
+                        Random random = new Random();
+                        newX = random.Next(1,player.Maze.width-1) * Maze.cellSize;
+                        newY = random.Next(1,player.Maze.height-1) * Maze.cellSize;
+                    }
+                    //téléporter le joueur
+                    player.Maze.Entities[player.X, player.Y] = null;
+                    player.X = newX;
+                    player.Y = newY;
+                    player.Maze.Entities[newX, newY] = player;
+                    player.Image.Location = new Point(newX, newY);
+
+                    //teleporter le portail aussi
+                    while (player.Maze.MazeMatrix[newX / Maze.cellSize, newY / Maze.cellSize].IsWall || player.Maze.Entities[newX, newY] != null)
+                    {
+                        Random random = new Random();
+                        newX = random.Next(1, player.Maze.width - 1) * Maze.cellSize;
+                        newY = random.Next(1, player.Maze.height - 1) * Maze.cellSize;
+                    }
+                    player.Maze.Entities[X, Y] = null;
+                    X = newX; Y = newY;
+                    Image.Location = new Point(X, Y);
+                    player.Maze.Entities[X, Y] = this;
+                }
+
+                
 
             }
         }

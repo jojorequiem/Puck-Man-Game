@@ -18,12 +18,14 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             InitializeComponent();
         }
 
-        private void btnRetour_Click(object sender, EventArgs e)
+
+
+        private void BtnRetour_Click(object sender, EventArgs e)
         {
             DisplayForm(new Menu(), this);
         }
 
-        private void btnNouvellePartie_Click(object sender, EventArgs e)
+        private void BtnNouvellePartie_Click(object sender, EventArgs e)
         {
             DisplayForm(new ModeHistoire(), this);
         }

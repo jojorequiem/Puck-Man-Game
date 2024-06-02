@@ -32,16 +32,17 @@
             this.LblTitre = new System.Windows.Forms.Label();
             this.Panel = new System.Windows.Forms.Panel();
             this.FlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnSkip = new System.Windows.Forms.Button();
             this.Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnDialogueSuivant
             // 
             this.BtnDialogueSuivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.BtnDialogueSuivant.Location = new System.Drawing.Point(321, 594);
+            this.BtnDialogueSuivant.Location = new System.Drawing.Point(805, 594);
             this.BtnDialogueSuivant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDialogueSuivant.Name = "BtnDialogueSuivant";
-            this.BtnDialogueSuivant.Size = new System.Drawing.Size(932, 85);
+            this.BtnDialogueSuivant.Size = new System.Drawing.Size(445, 85);
             this.BtnDialogueSuivant.TabIndex = 2;
             this.BtnDialogueSuivant.Text = "Suivant";
             this.BtnDialogueSuivant.UseVisualStyleBackColor = true;
@@ -77,12 +78,25 @@
             this.FlowPanel.Size = new System.Drawing.Size(873, 438);
             this.FlowPanel.TabIndex = 0;
             // 
+            // BtnSkip
+            // 
+            this.BtnSkip.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.BtnSkip.Location = new System.Drawing.Point(321, 594);
+            this.BtnSkip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnSkip.Name = "BtnSkip";
+            this.BtnSkip.Size = new System.Drawing.Size(445, 85);
+            this.BtnSkip.TabIndex = 12;
+            this.BtnSkip.Text = "Passer";
+            this.BtnSkip.UseVisualStyleBackColor = true;
+            this.BtnSkip.Click += new System.EventHandler(this.BtnSkip_Click);
+            // 
             // Dialogue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1576, 927);
+            this.Controls.Add(this.BtnSkip);
             this.Controls.Add(this.Panel);
             this.Controls.Add(this.LblTitre);
             this.Controls.Add(this.BtnDialogueSuivant);
@@ -103,5 +117,6 @@
         private System.Windows.Forms.Label LblTitre;
         private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.FlowLayoutPanel FlowPanel;
+        private System.Windows.Forms.Button BtnSkip;
     }
 }

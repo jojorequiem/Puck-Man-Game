@@ -20,9 +20,9 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         private readonly Timer moveEnemyTimer;
         private Point previousDirection;
 
-        public Enemy(string name, int hp, int x, int y, Maze maze) : base(x, y, name)
+        public Enemy(string name, int x, int y, Maze maze) : base(x, y, name)
         {
-            HP = hp;
+            HP = 3;
             Maze = maze;
             EntitySpeed = Maze.cellSize;
             Image.Image = Puck_Man_Game.Properties.Resources.joueur;

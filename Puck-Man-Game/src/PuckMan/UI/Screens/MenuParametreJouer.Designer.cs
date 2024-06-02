@@ -44,7 +44,7 @@
             this.btnNouvellePartie.TabIndex = 1;
             this.btnNouvellePartie.Text = "HISTOIRE";
             this.btnNouvellePartie.UseVisualStyleBackColor = true;
-            this.btnNouvellePartie.Click += new System.EventHandler(this.btnNouvellePartie_Click);
+            this.btnNouvellePartie.Click += new System.EventHandler(this.BtnNouvellePartie_Click);
             // 
             // BtnModeInfini
             // 
@@ -68,7 +68,7 @@
             this.btnRetour.TabIndex = 3;
             this.btnRetour.Text = "RETOUR";
             this.btnRetour.UseVisualStyleBackColor = true;
-            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
+            this.btnRetour.Click += new System.EventHandler(this.BtnRetour_Click);
             // 
             // lblTitreMenuPrincipal
             // 

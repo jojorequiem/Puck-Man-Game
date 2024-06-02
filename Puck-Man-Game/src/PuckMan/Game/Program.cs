@@ -18,8 +18,7 @@ namespace Puck_Man_Game
         public static Color TextColor = Color.White;
         public static Color ButtonColor = Color.DarkGray;
 
-        private static WindowsMediaPlayer music2;
-        private static System.Media.SoundPlayer music;
+        private static WindowsMediaPlayer music;
         public static int VolumePrincipale;
         public static int VolumeSon;
         public static int VolumeMusique;
@@ -34,8 +33,7 @@ namespace Puck_Man_Game
             VolumePrincipale = 10;
             VolumeSon = 10;
             VolumeMusique = 10;
-            PlayMusic();
-
+            PlayMusic("assets/audio/musiqueMenu.mp3");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new src.PuckMan.UI.Menu());
@@ -44,20 +42,29 @@ namespace Puck_Man_Game
 
         static public void UpdateVolume()
         {
-            music2.settings.volume = VolumePrincipale * 10;
+            music.settings.volume = VolumeMusique * VolumePrincipale;
         }
-        static public void PlayMusic()
-        {
-            //pour wav mais j'arrive pas a changer le volume
-            //music = new System.Media.SoundPlayer();
-            //music.SoundLocation = "assets/audio/musiqueMenu.wav";
-            //music.Play();
 
-            //pour les fichiers mp3
-            music2 = new WindowsMediaPlayer();
-            music2.URL = "assets/audio/menu_music.mp3";
-            music2.settings.volume = VolumePrincipale * 10;
-            music2.controls.play();
+        static public void PlaySound(string path)
+        {
+            WindowsMediaPlayer sound = new WindowsMediaPlayer
+            {
+                URL = path
+            };
+            sound.settings.volume = VolumeSon * VolumePrincipale;
+            sound.controls.play();
+        }
+
+        static public void PlayMusic(string path)
+        {
+           if (music != null)
+                music.close();
+            music = new WindowsMediaPlayer{
+                URL = path
+            };
+            
+            music.settings.volume = VolumePrincipale * 10;
+            music.controls.play();
         }
 
         static public void LoadScene(Type type, Form formulaire)

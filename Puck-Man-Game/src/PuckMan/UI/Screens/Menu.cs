@@ -19,24 +19,19 @@ namespace Puck_Man_Game.src.PuckMan.UI
             InitializeComponent();
         }
 
-        private void btnJouer_Click(object sender, EventArgs e)
-        {
-            DisplayForm(new MenuParametreJouer(), this);
-        }
-
-        private void btnClassement_Click(object sender, EventArgs e)
-        {
-            DisplayForm(new Classement(), this);
-        }
-
-        private void btnParametres_Click(object sender, EventArgs e)
+        private void BtnParametres_Click(object sender, EventArgs e)
         {
             DisplayForm(new Parametres(), this);
         }
 
-        private void btnQuitter_Click(object sender, EventArgs e)
+        private void BtnQuitter_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void BtnJouer_Click(object sender, EventArgs e)
+        {
+            DisplayForm(new MenuParametreJouer(), this);
         }
     }
 }

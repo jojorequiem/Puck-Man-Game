@@ -1,5 +1,6 @@
 ﻿using Puck_Man_Game.src.PuckMan.Engine.Entities;
 using Puck_Man_Game.src.PuckMan.Game;
+using Puck_Man_Game.src.PuckMan.Game.Entities;
 using Puck_Man_Game.src.PuckMan.Game.Levels;
 using Puck_Man_Game.src.PuckMan.UI.Screens;
 using System;
@@ -24,8 +25,10 @@ namespace src.PuckMan.Game.Levels
         public Cell[,] VisitedNodes { get; set; }
         public Entity[,] Entities { get; set; }
         public List<Enemy> EnemyList { get; set; }
+
         public List<Collectable> FragmentList { get; set; }
 
+        public string stringMazeMatrix;
         public int width;
         public int height;
         public int startX;
@@ -33,6 +36,22 @@ namespace src.PuckMan.Game.Levels
         public int numGeneratedFragments;
         public int numberOfOpponents;
         public NouvellePartie MazeForm;
+        public Maze(NouvellePartie form, int mazeWidth, int mazeHeight)
+        {
+            MazeForm = form;
+            width = mazeWidth;
+            height = mazeHeight;
+            MazeMatrix = new Cell[width, height];
+            Entities = new Entity[width * cellSize, height * cellSize];
+            numGeneratedFragments = 1;
+            numberOfOpponents = 1;
+            EnemyList = new List<Enemy>();
+            FragmentList = new List<Collectable>();
+            InitMaze();
+            //RandomMazeGeneration();
+            MazeGenerationByDFS();
+            DisplayMaze();
+        }
 
         public int GetValidCoordinates(int start, int end)
         {
@@ -62,29 +81,33 @@ namespace src.PuckMan.Game.Levels
         //return respectivement le neighbor du dessus, du dessous, à gauche, à droite
         public Cell Top(int x, int y, int step)
         {
-            if (y - step >= 0)
-                return MazeMatrix[x / cellSize, (y - step) / cellSize];
+            int newY = (y - step) / cellSize;
+            if (newY >= 0 && x / cellSize < width)
+                return MazeMatrix[x / cellSize, newY];
             return null;
         }
 
         public Cell Bottom(int x, int y, int step)
         {
-            if (y + step < height * cellSize)
-                return MazeMatrix[x / cellSize, (y + step) / cellSize];
+            int newY = (y + step) / cellSize;
+            if (newY < height && x / cellSize < width)
+                return MazeMatrix[x / cellSize, newY];
             return null;
         }
 
         public Cell Left(int x, int y, int step)
         {
-            if (x - step >= 0)
-                return MazeMatrix[(x - step) / cellSize, y / cellSize];
+            int newX = (x - step) / cellSize;
+            if (newX >= 0 && y / cellSize < height)
+                return MazeMatrix[newX, y / cellSize];
             return null;
         }
 
         public Cell Right(int x, int y, int step)
         {
-            if (x + step < width * cellSize)
-                return MazeMatrix[(x + step) / cellSize, y / cellSize];
+            int newX = (x + step) / cellSize;
+            if (newX < width && y / cellSize < height)
+                return MazeMatrix[newX, y / cellSize];
             return null;
         }
 
@@ -124,7 +147,7 @@ namespace src.PuckMan.Game.Levels
                     if ((x == 0 || x == width - 1 || y == 0 || y == height - 1)
                         || ((x + y) % 2 == 0 && x % 2 == 0))
                     {
-                        cell.Image.Image = Puck_Man_Game.Properties.Resources.mur;
+                        cell.Image.Image = Puck_Man_Game.Properties.Resources.mur2;
                         cell.IsWall = true;
                     }
                     else if ((x + y) % 2 == 0 && x % 2 != 0)
@@ -233,73 +256,112 @@ namespace src.PuckMan.Game.Levels
             }
         }
 
-        public void DisplayMazeMatrix()
+
+        public void ReplaceMatrixWithEntity(string entityCodeName, int X, int Y)
         {
-            string MazeMatrixString = "";
+            int index = (Y * (width * 2 + 1)) + (X * 2);
+            if (index < stringMazeMatrix.Length)
+            {
+                stringMazeMatrix = stringMazeMatrix.Substring(0, index) + entityCodeName + stringMazeMatrix.Substring(index + 1);
+            }
+            else
+            {
+                Debug.WriteLine("Player position is out of bounds.");
+            }
+        }
+        public string DisplayMazeMatrix()
+        {
+            ReplaceMatrixWithEntity("J", startX, startY);
+            foreach(Enemy enemy in EnemyList)
+            {
+                ReplaceMatrixWithEntity("E", enemy.X/cellSize, enemy.Y / cellSize);
+            }
+            foreach (Collectable fragment in FragmentList)
+            {
+                ReplaceMatrixWithEntity("F", fragment.X / cellSize, fragment.Y / cellSize);
+            }
+
+            foreach (Entity entity in Entities)
+            {
+                if (entity!= null)
+                {
+                    string codeName = "F";
+                    if (entity.EntityName == "égaré") codeName = "E";
+                    if (entity.EntityName == "soin") codeName = "H";
+                    if (entity.EntityName == "potion degat") codeName = "D";
+                    if (entity.EntityName == "portail teleportation") codeName = "T";
+                    if (entity is Player) codeName = "J";
+
+                    ReplaceMatrixWithEntity(codeName, entity.X / cellSize, entity.Y / cellSize);
+                }
+                    
+            }
+
+            for (int i = 0; i < stringMazeMatrix.Length; i++)
+                Debug.Write(stringMazeMatrix[i]);
+            return stringMazeMatrix;
+        }
+
+        public void DisplayMaze()
+        {
+            string strMazeMatrix = "";
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
                     RemoveIsolatedWalls(x, y);
                     if (MazeMatrix[x, y].IsWall == true)
-                        MazeMatrixString += "X ";
+                        strMazeMatrix += "X ";
                     else
-                        MazeMatrixString += ". ";
+                        strMazeMatrix += ". ";
 
                     //on ajoute les Cells au formulaire (sinon aucun affichage)
                     MazeForm.Controls.Add(MazeMatrix[x, y].Image);
                 }
-                MazeMatrixString += "\n";
+                strMazeMatrix += "\n";
             }
-            Debug.Write(MazeMatrix);
+            stringMazeMatrix = strMazeMatrix;
         }
 
-        public void GenerateFragments(Type type, string name, int number)
+        public void GenerateCollectable(string name, int number)
         {
             while (number > 0)
             {
                 int x = GetValidCoordinates(1, width - 1);
                 int y = GetValidCoordinates(1, height - 1);
-                // Vérifier s'il n'y a rien déjà à l'endroit prévu
+                // Vérifier s'il n'y a pas déjà une entité à l'endroit choisi
                 if (Entities[x * cellSize, y * cellSize] is null)
                 {
-                    //Entity fragment = (Entity)Activator.CreateInstance(type, name, x * cellSize, y * cellSize);
-                    Collectable fragment = new Collectable(name, x * cellSize, y * cellSize);
-                    MazeForm.Controls.Add(fragment.Image);
-                    fragment.Image.BringToFront();
-                    FragmentList.Add(fragment);
+                    Collectable instance = new Collectable(name, x * cellSize, y * cellSize);
+                    if (name == "fragment")
+                    {
+                        FragmentList.Add(instance);
+                    }
+                    MazeForm.Controls.Add(instance.Image);
+                    instance.Image.BringToFront();
                     number -= 1;
-                    Entities[x * cellSize, y * cellSize] = fragment;
+                    Entities[x * cellSize, y * cellSize] = instance;
                 }
             }
         }
-
-        public void GenerateEnemies(string name, int number)
+        public void GenerateEnemy(string name, int number)
         {
             while (number > 0)
             {
                 int x = GetValidCoordinates(1, width - 1);
                 int y = GetValidCoordinates(1, height - 1);
-
-                // Vérifier si l'emplacement est vide
+                // Vérifier s'il n'y a pas déjà une entité à l'endroit choisi
                 if (Entities[x * cellSize, y * cellSize] is null)
                 {
-                    // Créer une instance de la classe Enemy avec les attributs spécifiques
-                    Enemy enemy = new Enemy(name, 3, x * cellSize, y * cellSize, this); // Changer les valeurs par défaut si nécessaire
-
-                    // Ajouter l'image de l'ennemi au formulaire
-                    MazeForm.Controls.Add(enemy.Image);
-                    enemy.Image.BringToFront();
-                    EnemyList.Add(enemy);
-                    // Décrémenter le nombre d'ennemis restants à générer
+                    Enemy instance = new Enemy(name, x * cellSize, y * cellSize, this);
+                    EnemyList.Add(instance);
+                    MazeForm.Controls.Add(instance.Image);
+                    instance.Image.BringToFront();
                     number -= 1;
-
-                    // Ajouter l'ennemi à la matrice d'entités
-                    Entities[x * cellSize, y * cellSize] = enemy;
+                    Entities[x * cellSize, y * cellSize] = instance;
                 }
             }
-        }
-        
+        }          
         public void RemoveIsolatedWalls(int x, int y)
         {
             if (x % 2 == 0 && y % 2 == 0)
@@ -317,23 +379,6 @@ namespace src.PuckMan.Game.Levels
                     Entities[x * cellSize, y * cellSize] = soin;
                 }
             }
-        }
-
-        public Maze(NouvellePartie form, int mazeWidth, int mazeHeight)
-        {
-            MazeForm = form;
-            width = mazeWidth;
-            height = mazeHeight;
-            MazeMatrix = new Cell[width, height];
-            Entities = new Entity[width * cellSize, height * cellSize];
-            numGeneratedFragments = 1;
-            numberOfOpponents = 1;
-            EnemyList = new List<Enemy>();
-            FragmentList = new List<Collectable>();
-            InitMaze();
-            //RandomMazeGeneration();
-            MazeGenerationByDFS();
-            DisplayMazeMatrix();
         }
     }
 }

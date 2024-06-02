@@ -10,7 +10,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public partial class Dialogue : FormComponent
     {
-        private int yPosition = 0;
         private int nbrLine;
         private string Chapitre;
         private bool dialogueFini;
@@ -18,6 +17,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public Dialogue() : base()
         {
             InitializeComponent();
+            Program.PlayMusic("assets/audio/musiqueDialogue.mp3");
             dialogueFini = false;
             Chapitre = "chapitre1_p2.txt";
             nbrLine = 1;
@@ -75,6 +75,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     GenererDialogue(lines[nbrLine - 1]);
                 }
             }
+        }
+
+        private void BtnSkip_Click(object sender, EventArgs e)
+        {
+            Program.LoadScene(typeof(NouvellePartie), this);
         }
     }
 }

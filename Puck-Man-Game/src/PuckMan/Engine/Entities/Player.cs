@@ -12,6 +12,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
 using static System.Net.Mime.MediaTypeNames;
 
 
@@ -66,6 +67,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         private void MoveTimer_Tick(object sender, EventArgs e)
         {
+            if (isDead) return;
             // Gestion des interactions avec les entités
             HandleEnemyInteractions();
             HandleEntityInteractions();
@@ -107,23 +109,25 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 Image.Image = ImageDown;
             }
         }
+
         public bool MovePlayer(int deltaX, int deltaY)
         {
             // Vérifie les collisions avec les murs
             if (CheckWallCollision(deltaX, deltaY))
             {
-                Maze.Entities[X, Y] = null;
+                
                 moveDeltaX = 0;
                 moveDeltaY = 0;
                 Image.Image = ImageIdle;
-                Maze.Entities[X, Y] = this;
+                
                 return false; // Le joueur entre en collision avec un mur, on ne le déplace pas
             }
-                
+
+            //Maze.Entities[X, Y] = null;
             // Déplacement uniquement si aucune collision
             X += deltaX * EntitySpeed;
             Y += deltaY * EntitySpeed ;
-
+            //Maze.Entities[X, Y] = this;
             lastValidDeltaX = deltaX;
             lastValidDeltaY = deltaY;
 
@@ -156,21 +160,26 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         private void HandleEntityInteractions()
         {
-            if (Maze.Entities[X, Y] != null)
+            if (X >= 0 && X < Maze.Entities.GetLength(0) && Y >= 0 && Y < Maze.Entities.GetLength(1))
             {
-                if (Maze.Entities[X, Y] is Collectable collectable)
+                if (Maze.Entities[X, Y] != null)
                 {
-                    collectable.Collecte(Maze.MazeForm);
+                    if (Maze.Entities[X, Y] is Collectable collectable)
+                    {
+                        collectable.Collecte(Maze.MazeForm);
+                    }
                 }
             }
         }
 
         public void DamageReceived(int hitDamage)
         {
+            if (isDead) return;
             HP -= hitDamage;
             Maze.MazeForm.UpdateHPdisplay();
             if (HP <= 0)
                 HandlePlayerDeath();
+            Program.PlaySound("assets/audio/takeDamage.wav");
         }
 
         public void Heal(int healValue)
@@ -194,6 +203,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         public void PlayerKeyDown(object sender, KeyEventArgs e)
         {
+            Debug.WriteLine(X + " " + Y);
             switch (e.KeyCode)
             {
                 case Keys.Left:

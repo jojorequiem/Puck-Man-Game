@@ -20,7 +20,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             this.Load += FormComponent_Load;
         }
-        private const string fontFilePath = "asset/fonts/fonts_pixel_art.ttf";
         private void FormComponent_Load(object sender, EventArgs e)
         {
             //LoadFont();
