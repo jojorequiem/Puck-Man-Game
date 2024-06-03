@@ -182,6 +182,12 @@
     <Content Include="assets\healPotion.png" />
     <Content Include="assets\mur2.png" />
     <Content Include="Resources\portal.gif" />
+    <Content Include="src\PuckMan\Game\Levels\matricesNiveaux.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="src\PuckMan\Game\Levels\modeHistoire.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="src\PuckMan\UI\Screens\musiqueDialogue.mp3" />
     <None Include="Resources\rightGif128.gif" />
     <None Include="Resources\leftGif128.gif" />

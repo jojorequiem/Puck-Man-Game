@@ -32,7 +32,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnModeInfini_Click(object sender, EventArgs e)
         {
-            DisplayForm(new NouvellePartie(), this);
+            DisplayForm(new NouvellePartie(false, 0), this);
         }
     }
 }

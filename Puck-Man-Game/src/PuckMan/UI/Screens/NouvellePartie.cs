@@ -26,9 +26,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
     public partial class NouvellePartie : FormComponent
     {
         public bool ModeHistoire;
+        public int NiveauActuel;
         public Player P1 { get; set; }
       
-        public NouvellePartie() : base()
+        public NouvellePartie(bool modeHistoire, int niveauActuel) : base()
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -36,23 +37,25 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.DoubleBuffered = true;
             this.KeyDown += (sender, e) => P1.PlayerKeyDown(sender, e);
             this.KeyUp += (sender, e) => P1.PlayerKeyUp(sender, e);
-            ModeHistoire = true;
-            if (ModeHistoire)
-                Program.PlayMusic("assets/audio/musiqueModeHistoire.mp3");
-            else
-                Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
+            ModeHistoire = modeHistoire;
+            NiveauActuel = niveauActuel;
 
             //Maze instanceMaze = new Maze(this, 25, 15);
             Maze instanceMaze = new Maze(this, 7, 5);
             P1 = new Player("joueur", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
             instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
-            instanceMaze.GenerateCollectable("fragment", instanceMaze.numGeneratedFragments);
-            //instanceMaze.GenerateCollectable("potion degat", 1);
-            instanceMaze.GenerateCollectable("portail teleportation", 1);
-            instanceMaze.GenerateEnemy("égaré", instanceMaze.numberOfOpponents);
 
-            instanceMaze.DisplayMazeMatrix();
-
+            if (ModeHistoire)
+                Program.PlayMusic("assets/audio/musiqueModeHistoire.mp3");
+            else
+            {
+                Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
+                instanceMaze.GenerateCollectable("fragment", instanceMaze.numGeneratedFragments);
+                //instanceMaze.GenerateCollectable("potion degat", 1);
+                instanceMaze.GenerateCollectable("portail teleportation", 1);
+                instanceMaze.GenerateEnemy("égaré", instanceMaze.numberOfOpponents);
+                instanceMaze.DisplayMazeMatrix();
+            }
             LblFragmentCollecte.Text = "0";
             LblFragmentGenere.Text = instanceMaze.numGeneratedFragments.ToString();
 

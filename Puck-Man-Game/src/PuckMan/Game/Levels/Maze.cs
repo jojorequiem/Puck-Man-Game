@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers; // Importe le namespace System.Timers
@@ -49,8 +50,10 @@ namespace src.PuckMan.Game.Levels
             FragmentList = new List<Collectable>();
             InitMaze();
             //RandomMazeGeneration();
-            MazeGenerationByDFS();
+            //MazeGenerationByDFS();
+            MazeGenerationFromMatrix(MazeForm.NiveauActuel);
             DisplayMaze();
+            //DisplayMazeMatrix();
         }
 
         public int GetValidCoordinates(int start, int end)
@@ -255,6 +258,93 @@ namespace src.PuckMan.Game.Levels
                 }
             }
         }
+
+
+
+
+
+
+
+
+
+
+        //MATRIX CODE -----------------------------------------------------------------------------------------------------
+        public void MazeGenerationFromMatrix(int niveau)
+        {
+            Debug.Write(niveau);
+            string filePath = "src/PuckMan/Game/Levels/matricesNiveaux.txt";
+            if (File.Exists(filePath))
+            {
+                string[] lines = File.ReadAllLines(filePath, Encoding.UTF8);
+                bool isCorrectLevel = false;
+                List<string> matrixLines = new List<string>();
+
+                foreach (string line in lines)
+                {
+                    // Vérifiez si nous avons trouvé le niveau correct
+                    if (line == niveau.ToString())
+                    {
+                        isCorrectLevel = true;
+                        continue;
+                    }
+
+                    // Si nous sommes dans le bon niveau, ajoutez les lignes de la matrice
+                    if (isCorrectLevel)
+                    {
+                        if (string.IsNullOrWhiteSpace(line))
+                            break; // Terminez la lecture lorsque vous trouvez une ligne vide après la matrice
+                        matrixLines.Add(line);
+                    }
+                }
+                if (matrixLines.Count > 0)
+                    GenerateMaze(matrixLines);
+            }
+        }
+
+        private void GenerateMaze(List<string> matrixLines)
+        {
+            int width = matrixLines[0].Split(' ').Length;
+            for (int y = 0; y < matrixLines.Count; y++)
+            {
+                string[] elements = matrixLines[y].Split(' ');
+                for (int x = 0; x < elements.Length-1; x++)
+                {
+                    //Debug.Write(elements[x]+" ");
+                    switch (elements[x][0])
+                    {
+                        case 'X':
+                            MazeMatrix[x, y].IsWall = true;
+                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.mur;
+                            MazeForm.Controls.Add(MazeMatrix[x, y].Image);
+                            MazeForm.Controls.Add(MazeMatrix[x, y].Image);
+                            break;
+                        case '.':
+                            MazeMatrix[x, y].IsWall = false;
+                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
+                            MazeForm.Controls.Add(MazeMatrix[x, y].Image);
+                            break;
+                        case 'J':
+                            startX = x;
+                            startY = y;
+                            break;
+                        case 'F':
+                            // fragment
+                            break;
+                        case 'E':
+                            // ennemi
+                            break;
+                        case 'H':
+                            // soin
+                            break;
+                        case 'T':
+                            // portail téléportation
+                            break;
+                    }
+                }
+            }
+        }
+
+
 
 
         public void ReplaceMatrixWithEntity(string entityCodeName, int X, int Y)

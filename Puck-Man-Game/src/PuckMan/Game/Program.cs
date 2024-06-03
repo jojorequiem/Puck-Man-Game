@@ -30,16 +30,16 @@ namespace Puck_Man_Game
         static void Main()
         {
             //devra être chargé depuis le fichier de sauvegarde
-            VolumePrincipale = 10;
-            VolumeSon = 10;
-            VolumeMusique = 10;
+            VolumePrincipale = 0;
+            VolumeSon = 0;
+            VolumeMusique = 0;
             PlayMusic("assets/audio/musiqueMenu.mp3");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new src.PuckMan.UI.Menu());
+            //Application.Run(new src.PuckMan.UI.Menu());
+            Application.Run(new src.PuckMan.UI.Screens.ModeHistoire());
             //Application.Run(new src.PuckMan.UI.Screens.Dialogue());
         }
-
         static public void UpdateVolume()
         {
             music.settings.volume = VolumeMusique * VolumePrincipale;

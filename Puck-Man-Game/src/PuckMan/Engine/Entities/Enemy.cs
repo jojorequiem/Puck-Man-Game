@@ -73,8 +73,8 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                 Random random = new Random();
                 Point selectedMove = possibleMoves[random.Next(possibleMoves.Count)];
                 //cherche une case qui n'est pas déjà occupé
-                while (possibleMoves.Count >0 &&
-                    (Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize] != null))
+                while (possibleMoves.Count >0)// &&
+                    //(Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize] != null))
                 {
                     var targetEntity = Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize];
                     if (targetEntity is Player player &&
