@@ -10,7 +10,9 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using System.Timers; // Importe le namespace System.Timers
+using System.Timers;
+using System.Drawing.Printing;
+using System.Xml; // Importe le namespace System.Timers
 
 
 namespace src.PuckMan.Game.Levels
@@ -26,8 +28,9 @@ namespace src.PuckMan.Game.Levels
         public Cell[,] VisitedNodes { get; set; }
         public Entity[,] Entities { get; set; }
         public List<Enemy> EnemyList { get; set; }
-
         public List<Collectable> FragmentList { get; set; }
+        public Entity[,] Fragment { get; set; }
+        public List<Cell> EulerianPath { get; private set; }
 
         public string stringMazeMatrix;
         public int width;
@@ -44,15 +47,18 @@ namespace src.PuckMan.Game.Levels
             height = mazeHeight;
             MazeMatrix = new Cell[width, height];
             Entities = new Entity[width * cellSize, height * cellSize];
-            numGeneratedFragments = 1;
-            numberOfOpponents = 1;
+            Fragment = new Entity[width * cellSize, height * cellSize];
+            numGeneratedFragments = 32;
+            numberOfOpponents = 2;
             EnemyList = new List<Enemy>();
             FragmentList = new List<Collectable>();
+
             InitMaze();
             //RandomMazeGeneration();
-            //MazeGenerationByDFS();
-            MazeGenerationFromMatrix(MazeForm.NiveauActuel);
+            MazeGenerationByDFS();
+            //MazeGenerationFromMatrix(MazeForm.NiveauActuel);
             DisplayMaze();
+          
             //DisplayMazeMatrix();
         }
 
@@ -256,6 +262,14 @@ namespace src.PuckMan.Game.Levels
                 {
                     pile.Pop(); //si le node n'a plus de neighbors a exploré, on le depile
                 }
+                for (int y = 0; y < height; y++)
+                {
+                    for (int x = 0; x < width; x++)
+                    {
+
+                        RemoveIsolatedWalls(x, y);
+                    }
+                }
             }
         }
 
@@ -399,7 +413,7 @@ namespace src.PuckMan.Game.Levels
             {
                 for (int x = 0; x < width; x++)
                 {
-                    RemoveIsolatedWalls(x, y);
+                 
                     if (MazeMatrix[x, y].IsWall == true)
                         strMazeMatrix += "X ";
                     else
@@ -412,6 +426,16 @@ namespace src.PuckMan.Game.Levels
             }
             stringMazeMatrix = strMazeMatrix;
         }
+
+
+
+
+
+
+
+
+
+
 
         public void GenerateCollectable(string name, int number)
         {
@@ -430,10 +454,12 @@ namespace src.PuckMan.Game.Levels
                     MazeForm.Controls.Add(instance.Image);
                     instance.Image.BringToFront();
                     number -= 1;
-                    Entities[x * cellSize, y * cellSize] = instance;
+                    Fragment[x * cellSize, y * cellSize] = instance;
                 }
             }
         }
+
+
         public void GenerateEnemy(string name, int number)
         {
             while (number > 0)
@@ -443,7 +469,37 @@ namespace src.PuckMan.Game.Levels
                 // Vérifier s'il n'y a pas déjà une entité à l'endroit choisi
                 if (Entities[x * cellSize, y * cellSize] is null)
                 {
-                    Enemy instance = new Enemy(name, x * cellSize, y * cellSize, this);
+                    Enemy instance;
+                    switch (name)
+                    {
+                        case "égaré":
+                            instance = new ConfusedEnemy(x * cellSize, y * cellSize, this);
+                            break;
+                        //case "Égaré Standard":
+                        //    instance = new StandardEnemy(x * cellSize, y * cellSize, this);
+                        //    break;
+                        //case "Égaré Éclaireur":
+                        //    instance = new ScoutEnemy(x * cellSize, y * cellSize, this);
+                        //    break;
+                        //case "spec":
+                        //    instance = new SpectralEnemy(x * cellSize, y * cellSize, this);
+                        //    break;
+                        //case "Égaré Berserker":
+                        //    instance = new BerserkerEnemy(x * cellSize, y * cellSize, this);
+                        //    break;
+                        //case "Égaré Enchanteur":
+                        //    instance = new EnchanterEnemy(x * cellSize, y * cellSize, this);
+                        //    break;
+                        //case "Système 0":
+                        //    instance = new System0Enemy(x * cellSize, y * cellSize, this);
+                        //    break;
+                        //case "Système":
+                        //    instance = new SystemEnemy(x * cellSize, y * cellSize, this);
+                        //    break;
+                        default:
+                            throw new ArgumentException("Type d'ennemi non reconnu", nameof(name));
+                    }
+
                     EnemyList.Add(instance);
                     MazeForm.Controls.Add(instance.Image);
                     instance.Image.BringToFront();
@@ -451,7 +507,8 @@ namespace src.PuckMan.Game.Levels
                     Entities[x * cellSize, y * cellSize] = instance;
                 }
             }
-        }          
+        }
+
         public void RemoveIsolatedWalls(int x, int y)
         {
             if (x % 2 == 0 && y % 2 == 0)

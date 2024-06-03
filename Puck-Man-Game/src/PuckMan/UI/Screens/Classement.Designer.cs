@@ -34,7 +34,7 @@
             // 
             // btnRetour
             // 
-            this.btnRetour.Location = new System.Drawing.Point(800, 636);
+            this.btnRetour.Location = new System.Drawing.Point(915, 558);
             this.btnRetour.Name = "btnRetour";
             this.btnRetour.Size = new System.Drawing.Size(157, 54);
             this.btnRetour.TabIndex = 4;
@@ -45,7 +45,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(107, 55);
+            this.comboBox1.Location = new System.Drawing.Point(166, 55);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(535, 24);
             this.comboBox1.TabIndex = 6;
@@ -54,12 +54,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
-            this.MaximumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
-            this.MinimumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.ClientSize = new System.Drawing.Size(1182, 655);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnRetour);
+            this.MaximumSize = new System.Drawing.Size(1200, 700);
+            this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "Classement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Classement";
             this.ResumeLayout(false);
 

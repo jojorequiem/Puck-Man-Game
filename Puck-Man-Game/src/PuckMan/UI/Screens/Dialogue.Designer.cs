@@ -39,7 +39,7 @@
             // BtnDialogueSuivant
             // 
             this.BtnDialogueSuivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.BtnDialogueSuivant.Location = new System.Drawing.Point(805, 594);
+            this.BtnDialogueSuivant.Location = new System.Drawing.Point(628, 549);
             this.BtnDialogueSuivant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDialogueSuivant.Name = "BtnDialogueSuivant";
             this.BtnDialogueSuivant.Size = new System.Drawing.Size(445, 85);
@@ -54,9 +54,9 @@
             this.LblTitre.BackColor = System.Drawing.Color.Black;
             this.LblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LblTitre.Location = new System.Drawing.Point(311, 66);
+            this.LblTitre.Location = new System.Drawing.Point(134, 21);
             this.LblTitre.Name = "LblTitre";
-            this.LblTitre.Size = new System.Drawing.Size(956, 58);
+            this.LblTitre.Size = new System.Drawing.Size(919, 55);
             this.LblTitre.TabIndex = 10;
             this.LblTitre.Text = "Chapitre 1 : Confrontation avec l’inconnue";
             this.LblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -65,7 +65,7 @@
             // 
             this.Panel.AutoScroll = true;
             this.Panel.Controls.Add(this.FlowPanel);
-            this.Panel.Location = new System.Drawing.Point(284, 145);
+            this.Panel.Location = new System.Drawing.Point(107, 100);
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(969, 432);
             this.Panel.TabIndex = 11;
@@ -81,7 +81,7 @@
             // BtnSkip
             // 
             this.BtnSkip.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.BtnSkip.Location = new System.Drawing.Point(321, 594);
+            this.BtnSkip.Location = new System.Drawing.Point(144, 549);
             this.BtnSkip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSkip.Name = "BtnSkip";
             this.BtnSkip.Size = new System.Drawing.Size(445, 85);
@@ -95,15 +95,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1576, 927);
+            this.ClientSize = new System.Drawing.Size(1182, 655);
             this.Controls.Add(this.BtnSkip);
             this.Controls.Add(this.Panel);
             this.Controls.Add(this.LblTitre);
             this.Controls.Add(this.BtnDialogueSuivant);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(1594, 974);
-            this.MinimumSize = new System.Drawing.Size(1594, 974);
+            this.MaximumSize = new System.Drawing.Size(1200, 700);
+            this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "Dialogue";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dialoguecs";
             this.Panel.ResumeLayout(false);
             this.Panel.PerformLayout();

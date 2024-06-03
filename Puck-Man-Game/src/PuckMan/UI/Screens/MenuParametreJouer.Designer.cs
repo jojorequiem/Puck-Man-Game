@@ -37,7 +37,7 @@
             // btnNouvellePartie
             // 
             this.btnNouvellePartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnNouvellePartie.Location = new System.Drawing.Point(333, 326);
+            this.btnNouvellePartie.Location = new System.Drawing.Point(125, 250);
             this.btnNouvellePartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNouvellePartie.Name = "btnNouvellePartie";
             this.btnNouvellePartie.Size = new System.Drawing.Size(933, 85);
@@ -49,7 +49,7 @@
             // BtnModeInfini
             // 
             this.BtnModeInfini.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.BtnModeInfini.Location = new System.Drawing.Point(333, 460);
+            this.BtnModeInfini.Location = new System.Drawing.Point(125, 384);
             this.BtnModeInfini.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnModeInfini.Name = "BtnModeInfini";
             this.BtnModeInfini.Size = new System.Drawing.Size(933, 85);
@@ -61,7 +61,7 @@
             // btnRetour
             // 
             this.btnRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnRetour.Location = new System.Drawing.Point(333, 594);
+            this.btnRetour.Location = new System.Drawing.Point(125, 518);
             this.btnRetour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRetour.Name = "btnRetour";
             this.btnRetour.Size = new System.Drawing.Size(933, 85);
@@ -75,7 +75,7 @@
             this.lblTitreMenuPrincipal.BackColor = System.Drawing.Color.Black;
             this.lblTitreMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitreMenuPrincipal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(333, 128);
+            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(125, 52);
             this.lblTitreMenuPrincipal.Name = "lblTitreMenuPrincipal";
             this.lblTitreMenuPrincipal.Size = new System.Drawing.Size(933, 116);
             this.lblTitreMenuPrincipal.TabIndex = 10;
@@ -86,14 +86,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1579, 937);
+            this.ClientSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
             this.Controls.Add(this.lblTitreMenuPrincipal);
             this.Controls.Add(this.btnRetour);
             this.Controls.Add(this.BtnModeInfini);
             this.Controls.Add(this.btnNouvellePartie);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1594, 974);
+            this.MaximumSize = new System.Drawing.Size(1200, 700);
+            this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "MenuParametreJouer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuJouer";
             this.ResumeLayout(false);
 

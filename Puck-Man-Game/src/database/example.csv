@@ -1,0 +1,3 @@
+ID,NomSauvegarde,NiveauActuel,ModeJeu,Difficulte,Score,MatriceLabyrinthe,PseudoJoueur,NombreVies,NombreCoeurs
+1,Partie 1,10,Mode A,Facile,1000,matrix1,Joueur1,3,5
+2,Partie 2,5,Mode B,Moyen,800,matrix2,Joueur2,2,3

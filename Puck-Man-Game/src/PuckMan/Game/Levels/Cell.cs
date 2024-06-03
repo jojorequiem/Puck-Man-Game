@@ -17,7 +17,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Levels
         
         //liaison avec le voisins
         public bool topConnection, bottomConnection, rightConnection, leftConnection;
-
+        public bool ContainsPlayer { get; set; }
         public Cell(int x, int y, string name) : base(x, y, name)
         {
             IsWall = true;

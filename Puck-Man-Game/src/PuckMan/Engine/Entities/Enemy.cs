@@ -1,54 +1,134 @@
 ﻿using Puck_Man_Game.src.PuckMan.Game.Entities;
 using Puck_Man_Game.src.PuckMan.Game.Levels;
-using Puck_Man_Game.src.PuckMan.UI.Screens;
 using src.PuckMan.Game.Levels;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.Engine.Entities
 {
-    public class Enemy : Entity
+    public abstract class Enemy : Entity
     {
         public string EnemyClass { get; set; }
         public int Damage { get; set; }
         public Maze Maze { get; set; }
 
         private readonly Timer moveEnemyTimer;
-        private Point previousDirection;
+        public Point previousDirection;
+        private readonly Dictionary<Enemy, DateTime> lastAttackTime = new Dictionary<Enemy, DateTime>();
+        private readonly TimeSpan attackCooldown = TimeSpan.FromSeconds(10);
 
         public Enemy(string name, int x, int y, Maze maze) : base(x, y, name)
         {
+            lastAttackTime[this] = DateTime.MinValue;
             HP = 3;
             Maze = maze;
             EntitySpeed = Maze.cellSize;
-            Image.Image = Puck_Man_Game.Properties.Resources.joueur;
 
             moveEnemyTimer = new Timer
             {
-                Interval = 180
+                Interval = 1000
             };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             previousDirection = new Point(0, 0);
             moveEnemyTimer.Start();
             switch (name)
             {
-                case "égaré":
+                case "Égaré Confus":
                     Damage = 1;
-                    Image.Image = Puck_Man_Game.Properties.Resources.égaré;
+                    break;
+                case "Égaré Standard":
+                    Damage = 1;
+                    break;
+                case "Égaré Éclaireur":
+                    Damage = 1;
+                    break;
+                case "Égaré Spectral":
+                    Damage = 1;
+                    break;
+                case "Égaré Berserker":
+                    Damage = 2;
+                    break;
+                case "Égaré Enchanteur":
+                    Damage = 1;
+                    break;
+                case "Système 0":
+                    Damage = 3;
+                    break;
+                case "Système":
+                    Damage = 4;
                     break;
             }
         }
-        
-        private Dictionary<Enemy, DateTime> lastAttackTime = new Dictionary<Enemy, DateTime>();
-        private TimeSpan attackCooldown = TimeSpan.FromSeconds(2);
 
-        private void MoveEnemyTimer_Tick(object sender, EventArgs e)
+        public abstract void Move();
+
+        public void MoveEnemyTimer_Tick(object sender, EventArgs e)
         {
+            Move();
+        }
 
+        protected List<Point> GetPossibleDirections()
+        {
+            return new List<Point>
+            {
+                new Point(0, -1), // Haut
+                new Point(0, 1),  // Bas
+                new Point(-1, 0), // Gauche
+                new Point(1, 0)   // Droite
+            };
+        }
+
+        protected void MoveEnemy(int deltaX, int deltaY)
+        {
+            if (!CheckWallCollision(deltaX, deltaY))
+            {
+                Maze.Entities[X, Y] = null;
+                X += deltaX;
+                Y += deltaY;
+                Image.Location = new Point(X, Y);
+                Maze.Entities[X, Y] = this;
+            }
+        }
+
+        public bool CheckWallCollision(int deltaX, int deltaY)
+        {
+            Rectangle newBounds = new Rectangle(X + deltaX, Y + deltaY, Image.Width, Image.Height);
+            List<Cell> neighbors = Maze.GetNeighborCells(X, Y);
+            foreach (Cell cell in neighbors)
+            {
+                if (cell.IsWall && newBounds.IntersectsWith(new Rectangle(cell.X, cell.Y, cell.Image.Width, cell.Image.Height)))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public class ConfusedEnemy : Enemy
+    {
+        private readonly Timer moveEnemyTimer;
+        private new Point previousDirection;
+        private readonly Dictionary<Enemy, DateTime> lastAttackTime;
+        private readonly TimeSpan attackCooldown;
+
+        public ConfusedEnemy(int x, int y, Maze maze) : base("Égaré Confus", x, y, maze)
+        {
+            Damage = 1; 
+            Image.Image = Puck_Man_Game.Properties.Resources.égaré;
+            moveEnemyTimer = new Timer { Interval = 180 };
+            moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
+            moveEnemyTimer.Start();
+            previousDirection = new Point(0, 0);
+            lastAttackTime = new Dictionary<Enemy, DateTime>();
+            attackCooldown = TimeSpan.FromSeconds(2);
+        }
+
+        public override void Move()
+        {
             List<Point> possibleMoves = new List<Point>();
             foreach (Point direction in GetPossibleDirections())
             {
@@ -57,6 +137,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                     possibleMoves.Add(direction);
                 }
             }
+
             bool dontMove = false;
             if (possibleMoves.Count > 0)
             {
@@ -72,9 +153,8 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
 
                 Random random = new Random();
                 Point selectedMove = possibleMoves[random.Next(possibleMoves.Count)];
-                //cherche une case qui n'est pas déjà occupé
-                while (possibleMoves.Count >0)// &&
-                    //(Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize] != null))
+                // Chercher une case qui n'est pas déjà occupée
+                while (possibleMoves.Count > 0 && (Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize] != null))
                 {
                     var targetEntity = Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize];
                     if (targetEntity is Player player &&
@@ -104,41 +184,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                 }
             }
         }
-
-        private List<Point> GetPossibleDirections()
-        {
-            return new List<Point>
-            {
-                new Point(0, -1), // Haut
-                new Point(0, 1),  // Bas
-                new Point(-1, 0), // Gauche
-                new Point(1, 0)   // Droite
-            };
-        }
-        private void MoveEnemy(int deltaX, int deltaY)
-        {
-            if (!CheckWallCollision(deltaX, deltaY))
-            {
-                Maze.Entities[X, Y] = null;
-                X += deltaX;
-                Y += deltaY;
-                Image.Location = new Point(X, Y);
-                Maze.Entities[X, Y] = this;
-            }
-        }
-
-        private bool CheckWallCollision(int deltaX, int deltaY)
-        {
-            Rectangle newBounds = new Rectangle(X + deltaX, Y + deltaY, Image.Width, Image.Height);
-            List<Cell> neighbors = Maze.GetNeighborCells(X,Y);
-            foreach (Cell cell in neighbors)
-            {
-                if (cell.IsWall && newBounds.IntersectsWith(new Rectangle(cell.X, cell.Y, cell.Image.Width, cell.Image.Height)))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
+
+  
 }

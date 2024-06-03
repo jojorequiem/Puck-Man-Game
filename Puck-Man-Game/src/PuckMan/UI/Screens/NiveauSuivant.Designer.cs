@@ -36,7 +36,7 @@
             // BtnRetourMenu
             // 
             this.BtnRetourMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRetourMenu.Location = new System.Drawing.Point(269, 510);
+            this.BtnRetourMenu.Location = new System.Drawing.Point(227, 510);
             this.BtnRetourMenu.Margin = new System.Windows.Forms.Padding(2);
             this.BtnRetourMenu.Name = "BtnRetourMenu";
             this.BtnRetourMenu.Size = new System.Drawing.Size(335, 69);
@@ -48,7 +48,7 @@
             // BtnNiveauSuivant
             // 
             this.BtnNiveauSuivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNiveauSuivant.Location = new System.Drawing.Point(663, 510);
+            this.BtnNiveauSuivant.Location = new System.Drawing.Point(621, 510);
             this.BtnNiveauSuivant.Margin = new System.Windows.Forms.Padding(2);
             this.BtnNiveauSuivant.Name = "BtnNiveauSuivant";
             this.BtnNiveauSuivant.Size = new System.Drawing.Size(335, 69);
@@ -62,26 +62,27 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(383, 76);
+            this.label1.Location = new System.Drawing.Point(341, 76);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(453, 73);
+            this.label1.Size = new System.Drawing.Size(543, 87);
             this.label1.TabIndex = 2;
             this.label1.Text = "Niveau suivant";
             // 
             // NiveauSuivant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.ClientSize = new System.Drawing.Size(1182, 655);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnNiveauSuivant);
             this.Controls.Add(this.BtnRetourMenu);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(1200, 800);
-            this.MinimumSize = new System.Drawing.Size(1200, 800);
+            this.MaximumSize = new System.Drawing.Size(1200, 700);
+            this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "NiveauSuivant";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NiveauSuivant";
             this.ResumeLayout(false);
             this.PerformLayout();

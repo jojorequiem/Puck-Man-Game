@@ -109,7 +109,11 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 Image.Image = ImageDown;
             }
         }
-
+        public void UpdatePosition(int newX, int newY)
+        {
+            X = newX;
+            Y = newY;
+        }
         public bool MovePlayer(int deltaX, int deltaY)
         {
             // Vérifie les collisions avec les murs
@@ -134,6 +138,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             // Met à jour l'affichage
             Image.Location = new Point(X, Y);
             UpdateSkin(deltaX, deltaY);
+            UpdatePosition(X, Y);
             return true;
         }
         private bool CheckWallCollision(int deltaX, int deltaY)

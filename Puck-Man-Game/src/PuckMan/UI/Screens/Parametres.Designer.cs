@@ -48,18 +48,18 @@
             // 
             this.TrackBarSound.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TrackBarSound.LargeChange = 1;
-            this.TrackBarSound.Location = new System.Drawing.Point(592, 468);
+            this.TrackBarSound.Location = new System.Drawing.Point(384, 392);
             this.TrackBarSound.Name = "TrackBarSound";
-            this.TrackBarSound.Size = new System.Drawing.Size(511, 56);
+            this.TrackBarSound.Size = new System.Drawing.Size(511, 53);
             this.TrackBarSound.TabIndex = 2;
             this.TrackBarSound.ValueChanged += new System.EventHandler(this.TrackBarSound_ValueChanged);
             // 
             // TrackBarMusic
             // 
             this.TrackBarMusic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TrackBarMusic.Location = new System.Drawing.Point(592, 381);
+            this.TrackBarMusic.Location = new System.Drawing.Point(384, 305);
             this.TrackBarMusic.Name = "TrackBarMusic";
-            this.TrackBarMusic.Size = new System.Drawing.Size(511, 56);
+            this.TrackBarMusic.Size = new System.Drawing.Size(511, 53);
             this.TrackBarMusic.TabIndex = 1;
             this.TrackBarMusic.ValueChanged += new System.EventHandler(this.TrackBarMusic_ValueChanged);
             // 
@@ -68,7 +68,7 @@
             this.lblTitreMenuPrincipal.BackColor = System.Drawing.Color.Black;
             this.lblTitreMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitreMenuPrincipal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(333, 128);
+            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(125, 52);
             this.lblTitreMenuPrincipal.Name = "lblTitreMenuPrincipal";
             this.lblTitreMenuPrincipal.Size = new System.Drawing.Size(933, 116);
             this.lblTitreMenuPrincipal.TabIndex = 11;
@@ -78,7 +78,7 @@
             // BtnRetour
             // 
             this.BtnRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRetour.Location = new System.Drawing.Point(333, 594);
+            this.BtnRetour.Location = new System.Drawing.Point(125, 518);
             this.BtnRetour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRetour.Name = "BtnRetour";
             this.BtnRetour.Size = new System.Drawing.Size(933, 85);
@@ -92,7 +92,7 @@
             this.LblMainVolume.AutoSize = true;
             this.LblMainVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMainVolume.ForeColor = System.Drawing.Color.White;
-            this.LblMainVolume.Location = new System.Drawing.Point(344, 290);
+            this.LblMainVolume.Location = new System.Drawing.Point(136, 214);
             this.LblMainVolume.Name = "LblMainVolume";
             this.LblMainVolume.Size = new System.Drawing.Size(215, 29);
             this.LblMainVolume.TabIndex = 14;
@@ -103,7 +103,7 @@
             this.LblSoundVolume.AutoSize = true;
             this.LblSoundVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblSoundVolume.ForeColor = System.Drawing.Color.White;
-            this.LblSoundVolume.Location = new System.Drawing.Point(344, 468);
+            this.LblSoundVolume.Location = new System.Drawing.Point(136, 392);
             this.LblSoundVolume.Name = "LblSoundVolume";
             this.LblSoundVolume.Size = new System.Drawing.Size(150, 29);
             this.LblSoundVolume.TabIndex = 15;
@@ -114,7 +114,7 @@
             this.LblMusicVolume.AutoSize = true;
             this.LblMusicVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMusicVolume.ForeColor = System.Drawing.Color.White;
-            this.LblMusicVolume.Location = new System.Drawing.Point(344, 381);
+            this.LblMusicVolume.Location = new System.Drawing.Point(136, 305);
             this.LblMusicVolume.Name = "LblMusicVolume";
             this.LblMusicVolume.Size = new System.Drawing.Size(199, 29);
             this.LblMusicVolume.TabIndex = 16;
@@ -123,9 +123,9 @@
             // TrackBarMain
             // 
             this.TrackBarMain.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TrackBarMain.Location = new System.Drawing.Point(592, 290);
+            this.TrackBarMain.Location = new System.Drawing.Point(384, 214);
             this.TrackBarMain.Name = "TrackBarMain";
-            this.TrackBarMain.Size = new System.Drawing.Size(511, 56);
+            this.TrackBarMain.Size = new System.Drawing.Size(511, 53);
             this.TrackBarMain.TabIndex = 0;
             this.TrackBarMain.ValueChanged += new System.EventHandler(this.TrackBarMain_ValueChanged);
             // 
@@ -134,7 +134,7 @@
             this.LblMainValue.AutoSize = true;
             this.LblMainValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMainValue.ForeColor = System.Drawing.Color.White;
-            this.LblMainValue.Location = new System.Drawing.Point(1155, 290);
+            this.LblMainValue.Location = new System.Drawing.Point(947, 214);
             this.LblMainValue.Name = "LblMainValue";
             this.LblMainValue.Size = new System.Drawing.Size(34, 25);
             this.LblMainValue.TabIndex = 17;
@@ -145,7 +145,7 @@
             this.LblMusicValue.AutoSize = true;
             this.LblMusicValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMusicValue.ForeColor = System.Drawing.Color.White;
-            this.LblMusicValue.Location = new System.Drawing.Point(1155, 381);
+            this.LblMusicValue.Location = new System.Drawing.Point(947, 305);
             this.LblMusicValue.Name = "LblMusicValue";
             this.LblMusicValue.Size = new System.Drawing.Size(34, 25);
             this.LblMusicValue.TabIndex = 18;
@@ -156,7 +156,7 @@
             this.LblSoundValue.AutoSize = true;
             this.LblSoundValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblSoundValue.ForeColor = System.Drawing.Color.White;
-            this.LblSoundValue.Location = new System.Drawing.Point(1155, 468);
+            this.LblSoundValue.Location = new System.Drawing.Point(947, 392);
             this.LblSoundValue.Name = "LblSoundValue";
             this.LblSoundValue.Size = new System.Drawing.Size(34, 25);
             this.LblSoundValue.TabIndex = 19;
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.ClientSize = new System.Drawing.Size(1182, 655);
             this.Controls.Add(this.LblSoundValue);
             this.Controls.Add(this.LblMusicValue);
             this.Controls.Add(this.LblMainValue);
@@ -178,9 +178,10 @@
             this.Controls.Add(this.lblTitreMenuPrincipal);
             this.Controls.Add(this.TrackBarMusic);
             this.Controls.Add(this.TrackBarSound);
-            this.MaximumSize = new System.Drawing.Size(1200, 800);
-            this.MinimumSize = new System.Drawing.Size(1200, 800);
+            this.MaximumSize = new System.Drawing.Size(1200, 700);
+            this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "Parametres";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parametres";
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarSound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarMusic)).EndInit();

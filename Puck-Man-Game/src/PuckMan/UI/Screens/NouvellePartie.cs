@@ -40,7 +40,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             ModeHistoire = modeHistoire;
             NiveauActuel = niveauActuel;
 
-            Maze instanceMaze = new Maze(this, 25, 15);
+            Maze instanceMaze = new Maze(this, 21, 17);
             //Maze instanceMaze = new Maze(this, 7, 5);
             P1 = new Player("joueur", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
             instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
@@ -51,7 +51,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             {
                 Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
                 instanceMaze.GenerateCollectable("fragment", instanceMaze.numGeneratedFragments);
-                //instanceMaze.GenerateCollectable("potion degat", 1);
+                instanceMaze.GenerateCollectable("potion degat", 1);
                 instanceMaze.GenerateCollectable("portail teleportation", 1);
                 instanceMaze.GenerateEnemy("égaré", instanceMaze.numberOfOpponents);
                 instanceMaze.DisplayMazeMatrix();
@@ -103,5 +103,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 Program.LoadScene(typeof(NiveauSuivant), this);
             }
         }
+
+      
     }
 }

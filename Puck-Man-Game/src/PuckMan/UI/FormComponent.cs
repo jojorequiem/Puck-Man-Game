@@ -24,13 +24,18 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             //LoadFont();
             ChangeAllTextColors(this);
-            this.MinimumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
-            this.MaximumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
-            this.ClientSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.AutoScaleMode = AutoScaleMode.None;
             this.BackColor = Program.BackgroundColor;
             this.BackgroundImage = null; /* Properties.Resources.background;*/
+            this.StartPosition = FormStartPosition.CenterScreen;
+            SetFormSize();
         }
-
+        private void SetFormSize()
+        {
+            this.ClientSize = new Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.MinimumSize = new Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.MaximumSize = new Size(Program.LargeurFenetre, Program.HauteurFenetre);
+        }
         private void LoadFont()
         {
             PrivateFontCollection privateFontCollection = new PrivateFontCollection();

@@ -46,7 +46,7 @@
             this.lblTitreMenuPrincipal.BackColor = System.Drawing.Color.Black;
             this.lblTitreMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitreMenuPrincipal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(333, 128);
+            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(155, 60);
             this.lblTitreMenuPrincipal.Name = "lblTitreMenuPrincipal";
             this.lblTitreMenuPrincipal.Size = new System.Drawing.Size(933, 116);
             this.lblTitreMenuPrincipal.TabIndex = 11;
@@ -56,7 +56,7 @@
             // BtnRetour
             // 
             this.BtnRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRetour.Location = new System.Drawing.Point(333, 594);
+            this.BtnRetour.Location = new System.Drawing.Point(155, 526);
             this.BtnRetour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRetour.Name = "BtnRetour";
             this.BtnRetour.Size = new System.Drawing.Size(933, 69);
@@ -68,7 +68,7 @@
             // BtnGame1
             // 
             this.BtnGame1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGame1.Location = new System.Drawing.Point(333, 298);
+            this.BtnGame1.Location = new System.Drawing.Point(155, 230);
             this.BtnGame1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnGame1.Name = "BtnGame1";
             this.BtnGame1.Size = new System.Drawing.Size(688, 69);
@@ -82,16 +82,16 @@
             this.Lbl1.AutoSize = true;
             this.Lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl1.ForeColor = System.Drawing.Color.White;
-            this.Lbl1.Location = new System.Drawing.Point(272, 305);
+            this.Lbl1.Location = new System.Drawing.Point(94, 237);
             this.Lbl1.Name = "Lbl1";
-            this.Lbl1.Size = new System.Drawing.Size(49, 54);
+            this.Lbl1.Size = new System.Drawing.Size(49, 53);
             this.Lbl1.TabIndex = 14;
             this.Lbl1.Text = "1";
             // 
             // BtnGame2
             // 
             this.BtnGame2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGame2.Location = new System.Drawing.Point(333, 400);
+            this.BtnGame2.Location = new System.Drawing.Point(155, 332);
             this.BtnGame2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnGame2.Name = "BtnGame2";
             this.BtnGame2.Size = new System.Drawing.Size(688, 69);
@@ -103,7 +103,7 @@
             // BtnGame3
             // 
             this.BtnGame3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGame3.Location = new System.Drawing.Point(333, 499);
+            this.BtnGame3.Location = new System.Drawing.Point(155, 431);
             this.BtnGame3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnGame3.Name = "BtnGame3";
             this.BtnGame3.Size = new System.Drawing.Size(688, 69);
@@ -117,9 +117,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(272, 407);
+            this.label1.Location = new System.Drawing.Point(94, 339);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 54);
+            this.label1.Size = new System.Drawing.Size(49, 53);
             this.label1.TabIndex = 17;
             this.label1.Text = "2";
             // 
@@ -128,16 +128,16 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(272, 506);
+            this.label2.Location = new System.Drawing.Point(94, 438);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 54);
+            this.label2.Size = new System.Drawing.Size(49, 53);
             this.label2.TabIndex = 18;
             this.label2.Text = "3";
             // 
             // BtnDelete1
             // 
             this.BtnDelete1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelete1.Location = new System.Drawing.Point(1052, 298);
+            this.BtnDelete1.Location = new System.Drawing.Point(874, 230);
             this.BtnDelete1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete1.Name = "BtnDelete1";
             this.BtnDelete1.Size = new System.Drawing.Size(214, 69);
@@ -149,7 +149,7 @@
             // BtnDelete2
             // 
             this.BtnDelete2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelete2.Location = new System.Drawing.Point(1052, 400);
+            this.BtnDelete2.Location = new System.Drawing.Point(874, 332);
             this.BtnDelete2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete2.Name = "BtnDelete2";
             this.BtnDelete2.Size = new System.Drawing.Size(214, 69);
@@ -161,7 +161,7 @@
             // BtnDelete3
             // 
             this.BtnDelete3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelete3.Location = new System.Drawing.Point(1052, 499);
+            this.BtnDelete3.Location = new System.Drawing.Point(874, 431);
             this.BtnDelete3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete3.Name = "BtnDelete3";
             this.BtnDelete3.Size = new System.Drawing.Size(214, 69);
@@ -174,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1588, 653);
+            this.ClientSize = new System.Drawing.Size(1182, 655);
             this.Controls.Add(this.BtnDelete3);
             this.Controls.Add(this.BtnDelete2);
             this.Controls.Add(this.BtnDelete1);
@@ -186,9 +186,10 @@
             this.Controls.Add(this.BtnGame1);
             this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.lblTitreMenuPrincipal);
-            this.MaximumSize = new System.Drawing.Size(2000, 700);
+            this.MaximumSize = new System.Drawing.Size(1200, 700);
             this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "ModeHistoire";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModeHistoire";
             this.ResumeLayout(false);
             this.PerformLayout();
