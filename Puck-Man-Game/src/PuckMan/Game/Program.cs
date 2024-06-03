@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using WMPLib;
 namespace Puck_Man_Game
 {
-    public static class Program
+    public static class Program 
     {
         public static int LargeurFenetre = 1200;
-        public static int HauteurFenetre = 700;
+        public static int HauteurFenetre = 900;
         public static Color BackgroundColor = Color.Black;
         public static Color TextColor = Color.White;
         public static Color ButtonColor = Color.DarkGray;

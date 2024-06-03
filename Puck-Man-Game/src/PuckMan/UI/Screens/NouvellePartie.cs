@@ -40,8 +40,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             ModeHistoire = modeHistoire;
             NiveauActuel = niveauActuel;
 
-            //Maze instanceMaze = new Maze(this, 25, 15);
-            Maze instanceMaze = new Maze(this, 7, 5);
+            Maze instanceMaze = new Maze(this, 25, 15);
+            //Maze instanceMaze = new Maze(this, 7, 5);
             P1 = new Player("joueur", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
             instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
 

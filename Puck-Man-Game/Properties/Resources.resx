@@ -118,55 +118,67 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="rightGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rightGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mur2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\mur2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="égaré" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\égaré.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\topGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fonts_pixel_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\fonts\fonts_pixel_art.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="vide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\vide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="leftGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leftGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="porte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\porte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="joueur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\joueur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\assets\images\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deathPotion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\deathPotion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fragment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fragment.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bottomGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bottomGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="coeur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\coeur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="deathPotion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\deathPotion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fonts_pixel_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\fonts\fonts_pixel_art.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="fragment" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\fragment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\assets\images\coeur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="healPotion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\healPotion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\assets\images\healPotion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="joueur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\joueur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="leftGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\leftGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hp-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hp-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mur2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\mur2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\assets\images\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="portal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\portal.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="porte" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\porte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\fragment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rightGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rightGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fragment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fragment1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="topGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\topGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="vide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\vide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="égaré" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\égaré.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fragment2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fragment2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

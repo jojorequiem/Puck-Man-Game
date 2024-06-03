@@ -116,6 +116,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\Classement.resx">
       <DependentUpon>Classement.cs</DependentUpon>
@@ -152,9 +153,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="README.md" />
-    <None Include="assets\temp.md" />
-    <None Include="src\PuckMan\Engine\Components\temp.md" />
-    <None Include="src\PuckMan\Engine\temp.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -175,12 +173,17 @@
     <Content Include="assets\audio\takeDamage.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\deathPotion.png" />
+    <Content Include="assets\images\deathPotion.png" />
     <Content Include="assets\dialogue\chapitre1_p2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\healPotion.png" />
-    <Content Include="assets\mur2.png" />
+    <Content Include="assets\images\healPotion.png" />
+    <Content Include="assets\images\mur2.png" />
+    <None Include="Resources\fragm.gif" />
+    <None Include="Resources\fragment.gif" />
+    <None Include="Resources\hp-1.png" />
+    <None Include="Resources\fragment1.gif" />
+    <None Include="Resources\fragment2.gif" />
     <Content Include="Resources\portal.gif" />
     <Content Include="src\PuckMan\Game\Levels\matricesNiveaux.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -188,25 +191,24 @@
     <Content Include="src\PuckMan\Game\Levels\modeHistoire.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="src\PuckMan\UI\Screens\musiqueDialogue.mp3" />
     <None Include="Resources\rightGif128.gif" />
     <None Include="Resources\leftGif128.gif" />
     <None Include="Resources\bottomGif128.gif" />
     <None Include="Resources\topGif128.gif" />
-    <None Include="assets\background.png" />
-    <None Include="assets\coeur.png" />
+    <None Include="assets\images\background.png" />
+    <None Include="assets\images\coeur.png" />
     <Content Include="assets\audio\musiqueModeHistoire.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\dialogue\chapitre1_p1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\fragment.png" />
-    <Content Include="assets\joueur.png" />
-    <Content Include="assets\mur.png" />
-    <Content Include="assets\porte.png" />
-    <Content Include="assets\vide.png" />
-    <Content Include="assets\égaré.png" />
+    <Content Include="assets\images\fragment.png" />
+    <Content Include="assets\images\joueur.png" />
+    <Content Include="assets\images\mur.png" />
+    <Content Include="assets\images\porte.png" />
+    <Content Include="assets\images\vide.png" />
+    <Content Include="assets\images\égaré.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
