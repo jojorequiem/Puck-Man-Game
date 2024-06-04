@@ -197,7 +197,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             if (!isDead)
             {
                 isDead = true;
-                Program.LoadScene(typeof(NouvellePartie), Maze.MazeForm);
+                Maze.MazeForm.DisplayForm(Maze.MazeForm, new NouvellePartie(Maze.MazeForm.ModeHistoire, Maze.MazeForm.NiveauActuel));
             }
         }
 

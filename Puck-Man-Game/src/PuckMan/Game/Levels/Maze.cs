@@ -38,7 +38,6 @@ namespace src.PuckMan.Game.Levels
         public int startX;
         public int startY;
         public int numGeneratedFragments;
-        public int numberOfOpponents;
         public NouvellePartie MazeForm;
         public Maze(NouvellePartie form, int mazeWidth, int mazeHeight)
         {
@@ -48,8 +47,7 @@ namespace src.PuckMan.Game.Levels
             MazeMatrix = new Cell[width, height];
             Entities = new Entity[width * cellSize, height * cellSize];
             Fragment = new Entity[width * cellSize, height * cellSize];
-            numGeneratedFragments = 32;
-            numberOfOpponents = 2;
+            numGeneratedFragments = 2;
             EnemyList = new List<Enemy>();
             FragmentList = new List<Collectable>();
 
@@ -426,16 +424,6 @@ namespace src.PuckMan.Game.Levels
             }
             stringMazeMatrix = strMazeMatrix;
         }
-
-
-
-
-
-
-
-
-
-
 
         public void GenerateCollectable(string name, int number)
         {

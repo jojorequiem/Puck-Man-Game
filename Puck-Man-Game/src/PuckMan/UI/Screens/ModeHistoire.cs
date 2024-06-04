@@ -14,35 +14,35 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public partial class ModeHistoire : FormComponent
     {
-        public bool partie1;
-        public bool partie2;
-        public bool partie3;
+        public int niveauPartie1;
+        public int niveauPartie2;
+        public int niveauPartie3;
         public ModeHistoire() : base()
         {
             InitializeComponent();
-            partie1 = true;
-            partie2 = true;
-            partie3 = false;
+            niveauPartie1 = GetActualLevel(1);
+            niveauPartie2 = GetActualLevel(2);
+            niveauPartie3 = GetActualLevel(3);
 
-            if (partie1)
-                AfficherBoutonsPartieExistante(BtnGame1, BtnDelete1);
+            if (niveauPartie1 > 0)
+                AfficherBoutonsPartieExistante(BtnGame1, BtnDelete1, "CHAPITRE " + niveauPartie1);
             else
                 AfficherBoutonsPartieSupprimer(BtnGame1, BtnDelete1);
 
-            if (partie2)
-                AfficherBoutonsPartieExistante(BtnGame2, BtnDelete2);
+            if (niveauPartie2 > 0)
+                AfficherBoutonsPartieExistante(BtnGame2, BtnDelete2, "CHAPITRE " + niveauPartie2);
             else
                 AfficherBoutonsPartieSupprimer(BtnGame2, BtnDelete2);
 
-            if (partie3)
-                AfficherBoutonsPartieExistante(BtnGame3, BtnDelete3);
+            if (niveauPartie3 > 0)
+                AfficherBoutonsPartieExistante(BtnGame3, BtnDelete3, "CHAPITRE " + niveauPartie3);
             else
                 AfficherBoutonsPartieSupprimer(BtnGame3, BtnDelete3);
         }
 
-        private void AfficherBoutonsPartieExistante(Button boutonPartie, Button boutonSupprimer)
+        private void AfficherBoutonsPartieExistante(Button boutonPartie, Button boutonSupprimer, string text)
         {
-            boutonPartie.Text = "Chapitre ..";
+            boutonPartie.Text = text;
             boutonSupprimer.Enabled = true;
         }
 
@@ -52,8 +52,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             boutonSupprimer.Enabled = false;
         }
 
-
-
         private int GetActualLevel(int game)
         {
             //renvoit le niveau actuel de la partie game (partie 1, 2 ou 3)
@@ -62,16 +60,28 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         }
         private void BtnGame1_Click(object sender, EventArgs e)
         {
-            DisplayForm(new NouvellePartie(true, GetActualLevel(1)), this);
+            if (niveauPartie1>0)
+                DisplayForm(new NouvellePartie(true, niveauPartie1), this);
+            else
+                DisplayForm(new Dialogue(), this);
         }
         private void BtnGame2_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine(GetActualLevel(2));
+            if (niveauPartie2 > 0)
+                DisplayForm(new NouvellePartie(true, niveauPartie2), this);
+            else
+                DisplayForm(new Dialogue(), this);
         }
 
         private void BtnGame3_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine(GetActualLevel(3));
+            if (niveauPartie3 > 0)
+                DisplayForm(new NouvellePartie(true, niveauPartie3), this);
+            else
+            {
+                DisplayForm(new Dialogue(), this);
+
+            }
         }
 
 

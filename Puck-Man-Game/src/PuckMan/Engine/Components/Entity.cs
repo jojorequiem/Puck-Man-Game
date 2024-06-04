@@ -33,6 +33,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(Maze.cellSize, Maze.cellSize),
             };
+            Image.BackColor = Color.Transparent;
         }
     }
 }

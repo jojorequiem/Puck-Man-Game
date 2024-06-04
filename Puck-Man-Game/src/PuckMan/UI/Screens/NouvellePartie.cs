@@ -40,21 +40,29 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             ModeHistoire = modeHistoire;
             NiveauActuel = niveauActuel;
 
-            Maze instanceMaze = new Maze(this, 21, 17);
-            //Maze instanceMaze = new Maze(this, 7, 5);
+            Maze instanceMaze = new Maze(this, 19, 15);
             P1 = new Player("joueur", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
             instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
 
             if (ModeHistoire)
+            {
                 Program.PlayMusic("assets/audio/musiqueModeHistoire.mp3");
+                if (NiveauActuel == 2)
+                {
+                    instanceMaze.GenerateEnemy("égaré", 1);
+
+
+                }
+            }
+
             else
             {
                 Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
                 instanceMaze.GenerateCollectable("fragment", instanceMaze.numGeneratedFragments);
                 instanceMaze.GenerateCollectable("potion degat", 1);
                 instanceMaze.GenerateCollectable("portail teleportation", 1);
-                instanceMaze.GenerateEnemy("égaré", instanceMaze.numberOfOpponents);
-                instanceMaze.DisplayMazeMatrix();
+                instanceMaze.GenerateEnemy("égaré", 5);
+                //instanceMaze.DisplayMazeMatrix();
             }
             LblFragmentCollecte.Text = "0";
             LblFragmentGenere.Text = instanceMaze.numGeneratedFragments.ToString();

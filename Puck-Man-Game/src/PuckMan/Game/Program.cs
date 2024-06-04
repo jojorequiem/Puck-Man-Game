@@ -14,8 +14,8 @@ namespace Puck_Man_Game
 {
     public static class Program
     {
-        public static int LargeurFenetre = 1200;
-        public static int HauteurFenetre = 720;
+        public static int LargeurFenetre = 900;
+        public static int HauteurFenetre = 700;
         public static Color BackgroundColor = Color.Black;
         public static Color TextColor = Color.White;
         public static Color ButtonColor = Color.DarkGray;
