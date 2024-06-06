@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Linq;
 using System.Management.Instrumentation;
@@ -32,45 +33,54 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public NouvellePartie(bool modeHistoire, int niveauActuel) : base()
         {
             InitializeComponent();
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            this.DoubleBuffered = true;
             this.KeyDown += (sender, e) => P1.PlayerKeyDown(sender, e);
             this.KeyUp += (sender, e) => P1.PlayerKeyUp(sender, e);
             ModeHistoire = modeHistoire;
             NiveauActuel = niveauActuel;
+            
 
-            Maze instanceMaze = new Maze(this, 19, 15);
-            P1 = new Player("joueur", 3, 1, instanceMaze.startX * Maze.cellSize, instanceMaze.startY * Maze.cellSize, instanceMaze);
-            instanceMaze.Entities[instanceMaze.startX * Maze.cellSize,instanceMaze.startY * Maze.cellSize] = P1;
+            Maze maze = new Maze(this, Program.MazeWidth, Program.MazeHeight);
+            P1 = new Player("joueur", 3, 1, maze.startX * Maze.cellSize, maze.startY * Maze.cellSize, maze);
+            maze.Entities[maze.startX * Maze.cellSize, maze.startY * Maze.cellSize] = P1;
 
+            maze.DisplayMazeMatrix();
             if (ModeHistoire)
             {
+                this.BackgroundImage = Properties.Resources.background;
                 Program.PlayMusic("assets/audio/musiqueModeHistoire.mp3");
-                if (NiveauActuel == 2)
-                {
-                    instanceMaze.GenerateEnemy("égaré", 1);
-
-
-                }
             }
-
             else
             {
+                this.BackgroundImageLayout = ImageLayout.Stretch;
+                this.BackgroundImage = Properties.Resources.background;
+                maze.GenerateCollectable("fragment", maze.numGeneratedFragments, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
-                instanceMaze.GenerateCollectable("fragment", instanceMaze.numGeneratedFragments);
-                instanceMaze.GenerateCollectable("potion degat", 1);
-                instanceMaze.GenerateCollectable("portail teleportation", 1);
-                instanceMaze.GenerateEnemy("égaré", 5);
-                //instanceMaze.DisplayMazeMatrix();
+                //maze.GenerateCollectable("fragment", maze.numGeneratedFragments, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                ////maze.GenerateCollectable("potion degat", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+               // maze.GenerateCollectable("portail teleportation", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateEnemy("égaré", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                //maze.DisplayMazeMatrix();
             }
+
+
+
             LblFragmentCollecte.Text = "0";
-            LblFragmentGenere.Text = instanceMaze.numGeneratedFragments.ToString();
+            LblFragmentGenere.Text = maze.numGeneratedFragments.ToString();
 
             this.Controls.Add(P1.Image);
             P1.Image.BringToFront();
             UpdateHPdisplay();
         }
+
+
+        /*
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+            if (this.BackgroundImage != null)
+                e.Graphics.DrawImage(this.BackgroundImage, this.ClientRectangle);
+            base.OnPaint(e);
+        }*/
 
         public void Destructeur()
         {
@@ -99,11 +109,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public void NiveauSuivant()
         {
             Program.PlayMusic("assets/audio/finishLevel.wav");
-            Debug.WriteLine("NIVEAU SUIVANT");
             Destructeur();
             P1.isDead = true;
             if (ModeHistoire) {
-                Program.LoadScene(typeof(Dialogue), this);
+                DisplayForm(new Dialogue(NiveauActuel, true), this);
                 
             }
             else
@@ -112,6 +121,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
         }
 
-      
+        private void NouvellePartie_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

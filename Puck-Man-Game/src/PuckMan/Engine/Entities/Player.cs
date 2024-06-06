@@ -188,7 +188,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 HP = maxHP;
             else
                 HP += healValue;
-            Debug.WriteLine(HP);
             Maze.MazeForm.UpdateHPdisplay();
         }
 
@@ -203,7 +202,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         public void PlayerKeyDown(object sender, KeyEventArgs e)
         {
-            Debug.WriteLine(X + " " + Y);
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -234,6 +232,8 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         public void PlayerKeyUp(object sender, KeyEventArgs e)
         {
             // Ne rien faire ici car le joueur continue à se déplacer jusqu'à une collision
+            if (e.KeyCode == Keys.Escape)
+                Maze.MazeForm.DisplayForm(new MenuPause(Maze.MazeForm), Maze.MazeForm);
         }
     }
 }

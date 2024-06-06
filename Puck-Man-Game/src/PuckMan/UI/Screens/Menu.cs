@@ -21,7 +21,7 @@ namespace Puck_Man_Game.src.PuckMan.UI
 
         private void BtnParametres_Click(object sender, EventArgs e)
         {
-            DisplayForm(new Parametres(), this);
+            DisplayForm(new Parametres(this), this);
         }
 
         private void BtnQuitter_Click(object sender, EventArgs e)

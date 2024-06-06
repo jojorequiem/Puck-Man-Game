@@ -52,24 +52,21 @@ namespace src.PuckMan.Game.Levels
             FragmentList = new List<Collectable>();
 
             InitMaze();
-            //RandomMazeGeneration();
-            MazeGenerationByDFS();
-            //MazeGenerationFromMatrix(MazeForm.NiveauActuel);
+            if (form.ModeHistoire)
+                MazeGenerationFromMatrix(MazeForm.NiveauActuel);
+            else
+                MazeGenerationByDFS();
             DisplayMaze();
-          
-            //DisplayMazeMatrix();
         }
 
         public int GetValidCoordinates(int start, int end)
         {
             //une coordinate est valide si elle est impair et entre start et end
             int coordinate = random.Next(start, end);
-
-            // Si le namebre aléatoire est pair, on l'incrémente de 1 pour le rendre impair
+            
+            // Si le nombre aléatoire est pair, on l'incrémente de 1 pour le rendre impair
             if (coordinate % 2 == 0)
-            {
                 coordinate++;
-            }
             return coordinate;
         }
 
@@ -167,7 +164,7 @@ namespace src.PuckMan.Game.Levels
                     else if (random.NextDouble() < 0.8)
                     {
                         MazeMatrix[x, y].IsWall = true;
-                        MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.mur;
+                        MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.mur2;
                     }
                     else
                     {
@@ -276,10 +273,6 @@ namespace src.PuckMan.Game.Levels
 
 
 
-
-
-
-
         //MATRIX CODE -----------------------------------------------------------------------------------------------------
         public void MazeGenerationFromMatrix(int niveau)
         {
@@ -321,7 +314,6 @@ namespace src.PuckMan.Game.Levels
                 string[] elements = matrixLines[y].Split(' ');
                 for (int x = 0; x < elements.Length-1; x++)
                 {
-                    //Debug.Write(elements[x]+" ");
                     switch (elements[x][0])
                     {
                         case 'X':
@@ -340,10 +332,10 @@ namespace src.PuckMan.Game.Levels
                             startY = y;
                             break;
                         case 'F':
-                            // fragment
+                            GenerateCollectable("fragment", 1, x, y);
                             break;
                         case 'E':
-                            // ennemi
+                            GenerateEnemy("égaré", 1, x, y);
                             break;
                         case 'H':
                             // soin
@@ -363,13 +355,9 @@ namespace src.PuckMan.Game.Levels
         {
             int index = (Y * (width * 2 + 1)) + (X * 2);
             if (index < stringMazeMatrix.Length)
-            {
                 stringMazeMatrix = stringMazeMatrix.Substring(0, index) + entityCodeName + stringMazeMatrix.Substring(index + 1);
-            }
             else
-            {
-                Debug.WriteLine("Player position is out of bounds.");
-            }
+                Debug.WriteLine("Error : position is out of bounds.");
         }
         public string DisplayMazeMatrix()
         {
@@ -425,12 +413,12 @@ namespace src.PuckMan.Game.Levels
             stringMazeMatrix = strMazeMatrix;
         }
 
-        public void GenerateCollectable(string name, int number)
+        public void GenerateCollectable(string name, int number, int x, int y)
         {
             while (number > 0)
             {
-                int x = GetValidCoordinates(1, width - 1);
-                int y = GetValidCoordinates(1, height - 1);
+                //int x = GetValidCoordinates(1, width - 1);
+                //int y = GetValidCoordinates(1, height - 1);
                 // Vérifier s'il n'y a pas déjà une entité à l'endroit choisi
                 if (Entities[x * cellSize, y * cellSize] is null)
                 {
@@ -448,12 +436,10 @@ namespace src.PuckMan.Game.Levels
         }
 
 
-        public void GenerateEnemy(string name, int number)
+        public void GenerateEnemy(string name, int number, int x, int y)
         {
             while (number > 0)
             {
-                int x = GetValidCoordinates(1, width - 1);
-                int y = GetValidCoordinates(1, height - 1);
                 // Vérifier s'il n'y a pas déjà une entité à l'endroit choisi
                 if (Entities[x * cellSize, y * cellSize] is null)
                 {

@@ -44,7 +44,7 @@
             this.LblPV.BackColor = System.Drawing.Color.Transparent;
             this.LblPV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPV.ForeColor = System.Drawing.Color.Transparent;
-            this.LblPV.Location = new System.Drawing.Point(1110, 43);
+            this.LblPV.Location = new System.Drawing.Point(787, 44);
             this.LblPV.Name = "LblPV";
             this.LblPV.Size = new System.Drawing.Size(20, 24);
             this.LblPV.TabIndex = 0;
@@ -56,7 +56,7 @@
             this.LblFragmentCollecte.BackColor = System.Drawing.Color.Transparent;
             this.LblFragmentCollecte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFragmentCollecte.ForeColor = System.Drawing.Color.Transparent;
-            this.LblFragmentCollecte.Location = new System.Drawing.Point(1111, 115);
+            this.LblFragmentCollecte.Location = new System.Drawing.Point(788, 116);
             this.LblFragmentCollecte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblFragmentCollecte.Name = "LblFragmentCollecte";
             this.LblFragmentCollecte.Size = new System.Drawing.Size(20, 24);
@@ -69,7 +69,7 @@
             this.LblFragmentGenere.BackColor = System.Drawing.Color.Transparent;
             this.LblFragmentGenere.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFragmentGenere.ForeColor = System.Drawing.Color.Transparent;
-            this.LblFragmentGenere.Location = new System.Drawing.Point(1155, 115);
+            this.LblFragmentGenere.Location = new System.Drawing.Point(832, 116);
             this.LblFragmentGenere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblFragmentGenere.Name = "LblFragmentGenere";
             this.LblFragmentGenere.Size = new System.Drawing.Size(20, 24);
@@ -82,7 +82,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(1137, 115);
+            this.label1.Location = new System.Drawing.Point(814, 116);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(15, 24);
@@ -93,10 +93,10 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::Puck_Man_Game.Properties.Resources.fragment2;
-            this.pictureBox2.Location = new System.Drawing.Point(1025, 88);
+            this.pictureBox2.Location = new System.Drawing.Point(702, 89);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(66, 70);
+            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -105,10 +105,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Puck_Man_Game.Properties.Resources.hp_1;
-            this.pictureBox1.Location = new System.Drawing.Point(1025, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(702, 24);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(67, 62);
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -132,6 +132,7 @@
             this.Name = "NouvellePartie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puck Man";
+            this.Load += new System.EventHandler(this.NouvellePartie_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

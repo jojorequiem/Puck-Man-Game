@@ -15,7 +15,10 @@ namespace Puck_Man_Game
     public static class Program
     {
         public static int LargeurFenetre = 900;
-        public static int HauteurFenetre = 700;
+        public static int HauteurFenetre = 650;
+        public static int MazeWidth = 17;
+        public static int MazeHeight = 15;
+
         public static Color BackgroundColor = Color.Black;
         public static Color TextColor = Color.White;
         public static Color ButtonColor = Color.DarkGray;
@@ -39,11 +42,12 @@ namespace Puck_Man_Game
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new src.PuckMan.UI.Menu());
+
             //Application.Run(new src.PuckMan.UI.Screens.ModeHistoire());
             //Application.Run(new src.PuckMan.UI.Screens.Dialogue());
 
             //var rootDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            //var databaseDirectory = Path.Combine(rootDirectory,"Puck-Man-Game", "src", "database");
+            //var databaseDirectory = Path.Combine(rootDirectory, "Puck-Man-Game", "src", "database");
             //var filePath = Path.Combine(databaseDirectory, "example.csv");
             //var csvManager = new CsvFileManager(filePath);
             //var records = new List<CsvRecord>
@@ -53,7 +57,7 @@ namespace Puck_Man_Game
             //};
             //csvManager.WriteRecords(records);
 
-            //csvManager.ResetFile();
+            ////csvManager.ResetFile();
             //Console.WriteLine("Fichier réinitialisé.");
         }
 

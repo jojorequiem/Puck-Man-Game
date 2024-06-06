@@ -115,6 +115,12 @@
     <Compile Include="src\PuckMan\UI\Screens\MenuParametreJouer.Designer.cs">
       <DependentUpon>MenuParametreJouer.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\MenuPause.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\MenuPause.Designer.cs">
+      <DependentUpon>MenuPause.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\PuckMan\UI\Screens\ModeHistoire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\MenuParametreJouer.resx">
       <DependentUpon>MenuParametreJouer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\MenuPause.resx">
+      <DependentUpon>MenuPause.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\ModeHistoire.resx">
       <DependentUpon>ModeHistoire.cs</DependentUpon>
@@ -201,12 +210,15 @@
     <Content Include="assets\audio\takeDamage.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\images\background2.jpg" />
+    <Content Include="assets\images\background2.png" />
     <Content Include="assets\images\deathPotion.png" />
     <Content Include="assets\dialogue\chapitre1_p2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\images\healPotion.png" />
     <Content Include="assets\images\mur2.png" />
+    <Content Include="src\PuckMan\UI\Screens\background.png" />
     <None Include="Resources\fragm.gif" />
     <None Include="Resources\fragment.gif" />
     <None Include="Resources\hp-1.png" />

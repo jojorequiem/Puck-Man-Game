@@ -13,9 +13,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public partial class Parametres : FormComponent
     {
-        public Parametres()
+        public FormComponent FormParent;
+        public Parametres(FormComponent formParent)
         {
             InitializeComponent();
+            FormParent = formParent;
             LblMainValue.Text = Program.VolumePrincipale.ToString();
             TrackBarMain.Value = Program.VolumePrincipale;
             LblMusicValue.Text = Program.VolumeMusique.ToString();
@@ -26,7 +28,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            DisplayForm(new Menu(), this);
+            Close();
+            DisplayForm(FormParent, this);
+
         }
 
         private void TrackBarMain_ValueChanged(object sender, EventArgs e)

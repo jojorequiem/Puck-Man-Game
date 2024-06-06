@@ -13,13 +13,17 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private int nbrLine;
         private string Chapitre;
         private bool dialogueFini;
-
-        public Dialogue() : base()
+        private int NiveauActuel;
+        public Dialogue(int niveauActuel, bool niveauFini) : base()
         {
             InitializeComponent();
+            NiveauActuel = niveauActuel;
             Program.PlayMusic("assets/audio/musiqueDialogue.mp3");
             dialogueFini = false;
-            Chapitre = "chapitre1_p2.txt";
+            if (niveauFini )
+                Chapitre = "chapitre"+niveauActuel+"_p1.txt";
+            else
+                Chapitre = "chapitre" + niveauActuel + "_p2.txt";
             nbrLine = 1;
             string filePath = "assets/dialogue/" + Chapitre;
             if (File.Exists(filePath))
@@ -48,6 +52,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 Margin = new Padding(0, 0, 0, 15) // Ajouter une marge pour l'espacement
             };
             FlowPanel.Controls.Add(label);
+            
             //scroll automatiquement pour le confort de l'utilisateur
             Panel.VerticalScroll.Value = Panel.VerticalScroll.Maximum;
             Panel.PerformLayout();
@@ -57,7 +62,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             if (dialogueFini)
             {
-                Program.LoadScene(typeof(NouvellePartie), this);
+                DisplayForm(new NouvellePartie(true, NiveauActuel + 1), this);
             }
             else
             {
@@ -79,7 +84,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnSkip_Click(object sender, EventArgs e)
         {
-            Program.LoadScene(typeof(NouvellePartie), this);
+            DisplayForm(new NouvellePartie(true, NiveauActuel + 1), this);
         }
     }
 }
