@@ -21,7 +21,9 @@ namespace Puck_Man_Game.src.PuckMan.UI
 
         private void BtnParametres_Click(object sender, EventArgs e)
         {
-            DisplayForm(new Parametres(this), this);
+            if (Program.Parametres == null)
+                Program.Parametres = new Parametres(this);
+            Program.ChangeActiveForm(Program.Parametres, this);
         }
 
         private void BtnQuitter_Click(object sender, EventArgs e)
@@ -31,7 +33,9 @@ namespace Puck_Man_Game.src.PuckMan.UI
 
         private void BtnJouer_Click(object sender, EventArgs e)
         {
-            DisplayForm(new MenuParametreJouer(), this);
+            if (Program.MenuParametreJouer == null)
+                Program.MenuParametreJouer = new MenuParametreJouer();
+            Program.ChangeActiveForm(Program.MenuParametreJouer, this);
         }
     }
 }

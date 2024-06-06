@@ -61,10 +61,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             return int.Parse(lines[game - 1]);
         }
 
-        private void ChangeActualLevel(int game, bool reset)
+        private void ChangeActualLevel(int game, int value)
         {
             string[] lines = File.ReadAllLines("src/PuckMan/Game/Levels/modeHistoire.txt", Encoding.UTF8);
-            lines[game - 1] = (reset ? 0 : int.Parse(lines[game - 1]) + 1).ToString();
+            lines[game - 1] = (value).ToString();
             for(int i = 0; i < lines.Length; i++)
             {
                 Debug.WriteLine(lines[i]);
@@ -75,37 +75,50 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnGame1_Click(object sender, EventArgs e)
         {
-            ChangeActualLevel(1, false);
-            if (niveauPartie1>0)
-                DisplayForm(new NouvellePartie(true, niveauPartie1), this);
-            else
-                DisplayForm(new Dialogue(niveauPartie1, false), this);
+            Program.game = 1;
+            if (niveauPartie1 <= 0)
+            {
+                ChangeActualLevel(1, 1);
+                niveauPartie1 = 1;
+            }
+            if (Program.Dialogue == null)
+                Program.Dialogue = new Dialogue(niveauPartie1, false);
+            Program.ChangeActiveForm(Program.Dialogue, this);
         }
         private void BtnGame2_Click(object sender, EventArgs e)
         {
-            ChangeActualLevel(2, false);
-            if (niveauPartie2 > 0)
-                DisplayForm(new NouvellePartie(true, niveauPartie2), this);
-            else
-                DisplayForm(new Dialogue(niveauPartie2, false), this);
+            Program.game = 2;
+            if (niveauPartie2 <= 0)
+            {
+                ChangeActualLevel(2, 1);
+                niveauPartie2 = 1;
+            }
+                
+            if (Program.Dialogue == null)
+                Program.Dialogue = new Dialogue(niveauPartie2, false);
+            Program.ChangeActiveForm(Program.Dialogue, this);
         }
 
         private void BtnGame3_Click(object sender, EventArgs e)
         {
-            ChangeActualLevel(3, false);
-            if (niveauPartie3 > 0)
-                DisplayForm(new NouvellePartie(true, niveauPartie3), this);
-            else
-                DisplayForm(new Dialogue(niveauPartie3, false), this);
+            Program.game = 3;
+            if (niveauPartie3 <= 0)
+            {
+                ChangeActualLevel(3, 1);
+                niveauPartie3 = 1;
+            }
+            if (Program.Dialogue == null)
+                Program.Dialogue = new Dialogue(niveauPartie3, false);
+            Program.ChangeActiveForm(Program.Dialogue, this);
         }
 
 
         public void DemandeSuppresionPartie(Button boutonPartie, Button boutonSupprimer, int game)
         {
-            ChangeActualLevel(game, true);
             DialogResult dialogResult = MessageBox.Show("Voulez-vous vraiment supprimer cette partie ?", "Message-Puck-Man", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                ChangeActualLevel(game, 0);
                 boutonPartie.Text = "NOUVELLE PARTIE";
                 boutonSupprimer.Enabled = false;
             }
@@ -127,7 +140,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            DisplayForm(new MenuParametreJouer(), this);
+            if (Program.MenuParametreJouer == null)
+                Program.MenuParametreJouer = new MenuParametreJouer();
+            Program.ChangeActiveForm(Program.MenuParametreJouer, this);
         } 
 
     }

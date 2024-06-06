@@ -1,6 +1,7 @@
 ﻿using Puck_Man_Game.src.PuckMan.Engine.Entities;
 using Puck_Man_Game.src.PuckMan.Game.Entities;
 using Puck_Man_Game.src.PuckMan.UI;
+using Puck_Man_Game.src.PuckMan.UI.Screens;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,12 +22,25 @@ namespace Puck_Man_Game
 
         public static Color BackgroundColor = Color.Black;
         public static Color TextColor = Color.White;
-        public static Color ButtonColor = Color.DarkGray;
+        public static Color ButtonColor = Color.SkyBlue;
 
         private static WindowsMediaPlayer music;
         public static int VolumePrincipale;
         public static int VolumeSon;
         public static int VolumeMusique;
+
+        public static Form Classement = null;
+        public static Form Dialogue = null;
+        public static Form Menu = null;
+        public static Form MenuParametreJouer = null;
+        public static Form MenuPause = null;
+        public static Form ModeHistoire = null;
+        public static Form NiveauSuivant = null;
+        public static Form NouvellePartie = null;
+        public static Form Parametres = null;
+
+        public static int game;
+
 
         /// <summary>
         /// Point d'entrée principal de l'application.
@@ -41,7 +55,8 @@ namespace Puck_Man_Game
             PlayMusic("assets/audio/musiqueMenu.mp3");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new src.PuckMan.UI.Menu());
+            Menu = new src.PuckMan.UI.Menu();
+            Application.Run(Menu);
 
             //Application.Run(new src.PuckMan.UI.Screens.ModeHistoire());
             //Application.Run(new src.PuckMan.UI.Screens.Dialogue());
@@ -100,5 +115,20 @@ namespace Puck_Man_Game
             instance.Location = formulaire.Location;
             instance.Show(); 
         }
+        static public void ChangeActiveForm(Form formulaire, Form parent)
+        {
+            formulaire.StartPosition = FormStartPosition.Manual;
+            formulaire.Location = parent.Location;
+            formulaire.Show();
+            parent.Hide();
+
+
+            var openForms = Application.OpenForms.Cast<Form>().ToList();
+            Console.WriteLine($"Number of open forms: {openForms.Count}");
+            foreach (var form in openForms)
+                Console.WriteLine($"Form name: {form.Name}");
+
+        }
+
     }
 }

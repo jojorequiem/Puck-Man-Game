@@ -43,22 +43,64 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     control.BackColor = Program.BackgroundColor;
                 }
 
-                if (control is Label) 
+                if (control is Label)
                     control.BackColor = Color.Transparent;
 
-                if (control is Button)
+                if (control is Button button)
                 {
-                    control.Font = new Font(control.Font.FontFamily, 16);
-                    control.ForeColor = Program.TextColor;
-                    control.BackColor = Program.ButtonColor;
+                    button.MouseEnter += MyButton_MouseEnter;
+                    button.MouseLeave += MyButton_MouseLeave;
+                    button.GotFocus += MyButton_GotFocus;
+                    button.LostFocus += MyButton_LostFocus;
+                    button.Font = new Font(control.Font.FontFamily, 16);
+                    button.ForeColor = Program.TextColor;
+                    button.BackColor = Color.Transparent;
+                    button.FlatStyle = FlatStyle.Flat;
                 }
 
                 if (control.HasChildren)
-                {
                     ChangeAllTextColors(control);
-                }
             }
         }
+
+        private void MyButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                button.BackColor = Color.LightBlue;
+                button.ForeColor = Program.TextColor;
+            }
+        }
+
+        private void MyButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                button.BackColor = Color.Transparent;
+                button.ForeColor = Program.TextColor;
+            }
+        }
+
+        private void MyButton_GotFocus(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                button.BackColor = Color.LightBlue;
+                button.ForeColor = Color.White;
+            }
+        }
+
+        private void MyButton_LostFocus(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null && !button.ClientRectangle.Contains(button.PointToClient(Control.MousePosition)))
+            {
+                button.BackColor = Color.Transparent;
+                button.ForeColor = Program.TextColor;
+            }
+        }
+
 
         public void DisplayForm(FormComponent form, FormComponent previousForm)
         {

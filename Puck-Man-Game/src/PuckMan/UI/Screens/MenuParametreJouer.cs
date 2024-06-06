@@ -20,17 +20,24 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            DisplayForm(new Menu(), this);
+            if (Program.Menu == null)
+                Program.Menu = new Menu();
+            Program.ChangeActiveForm(Program.Menu, this);
         }
 
         private void BtnNouvellePartie_Click(object sender, EventArgs e)
         {
-            DisplayForm(new ModeHistoire(), this);
+            if (Program.ModeHistoire == null)
+                Program.ModeHistoire = new ModeHistoire();
+            Program.ChangeActiveForm(Program.ModeHistoire, this);
         }
 
         private void BtnModeInfini_Click(object sender, EventArgs e)
         {
-            DisplayForm(new NouvellePartie(false, 0), this);
+            if (Program.NouvellePartie == null)
+                Program.NouvellePartie = new NouvellePartie(false, 0);
+            Program.ChangeActiveForm(Program.ModeHistoire, this);
+            //DisplayForm(new NouvellePartie(false, 0), this);
         }
     }
 }

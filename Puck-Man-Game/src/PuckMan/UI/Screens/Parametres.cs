@@ -28,9 +28,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            Close();
-            DisplayForm(FormParent, this);
-
+            Program.ChangeActiveForm(FormParent, this);
         }
 
         private void TrackBarMain_ValueChanged(object sender, EventArgs e)

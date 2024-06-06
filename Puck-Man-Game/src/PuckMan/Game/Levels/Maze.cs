@@ -29,7 +29,7 @@ namespace src.PuckMan.Game.Levels
         public Entity[,] Entities { get; set; }
         public List<Enemy> EnemyList { get; set; }
         public List<Collectable> FragmentList { get; set; }
-        public Entity[,] Fragment { get; set; }
+        public Collectable[,] StaticEntities{ get; set; }
         public List<Cell> EulerianPath { get; private set; }
 
         public string stringMazeMatrix;
@@ -46,7 +46,7 @@ namespace src.PuckMan.Game.Levels
             height = mazeHeight;
             MazeMatrix = new Cell[width, height];
             Entities = new Entity[width * cellSize, height * cellSize];
-            Fragment = new Entity[width * cellSize, height * cellSize];
+            StaticEntities = new Collectable[width * cellSize, height * cellSize];
             numGeneratedFragments = 2;
             EnemyList = new List<Enemy>();
             FragmentList = new List<Collectable>();
@@ -420,7 +420,7 @@ namespace src.PuckMan.Game.Levels
                 //int x = GetValidCoordinates(1, width - 1);
                 //int y = GetValidCoordinates(1, height - 1);
                 // Vérifier s'il n'y a pas déjà une entité à l'endroit choisi
-                if (Entities[x * cellSize, y * cellSize] is null)
+                if (StaticEntities[x * cellSize, y * cellSize] is null && (x!=startX || y != startY))
                 {
                     Collectable instance = new Collectable(name, x * cellSize, y * cellSize);
                     if (name == "fragment")
@@ -430,7 +430,7 @@ namespace src.PuckMan.Game.Levels
                     MazeForm.Controls.Add(instance.Image);
                     instance.Image.BringToFront();
                     number -= 1;
-                    Fragment[x * cellSize, y * cellSize] = instance;
+                    StaticEntities[x * cellSize, y * cellSize] = instance;
                 }
             }
         }

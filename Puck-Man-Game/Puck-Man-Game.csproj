@@ -212,6 +212,7 @@
     </Content>
     <Content Include="assets\images\background2.jpg" />
     <Content Include="assets\images\background2.png" />
+    <Content Include="assets\images\background3.png" />
     <Content Include="assets\images\deathPotion.png" />
     <Content Include="assets\dialogue\chapitre1_p2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

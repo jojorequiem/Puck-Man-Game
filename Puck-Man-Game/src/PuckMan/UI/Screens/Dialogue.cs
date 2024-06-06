@@ -14,16 +14,20 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private string Chapitre;
         private bool dialogueFini;
         private int NiveauActuel;
+        private bool NiveauFini;
         public Dialogue(int niveauActuel, bool niveauFini) : base()
         {
             InitializeComponent();
             NiveauActuel = niveauActuel;
+            NiveauFini = niveauFini;
             Program.PlayMusic("assets/audio/musiqueDialogue.mp3");
             dialogueFini = false;
-            if (niveauFini )
-                Chapitre = "chapitre"+niveauActuel+"_p1.txt";
+            if (!NiveauFini)
+                Chapitre = "chapitre" + niveauActuel+"_p1.txt";
             else
                 Chapitre = "chapitre" + niveauActuel + "_p2.txt";
+            Debug.WriteLine(Chapitre);
+
             nbrLine = 1;
             string filePath = "assets/dialogue/" + Chapitre;
             if (File.Exists(filePath))
@@ -45,10 +49,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             {
                 Text = dialogue,
                 AutoSize = true,
-                MaximumSize = new Size(630, 0), // Largeur maximale, hauteur automatique
+                MaximumSize = new Size(500, 0), // Largeur maximale, hauteur automatique
                 Font = new Font(FontFamily.GenericSansSerif, 16),
                 ForeColor = Program.TextColor,
-                BackColor = Program.BackgroundColor,
+                BackColor = Color.Transparent,
                 Margin = new Padding(0, 0, 0, 15) // Ajouter une marge pour l'espacement
             };
             FlowPanel.Controls.Add(label);
@@ -62,7 +66,23 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             if (dialogueFini)
             {
-                DisplayForm(new NouvellePartie(true, NiveauActuel + 1), this);
+                if (NiveauFini)
+                {
+                    string[] lines = File.ReadAllLines("src/PuckMan/Game/Levels/modeHistoire.txt", Encoding.UTF8);
+                    lines[Program.game - 1] = (NiveauActuel + 1).ToString();
+                    File.WriteAllLines("src/PuckMan/Game/Levels/modeHistoire.txt", lines, Encoding.UTF8);
+                }
+
+                if (Program.NouvellePartie != null)
+                {
+                    Program.NouvellePartie.Close();
+                    Program.NouvellePartie.Dispose();
+                }
+                Program.NouvellePartie = new NouvellePartie(true, NiveauActuel + 1);
+                Program.ChangeActiveForm(Program.NouvellePartie, this);
+
+
+                // DisplayForm(new NouvellePartie(true, NiveauActuel + 1), this);
             }
             else
             {

@@ -93,21 +93,13 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         private void UpdateSkin(int deltaX, int deltaY)
         {
             if (deltaX == -1)
-            {
                 Image.Image = ImageLeft;
-            }
             else if (deltaX == 1)
-            {
                 Image.Image = ImageRight;
-            }
             else if (deltaY == -1)
-            {
                 Image.Image = ImageUp;
-            }
             else if (deltaY == 1)
-            {
                 Image.Image = ImageDown;
-            }
         }
     
         public bool MovePlayer(int deltaX, int deltaY)
@@ -115,11 +107,9 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             // Vérifie les collisions avec les murs
             if (CheckWallCollision(deltaX, deltaY))
             {
-                
                 moveDeltaX = 0;
                 moveDeltaY = 0;
                 Image.Image = ImageIdle;
-                
                 return false; // Le joueur entre en collision avec un mur, on ne le déplace pas
             }
 
@@ -160,14 +150,11 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         private void HandleEntityInteractions()
         {
-            if (X >= 0 && X < Maze.Entities.GetLength(0) && Y >= 0 && Y < Maze.Entities.GetLength(1))
+            if (X >= 0 && X < Maze.StaticEntities.GetLength(0) && Y >= 0 && Y < Maze.StaticEntities.GetLength(1))
             {
-                if (Maze.Entities[X, Y] != null)
+                if (Maze.StaticEntities[X, Y] != null)
                 {
-                    if (Maze.Entities[X, Y] is Collectable collectable)
-                    {
-                        collectable.Collecte(Maze.MazeForm);
-                    }
+                    Maze.StaticEntities[X, Y].Collecte(Maze.MazeForm);
                 }
             }
         }

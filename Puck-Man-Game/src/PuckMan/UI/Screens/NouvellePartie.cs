@@ -46,13 +46,13 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             maze.DisplayMazeMatrix();
             if (ModeHistoire)
             {
-                this.BackgroundImage = Properties.Resources.background;
+                this.BackgroundImage = Properties.Resources.background3;
                 Program.PlayMusic("assets/audio/musiqueModeHistoire.mp3");
             }
             else
             {
                 this.BackgroundImageLayout = ImageLayout.Stretch;
-                this.BackgroundImage = Properties.Resources.background;
+                this.BackgroundImage = Properties.Resources.background3;
                 maze.GenerateCollectable("fragment", maze.numGeneratedFragments, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
                 //maze.GenerateCollectable("fragment", maze.numGeneratedFragments, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
@@ -112,18 +112,20 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             Destructeur();
             P1.isDead = true;
             if (ModeHistoire) {
-                DisplayForm(new Dialogue(NiveauActuel, true), this);
-                
+                if (Program.Dialogue == null)
+                {
+                    Program.Dialogue.Close();
+                    Program.Dialogue.Dispose();
+                }
+                Program.Dialogue = new Dialogue(NiveauActuel, true);
+                Program.ChangeActiveForm(Program.Dialogue, this);
             }
             else
             {
-                Program.LoadScene(typeof(NiveauSuivant), this);
+                if (Program.NiveauSuivant == null)
+                    Program.NiveauSuivant = new NiveauSuivant();
+                Program.ChangeActiveForm(Program.NiveauSuivant, this);
             }
-        }
-
-        private void NouvellePartie_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
