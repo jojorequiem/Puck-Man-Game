@@ -93,16 +93,6 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap background3 {
-            get {
-                object obj = ResourceManager.GetObject("background3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap bottomGif128 {
             get {
                 object obj = ResourceManager.GetObject("bottomGif128", resourceCulture);
@@ -113,9 +103,9 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap coeur {
+        internal static System.Drawing.Bitmap deathPotion {
             get {
-                object obj = ResourceManager.GetObject("coeur", resourceCulture);
+                object obj = ResourceManager.GetObject("deathPotion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +113,9 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap deathPotion {
+        internal static System.Drawing.Bitmap dialogueBackground {
             get {
-                object obj = ResourceManager.GetObject("deathPotion", resourceCulture);
+                object obj = ResourceManager.GetObject("dialogueBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -147,16 +137,6 @@ namespace Puck_Man_Game.Properties {
             get {
                 object obj = ResourceManager.GetObject("fonts_pixel_art", resourceCulture);
                 return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap fra {
-            get {
-                object obj = ResourceManager.GetObject("fra", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -213,16 +193,6 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap joueur {
-            get {
-                object obj = ResourceManager.GetObject("joueur", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap leftGif128 {
             get {
                 object obj = ResourceManager.GetObject("leftGif128", resourceCulture);
@@ -256,16 +226,6 @@ namespace Puck_Man_Game.Properties {
         internal static System.Drawing.Bitmap portal {
             get {
                 object obj = ResourceManager.GetObject("portal", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap porte {
-            get {
-                object obj = ResourceManager.GetObject("porte", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

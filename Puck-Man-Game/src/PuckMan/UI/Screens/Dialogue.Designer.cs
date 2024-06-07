@@ -68,22 +68,23 @@
             this.Panel.AutoScroll = true;
             this.Panel.BackColor = System.Drawing.Color.White;
             this.Panel.Controls.Add(this.FlowPanel);
-            this.Panel.Location = new System.Drawing.Point(108, 81);
+            this.Panel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Panel.Location = new System.Drawing.Point(108, 79);
             this.Panel.Margin = new System.Windows.Forms.Padding(2);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(699, 350);
+            this.Panel.Size = new System.Drawing.Size(697, 350);
             this.Panel.TabIndex = 11;
             // 
             // FlowPanel
             // 
             this.FlowPanel.AutoSize = true;
-            this.FlowPanel.BackColor = System.Drawing.Color.SkyBlue;
+            this.FlowPanel.BackColor = System.Drawing.Color.Black;
             this.FlowPanel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FlowPanel.Location = new System.Drawing.Point(12, 11);
+            this.FlowPanel.Location = new System.Drawing.Point(15, 16);
             this.FlowPanel.Margin = new System.Windows.Forms.Padding(2);
             this.FlowPanel.Name = "FlowPanel";
             this.FlowPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.FlowPanel.Size = new System.Drawing.Size(657, 327);
+            this.FlowPanel.Size = new System.Drawing.Size(667, 317);
             this.FlowPanel.TabIndex = 0;
             // 
             // BtnSkip
@@ -107,9 +108,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(888, 537);
             this.Controls.Add(this.BtnSkip);
-            this.Controls.Add(this.Panel);
             this.Controls.Add(this.LblTitre);
             this.Controls.Add(this.BtnDialogueSuivant);
+            this.Controls.Add(this.Panel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(904, 576);
             this.MinimumSize = new System.Drawing.Size(904, 576);

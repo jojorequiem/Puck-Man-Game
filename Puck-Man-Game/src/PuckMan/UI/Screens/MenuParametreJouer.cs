@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,10 +35,14 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnModeInfini_Click(object sender, EventArgs e)
         {
-            if (Program.NouvellePartie == null)
-                Program.NouvellePartie = new NouvellePartie(false, 0);
-            Program.ChangeActiveForm(Program.ModeHistoire, this);
-            //DisplayForm(new NouvellePartie(false, 0), this);
+            if (Program.NouvellePartie != null)
+            {
+                Program.NouvellePartie.Close();
+                Program.NouvellePartie.Dispose();
+            }
+            Program.NouvellePartie = new NouvellePartie(false, 0);
+            Program.ChangeActiveForm(Program.NouvellePartie, this);
+            Debug.WriteLine("przlp");
         }
     }
 }

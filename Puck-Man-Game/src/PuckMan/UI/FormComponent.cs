@@ -23,9 +23,17 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private void FormComponent_Load(object sender, EventArgs e)
         {
             ChangeAllTextColors(this);
-            this.BackColor = Program.BackgroundColor;
-            this.BackgroundImage = Puck_Man_Game.Properties.Resources.background21;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
+            if (this is NouvellePartie)
+            {
+                this.BackgroundImage = Puck_Man_Game.Properties.Resources.background;
+                this.BackgroundImageLayout = ImageLayout.Tile;
+            }
+            else
+            {
+                this.BackgroundImage = Puck_Man_Game.Properties.Resources.background21;
+                this.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+
             this.StartPosition = FormStartPosition.CenterScreen;
             this.MinimumSize = new Size(Program.LargeurFenetre - 1, Program.HauteurFenetre - 1);
             this.MaximumSize = new Size(Program.LargeurFenetre + 1, Program.HauteurFenetre + 1);
@@ -67,7 +75,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             if (sender is Button button)
             {
-                button.BackColor = Color.LightBlue;
+                button.BackColor = Color.Black;
                 button.ForeColor = Program.TextColor;
             }
         }
@@ -86,7 +94,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             Button button = sender as Button;
             if (button != null)
             {
-                button.BackColor = Color.LightBlue;
+                button.BackColor = Color.Black;
                 button.ForeColor = Color.White;
             }
         }
@@ -100,8 +108,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 button.ForeColor = Program.TextColor;
             }
         }
-
-
         public void DisplayForm(FormComponent form, FormComponent previousForm)
         {
             form.Location = previousForm.Location;

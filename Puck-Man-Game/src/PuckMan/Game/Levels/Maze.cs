@@ -186,7 +186,7 @@ namespace src.PuckMan.Game.Levels
                         if (random.NextDouble() < 0.5)
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.mur;
                         else
-                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.porte;
+                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
                     }
                 }
             }

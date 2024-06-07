@@ -26,8 +26,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 Chapitre = "chapitre" + niveauActuel+"_p1.txt";
             else
                 Chapitre = "chapitre" + niveauActuel + "_p2.txt";
-            Debug.WriteLine(Chapitre);
-
             nbrLine = 1;
             string filePath = "assets/dialogue/" + Chapitre;
             if (File.Exists(filePath))
@@ -38,6 +36,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 LblTitre.Text = lines[0];
                 GenererDialogue(lines[1]);
             }
+            else { Debug.WriteLine(filePath + "was not found"); }
+
             FlowPanel.FlowDirection = FlowDirection.TopDown;
             FlowPanel.WrapContents = false;
             FlowPanel.Padding = new Padding(10);

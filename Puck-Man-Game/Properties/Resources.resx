@@ -139,12 +139,6 @@
   <data name="leftGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\leftGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="porte" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\porte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="joueur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\joueur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -156,9 +150,6 @@
   </data>
   <data name="bottomGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bottomGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="coeur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\coeur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="healPotion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\healPotion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,9 +163,6 @@
   <data name="portal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\portal.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fra" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\fragment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="fragment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fragment1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,7 +175,7 @@
   <data name="background21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\background2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\background3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dialogueBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\dialogueBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

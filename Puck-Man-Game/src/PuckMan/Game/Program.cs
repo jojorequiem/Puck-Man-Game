@@ -121,8 +121,6 @@ namespace Puck_Man_Game
             formulaire.Location = parent.Location;
             formulaire.Show();
             parent.Hide();
-
-
             var openForms = Application.OpenForms.Cast<Form>().ToList();
             Console.WriteLine($"Number of open forms: {openForms.Count}");
             foreach (var form in openForms)

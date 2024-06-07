@@ -50,7 +50,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             Level = level;
             Maze = maze;
             EntitySpeed = Maze.cellSize;
-            Image.Image = Puck_Man_Game.Properties.Resources.joueur;
             moveTimer = new Timer
             {
                 Interval = tickSpeed
@@ -61,7 +60,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             moveDeltaY = 0;
             lastValidDeltaX = 0;
             lastValidDeltaY = 0;
-
             LoadDefaultImages();
         }
 

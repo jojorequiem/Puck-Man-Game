@@ -147,8 +147,8 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\Classement.resx">
       <DependentUpon>Classement.cs</DependentUpon>
@@ -212,14 +212,13 @@
     </Content>
     <Content Include="assets\images\background2.jpg" />
     <Content Include="assets\images\background2.png" />
-    <Content Include="assets\images\background3.png" />
     <Content Include="assets\images\deathPotion.png" />
     <Content Include="assets\dialogue\chapitre1_p2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\images\dialogueBackground.png" />
     <Content Include="assets\images\healPotion.png" />
     <Content Include="assets\images\mur2.png" />
-    <Content Include="src\PuckMan\UI\Screens\background.png" />
     <None Include="Resources\fragm.gif" />
     <None Include="Resources\fragment.gif" />
     <None Include="Resources\hp-1.png" />
@@ -237,17 +236,13 @@
     <None Include="Resources\bottomGif128.gif" />
     <None Include="Resources\topGif128.gif" />
     <None Include="assets\images\background.png" />
-    <None Include="assets\images\coeur.png" />
     <Content Include="assets\audio\musiqueModeHistoire.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\dialogue\chapitre1_p1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\images\fragment.png" />
-    <Content Include="assets\images\joueur.png" />
     <Content Include="assets\images\mur.png" />
-    <Content Include="assets\images\porte.png" />
     <Content Include="assets\images\vide.png" />
     <Content Include="assets\images\égaré.png" />
   </ItemGroup>
