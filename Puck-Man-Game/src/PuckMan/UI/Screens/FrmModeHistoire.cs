@@ -12,13 +12,13 @@ using System.Diagnostics;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class ModeHistoire : FormComponent
+    public partial class FrmModeHistoire : FormComponent
     {
         public int niveauPartie1;
         public int niveauPartie2;
         public int niveauPartie3;
 
-        public ModeHistoire() : base()
+        public FrmModeHistoire() : base()
         {
             InitializeComponent();
             niveauPartie1 = GetActualLevel(1);
@@ -81,9 +81,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 ChangeActualLevel(1, 1);
                 niveauPartie1 = 1;
             }
-            if (Program.Dialogue == null)
-                Program.Dialogue = new Dialogue(niveauPartie1, false);
-            Program.ChangeActiveForm(Program.Dialogue, this);
+            if (Program.FrmDialogue == null)
+                Program.FrmDialogue = new FrmDialogue(niveauPartie1, false);
+            Program.ChangeActiveForm(Program.FrmDialogue, this);
         }
         private void BtnGame2_Click(object sender, EventArgs e)
         {
@@ -94,9 +94,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 niveauPartie2 = 1;
             }
                 
-            if (Program.Dialogue == null)
-                Program.Dialogue = new Dialogue(niveauPartie2, false);
-            Program.ChangeActiveForm(Program.Dialogue, this);
+            if (Program.FrmDialogue == null)
+                Program.FrmDialogue = new FrmDialogue(niveauPartie2, false);
+            Program.ChangeActiveForm(Program.FrmDialogue, this);
         }
 
         private void BtnGame3_Click(object sender, EventArgs e)
@@ -107,13 +107,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 ChangeActualLevel(3, 1);
                 niveauPartie3 = 1;
             }
-            if (Program.Dialogue == null)
-                Program.Dialogue = new Dialogue(niveauPartie3, false);
-            Program.ChangeActiveForm(Program.Dialogue, this);
+            if (Program.FrmDialogue == null)
+                Program.FrmDialogue = new FrmDialogue(niveauPartie3, false);
+            Program.ChangeActiveForm(Program.FrmDialogue, this);
         }
-
-
-        public void DemandeSuppresionPartie(Button boutonPartie, Button boutonSupprimer, int game)
+        public bool DemandeSuppresionPartie(Button boutonPartie, Button boutonSupprimer, int game)
         {
             DialogResult dialogResult = MessageBox.Show("Voulez-vous vraiment supprimer cette partie ?", "Message-Puck-Man", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -121,28 +119,33 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 ChangeActualLevel(game, 0);
                 boutonPartie.Text = "NOUVELLE PARTIE";
                 boutonSupprimer.Enabled = false;
+                return true;
             }
+            return false;
         }
 
         private void BtnDelete1_Click(object sender, EventArgs e)
         {
-            DemandeSuppresionPartie(BtnGame1, BtnDelete1, 1);
+            if (DemandeSuppresionPartie(BtnGame1, BtnDelete1, 1))
+                niveauPartie1 = 0;
         }
 
         private void BtnDelete2_Click(object sender, EventArgs e)
         {
-            DemandeSuppresionPartie(BtnGame2, BtnDelete2, 2);
+            if (DemandeSuppresionPartie(BtnGame2, BtnDelete2, 2))
+                niveauPartie2 = 0;
         }
         private void BtnDelete3_Click(object sender, EventArgs e)
         {
-            DemandeSuppresionPartie(BtnGame3, BtnDelete3, 3);
+            if (DemandeSuppresionPartie(BtnGame3, BtnDelete3, 3))
+                niveauPartie3 = 0;
         }
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            if (Program.MenuParametreJouer == null)
-                Program.MenuParametreJouer = new MenuParametreJouer();
-            Program.ChangeActiveForm(Program.MenuParametreJouer, this);
+            if (Program.FrmJouer == null)
+                Program.FrmJouer = new FrmJouer();
+            Program.ChangeActiveForm(Program.FrmJouer, this);
         } 
 
     }

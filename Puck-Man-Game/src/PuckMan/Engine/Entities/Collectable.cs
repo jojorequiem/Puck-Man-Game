@@ -32,7 +32,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
                 Image.Image = Puck_Man_Game.Properties.Resources.portal;
 
         }
-        public void Collecte(NouvellePartie Formulaire)
+        public void Collecte(FrmNouvellePartie Formulaire)
         {
             if (!DejaCollecte)
             {
@@ -44,20 +44,17 @@ namespace Puck_Man_Game.src.PuckMan.Game
                     player.Maze.FragmentList.Remove(this);
                     Formulaire.UpdateFragmentdisplay();
                     if (player.Maze.FragmentList.Count() <= 0)
-                    {
-                        Formulaire.NiveauSuivant();
-                    }
+                        Formulaire.NiveauSuivant(); 
                 }
 
                 else if (EntityName == "soin")
                 {
+                    Debug.WriteLine("soigne");
                     player.Heal(1);
                 }
 
                 else if (EntityName == "potion degat")
-                {
                     player.DamageReceived(1);
-                }
 
                 else if (EntityName == "portail teleportation")
                 {
@@ -89,9 +86,6 @@ namespace Puck_Man_Game.src.PuckMan.Game
                     Image.Location = new Point(X, Y);
                     player.Maze.Entities[X, Y] = this;
                 }
-
-                
-
             }
         }
     }

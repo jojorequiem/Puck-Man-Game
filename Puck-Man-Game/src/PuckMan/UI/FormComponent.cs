@@ -19,11 +19,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public FormComponent()
         {
             this.Load += FormComponent_Load;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormComponent_FormClosing);
         }
         private void FormComponent_Load(object sender, EventArgs e)
         {
             ChangeAllTextColors(this);
-            if (this is NouvellePartie)
+            if (this is FrmNouvellePartie)
             {
                 this.BackgroundImage = Puck_Man_Game.Properties.Resources.background;
                 this.BackgroundImageLayout = ImageLayout.Tile;
@@ -108,11 +109,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 button.ForeColor = Program.TextColor;
             }
         }
-        public void DisplayForm(FormComponent form, FormComponent previousForm)
+
+        private void FormComponent_FormClosing(object sender, FormClosingEventArgs e)
         {
-            form.Location = previousForm.Location;
-            form.Show();
-            previousForm.Hide();
+            if (MessageBox.Show("Voulez-vous vraiment quitter?", "Message Puck-Man", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                e.Cancel = true; 
         }
     }
 }

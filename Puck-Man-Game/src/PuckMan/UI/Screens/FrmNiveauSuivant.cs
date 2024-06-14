@@ -10,21 +10,23 @@ using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class NiveauSuivant : FormComponent
+    public partial class FrmNiveauSuivant : FormComponent
     {
-        public NiveauSuivant()
+        public FrmNiveauSuivant()
         {
             InitializeComponent();
         }
 
         private void BtnNiveauSuivant_Click(object sender, EventArgs e)
         {
-            Program.LoadScene(typeof(NouvellePartie), this);
+            if (Program.FrmNouvellePartie == null)
+                Program.FrmNouvellePartie = new FrmNouvellePartie(false,0);
+            Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
         }
 
         private void BtnRetourMenu_Click(object sender, EventArgs e)
         {
-            Program.LoadScene(typeof(Menu), this);
+            Program.ChangeActiveForm(Program.FrmMenu, this);
         }
     }
 }

@@ -24,13 +24,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class NouvellePartie : FormComponent
+    public partial class FrmNouvellePartie : FormComponent
     {
         public bool ModeHistoire;
         public int NiveauActuel;
         public Player P1 { get; set; }
-      
-        public NouvellePartie(bool modeHistoire, int niveauActuel) : base()
+        public FrmNouvellePartie(bool modeHistoire, int niveauActuel) : base()
         {
             InitializeComponent();
             this.KeyDown += (sender, e) => P1.PlayerKeyDown(sender, e);
@@ -39,9 +38,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             NiveauActuel = niveauActuel;
             
             Maze maze = new Maze(this, Program.MazeWidth, Program.MazeHeight);
-            P1 = new Player("joueur", 3, 1, maze.startX * Maze.cellSize, maze.startY * Maze.cellSize, maze);
+            P1 = new Player("joueur", 3, maze.startX * Maze.cellSize, maze.startY * Maze.cellSize, maze);
             maze.Entities[maze.startX * Maze.cellSize, maze.startY * Maze.cellSize] = P1;
-            maze.DisplayMazeMatrix();
 
             if (ModeHistoire)
             {
@@ -57,8 +55,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 //maze.GenerateCollectable("fragment", maze.numGeneratedFragments, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 ////maze.GenerateCollectable("potion degat", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                // maze.GenerateCollectable("portail teleportation", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                //maze.GenerateEnemy("égaré", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.DisplayMazeMatrix();
+                maze.GenerateEnemy("égaré", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
             }
             LblFragmentGenere.Text = maze.numGeneratedFragments.ToString();
             this.Controls.Add(P1.Image);
@@ -85,6 +82,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 for (int y = 0; y < P1.Maze.height; y++)
                     P1.Maze.Entities[x, y] = null;
             }
+            //P1.Dispose();
+            P1 = null;
             Dispose();
         }
 
@@ -99,22 +98,21 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public void NiveauSuivant()
         {
             Program.PlayMusic("assets/audio/finishLevel.wav");
-            Destructeur();
-            P1.isDead = true;
+            Destructeur(); 
             if (ModeHistoire) {
-                if (Program.Dialogue == null)
+                if (Program.FrmDialogue == null)
                 {
-                    Program.Dialogue.Close();
-                    Program.Dialogue.Dispose();
+                    Program.FrmDialogue.Close();
+                    Program.FrmDialogue.Dispose();
                 }
-                Program.Dialogue = new Dialogue(NiveauActuel, true);
-                Program.ChangeActiveForm(Program.Dialogue, this);
+                Program.FrmDialogue = new FrmDialogue(NiveauActuel, true);
+                Program.ChangeActiveForm(Program.FrmDialogue, this);
             }
             else
             {
-                if (Program.NiveauSuivant == null)
-                    Program.NiveauSuivant = new NiveauSuivant();
-                Program.ChangeActiveForm(Program.NiveauSuivant, this);
+                if (Program.FrmNiveauSuivant == null)
+                    Program.FrmNiveauSuivant = new FrmNiveauSuivant();
+                Program.ChangeActiveForm(Program.FrmNiveauSuivant, this);
             }
         }
     }

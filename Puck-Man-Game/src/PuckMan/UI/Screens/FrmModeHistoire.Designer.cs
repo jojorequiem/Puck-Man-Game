@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class ModeHistoire
+    partial class FrmModeHistoire
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModeHistoire));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModeHistoire));
             this.lblTitreMenuPrincipal = new System.Windows.Forms.Label();
             this.BtnRetour = new System.Windows.Forms.Button();
             this.BtnGame1 = new System.Windows.Forms.Button();

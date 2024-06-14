@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class NiveauSuivant
+    partial class FrmNiveauSuivant
     {
         /// <summary>
         /// Required designer variable.

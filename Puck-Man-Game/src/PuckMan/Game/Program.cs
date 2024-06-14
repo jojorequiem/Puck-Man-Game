@@ -29,15 +29,15 @@ namespace Puck_Man_Game
         public static int VolumeSon;
         public static int VolumeMusique;
 
-        public static Form Classement = null;
-        public static Form Dialogue = null;
-        public static Form Menu = null;
-        public static Form MenuParametreJouer = null;
-        public static Form MenuPause = null;
-        public static Form ModeHistoire = null;
-        public static Form NiveauSuivant = null;
-        public static Form NouvellePartie = null;
-        public static Form Parametres = null;
+        public static FrmClassement FrmClassement = null;
+        public static FrmDialogue FrmDialogue = null;
+        public static FrmMenu FrmMenu = null;
+        public static FrmJouer FrmJouer = null;
+        public static FrmPause FrmPause = null;
+        public static FrmModeHistoire FrmModeHistoire = null;
+        public static FrmNiveauSuivant FrmNiveauSuivant = null;
+        public static FrmNouvellePartie FrmNouvellePartie = null;
+        public static FrmParametres FrmParametres = null;
 
         public static int game;
 
@@ -55,8 +55,8 @@ namespace Puck_Man_Game
             PlayMusic("assets/audio/musiqueMenu.mp3");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Menu = new src.PuckMan.UI.Menu();
-            Application.Run(Menu);
+            FrmMenu = new src.PuckMan.UI.FrmMenu();
+            Application.Run(FrmMenu);
 
             //Application.Run(new src.PuckMan.UI.Screens.ModeHistoire());
             //Application.Run(new src.PuckMan.UI.Screens.Dialogue());
@@ -75,9 +75,6 @@ namespace Puck_Man_Game
             ////csvManager.ResetFile();
             //Console.WriteLine("Fichier réinitialisé.");
         }
-
-
-
 
         static public void UpdateVolume()
         {
@@ -105,16 +102,6 @@ namespace Puck_Man_Game
             music.settings.volume = VolumePrincipale * 10;
             music.controls.play();
         }
-
-        static public void LoadScene(Type type, Form formulaire)
-        {
-            // Ferme la forme actuelle et crée une nouvelle instance
-            formulaire.Close(); // Ferme le form actuelle
-            Form instance = (Form)Activator.CreateInstance(type);
-            instance.StartPosition = FormStartPosition.Manual;
-            instance.Location = formulaire.Location;
-            instance.Show(); 
-        }
         static public void ChangeActiveForm(Form formulaire, Form parent)
         {
             formulaire.StartPosition = FormStartPosition.Manual;
@@ -125,7 +112,7 @@ namespace Puck_Man_Game
             Console.WriteLine($"Number of open forms: {openForms.Count}");
             foreach (var form in openForms)
                 Console.WriteLine($"Form name: {form.Name}");
-
+            Console.WriteLine();
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class Classement
+    partial class FrmClassement
     {
         /// <summary>
         /// Required designer variable.

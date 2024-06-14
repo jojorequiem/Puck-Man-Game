@@ -38,8 +38,8 @@ namespace src.PuckMan.Game.Levels
         public int startX;
         public int startY;
         public int numGeneratedFragments;
-        public NouvellePartie MazeForm;
-        public Maze(NouvellePartie form, int mazeWidth, int mazeHeight)
+        public FrmNouvellePartie MazeForm;
+        public Maze(FrmNouvellePartie form, int mazeWidth, int mazeHeight)
         {
             MazeForm = form;
             width = mazeWidth;
@@ -308,7 +308,6 @@ namespace src.PuckMan.Game.Levels
 
         private void GenerateMaze(List<string> matrixLines)
         {
-            int width = matrixLines[0].Split(' ').Length;
             for (int y = 0; y < matrixLines.Count; y++)
             {
                 string[] elements = matrixLines[y].Split(' ');
@@ -399,7 +398,6 @@ namespace src.PuckMan.Game.Levels
             {
                 for (int x = 0; x < width; x++)
                 {
-                 
                     if (MazeMatrix[x, y].IsWall == true)
                         strMazeMatrix += "X ";
                     else
@@ -417,8 +415,6 @@ namespace src.PuckMan.Game.Levels
         {
             while (number > 0)
             {
-                //int x = GetValidCoordinates(1, width - 1);
-                //int y = GetValidCoordinates(1, height - 1);
                 // Vérifier s'il n'y a pas déjà une entité à l'endroit choisi
                 if (StaticEntities[x * cellSize, y * cellSize] is null && (x!=startX || y != startY))
                 {
@@ -497,7 +493,7 @@ namespace src.PuckMan.Game.Levels
                     Collectable soin = new Collectable("soin", x * cellSize, y * cellSize);
                     MazeForm.Controls.Add(soin.Image);
                     soin.Image.BringToFront();
-                    Entities[x * cellSize, y * cellSize] = soin;
+                    StaticEntities[x * cellSize, y * cellSize] = soin;
                 }
             }
         }

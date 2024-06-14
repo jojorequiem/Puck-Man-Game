@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class Dialogue
+    partial class FrmDialogue
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dialogue));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDialogue));
             this.BtnDialogueSuivant = new System.Windows.Forms.Button();
             this.LblTitre = new System.Windows.Forms.Label();
             this.Panel = new System.Windows.Forms.Panel();

@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class MenuParametreJouer
+    partial class FrmJouer
     {
         /// <summary>
         /// Required designer variable.

@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class MenuPause : FormComponent
+    public partial class FrmPause : FormComponent
     {
         public Form FormParent;
-        public MenuPause(Form formParent)
+        public FrmPause(Form formParent)
         {
             InitializeComponent();
             FormParent = formParent;
@@ -21,18 +21,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnQuitter_Click(object sender, EventArgs e)
         {
-            DisplayForm(new Menu(), this);
+            Program.ChangeActiveForm(Program.FrmMenu, this);
         }
 
         private void BtnParametres_Click(object sender, EventArgs e)
         {
-            DisplayForm(new Parametres(this), this);
+            if (Program.FrmParametres == null)
+                Program.FrmParametres = new FrmParametres(this);
+            Program.ChangeActiveForm(Program.FrmParametres, this);
         }
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            Close();
-            FormParent.Show();
+            Program.ChangeActiveForm(FormParent, this);
         }
     }
 }

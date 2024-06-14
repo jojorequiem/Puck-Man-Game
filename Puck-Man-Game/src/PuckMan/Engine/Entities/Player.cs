@@ -20,8 +20,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 {
     public class Player : Entity
     {
-        // Propriétés du Player
-        public int Level { get; set; }
         public Maze Maze;
         public bool isDead;
 
@@ -41,13 +39,12 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         public System.Drawing.Image ImageIdle { get; set; } // Image du joueur à l'arrêt
 
         public int maxHP;
-        // Constructeur
-        public Player(string name, int hp, int level, int x, int y, Maze maze) : base(x, y, name)
+        private bool Disposed = false;
+        public Player(string name, int hp, int x, int y, Maze maze) : base(x, y, name)
         {
             isDead = false;
             HP = hp;
             maxHP = hp;
-            Level = level;
             Maze = maze;
             EntitySpeed = Maze.cellSize;
             moveTimer = new Timer
@@ -55,6 +52,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 Interval = tickSpeed
             };
             moveTimer.Tick += MoveTimer_Tick;
+            
             // Initialiser les directions
             moveDeltaX = 0;
             moveDeltaY = 0;
@@ -62,10 +60,25 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             lastValidDeltaY = 0;
             LoadDefaultImages();
         }
+        ~Player()  //destructeur
+        {
+            Dispose();
+        }
+        public void Dispose()
+        {   
+            if (!Disposed)
+            {
+                Disposed = true;
+                isDead = true;
+                Maze = null;
+                moveTimer.Dispose();
+                GC.SuppressFinalize(this);    
+            }
+        }
 
         private void MoveTimer_Tick(object sender, EventArgs e)
         {
-            if (isDead) return;
+            if (Disposed) return;
             // Gestion des interactions avec les entités
             HandleEnemyInteractions();
             HandleEntityInteractions();
@@ -149,17 +162,13 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         private void HandleEntityInteractions()
         {
             if (X >= 0 && X < Maze.StaticEntities.GetLength(0) && Y >= 0 && Y < Maze.StaticEntities.GetLength(1))
-            {
-                if (Maze.StaticEntities[X, Y] != null)
-                {
-                    Maze.StaticEntities[X, Y].Collecte(Maze.MazeForm);
-                }
-            }
+                Maze.StaticEntities[X, Y]?.Collecte(Maze.MazeForm);
         }
 
         public void DamageReceived(int hitDamage)
         {
-            if (isDead) return;
+            Console.WriteLine("FILS DE PUTE");
+            if (Disposed) return;
             HP -= hitDamage;
             Maze.MazeForm.UpdateHPdisplay();
             if (HP <= 0)
@@ -178,10 +187,18 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         public void HandlePlayerDeath()
         {
-            if (!isDead)
+            if (Disposed)
+                Console.WriteLine("ERREUR LE JOUEUR EST DEJA MORT"); //(pour le debugage) ce message ne doit jamais apparaitre
+            if (!Disposed)
             {
-                isDead = true;
-                Maze.MazeForm.DisplayForm(Maze.MazeForm, new NouvellePartie(Maze.MazeForm.ModeHistoire, Maze.MazeForm.NiveauActuel));
+                Disposed = true;
+                if (Program.FrmNouvellePartie != null)
+                {
+                    Program.FrmNouvellePartie.Close();
+                    Program.FrmNouvellePartie.Dispose();
+                }
+                Program.FrmNouvellePartie = new FrmNouvellePartie(Maze.MazeForm.ModeHistoire, Maze.MazeForm.NiveauActuel);
+                Program.ChangeActiveForm(Program.FrmNouvellePartie, Maze.MazeForm);
             }
         }
 
@@ -209,16 +226,17 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                     return;
             }
             if (!moveTimer.Enabled)
-            {
                 moveTimer.Start(); // Démarre le déplacement continu
-            }
         }
 
         public void PlayerKeyUp(object sender, KeyEventArgs e)
         {
-            // Ne rien faire ici car le joueur continue à se déplacer jusqu'à une collision
             if (e.KeyCode == Keys.Escape)
-                Maze.MazeForm.DisplayForm(new MenuPause(Maze.MazeForm), Maze.MazeForm);
+            {
+                if (Program.FrmPause == null)
+                    Program.FrmPause = new FrmPause(Maze.MazeForm);
+                Program.ChangeActiveForm(Program.FrmPause, Maze.MazeForm);
+            }
         }
     }
 }

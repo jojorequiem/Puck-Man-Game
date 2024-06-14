@@ -88,94 +88,97 @@
     <Compile Include="src\PuckMan\Game\Levels\Maze.cs" />
     <Compile Include="src\PuckMan\Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\PuckMan\UI\Screens\Classement.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmClassement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\Classement.Designer.cs">
-      <DependentUpon>Classement.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmClassement.Designer.cs">
+      <DependentUpon>FrmClassement.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\Dialogue.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmDialogue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\Dialogue.Designer.cs">
-      <DependentUpon>Dialogue.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmDialogue.Designer.cs">
+      <DependentUpon>FrmDialogue.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PuckMan\UI\FormComponent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\Menu.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\MenuParametreJouer.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmJouer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\MenuParametreJouer.Designer.cs">
-      <DependentUpon>MenuParametreJouer.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmJouer.Designer.cs">
+      <DependentUpon>FrmJouer.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\MenuPause.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmPause.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\MenuPause.Designer.cs">
-      <DependentUpon>MenuPause.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmPause.Designer.cs">
+      <DependentUpon>FrmPause.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\ModeHistoire.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmModeHistoire.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\ModeHistoire.Designer.cs">
-      <DependentUpon>ModeHistoire.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmModeHistoire.Designer.cs">
+      <DependentUpon>FrmModeHistoire.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\NiveauSuivant.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmNiveauSuivant.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\NiveauSuivant.Designer.cs">
-      <DependentUpon>NiveauSuivant.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmNiveauSuivant.Designer.cs">
+      <DependentUpon>FrmNiveauSuivant.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\NouvellePartie.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmNouvellePartie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\NouvellePartie.Designer.cs">
-      <DependentUpon>NouvellePartie.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmNouvellePartie.Designer.cs">
+      <DependentUpon>FrmNouvellePartie.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\Parametres.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmParametres.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\Parametres.Designer.cs">
-      <DependentUpon>Parametres.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmParametres.Designer.cs">
+      <DependentUpon>FrmParametres.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\Classement.resx">
-      <DependentUpon>Classement.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\FormComponent.resx">
+      <DependentUpon>FormComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\Dialogue.resx">
-      <DependentUpon>Dialogue.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmClassement.resx">
+      <DependentUpon>FrmClassement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmDialogue.resx">
+      <DependentUpon>FrmDialogue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\MenuParametreJouer.resx">
-      <DependentUpon>MenuParametreJouer.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\MenuPause.resx">
-      <DependentUpon>MenuPause.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmJouer.resx">
+      <DependentUpon>FrmJouer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\ModeHistoire.resx">
-      <DependentUpon>ModeHistoire.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmPause.resx">
+      <DependentUpon>FrmPause.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\NiveauSuivant.resx">
-      <DependentUpon>NiveauSuivant.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmModeHistoire.resx">
+      <DependentUpon>FrmModeHistoire.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\NouvellePartie.resx">
-      <DependentUpon>NouvellePartie.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmNiveauSuivant.resx">
+      <DependentUpon>FrmNiveauSuivant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\Parametres.resx">
-      <DependentUpon>Parametres.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmNouvellePartie.resx">
+      <DependentUpon>FrmNouvellePartie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmParametres.resx">
+      <DependentUpon>FrmParametres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="assets\fonts\fonts_pixel_art.ttf" />
     <None Include="packages.config" />

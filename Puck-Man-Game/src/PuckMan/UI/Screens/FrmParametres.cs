@@ -11,10 +11,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class Parametres : FormComponent
+    public partial class FrmParametres : FormComponent
     {
         public FormComponent FormParent;
-        public Parametres(FormComponent formParent)
+        public FrmParametres(FormComponent formParent)
         {
             InitializeComponent();
             FormParent = formParent;

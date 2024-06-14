@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class MenuPause
+    partial class FrmPause
     {
         /// <summary>
         /// Required designer variable.
