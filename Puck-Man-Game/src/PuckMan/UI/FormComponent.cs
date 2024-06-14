@@ -109,11 +109,18 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 button.ForeColor = Program.TextColor;
             }
         }
-
+        static private bool isClosed = false;
         private void FormComponent_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (isClosed) return;
             if (MessageBox.Show("Voulez-vous vraiment quitter?", "Message Puck-Man", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                e.Cancel = true; 
+                e.Cancel = true;
+            else
+            {
+                isClosed = true;
+                Application.Exit();
+            }
+                
         }
     }
 }

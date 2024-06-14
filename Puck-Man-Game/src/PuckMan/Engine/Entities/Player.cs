@@ -62,18 +62,23 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         }
         ~Player()  //destructeur
         {
+            Debug.WriteLine("DESTRUCTEUR JOUEUR");
             Dispose();
         }
         public void Dispose()
-        {   
+        {
+            
             if (!Disposed)
             {
+                Debug.WriteLine("DISPOSE JOUEUR");
                 Disposed = true;
                 isDead = true;
                 Maze = null;
                 moveTimer.Dispose();
                 GC.SuppressFinalize(this);    
             }
+            else
+                Debug.WriteLine("JOUEUR DEJA DISPOSED");
         }
 
         private void MoveTimer_Tick(object sender, EventArgs e)
@@ -83,15 +88,10 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             HandleEnemyInteractions();
             HandleEntityInteractions();
             if (moveDeltaX != 0 || moveDeltaY != 0)
-            {
                 MovePlayer(moveDeltaX, moveDeltaY);
-            }
             else if (lastValidDeltaX != 0 || lastValidDeltaY != 0)
-            {
                 MovePlayer(lastValidDeltaX, lastValidDeltaY);
-            }
         }
-
         private void LoadDefaultImages()
         {
             ImageUp = Puck_Man_Game.Properties.Resources.topGif128;
@@ -124,11 +124,11 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 return false; // Le joueur entre en collision avec un mur, on ne le déplace pas
             }
 
-            //Maze.Entities[X, Y] = null;
+            Maze.Entities[X, Y] = null;
             // Déplacement uniquement si aucune collision
             X += deltaX * EntitySpeed;
             Y += deltaY * EntitySpeed ;
-            //Maze.Entities[X, Y] = this;
+            Maze.Entities[X, Y] = this;
             lastValidDeltaX = deltaX;
             lastValidDeltaY = deltaY;
 
@@ -151,6 +151,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         }
         private void HandleEnemyInteractions()
         {
+            if (Disposed) return;
             foreach (Enemy adversaire in Maze.EnemyList)
             {
                 Rectangle newBounds = new Rectangle(X, Y, Image.Width, Image.Height);
@@ -161,13 +162,15 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         private void HandleEntityInteractions()
         {
+            if (Disposed) return;
             if (X >= 0 && X < Maze.StaticEntities.GetLength(0) && Y >= 0 && Y < Maze.StaticEntities.GetLength(1))
                 Maze.StaticEntities[X, Y]?.Collecte(Maze.MazeForm);
         }
 
         public void DamageReceived(int hitDamage)
         {
-            Console.WriteLine("FILS DE PUTE");
+            if (Disposed)
+                Console.WriteLine("FILS DE PUTE");
             if (Disposed) return;
             HP -= hitDamage;
             Maze.MazeForm.UpdateHPdisplay();
@@ -178,6 +181,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         public void Heal(int healValue)
         {
+            if (Disposed) return;
             if (HP + healValue > maxHP)
                 HP = maxHP;
             else
@@ -192,13 +196,10 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             if (!Disposed)
             {
                 Disposed = true;
-                if (Program.FrmNouvellePartie != null)
-                {
-                    Program.FrmNouvellePartie.Close();
-                    Program.FrmNouvellePartie.Dispose();
-                }
                 Program.FrmNouvellePartie = new FrmNouvellePartie(Maze.MazeForm.ModeHistoire, Maze.MazeForm.NiveauActuel);
                 Program.ChangeActiveForm(Program.FrmNouvellePartie, Maze.MazeForm);
+                Maze.MazeForm.Dispose();
+                Maze.MazeForm.Close();
             }
         }
 

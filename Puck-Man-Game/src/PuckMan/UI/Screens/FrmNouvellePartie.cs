@@ -48,13 +48,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
             else
             {
-                //this.BackgroundImageLayout = ImageLayout.Stretch;
-                //this.BackgroundImage = Properties.Resources.background3;
-                //maze.GenerateCollectable("fragment", maze.numGeneratedFragments, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                this.BackgroundImageLayout = ImageLayout.Stretch;
+                this.BackgroundImage = Properties.Resources.background21;
                 Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
-                //maze.GenerateCollectable("fragment", maze.numGeneratedFragments, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                ////maze.GenerateCollectable("potion degat", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-               // maze.GenerateCollectable("portail teleportation", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("fragment", maze.numGeneratedFragments, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("potion degat", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("portail teleportation", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateEnemy("égaré", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
             }
             LblFragmentGenere.Text = maze.numGeneratedFragments.ToString();
@@ -74,31 +73,42 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         public void Destructeur()
         {
-            P1.Maze.EnemyList.Clear();
+            P1.Maze.EnemyList.Clear(); 
+            foreach (Collectable collectable in P1.Maze.StaticEntities)
+            {
+                if (collectable != null)
+                    collectable.DejaCollecte = true;
+            }
+                
             P1.Maze.FragmentList.Clear();
             P1.Maze.MazeForm.Dispose();
+
             for (int x = 0; x < P1.Maze.width; x++)
             {
                 for (int y = 0; y < P1.Maze.height; y++)
+                {
                     P1.Maze.Entities[x, y] = null;
+                    P1.Maze.StaticEntities[x, y] = null;
+                }
             }
-            //P1.Dispose();
             P1 = null;
             Dispose();
         }
 
         public void UpdateHPdisplay()
         {
-            LblPV.Text = P1.HP.ToString();
+            if (P1 != null)
+                LblPV.Text = P1.HP.ToString();
         }
         public void UpdateFragmentdisplay()
         {
-            LblFragmentCollecte.Text = P1.Maze.FragmentList.Count().ToString();
+            if (P1 != null)
+                LblFragmentCollecte.Text = P1.Maze.FragmentList.Count().ToString();
         }
         public void NiveauSuivant()
         {
             Program.PlayMusic("assets/audio/finishLevel.wav");
-            Destructeur(); 
+            Destructeur();
             if (ModeHistoire) {
                 if (Program.FrmDialogue == null)
                 {

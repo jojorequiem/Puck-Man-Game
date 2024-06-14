@@ -114,6 +114,5 @@ namespace Puck_Man_Game
                 Console.WriteLine($"Form name: {form.Name}");
             Console.WriteLine();
         }
-
     }
 }

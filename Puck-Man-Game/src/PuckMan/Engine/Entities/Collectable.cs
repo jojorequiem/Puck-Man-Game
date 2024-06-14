@@ -25,20 +25,23 @@ namespace Puck_Man_Game.src.PuckMan.Game
             if (EntityName == "fragment")
                 Image.Image = Puck_Man_Game.Properties.Resources.fragment;
             if (EntityName == "soin")
-                Image.Image = Puck_Man_Game.Properties.Resources.healPotion;
+                Image.Image = Puck_Man_Game.Properties.Resources.puceSoin;
             if (EntityName == "potion degat")
                 Image.Image = Puck_Man_Game.Properties.Resources.deathPotion;
             if (EntityName == "portail teleportation")
                 Image.Image = Puck_Man_Game.Properties.Resources.portal;
-
         }
         public void Collecte(FrmNouvellePartie Formulaire)
         {
-            if (!DejaCollecte)
+            if  (!DejaCollecte)
             {
+                Player player = Formulaire.P1;
+                if (player.Maze.StaticEntities[X, Y] == this)
+                    player.Maze.StaticEntities[X, Y] = null;
+
                 DejaCollecte = true;
                 Image.Hide();
-                Player player = Formulaire.P1;
+
                 if (EntityName == "fragment")
                 {
                     player.Maze.FragmentList.Remove(this);
@@ -48,10 +51,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
                 }
 
                 else if (EntityName == "soin")
-                {
-                    Debug.WriteLine("soigne");
                     player.Heal(1);
-                }
 
                 else if (EntityName == "potion degat")
                     player.DamageReceived(1);
@@ -67,6 +67,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
                         newX = random.Next(1,player.Maze.width-1) * Maze.cellSize;
                         newY = random.Next(1,player.Maze.height-1) * Maze.cellSize;
                     }
+                    
                     //téléporter le joueur
                     player.Maze.Entities[player.X, player.Y] = null;
                     player.X = newX;
@@ -75,16 +76,16 @@ namespace Puck_Man_Game.src.PuckMan.Game
                     player.Image.Location = new Point(newX, newY);
 
                     //teleporter le portail aussi
-                    while (player.Maze.MazeMatrix[newX / Maze.cellSize, newY / Maze.cellSize].IsWall || player.Maze.Entities[newX, newY] != null)
+                    while (player.Maze.MazeMatrix[newX / Maze.cellSize, newY / Maze.cellSize].IsWall || player.Maze.StaticEntities[newX, newY] != null)
                     {
                         Random random = new Random();
                         newX = random.Next(1, player.Maze.width - 1) * Maze.cellSize;
                         newY = random.Next(1, player.Maze.height - 1) * Maze.cellSize;
                     }
-                    player.Maze.Entities[X, Y] = null;
+                    player.Maze.StaticEntities[X, Y] = null;
                     X = newX; Y = newY;
                     Image.Location = new Point(X, Y);
-                    player.Maze.Entities[X, Y] = this;
+                    player.Maze.StaticEntities[X, Y] = this;
                 }
             }
         }

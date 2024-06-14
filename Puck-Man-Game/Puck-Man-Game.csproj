@@ -220,13 +220,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\images\dialogueBackground.png" />
-    <Content Include="assets\images\healPotion.png" />
     <Content Include="assets\images\mur2.png" />
     <None Include="Resources\fragm.gif" />
     <None Include="Resources\fragment.gif" />
     <None Include="Resources\hp-1.png" />
     <None Include="Resources\fragment1.gif" />
     <None Include="Resources\fragment2.gif" />
+    <Content Include="assets\images\puceSoin.png" />
     <Content Include="Resources\portal.gif" />
     <Content Include="src\PuckMan\Game\Levels\matricesNiveaux.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -109,7 +109,7 @@ namespace Puck_Man_Game.src.PuckMan.UI
             this.BtnAPropos.Location = new System.Drawing.Point(1100, 562);
             this.BtnAPropos.Name = "BtnAPropos";
             this.BtnAPropos.Size = new System.Drawing.Size(42, 42);
-            this.BtnAPropos.TabIndex = 11;
+            this.BtnAPropos.TabIndex = 4;
             this.BtnAPropos.Text = "?";
             this.BtnAPropos.UseVisualStyleBackColor = true;
             this.BtnAPropos.Click += new System.EventHandler(this.BtnAPropos_Click);

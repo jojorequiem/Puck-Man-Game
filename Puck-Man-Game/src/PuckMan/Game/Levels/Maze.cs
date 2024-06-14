@@ -420,14 +420,18 @@ namespace src.PuckMan.Game.Levels
                 {
                     Collectable instance = new Collectable(name, x * cellSize, y * cellSize);
                     if (name == "fragment")
-                    {
                         FragmentList.Add(instance);
-                    }
                     MazeForm.Controls.Add(instance.Image);
                     instance.Image.BringToFront();
                     number -= 1;
                     StaticEntities[x * cellSize, y * cellSize] = instance;
                 }
+                else
+                {
+                    x = GetValidCoordinates(1, width - 1);
+                    y = GetValidCoordinates(1, height - 1);
+                }
+
             }
         }
 
@@ -476,6 +480,11 @@ namespace src.PuckMan.Game.Levels
                     number -= 1;
                     Entities[x * cellSize, y * cellSize] = instance;
                 }
+                else
+                {
+                    x = GetValidCoordinates(1, width - 1);
+                    y = GetValidCoordinates(1, height - 1);
+                }
             }
         }
 
@@ -493,6 +502,7 @@ namespace src.PuckMan.Game.Levels
                     Collectable soin = new Collectable("soin", x * cellSize, y * cellSize);
                     MazeForm.Controls.Add(soin.Image);
                     soin.Image.BringToFront();
+
                     StaticEntities[x * cellSize, y * cellSize] = soin;
                 }
             }

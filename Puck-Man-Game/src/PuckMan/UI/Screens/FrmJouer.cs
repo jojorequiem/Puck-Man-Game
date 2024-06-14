@@ -42,7 +42,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
             Program.FrmNouvellePartie = new FrmNouvellePartie(false, 0);
             Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
-            Debug.WriteLine("przlp");
         }
     }
 }
