@@ -36,8 +36,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
 
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.MinimumSize = new Size(Program.LargeurFenetre - 1, Program.HauteurFenetre - 1);
-            this.MaximumSize = new Size(Program.LargeurFenetre + 1, Program.HauteurFenetre + 1);
+ 
             this.ClientSize = new Size(Program.LargeurFenetre, Program.HauteurFenetre);
             Debug.WriteLine("TAILLE FENETRE : " + ClientSize.ToString());
         }

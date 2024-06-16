@@ -106,14 +106,14 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(888, 537);
+            this.ClientSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre;
             this.Controls.Add(this.BtnSkip);
             this.Controls.Add(this.LblTitre);
             this.Controls.Add(this.BtnDialogueSuivant);
             this.Controls.Add(this.Panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(904, 576);
-            this.MinimumSize = new System.Drawing.Size(904, 576);
+            this.MaximumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
             this.Name = "Dialogue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dialoguecs";
