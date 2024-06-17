@@ -37,7 +37,6 @@ namespace src.PuckMan.Game.Levels
         public int height;
         public int startX;
         public int startY;
-        public int numGeneratedFragments;
         public FrmNouvellePartie MazeForm;
         public Maze(FrmNouvellePartie form, int mazeWidth, int mazeHeight)
         {
@@ -47,7 +46,6 @@ namespace src.PuckMan.Game.Levels
             MazeMatrix = new Cell[width, height];
             Entities = new Entity[width * cellSize, height * cellSize];
             StaticEntities = new Collectable[width * cellSize, height * cellSize];
-            numGeneratedFragments = 2;
             EnemyList = new List<Enemy>();
             FragmentList = new List<Collectable>();
 
@@ -151,7 +149,7 @@ namespace src.PuckMan.Game.Levels
                     if ((x == 0 || x == width - 1 || y == 0 || y == height - 1)
                         || ((x + y) % 2 == 0 && x % 2 == 0))
                     {
-                        cell.Image.Image = Puck_Man_Game.Properties.Resources.mur2;
+                        cell.Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
                         cell.IsWall = true;
                     }
                     else if ((x + y) % 2 == 0 && x % 2 != 0)
@@ -164,7 +162,7 @@ namespace src.PuckMan.Game.Levels
                     else if (random.NextDouble() < 0.8)
                     {
                         MazeMatrix[x, y].IsWall = true;
-                        MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.mur2;
+                        MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
                     }
                     else
                     {
@@ -184,7 +182,7 @@ namespace src.PuckMan.Game.Levels
                         && ((x + y) % 2 != 0))
                     {
                         if (random.NextDouble() < 0.5)
-                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.mur;
+                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
                         else
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
                     }
@@ -257,19 +255,15 @@ namespace src.PuckMan.Game.Levels
                 {
                     pile.Pop(); //si le node n'a plus de neighbors a exploré, on le depile
                 }
-                for (int y = 0; y < height; y++)
-                {
-                    for (int x = 0; x < width; x++)
-                    {
-
-                        RemoveIsolatedWalls(x, y);
-                    }
-                }
             }
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                    RemoveIsolatedWalls(x, y);
+            }
+
         }
-
-
-
 
 
 
@@ -317,7 +311,7 @@ namespace src.PuckMan.Game.Levels
                     {
                         case 'X':
                             MazeMatrix[x, y].IsWall = true;
-                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.mur;
+                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeHistoire;
                             MazeForm.Controls.Add(MazeMatrix[x, y].Image);
                             MazeForm.Controls.Add(MazeMatrix[x, y].Image);
                             break;
@@ -337,10 +331,10 @@ namespace src.PuckMan.Game.Levels
                             GenerateEnemy("égaré", 1, x, y);
                             break;
                         case 'H':
-                            // soin
+                            GenerateCollectable("coeur", 1, x, y);
                             break;
                         case 'T':
-                            // portail téléportation
+                            GenerateCollectable("portail teleportation", 1, x, y);
                             break;
                     }
                 }
@@ -498,12 +492,8 @@ namespace src.PuckMan.Game.Levels
                     !IsWall(Right(x * cellSize, y * cellSize, cellSize)))
                 {
                     MazeMatrix[x, y].IsWall = false;
-                    MazeMatrix[x, y].Image.Hide();
-                    Collectable soin = new Collectable("soin", x * cellSize, y * cellSize);
-                    MazeForm.Controls.Add(soin.Image);
-                    soin.Image.BringToFront();
-
-                    StaticEntities[x * cellSize, y * cellSize] = soin;
+                    MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
+                    GenerateCollectable("soin", 1, x, y);
                 }
             }
         }

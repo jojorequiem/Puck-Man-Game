@@ -49,14 +49,16 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             else
             {
                 this.BackgroundImageLayout = ImageLayout.Stretch;
-                this.BackgroundImage = Properties.Resources.background21;
+                this.BackgroundImage = Properties.Resources.background2;
                 Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
-                maze.GenerateCollectable("fragment", maze.numGeneratedFragments, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("fragment", 2, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("potion degat", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("portail teleportation", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("soin", 3, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateEnemy("égaré", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                
             }
-            LblFragmentGenere.Text = maze.numGeneratedFragments.ToString();
+            LblFragmentGenere.Text = maze.FragmentList.Count().ToString();
             this.Controls.Add(P1.Image);
             P1.Image.BringToFront();
             UpdateHPdisplay();

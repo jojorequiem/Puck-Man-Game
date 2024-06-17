@@ -118,7 +118,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         public ConfusedEnemy(int x, int y, Maze maze) : base("Égaré Confus", x, y, maze)
         {
             Damage = 1; 
-            Image.Image = Puck_Man_Game.Properties.Resources.égaré;
+            Image.Image = Puck_Man_Game.Properties.Resources.egare;
             moveEnemyTimer = new Timer { Interval = 180 };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();

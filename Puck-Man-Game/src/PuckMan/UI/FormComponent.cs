@@ -31,7 +31,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
             else
             {
-                this.BackgroundImage = Puck_Man_Game.Properties.Resources.background21;
+                this.BackgroundImage = Puck_Man_Game.Properties.Resources.background2;
                 this.BackgroundImageLayout = ImageLayout.Stretch;
             }
 

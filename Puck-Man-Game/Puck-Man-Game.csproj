@@ -219,21 +219,16 @@
     <Content Include="assets\audio\takeDamage.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\images\background2.jpg" />
-    <Content Include="assets\images\background2.png" />
-    <Content Include="assets\images\deathPotion.png" />
+    <Content Include="Resources\background2.jpg" />
     <Content Include="assets\dialogue\chapitre1_p2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\images\dialogueBackground.png" />
-    <Content Include="assets\images\mur2.png" />
-    <None Include="Resources\fragm.gif" />
+    <Content Include="Resources\dialogueBackground.png" />
+    <Content Include="Resources\egare.png" />
+    <Content Include="Resources\hp.gif" />
+    <Content Include="Resources\murModeInfini.png" />
     <None Include="Resources\fragment.gif" />
     <None Include="Resources\hp-1.png" />
-    <None Include="Resources\fragment1.gif" />
-    <None Include="Resources\fragment2.gif" />
-    <Content Include="assets\images\puceSoin.png" />
-    <None Include="Resources\hp-export.png" />
     <None Include="Resources\hp.png" />
     <None Include="Resources\death-fragment.gif" />
     <Content Include="Resources\portal.gif" />
@@ -248,16 +243,15 @@
     <None Include="Resources\leftGif128.gif" />
     <None Include="Resources\bottomGif128.gif" />
     <None Include="Resources\topGif128.gif" />
-    <None Include="assets\images\background.png" />
+    <None Include="Resources\background.png" />
     <Content Include="assets\audio\musiqueModeHistoire.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\dialogue\chapitre1_p1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\images\mur.png" />
-    <Content Include="assets\images\vide.png" />
-    <Content Include="assets\images\égaré.png" />
+    <Content Include="Resources\murModeHistoire.png" />
+    <Content Include="Resources\vide.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -25,13 +25,5 @@ namespace Puck_Man_Game.src.PuckMan.Game.Levels
             Image.SizeMode = PictureBoxSizeMode.StretchImage;
             Image.Size = new Size(Maze.cellSize, Maze.cellSize);
         }
-
-        public void UpdateImage()
-        {
-            if (IsWall)
-                Image.Image = Puck_Man_Game.Properties.Resources.mur;
-            else
-                Image.Image = Puck_Man_Game.Properties.Resources.vide;
-        }
     }
 }

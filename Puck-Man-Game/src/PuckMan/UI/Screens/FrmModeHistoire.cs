@@ -14,10 +14,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public partial class FrmModeHistoire : FormComponent
     {
-        public int niveauPartie1;
-        public int niveauPartie2;
-        public int niveauPartie3;
-
+        private int niveauPartie1;
+        private int niveauPartie2;
+        private int niveauPartie3;
+        static private string chemin = "src/PuckMan/Game/Levels/modeHistoire.txt";
         public FrmModeHistoire() : base()
         {
             InitializeComponent();
@@ -56,21 +56,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private int GetActualLevel(int game)
         {
             //renvoit le niveau actuel de la partie game (partie 1, 2 ou 3)
-            string[] lines = File.ReadAllLines("src/PuckMan/Game/Levels/modeHistoire.txt", Encoding.UTF8);
+            string[] lines = File.ReadAllLines(chemin, Encoding.UTF8);
             Debug.WriteLine(lines[game - 1]);
             return int.Parse(lines[game - 1]);
         }
 
         private void ChangeActualLevel(int game, int value)
         {
-            string[] lines = File.ReadAllLines("src/PuckMan/Game/Levels/modeHistoire.txt", Encoding.UTF8);
+            string[] lines = File.ReadAllLines(chemin, Encoding.UTF8);
             lines[game - 1] = (value).ToString();
             for(int i = 0; i < lines.Length; i++)
-            {
                 Debug.WriteLine(lines[i]);
-            }
             Debug.WriteLine("");
-            File.WriteAllLines("src/PuckMan/Game/Levels/modeHistoire.txt", lines, Encoding.UTF8);
+            File.WriteAllLines(chemin, lines, Encoding.UTF8);
         }
 
         private void BtnGame1_Click(object sender, EventArgs e)
@@ -93,7 +91,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 ChangeActualLevel(2, 1);
                 niveauPartie2 = 1;
             }
-                
+
             if (Program.FrmDialogue == null)
                 Program.FrmDialogue = new FrmDialogue(niveauPartie2, false);
             Program.ChangeActiveForm(Program.FrmDialogue, this);
