@@ -25,9 +25,9 @@ namespace Puck_Man_Game.src.PuckMan.Game
             if (EntityName == "fragment")
                 Image.Image = Puck_Man_Game.Properties.Resources.fragment;
             if (EntityName == "soin")
-                Image.Image = Puck_Man_Game.Properties.Resources.puceSoin;
+                Image.Image = Puck_Man_Game.Properties.Resources.hp;
             if (EntityName == "potion degat")
-                Image.Image = Puck_Man_Game.Properties.Resources.deathPotion;
+                Image.Image = Puck_Man_Game.Properties.Resources.death_fragment;
             if (EntityName == "portail teleportation")
                 Image.Image = Puck_Man_Game.Properties.Resources.portal;
         }
@@ -77,7 +77,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
                     player.Image.Location = new Point(newX, newY);
 
                     // Téléportation du portail
-                    int portalX = 0, portalY = 0;
+                    int portalX, portalY;
                     do
                     {
                         portalX = random.Next(1, player.Maze.width - 1) * Maze.cellSize;

@@ -99,7 +99,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             ImageLeft = Puck_Man_Game.Properties.Resources.leftGif128;
             ImageRight = Puck_Man_Game.Properties.Resources.rightGif128;
             ImageIdle = Puck_Man_Game.Properties.Resources.bottomGif128;
-            Image.Image = ImageIdle; // Initialisation avec l'image droite
+            Image.Image = Puck_Man_Game.Properties.Resources.standardGif128; // Initialisation avec l'image droite
         }
         private void UpdateSkin(int deltaX, int deltaY)
         {

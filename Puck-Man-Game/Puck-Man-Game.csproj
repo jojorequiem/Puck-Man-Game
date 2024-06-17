@@ -233,7 +233,11 @@
     <None Include="Resources\fragment1.gif" />
     <None Include="Resources\fragment2.gif" />
     <Content Include="assets\images\puceSoin.png" />
+    <None Include="Resources\hp-export.png" />
+    <None Include="Resources\hp.png" />
+    <None Include="Resources\death-fragment.gif" />
     <Content Include="Resources\portal.gif" />
+    <None Include="Resources\standardGif128.gif" />
     <Content Include="src\PuckMan\Game\Levels\matricesNiveaux.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
