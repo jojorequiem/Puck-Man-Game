@@ -60,30 +60,33 @@ namespace Puck_Man_Game.src.PuckMan.Game
                 {
                     DejaCollecte = false;
                     Image.Show();
-                    int newX = 0;int newY = 0;
-                    while (player.Maze.MazeMatrix[newX / Maze.cellSize, newY / Maze.cellSize].IsWall || player.Maze.Entities[newX, newY] !=null)
+                    int newX = 0; int newY = 0;
+                    Random random = new Random();
+
+                    // Téléportation du joueur
+                    do
                     {
-                        Random random = new Random();
-                        newX = random.Next(1,player.Maze.width-1) * Maze.cellSize;
-                        newY = random.Next(1,player.Maze.height-1) * Maze.cellSize;
-                    }
-                    
-                    //téléporter le joueur
+                        newX = random.Next(1, player.Maze.width - 1) * Maze.cellSize;
+                        newY = random.Next(1, player.Maze.height - 1) * Maze.cellSize;
+                    } while (player.Maze.MazeMatrix[newX / Maze.cellSize, newY / Maze.cellSize].IsWall || player.Maze.Entities[newX, newY] != null);
+
                     player.Maze.Entities[player.X, player.Y] = null;
                     player.X = newX;
                     player.Y = newY;
                     player.Maze.Entities[newX, newY] = player;
                     player.Image.Location = new Point(newX, newY);
 
-                    //teleporter le portail aussi
-                    while (player.Maze.MazeMatrix[newX / Maze.cellSize, newY / Maze.cellSize].IsWall || player.Maze.StaticEntities[newX, newY] != null)
+                    // Téléportation du portail
+                    int portalX = 0, portalY = 0;
+                    do
                     {
-                        Random random = new Random();
-                        newX = random.Next(1, player.Maze.width - 1) * Maze.cellSize;
-                        newY = random.Next(1, player.Maze.height - 1) * Maze.cellSize;
-                    }
+                        portalX = random.Next(1, player.Maze.width - 1) * Maze.cellSize;
+                        portalY = random.Next(1, player.Maze.height - 1) * Maze.cellSize;
+                    } while ((portalX == newX && portalY == newY) || player.Maze.MazeMatrix[portalX / Maze.cellSize, portalY / Maze.cellSize].IsWall || player.Maze.StaticEntities[portalX, portalY] != null);
+
                     player.Maze.StaticEntities[X, Y] = null;
-                    X = newX; Y = newY;
+                    X = portalX;
+                    Y = portalY;
                     Image.Location = new Point(X, Y);
                     player.Maze.StaticEntities[X, Y] = this;
                 }

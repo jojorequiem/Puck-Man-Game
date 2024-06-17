@@ -94,6 +94,12 @@
     <Compile Include="src\PuckMan\UI\Screens\FrmClassement.Designer.cs">
       <DependentUpon>FrmClassement.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\FrmDeath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\FrmDeath.Designer.cs">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\PuckMan\UI\Screens\FrmDialogue.cs">
       <SubType>Form</SubType>
     </Compile>
