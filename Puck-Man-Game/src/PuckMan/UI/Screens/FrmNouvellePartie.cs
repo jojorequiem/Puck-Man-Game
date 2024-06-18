@@ -47,18 +47,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 this.BackgroundImage = Properties.Resources.background;
                 Program.PlayMusic("assets/audio/musiqueModeHistoire.mp3");
             }
+
             else
             {
                 this.BackgroundImageLayout = ImageLayout.Stretch;
                 this.BackgroundImage = Properties.Resources.background2;
                 Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
-                maze.GenerateCollectable("fragment", 2, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateCollectable("fragment degat", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateCollectable("portail teleportation", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("fragment", 4, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("fragment degat", 3, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("portail teleportation", 2, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("soin", 3, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateEnemy("égaré", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                
+                maze.GenerateEnemy("égaré", 3, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
             }
+
             nbrFragmentGenere = maze.FragmentList.Count();
             LblFragmentGenere.Text = nbrFragmentGenere.ToString();
             this.Controls.Add(P1.Image);
@@ -111,7 +112,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         }
         public void NiveauSuivant()
         {
-            Program.PlayMusic("assets/audio/finishLevel.wav");
+            Program.PlaySound("assets/audio/finishLevel.wav");
             Destructeur();
             if (ModeHistoire) {
                 if (Program.FrmDialogue == null)

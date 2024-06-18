@@ -149,6 +149,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
             return false; // Pas de collision avec un mur
         }
+
         private void HandleEnemyInteractions()
         {
             if (Disposed) return;
@@ -187,6 +188,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             else
                 HP += healValue;
             Maze.MazeForm.UpdateHPdisplay();
+            Program.PlaySound("assets/audio/heal.wav");
         }
 
         public void HandlePlayerDeath()
