@@ -195,6 +195,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 Console.WriteLine("ERREUR LE JOUEUR EST DEJA MORT"); //(pour le debugage) ce message ne doit jamais apparaitre
             if (!Disposed)
             {
+                Dispose();
                 Disposed = true;
                 Program.FrmNouvellePartie = new FrmNouvellePartie(Maze.MazeForm.ModeHistoire, Maze.MazeForm.NiveauActuel);
                 Program.ChangeActiveForm(Program.FrmNouvellePartie, Maze.MazeForm);

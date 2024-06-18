@@ -29,6 +29,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public bool ModeHistoire;
         public int NiveauActuel;
         public Player P1 { get; set; }
+        public int nbrFragmentGenere;
         public FrmNouvellePartie(bool modeHistoire, int niveauActuel) : base()
         {
             InitializeComponent();
@@ -58,7 +59,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 maze.GenerateEnemy("égaré", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 
             }
-            LblFragmentGenere.Text = maze.FragmentList.Count().ToString();
+            nbrFragmentGenere = maze.FragmentList.Count();
+            LblFragmentGenere.Text = nbrFragmentGenere.ToString();
             this.Controls.Add(P1.Image);
             P1.Image.BringToFront();
             UpdateHPdisplay();
@@ -105,7 +107,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public void UpdateFragmentdisplay()
         {
             if (P1 != null)
-                LblFragmentCollecte.Text = P1.Maze.FragmentList.Count().ToString();
+                LblFragmentCollecte.Text = (nbrFragmentGenere - P1.Maze.FragmentList.Count()).ToString();
         }
         public void NiveauSuivant()
         {

@@ -233,6 +233,30 @@
     <Content Include="assets\audio\teleportation.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\dialogue\chapitre2_p1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\dialogue\chapitre2_p2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\dialogue\chapitre3_p1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\dialogue\chapitre3_p2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\dialogue\chapitre4_p1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\dialogue\chapitre4_p2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\dialogue\chapitre5_p1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\dialogue\chapitre5_p2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\background2.jpg" />
     <Content Include="assets\dialogue\chapitre1_p2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -241,16 +265,19 @@
     <Content Include="Resources\egare.png" />
     <Content Include="Resources\hp.gif" />
     <Content Include="Resources\murModeInfini.png" />
+    <Content Include="src\database\parametre_audio.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\fragment.gif" />
     <None Include="Resources\hp-1.png" />
     <None Include="Resources\hp.png" />
     <None Include="Resources\death-fragment.gif" />
     <Content Include="Resources\portal.gif" />
     <None Include="Resources\standardGif128.gif" />
-    <Content Include="src\PuckMan\Game\Levels\matricesNiveaux.txt">
+    <Content Include="src\database\matricesNiveaux.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="src\PuckMan\Game\Levels\modeHistoire.txt">
+    <Content Include="src\database\modeHistoire.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\rightGif128.gif" />

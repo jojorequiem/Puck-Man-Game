@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
@@ -48,10 +49,11 @@ namespace Puck_Man_Game
         [STAThread]
         static void Main()
         {
+            string[] lines = File.ReadAllLines("src/database/parametre_audio.txt", Encoding.UTF8);
+            VolumePrincipale = int.Parse(lines[0]);
+            VolumeSon = int.Parse(lines[1]);
+            VolumeMusique = int.Parse(lines[2]);
 
-            VolumePrincipale = 5;
-            VolumeSon = 5;
-            VolumeMusique = 5;
             PlayMusic("assets/audio/musiqueMenu.mp3");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

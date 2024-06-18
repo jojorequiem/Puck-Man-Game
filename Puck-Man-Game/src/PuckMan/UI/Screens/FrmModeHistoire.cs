@@ -17,7 +17,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private int niveauPartie1;
         private int niveauPartie2;
         private int niveauPartie3;
-        static private string chemin = "src/PuckMan/Game/Levels/modeHistoire.txt";
+        static private string chemin = "src/database/modeHistoire.txt";
         public FrmModeHistoire() : base()
         {
             InitializeComponent();

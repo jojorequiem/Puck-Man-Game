@@ -17,6 +17,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private bool NiveauFini;
         public FrmDialogue(int niveauActuel, bool niveauFini) : base()
         {
+            string filepath = "src/database/modeHistoire.txt";
+
             InitializeComponent();
             NiveauActuel = niveauActuel;
             NiveauFini = niveauFini;
@@ -29,10 +31,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 Chapitre = "chapitre" + niveauActuel + "_p2.txt";
 
                 //si le niveau est fini, on incrémente le niveau actuel de 1
-                string[] lines = File.ReadAllLines("src/PuckMan/Game/Levels/modeHistoire.txt", Encoding.UTF8);
+                string[] lines = File.ReadAllLines(filepath, Encoding.UTF8);
                 lines[Program.game - 1] = (NiveauActuel + 1).ToString();
                 NiveauActuel += 1;
-                File.WriteAllLines("src/PuckMan/Game/Levels/modeHistoire.txt", lines, Encoding.UTF8);
+                File.WriteAllLines(filepath, lines, Encoding.UTF8);
             }
 
             nbrLine = 1;
@@ -74,20 +76,13 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private void BtnDialogueSuivant_Click(object sender, EventArgs e)
         {
             if (dialogueFini)
-            {
-                if (Program.FrmNouvellePartie != null)
-                {
-                    Program.FrmNouvellePartie.Close();
-                    Program.FrmNouvellePartie.Dispose();
-                }
-                Program.FrmNouvellePartie = new FrmNouvellePartie(true, NiveauActuel);
-                Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
-            }
+                Suivant();
             else
             {
                 string filePath = "assets/dialogue/" + Chapitre;
                 if (File.Exists(filePath))
                 {
+                    Debug.WriteLine(filePath + "ouvert");
                     nbrLine++;
                     string[] lines = File.ReadAllLines(filePath, Encoding.UTF8);
                     if (nbrLine + 1 > lines.Count())
@@ -98,18 +93,38 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     }
                     GenererDialogue(lines[nbrLine - 1]);
                 }
+                else
+                {
+                    Debug.WriteLine(filePath + "non trouvé");
+                }
             }
         }
 
         private void BtnSkip_Click(object sender, EventArgs e)
         {
-            if (Program.FrmNouvellePartie != null)
-            {
-                Program.FrmNouvellePartie.Close();
-                Program.FrmNouvellePartie.Dispose();
-            }
-            Program.FrmNouvellePartie = new FrmNouvellePartie(true, NiveauActuel);
-            Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
+            Suivant();
         }
+
+        private void Suivant()
+        {
+            if (NiveauFini)
+            {
+                this.Close();
+                this.Dispose();
+                Program.FrmDialogue = new FrmDialogue(NiveauActuel, false);
+                Program.ChangeActiveForm(Program.FrmDialogue, this);
+            }
+            else
+            {
+                if (Program.FrmNouvellePartie != null)
+                {
+                    Program.FrmNouvellePartie.Close();
+                    Program.FrmNouvellePartie.Dispose();
+                }
+                Program.FrmNouvellePartie = new FrmNouvellePartie(true, NiveauActuel);
+                Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
+            }
+        }
+
     }
 }
