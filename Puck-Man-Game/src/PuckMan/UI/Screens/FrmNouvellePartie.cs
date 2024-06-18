@@ -68,7 +68,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.Controls.Add(P1.Image);
             P1.Image.BringToFront();
             UpdateHPdisplay();
-            Debug.WriteLine(ClientSize);
+            maze.DisplayMazeMatrix();
         }
 
         public void Destructeur()
@@ -85,19 +85,17 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     collectable.DejaCollecte = true;
             }
             P1.Maze.StaticEntities = null;
-
             P1.Maze.FragmentList.Clear();
             P1.Maze.MazeForm.Dispose();
 
+            P1.moveTimer.Stop();
             for (int x = 0; x < P1.Maze.width; x++)
             {
                 for (int y = 0; y < P1.Maze.height; y++)
                 {
-                    P1.Maze.Entities[x, y] = null;
-                    P1.Maze.StaticEntities[x, y] = null;
+                    if (P1.Maze.Entities[x, y]!=null) P1.Maze.Entities[x, y] = null;
                 }
             }
-            P1.moveTimer.Stop();
             P1 = null;
             Dispose();
         }

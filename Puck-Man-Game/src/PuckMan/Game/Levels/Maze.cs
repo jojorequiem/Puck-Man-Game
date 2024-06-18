@@ -144,31 +144,37 @@ namespace src.PuckMan.Game.Levels
 
                     Cell cell = new Cell(x * cellSize, y * cellSize, "Cell");
                     MazeMatrix[x, y] = cell;
+                    cell.IsWall = false;
+                    cell.Image.Image = Puck_Man_Game.Properties.Resources.vide;
+                    
+                    if (!MazeForm.ModeHistoire)
+                    {
+                        //on génére une bordure de mur solide sur les côtés et un semi quadrillage
+                        if ((x == 0 || x == width - 1 || y == 0 || y == height - 1)
+                            || ((x + y) % 2 == 0 && x % 2 == 0))
+                        {
+                            cell.Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
+                            cell.IsWall = true;
+                        }
+                        else if ((x + y) % 2 == 0 && x % 2 != 0)
+                        {
+                            cell.Image.Image = Puck_Man_Game.Properties.Resources.vide;
+                            cell.IsWall = false;
+                        }
 
-                    //on génére une bordure de mur solide sur les côtés et un semi quadrillage
-                    if ((x == 0 || x == width - 1 || y == 0 || y == height - 1)
-                        || ((x + y) % 2 == 0 && x % 2 == 0))
-                    {
-                        cell.Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
-                        cell.IsWall = true;
-                    }
-                    else if ((x + y) % 2 == 0 && x % 2 != 0)
-                    {
-                        cell.Image.Image = Puck_Man_Game.Properties.Resources.vide;
-                        cell.IsWall = false;
+                        //remplit 80% des connections avec des murs
+                        else if (random.NextDouble() < 0.8)
+                        {
+                            MazeMatrix[x, y].IsWall = true;
+                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
+                        }
+                        else
+                        {
+                            MazeMatrix[x, y].IsWall = false;
+                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
+                        }
                     }
 
-                    //remplit 80% des connections avec des murs
-                    else if (random.NextDouble() < 0.8)
-                    {
-                        MazeMatrix[x, y].IsWall = true;
-                        MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
-                    }
-                    else
-                    {
-                        MazeMatrix[x, y].IsWall = false;
-                        MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
-                    }
                 }
             }
         }
