@@ -40,10 +40,10 @@
             // BtnDialogueSuivant
             // 
             this.BtnDialogueSuivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.BtnDialogueSuivant.Location = new System.Drawing.Point(628, 549);
+            this.BtnDialogueSuivant.Location = new System.Drawing.Point(458, 500);
             this.BtnDialogueSuivant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDialogueSuivant.Name = "BtnDialogueSuivant";
-            this.BtnDialogueSuivant.Size = new System.Drawing.Size(445, 85);
+            this.BtnDialogueSuivant.Size = new System.Drawing.Size(334, 69);
             this.BtnDialogueSuivant.TabIndex = 2;
             this.BtnDialogueSuivant.Text = "Suivant";
             this.BtnDialogueSuivant.UseVisualStyleBackColor = true;
@@ -55,7 +55,7 @@
             this.LblTitre.BackColor = System.Drawing.Color.Black;
             this.LblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LblTitre.Location = new System.Drawing.Point(133, 21);
+            this.LblTitre.Location = new System.Drawing.Point(91, 42);
             this.LblTitre.Name = "LblTitre";
             this.LblTitre.Size = new System.Drawing.Size(956, 58);
             this.LblTitre.TabIndex = 10;
@@ -68,10 +68,10 @@
             this.Panel.BackColor = System.Drawing.Color.White;
             this.Panel.Controls.Add(this.FlowPanel);
             this.Panel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Panel.Location = new System.Drawing.Point(144, 97);
+            this.Panel.Location = new System.Drawing.Point(91, 97);
             this.Panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(929, 431);
+            this.Panel.Size = new System.Drawing.Size(701, 375);
             this.Panel.TabIndex = 11;
             // 
             // FlowPanel
@@ -83,16 +83,16 @@
             this.FlowPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FlowPanel.Name = "FlowPanel";
             this.FlowPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.FlowPanel.Size = new System.Drawing.Size(889, 390);
+            this.FlowPanel.Size = new System.Drawing.Size(656, 339);
             this.FlowPanel.TabIndex = 0;
             // 
             // BtnSkip
             // 
             this.BtnSkip.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.BtnSkip.Location = new System.Drawing.Point(144, 549);
+            this.BtnSkip.Location = new System.Drawing.Point(91, 500);
             this.BtnSkip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSkip.Name = "BtnSkip";
-            this.BtnSkip.Size = new System.Drawing.Size(445, 85);
+            this.BtnSkip.Size = new System.Drawing.Size(334, 69);
             this.BtnSkip.TabIndex = 12;
             this.BtnSkip.Text = "Passer";
             this.BtnSkip.UseVisualStyleBackColor = true;
@@ -100,8 +100,7 @@
             // 
             // FrmDialogue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -113,6 +112,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximumSize = new System.Drawing.Size(900, 650);
+            this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmDialogue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dialoguecs";

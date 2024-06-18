@@ -44,9 +44,9 @@ namespace Puck_Man_Game.src.PuckMan.UI
             // 
             this.BtnJouer.BackColor = System.Drawing.Color.White;
             this.BtnJouer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnJouer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnJouer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.BtnJouer.ForeColor = System.Drawing.Color.Black;
-            this.BtnJouer.Location = new System.Drawing.Point(99, 204);
+            this.BtnJouer.Location = new System.Drawing.Point(91, 204);
             this.BtnJouer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnJouer.Name = "BtnJouer";
             this.BtnJouer.Size = new System.Drawing.Size(700, 69);
@@ -60,7 +60,7 @@ namespace Puck_Man_Game.src.PuckMan.UI
             this.LblTitreMenuPrincipal.BackColor = System.Drawing.Color.Transparent;
             this.LblTitreMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitreMenuPrincipal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LblTitreMenuPrincipal.Location = new System.Drawing.Point(99, 42);
+            this.LblTitreMenuPrincipal.Location = new System.Drawing.Point(91, 42);
             this.LblTitreMenuPrincipal.Name = "LblTitreMenuPrincipal";
             this.LblTitreMenuPrincipal.Size = new System.Drawing.Size(700, 94);
             this.LblTitreMenuPrincipal.TabIndex = 9;
@@ -69,9 +69,9 @@ namespace Puck_Man_Game.src.PuckMan.UI
             // 
             // BtnParametres
             // 
-            this.BtnParametres.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnParametres.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.BtnParametres.ForeColor = System.Drawing.Color.Black;
-            this.BtnParametres.Location = new System.Drawing.Point(99, 313);
+            this.BtnParametres.Location = new System.Drawing.Point(91, 313);
             this.BtnParametres.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnParametres.Name = "BtnParametres";
             this.BtnParametres.Size = new System.Drawing.Size(700, 69);
@@ -83,7 +83,7 @@ namespace Puck_Man_Game.src.PuckMan.UI
             // BtnQuitter
             // 
             this.BtnQuitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.BtnQuitter.Location = new System.Drawing.Point(466, 422);
+            this.BtnQuitter.Location = new System.Drawing.Point(458, 422);
             this.BtnQuitter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnQuitter.Name = "BtnQuitter";
             this.BtnQuitter.Size = new System.Drawing.Size(334, 69);
@@ -95,7 +95,7 @@ namespace Puck_Man_Game.src.PuckMan.UI
             // BtnClassement
             // 
             this.BtnClassement.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.BtnClassement.Location = new System.Drawing.Point(99, 422);
+            this.BtnClassement.Location = new System.Drawing.Point(91, 422);
             this.BtnClassement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnClassement.Name = "BtnClassement";
             this.BtnClassement.Size = new System.Drawing.Size(334, 69);

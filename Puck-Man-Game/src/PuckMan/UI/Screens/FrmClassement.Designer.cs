@@ -36,9 +36,9 @@
             // 
             // BtnRetour
             // 
-            this.BtnRetour.Location = new System.Drawing.Point(97, 495);
+            this.BtnRetour.Location = new System.Drawing.Point(92, 422);
             this.BtnRetour.Name = "BtnRetour";
-            this.BtnRetour.Size = new System.Drawing.Size(672, 85);
+            this.BtnRetour.Size = new System.Drawing.Size(700, 69);
             this.BtnRetour.TabIndex = 4;
             this.BtnRetour.Text = "RETOUR";
             this.BtnRetour.UseVisualStyleBackColor = true;
@@ -47,7 +47,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(97, 182);
+            this.comboBox1.Location = new System.Drawing.Point(90, 182);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(672, 24);
             this.comboBox1.TabIndex = 6;
@@ -57,9 +57,9 @@
             this.LblTitreClassement.BackColor = System.Drawing.Color.Black;
             this.LblTitreClassement.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitreClassement.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LblTitreClassement.Location = new System.Drawing.Point(97, 28);
+            this.LblTitreClassement.Location = new System.Drawing.Point(92, 42);
             this.LblTitreClassement.Name = "LblTitreClassement";
-            this.LblTitreClassement.Size = new System.Drawing.Size(672, 116);
+            this.LblTitreClassement.Size = new System.Drawing.Size(700, 94);
             this.LblTitreClassement.TabIndex = 10;
             this.LblTitreClassement.Text = "CLASSEMENT";
             this.LblTitreClassement.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -70,12 +70,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 605); 
+            this.ClientSize = new System.Drawing.Size(882, 603);
             this.Controls.Add(this.LblTitreClassement);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.BtnRetour);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(900, 650);
+            this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmClassement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Classement";

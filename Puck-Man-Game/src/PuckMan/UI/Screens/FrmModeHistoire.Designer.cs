@@ -44,7 +44,7 @@
             this.lblTitreMenuPrincipal.BackColor = System.Drawing.Color.Black;
             this.lblTitreMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitreMenuPrincipal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(91, 59);
+            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(99, 42);
             this.lblTitreMenuPrincipal.Name = "lblTitreMenuPrincipal";
             this.lblTitreMenuPrincipal.Size = new System.Drawing.Size(700, 88);
             this.lblTitreMenuPrincipal.TabIndex = 11;
@@ -54,10 +54,10 @@
             // BtnRetour
             // 
             this.BtnRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRetour.Location = new System.Drawing.Point(117, 473);
+            this.BtnRetour.Location = new System.Drawing.Point(91, 422);
             this.BtnRetour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRetour.Name = "BtnRetour";
-            this.BtnRetour.Size = new System.Drawing.Size(657, 40);
+            this.BtnRetour.Size = new System.Drawing.Size(700, 50);
             this.BtnRetour.TabIndex = 12;
             this.BtnRetour.Text = "RETOUR";
             this.BtnRetour.UseVisualStyleBackColor = true;
@@ -66,10 +66,10 @@
             // BtnGame1
             // 
             this.BtnGame1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGame1.Location = new System.Drawing.Point(77, 229);
+            this.BtnGame1.Location = new System.Drawing.Point(91, 170);
             this.BtnGame1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnGame1.Name = "BtnGame1";
-            this.BtnGame1.Size = new System.Drawing.Size(524, 40);
+            this.BtnGame1.Size = new System.Drawing.Size(483, 50);
             this.BtnGame1.TabIndex = 13;
             this.BtnGame1.Text = "CHAPITRE 9";
             this.BtnGame1.UseVisualStyleBackColor = true;
@@ -78,10 +78,10 @@
             // BtnGame2
             // 
             this.BtnGame2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGame2.Location = new System.Drawing.Point(77, 290);
+            this.BtnGame2.Location = new System.Drawing.Point(91, 241);
             this.BtnGame2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnGame2.Name = "BtnGame2";
-            this.BtnGame2.Size = new System.Drawing.Size(524, 40);
+            this.BtnGame2.Size = new System.Drawing.Size(483, 50);
             this.BtnGame2.TabIndex = 15;
             this.BtnGame2.Text = "CHAPITRE 1";
             this.BtnGame2.UseVisualStyleBackColor = true;
@@ -90,10 +90,10 @@
             // BtnGame3
             // 
             this.BtnGame3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGame3.Location = new System.Drawing.Point(77, 351);
+            this.BtnGame3.Location = new System.Drawing.Point(91, 318);
             this.BtnGame3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnGame3.Name = "BtnGame3";
-            this.BtnGame3.Size = new System.Drawing.Size(524, 40);
+            this.BtnGame3.Size = new System.Drawing.Size(483, 50);
             this.BtnGame3.TabIndex = 16;
             this.BtnGame3.Text = "NOUVELLE PARTIE";
             this.BtnGame3.UseVisualStyleBackColor = true;
@@ -102,10 +102,10 @@
             // BtnDelete1
             // 
             this.BtnDelete1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelete1.Location = new System.Drawing.Point(621, 229);
+            this.BtnDelete1.Location = new System.Drawing.Point(607, 170);
             this.BtnDelete1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete1.Name = "BtnDelete1";
-            this.BtnDelete1.Size = new System.Drawing.Size(184, 40);
+            this.BtnDelete1.Size = new System.Drawing.Size(184, 50);
             this.BtnDelete1.TabIndex = 19;
             this.BtnDelete1.Text = "SUPPRIMER";
             this.BtnDelete1.UseVisualStyleBackColor = true;
@@ -114,10 +114,10 @@
             // BtnDelete2
             // 
             this.BtnDelete2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelete2.Location = new System.Drawing.Point(621, 290);
+            this.BtnDelete2.Location = new System.Drawing.Point(607, 241);
             this.BtnDelete2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete2.Name = "BtnDelete2";
-            this.BtnDelete2.Size = new System.Drawing.Size(184, 40);
+            this.BtnDelete2.Size = new System.Drawing.Size(184, 50);
             this.BtnDelete2.TabIndex = 20;
             this.BtnDelete2.Text = "SUPPRIMER";
             this.BtnDelete2.UseVisualStyleBackColor = true;
@@ -126,10 +126,10 @@
             // BtnDelete3
             // 
             this.BtnDelete3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelete3.Location = new System.Drawing.Point(621, 351);
+            this.BtnDelete3.Location = new System.Drawing.Point(607, 318);
             this.BtnDelete3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete3.Name = "BtnDelete3";
-            this.BtnDelete3.Size = new System.Drawing.Size(184, 40);
+            this.BtnDelete3.Size = new System.Drawing.Size(184, 50);
             this.BtnDelete3.TabIndex = 21;
             this.BtnDelete3.Text = "SUPPRIMER";
             this.BtnDelete3.UseVisualStyleBackColor = true;
@@ -141,7 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.ClientSize = new System.Drawing.Size(882, 603);
             this.Controls.Add(this.BtnDelete3);
             this.Controls.Add(this.BtnDelete2);
             this.Controls.Add(this.BtnDelete1);
@@ -152,7 +152,8 @@
             this.Controls.Add(this.lblTitreMenuPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.MaximumSize = new System.Drawing.Size(900, 650);
+            this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmModeHistoire";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModeHistoire";

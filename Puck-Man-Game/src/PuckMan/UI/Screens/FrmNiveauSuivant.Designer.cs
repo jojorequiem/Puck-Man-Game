@@ -63,10 +63,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(195, 56);
+            this.label1.Location = new System.Drawing.Point(99, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(543, 87);
+            this.label1.Size = new System.Drawing.Size(558, 91);
             this.label1.TabIndex = 2;
             this.label1.Text = "Niveau suivant";
             // 
@@ -77,13 +77,14 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 605);
+            this.ClientSize = new System.Drawing.Size(882, 603);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnNiveauSuivant);
             this.Controls.Add(this.BtnRetourMenu);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(900, 650);
+            this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmNiveauSuivant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NiveauSuivant";

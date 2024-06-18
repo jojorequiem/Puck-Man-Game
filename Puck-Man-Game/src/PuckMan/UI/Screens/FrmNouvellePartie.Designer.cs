@@ -120,6 +120,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.BackgroundImage = global::Puck_Man_Game.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(882, 603);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -131,6 +132,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximumSize = new System.Drawing.Size(900, 650);
+            this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmNouvellePartie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puck Man";

@@ -37,12 +37,12 @@
             // 
             // LblTitrePause
             // 
-            this.LblTitrePause.BackColor = System.Drawing.Color.Black;
+            this.LblTitrePause.BackColor = System.Drawing.Color.Transparent;
             this.LblTitrePause.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitrePause.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LblTitrePause.Location = new System.Drawing.Point(144, 28);
+            this.LblTitrePause.Location = new System.Drawing.Point(91, 42);
             this.LblTitrePause.Name = "LblTitrePause";
-            this.LblTitrePause.Size = new System.Drawing.Size(594, 115);
+            this.LblTitrePause.Size = new System.Drawing.Size(700, 94);
             this.LblTitrePause.TabIndex = 10;
             this.LblTitrePause.Text = "PAUSE";
             this.LblTitrePause.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -51,10 +51,10 @@
             // 
             this.BtnRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRetour.ForeColor = System.Drawing.Color.Black;
-            this.BtnRetour.Location = new System.Drawing.Point(144, 227);
+            this.BtnRetour.Location = new System.Drawing.Point(91, 204);
             this.BtnRetour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRetour.Name = "BtnRetour";
-            this.BtnRetour.Size = new System.Drawing.Size(594, 84);
+            this.BtnRetour.Size = new System.Drawing.Size(700, 69);
             this.BtnRetour.TabIndex = 11;
             this.BtnRetour.Text = "RETOUR";
             this.BtnRetour.UseVisualStyleBackColor = true;
@@ -64,10 +64,10 @@
             // 
             this.BtnParametres.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnParametres.ForeColor = System.Drawing.Color.Black;
-            this.BtnParametres.Location = new System.Drawing.Point(144, 361);
+            this.BtnParametres.Location = new System.Drawing.Point(91, 313);
             this.BtnParametres.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnParametres.Name = "BtnParametres";
-            this.BtnParametres.Size = new System.Drawing.Size(594, 84);
+            this.BtnParametres.Size = new System.Drawing.Size(700, 69);
             this.BtnParametres.TabIndex = 12;
             this.BtnParametres.Text = "PARAMÈTRES";
             this.BtnParametres.UseVisualStyleBackColor = true;
@@ -77,10 +77,10 @@
             // 
             this.BtnQuitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnQuitter.ForeColor = System.Drawing.Color.Black;
-            this.BtnQuitter.Location = new System.Drawing.Point(144, 495);
+            this.BtnQuitter.Location = new System.Drawing.Point(91, 422);
             this.BtnQuitter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnQuitter.Name = "BtnQuitter";
-            this.BtnQuitter.Size = new System.Drawing.Size(594, 84);
+            this.BtnQuitter.Size = new System.Drawing.Size(700, 69);
             this.BtnQuitter.TabIndex = 13;
             this.BtnQuitter.Text = "QUITTER";
             this.BtnQuitter.UseVisualStyleBackColor = true;
@@ -92,14 +92,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.ClientSize = new System.Drawing.Size(882, 603);
             this.Controls.Add(this.BtnQuitter);
             this.Controls.Add(this.BtnParametres);
             this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.LblTitrePause);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(900, 650);
+            this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmPause";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPause";

@@ -18,11 +18,13 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
     {
         public FormComponent()
         {
+            AutoScaleMode = AutoScaleMode.None;
             this.Load += FormComponent_Load;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormComponent_FormClosing);
         }
         private void FormComponent_Load(object sender, EventArgs e)
         {
+            AutoScaleMode = AutoScaleMode.None;
             ChangeAllTextColors(this);
             if (this is FrmNouvellePartie)
             {
@@ -63,9 +65,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     button.GotFocus += MyButton_GotFocus;
                     button.LostFocus += MyButton_LostFocus;
                     button.Click += MyButton_Click;
-                    //button.Font = new Font(control.Font.FontFamily, 16);
-                    button.Font = new System.Drawing.Font("Minecraft", 11.89565F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    //button.Font = new Font(control.Font.Minecraft, 16);
+                    button.Font = new Font(control.Font.FontFamily, 16);
+                    //button.Font = new System.Drawing.Font("Minecraft", 11.89565F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     button.ForeColor = Program.TextColor;
                     button.BackColor = Color.Transparent;
                     button.FlatStyle = FlatStyle.Flat;
@@ -131,6 +132,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 Application.Exit();
             }
                 
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FormComponent
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "FormComponent";
+            this.ResumeLayout(false);
+
         }
     }
 }
