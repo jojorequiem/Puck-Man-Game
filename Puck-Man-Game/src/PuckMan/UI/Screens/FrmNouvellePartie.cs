@@ -71,18 +71,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             Debug.WriteLine(ClientSize);
         }
 
-        /*
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
-            if (this.BackgroundImage != null)
-                e.Graphics.DrawImage(this.BackgroundImage, this.ClientRectangle);
-            base.OnPaint(e);
-        }*/
-
         public void Destructeur()
         {
-            foreach (Enemy enemy in P1.Maze.Entities)
+            foreach (Enemy enemy in P1.Maze.EnemyList)
             {
                 if (enemy != null)
                     enemy.moveEnemyTimer.Stop();

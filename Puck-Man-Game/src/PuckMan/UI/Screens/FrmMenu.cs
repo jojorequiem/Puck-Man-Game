@@ -16,7 +16,9 @@ namespace Puck_Man_Game.src.PuckMan.UI
     {
         public FrmMenu() : base()
         {
+            Debug.WriteLine("TAILLE FENETRE 1 : " + ClientSize.ToString());
             InitializeComponent();
+            Debug.WriteLine("TAILLE FENETRE 2 : " + ClientSize.ToString());
             this.BackgroundImage = Properties.Resources.background;
         }
 
