@@ -61,6 +61,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 maze.GenerateCollectable("portail teleportation", 2, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("soin", 3, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateEnemy("égaré", 3, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateEnemy("égaré berserker", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+
             }
 
             nbrFragmentGenere = maze.FragmentList.Count();
