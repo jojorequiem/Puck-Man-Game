@@ -340,7 +340,7 @@ namespace src.PuckMan.Game.Levels
                             GenerateEnemy("égaré", 1, x, y);
                             break;
                         case 'H':
-                            GenerateCollectable("coeur", 1, x, y);
+                            GenerateCollectable("soin", 1, x, y);
                             break;
                         case 'T':
                             GenerateCollectable("portail teleportation", 1, x, y);

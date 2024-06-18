@@ -253,6 +253,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
                 if (Program.FrmPause == null)
                     Program.FrmPause = new FrmPause(Maze.MazeForm);
+                Program.FrmPause.FormParent = Maze.MazeForm;
                 Program.ChangeActiveForm(Program.FrmPause, Maze.MazeForm);
             }
         }
