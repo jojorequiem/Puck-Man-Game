@@ -83,6 +83,16 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap berserker {
+            get {
+                object obj = ResourceManager.GetObject("berserker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bottomGif128 {
             get {
                 object obj = ResourceManager.GetObject("bottomGif128", resourceCulture);

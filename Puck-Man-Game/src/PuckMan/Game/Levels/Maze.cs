@@ -339,6 +339,9 @@ namespace src.PuckMan.Game.Levels
                         case 'E':
                             GenerateEnemy("égaré", 1, x, y);
                             break;
+                        case 'B':
+                            GenerateEnemy("égaré berserker", 1, x, y);
+                            break;
                         case 'H':
                             GenerateCollectable("soin", 1, x, y);
                             break;
@@ -355,8 +358,6 @@ namespace src.PuckMan.Game.Levels
             int index = (Y * (width * 2 + 1)) + (X * 2);
             if (index < stringMazeMatrix.Length)
                 stringMazeMatrix = stringMazeMatrix.Substring(0, index) + entityCodeName + stringMazeMatrix.Substring(index + 1);
-            else
-                Debug.WriteLine("Error : position is out of bounds.");
         }
         public string DisplayMazeMatrix()
         {
@@ -376,11 +377,11 @@ namespace src.PuckMan.Game.Levels
                 {
                     string codeName = "F";
                     if (entity.EntityName == "égaré") codeName = "E";
+                    if (entity.EntityName == "égaré berserker") codeName = "B";
                     if (entity.EntityName == "soin") codeName = "H";
                     if (entity.EntityName == "fragment degat") codeName = "D";
                     if (entity.EntityName == "portail teleportation") codeName = "T";
                     if (entity is Player) codeName = "J";
-
                     ReplaceMatrixWithEntity(codeName, entity.X / cellSize, entity.Y / cellSize);
                 }
                     
@@ -449,6 +450,9 @@ namespace src.PuckMan.Game.Levels
                         case "égaré":
                             instance = new ConfusedEnemy(x * cellSize, y * cellSize, this);
                             break;
+                        case "égaré berserker":
+                            instance = new BerserkerEnemy(x * cellSize, y * cellSize, this);
+                            break;
                         //case "Égaré Standard":
                         //    instance = new StandardEnemy(x * cellSize, y * cellSize, this);
                         //    break;
@@ -457,9 +461,6 @@ namespace src.PuckMan.Game.Levels
                         //    break;
                         //case "spec":
                         //    instance = new SpectralEnemy(x * cellSize, y * cellSize, this);
-                        //    break;
-                        //case "Égaré Berserker":
-                        //    instance = new BerserkerEnemy(x * cellSize, y * cellSize, this);
                         //    break;
                         //case "Égaré Enchanteur":
                         //    instance = new EnchanterEnemy(x * cellSize, y * cellSize, this);
