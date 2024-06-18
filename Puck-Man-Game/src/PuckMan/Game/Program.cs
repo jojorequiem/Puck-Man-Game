@@ -121,8 +121,8 @@ namespace Puck_Man_Game
             if (formulaire is FrmMenu && menuMusicFilepath != LastMusicPlayed)
                 PlayMusic(menuMusicFilepath);
 
-            if (formulaire is FrmDialogue frmDialogue && frmDialogue.NiveauFini && dialogueMusicFilepath != LastMusicPlayed)
-                PlayMusic(menuMusicFilepath);
+            if (formulaire is FrmDialogue && !(parent is FrmDialogue))
+                PlayMusic(dialogueMusicFilepath);
 
             if (formulaire is FrmNouvellePartie frmNouvellePartie && parent is FrmPause)
             {

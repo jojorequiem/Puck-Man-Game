@@ -67,3 +67,18 @@ X . . . . . . F . . X . . . . . X
 X X X X X X X X X X X X X X X X X
 
 5
+X X X X X X X X X X X X X X X X X 
+X . . . . . X F . . . . . . . . X 
+X . X X X . X . X X X . X X X . X 
+X . X F . . . . X . . . . . X . X 
+X . X . X X X X X . X X X . X . X 
+X . X . . . . . . . X . . . X . X 
+X . X . X X X X X X X . X X X . X 
+X . . . X . . . . . X F X . . . X 
+X X X X X . X X X . X . X . X X X 
+X . . . . . X . X . . F X . . . X 
+X . . . X X X . X . . . X . . . X 
+X . . J . . X . . . . . X . . F X 
+X . X X X . X . X X X . X . . . X 
+X . . . . . . F . . . F . . . . X 
+X X X X X X X X X X X X X X X X X 

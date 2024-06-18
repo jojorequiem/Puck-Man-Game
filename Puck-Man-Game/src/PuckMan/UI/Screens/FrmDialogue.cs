@@ -22,7 +22,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             InitializeComponent();
             NiveauActuel = niveauActuel;
             NiveauFini = niveauFini;
-            Program.PlayMusic("assets/audio/musiqueDialogue.mp3");
             dialogueFini = false;
             if (!NiveauFini)
                 Chapitre = "chapitre" + niveauActuel+"_p1.txt";
@@ -91,10 +90,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                         dialogueFini = true;
                     }
                     GenererDialogue(lines[nbrLine - 1]);
-                }
-                else
-                {
-                    Debug.WriteLine(filePath + "non trouvé");
                 }
             }
         }
