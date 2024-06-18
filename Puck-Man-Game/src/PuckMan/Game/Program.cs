@@ -32,6 +32,8 @@ namespace Puck_Man_Game
         public static int VolumeMusique;
         public static string LastMusicPlayed = "";
         static public string menuMusicFilepath = "assets/audio/musiqueMenu.mp3";
+        static public string dialogueMusicFilepath = "assets/audio/musiqueDialogue.mp3";
+        
 
         public static FrmClassement FrmClassement = null;
         public static FrmDialogue FrmDialogue = null;
@@ -118,6 +120,10 @@ namespace Puck_Man_Game
             //on joue la musique du thème menu si on retourne dans le menu et si elle n'est pas déjà joué
             if (formulaire is FrmMenu && menuMusicFilepath != LastMusicPlayed)
                 PlayMusic(menuMusicFilepath);
+
+            if (formulaire is FrmDialogue frmDialogue && frmDialogue.NiveauFini && dialogueMusicFilepath != LastMusicPlayed)
+                PlayMusic(menuMusicFilepath);
+
             if (formulaire is FrmNouvellePartie frmNouvellePartie && parent is FrmPause)
             {
                 //mettre en pause le joueur et les ennemis

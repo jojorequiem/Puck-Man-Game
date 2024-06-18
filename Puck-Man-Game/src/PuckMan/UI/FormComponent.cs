@@ -66,10 +66,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     button.LostFocus += MyButton_LostFocus;
                     button.Click += MyButton_Click;
                     button.Font = new Font(control.Font.FontFamily, 16);
-                    //button.Font = new System.Drawing.Font("Minecraft", 11.89565F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     button.ForeColor = Program.TextColor;
                     button.BackColor = Color.Transparent;
                     button.FlatStyle = FlatStyle.Flat;
+                    button.FlatAppearance.MouseDownBackColor = Color.Black;
+                    button.FlatAppearance.MouseOverBackColor = Color.Black;
                 }
 
                 if (control.HasChildren)
@@ -117,6 +118,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void MyButton_Click(object sender, EventArgs e)
         {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                button.BackColor = Color.Transparent;
+                button.ForeColor = Program.TextColor;
+            }
             Program.PlaySound("assets/audio/click.wav");
         }
 
@@ -133,18 +140,13 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
                 
         }
-
         private void InitializeComponent()
         {
             this.SuspendLayout();
-            // 
-            // FormComponent
-            // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.ClientSize = new System.Drawing.Size(950, 600);
             this.Name = "FormComponent";
             this.ResumeLayout(false);
-
         }
     }
 }

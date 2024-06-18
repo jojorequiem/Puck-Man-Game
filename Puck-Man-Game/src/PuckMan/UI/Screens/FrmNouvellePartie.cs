@@ -89,13 +89,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             P1.Maze.MazeForm.Dispose();
 
             P1.moveTimer.Stop();
-            for (int x = 0; x < P1.Maze.width; x++)
-            {
-                for (int y = 0; y < P1.Maze.height; y++)
-                {
-                    if (P1.Maze.Entities[x, y]!=null) P1.Maze.Entities[x, y] = null;
-                }
-            }
             P1 = null;
             Dispose();
         }
@@ -112,7 +105,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         }
         public void NiveauSuivant()
         {
-            Program.PlaySound("assets/audio/finishLevel.wav");
+            
             Destructeur();
             if (ModeHistoire) {
                 if (Program.FrmDialogue == null)
@@ -125,6 +118,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
             else
             {
+                Program.PlaySound("assets/audio/finishLevel.wav");
                 if (Program.FrmNiveauSuivant == null)
                     Program.FrmNiveauSuivant = new FrmNiveauSuivant();
                 Program.ChangeActiveForm(Program.FrmNiveauSuivant, this);

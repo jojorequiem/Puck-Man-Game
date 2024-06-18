@@ -243,7 +243,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         public void PlayerKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
-               // Maze.MazeForm.NiveauSuivant();
             {
                 //mettre en pause le joueur et les ennemis
                 if (moveTimer.Enabled)

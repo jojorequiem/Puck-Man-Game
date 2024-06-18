@@ -50,8 +50,20 @@ X . . . . . X . . . . . X . . F X
 X X X X X X X X X X X X X X X X X 
 
 4
-X X X X X X X 
-X . . T . E X 
-X . H . H . X 
-X J . F . . X 
-X X X X X X X
+X X X X X X X X X X X X X X X X X 
+X . . . . . . . . . X . . . . . X 
+X . X . . . X X X . X X X X X . X 
+X . X . . . X F X . . . . . X . X 
+X . X . X X X . X X X X X . X . X 
+X . X . . . . . X . . . . . X . X 
+X X X . X . X X X . X . . . X . X 
+X . . . X . X . . . X F . . X . X 
+X . X X X . X . X . X X X . X . X 
+X J X F . . X . X . . . . . X F X 
+X X X . X . X . X . . . X . X . X 
+X . . . X F . . X . . F X . . . X 
+X . X X X X X X X . X X X X X . X 
+X . . . . . . F . . X . . . . . X 
+X X X X X X X X X X X X X X X X X
+
+5

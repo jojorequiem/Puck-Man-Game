@@ -14,7 +14,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private string Chapitre;
         private bool dialogueFini;
         private int NiveauActuel;
-        private bool NiveauFini;
+        public bool NiveauFini;
         public FrmDialogue(int niveauActuel, bool niveauFini) : base()
         {
             string filepath = "src/database/modeHistoire.txt";
@@ -88,7 +88,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     if (nbrLine + 1 > lines.Count())
                     {
                         BtnDialogueSuivant.Text = "Fin";
-                        BtnDialogueSuivant.ForeColor = Color.Black;
                         dialogueFini = true;
                     }
                     GenererDialogue(lines[nbrLine - 1]);
@@ -121,6 +120,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             {
                 if (Program.FrmNouvellePartie != null)
                 {
+                    //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
+                    Program.FrmNouvellePartie.FormClosing -= Program.FrmNouvellePartie.FormComponent_FormClosing;
+
                     Program.FrmNouvellePartie.Close();
                     Program.FrmNouvellePartie.Dispose();
                 }

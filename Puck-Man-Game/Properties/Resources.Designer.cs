@@ -163,6 +163,16 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mort {
+            get {
+                object obj = ResourceManager.GetObject("mort", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap murModeHistoire {
             get {
                 object obj = ResourceManager.GetObject("murModeHistoire", resourceCulture);
