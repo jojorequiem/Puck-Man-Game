@@ -35,7 +35,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 this.BackgroundImageLayout = ImageLayout.Stretch;
             }
 
-            this.StartPosition = FormStartPosition.CenterScreen;
+            //this.StartPosition = FormStartPosition.CenterScreen;
+            this.MinimumSize = new Size(Program.LargeurFenetre - 1, Program.HauteurFenetre - 1);
+            this.MaximumSize = new Size(Program.LargeurFenetre + 1, Program.HauteurFenetre +1);
             this.ClientSize = new Size(Program.LargeurFenetre, Program.HauteurFenetre);
             Debug.WriteLine("TAILLE FENETRE : " + ClientSize.ToString());
         }
@@ -48,6 +50,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 {
                     control.ForeColor = Program.TextColor;
                     control.BackColor = Program.BackgroundColor;
+
                 }
 
                 if (control is Label)
@@ -60,7 +63,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     button.GotFocus += MyButton_GotFocus;
                     button.LostFocus += MyButton_LostFocus;
                     button.Click += MyButton_Click;
-                    button.Font = new Font(control.Font.FontFamily, 16);
+                    //button.Font = new Font(control.Font.FontFamily, 16);
+                    button.Font = new System.Drawing.Font("Minecraft", 11.89565F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    //button.Font = new Font(control.Font.Minecraft, 16);
                     button.ForeColor = Program.TextColor;
                     button.BackColor = Color.Transparent;
                     button.FlatStyle = FlatStyle.Flat;
@@ -117,9 +122,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         static private bool isClosed = false;
         public void FormComponent_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Debug.WriteLine("sender : " + sender);
-            Debug.WriteLine("e : " + e);
-
             if (isClosed) return;
             if (MessageBox.Show("Voulez-vous vraiment quitter?", "Message Puck-Man", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 e.Cancel = true;

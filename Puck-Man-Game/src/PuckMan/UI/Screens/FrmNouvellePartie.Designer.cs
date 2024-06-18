@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNouvellePartie));
             this.LblPV = new System.Windows.Forms.Label();
             this.LblFragmentCollecte = new System.Windows.Forms.Label();
             this.LblFragmentGenere = new System.Windows.Forms.Label();
@@ -120,8 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImage = global::Puck_Man_Game.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(882, 603);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

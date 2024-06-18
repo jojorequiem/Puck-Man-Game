@@ -344,9 +344,6 @@ namespace src.PuckMan.Game.Levels
             }
         }
 
-
-
-
         public void ReplaceMatrixWithEntity(string entityCodeName, int X, int Y)
         {
             int index = (Y * (width * 2 + 1)) + (X * 2);

@@ -23,8 +23,9 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         public Maze Maze;
         public bool isDead;
 
-        // Timer pour gérer le déplacemet continu
-        private readonly Timer moveTimer;
+        // gérer le déplacemet continu
+        public bool deplacementContinuActive = false;
+        public readonly Timer moveTimer;
         private int moveDeltaX;
         private int moveDeltaY;
         private int lastValidDeltaX;
@@ -67,13 +68,17 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         }
         public void Dispose()
         {
-            
+
             if (!Disposed)
             {
                 Debug.WriteLine("DISPOSE JOUEUR");
                 Disposed = true;
                 isDead = true;
-                Maze = null;
+                if (Maze != null) {
+                    Maze.MazeForm.Dispose();
+                    Maze.MazeForm.Close();
+                    Maze = null;
+                }
                 moveTimer.Dispose();
                 GC.SuppressFinalize(this);    
             }
@@ -196,13 +201,11 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             if (Disposed)
                 Console.WriteLine("ERREUR LE JOUEUR EST DEJA MORT"); //(pour le debugage) ce message ne doit jamais apparaitre
             if (!Disposed)
-            {
-                Dispose();
+            {   
                 Disposed = true;
                 Program.FrmNouvellePartie = new FrmNouvellePartie(Maze.MazeForm.ModeHistoire, Maze.MazeForm.NiveauActuel);
                 Program.ChangeActiveForm(Program.FrmNouvellePartie, Maze.MazeForm);
-                Maze.MazeForm.Dispose();
-                Maze.MazeForm.Close();
+                Dispose();
             }
         }
 
@@ -230,13 +233,24 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                     return;
             }
             if (!moveTimer.Enabled)
+            {
+                deplacementContinuActive = true;
                 moveTimer.Start(); // Démarre le déplacement continu
+            }
+                
         }
 
         public void PlayerKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
+               // Maze.MazeForm.NiveauSuivant();
             {
+                //mettre en pause le joueur et les ennemis
+                if (moveTimer.Enabled)
+                    moveTimer.Stop();
+                foreach (Enemy enemy in Maze.EnemyList)
+                    enemy.moveEnemyTimer.Stop();
+
                 if (Program.FrmPause == null)
                     Program.FrmPause = new FrmPause(Maze.MazeForm);
                 Program.ChangeActiveForm(Program.FrmPause, Maze.MazeForm);

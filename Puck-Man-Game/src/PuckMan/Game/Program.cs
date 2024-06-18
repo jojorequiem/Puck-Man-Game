@@ -2,6 +2,7 @@
 using Puck_Man_Game.src.PuckMan.Game.Entities;
 using Puck_Man_Game.src.PuckMan.UI;
 using Puck_Man_Game.src.PuckMan.UI.Screens;
+using src.PuckMan.Game.Levels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -117,11 +118,19 @@ namespace Puck_Man_Game
             //on joue la musique du thème menu si on retourne dans le menu et si elle n'est pas déjà joué
             if (formulaire is FrmMenu && menuMusicFilepath != LastMusicPlayed)
                 PlayMusic(menuMusicFilepath);
+            if (formulaire is FrmNouvellePartie frmNouvellePartie && parent is FrmPause)
+            {
+                //mettre en pause le joueur et les ennemis
+                if (frmNouvellePartie.P1.deplacementContinuActive)
+                    frmNouvellePartie.P1.moveTimer.Start();
+                foreach (Enemy enemy in frmNouvellePartie.P1.Maze.EnemyList)
+                    enemy.moveEnemyTimer.Start();
+            }
 
             var openForms = Application.OpenForms.Cast<Form>().ToList();
-            Console.WriteLine($"Number of open forms: {openForms.Count}");
+            Console.WriteLine($"Formulaires ouverts : {openForms.Count}");
             foreach (var form in openForms)
-                Console.WriteLine($"Form name: {form.Name}");
+                Console.WriteLine($"Nom : {form.Name}");
             Console.WriteLine();
         }
     }

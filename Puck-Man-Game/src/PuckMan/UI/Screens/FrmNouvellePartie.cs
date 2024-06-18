@@ -32,7 +32,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public int nbrFragmentGenere;
         public FrmNouvellePartie(bool modeHistoire, int niveauActuel) : base()
         {
+            this.ClientSize = new Size(Program.LargeurFenetre, Program.HauteurFenetre);
             InitializeComponent();
+            this.ClientSize = new Size(Program.LargeurFenetre, Program.HauteurFenetre);
+
             this.KeyDown += (sender, e) => P1.PlayerKeyDown(sender, e);
             this.KeyUp += (sender, e) => P1.PlayerKeyUp(sender, e);
             ModeHistoire = modeHistoire;
@@ -45,7 +48,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             if (ModeHistoire)
             {
                 this.BackgroundImage = Properties.Resources.background;
-                Program.PlayMusic("assets/audio/musiqueModeHistoire.mp3");
+                Program.PlayMusic("assets/audio/musiqueNiveau"+NiveauActuel+".mp3");
             }
 
             else
@@ -65,6 +68,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.Controls.Add(P1.Image);
             P1.Image.BringToFront();
             UpdateHPdisplay();
+            Debug.WriteLine(ClientSize);
         }
 
         /*
@@ -78,13 +82,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         public void Destructeur()
         {
-            P1.Maze.EnemyList.Clear(); 
+            foreach (Enemy enemy in P1.Maze.Entities)
+            {
+                if (enemy != null)
+                    enemy.moveEnemyTimer.Stop();
+            }
+            P1.Maze.EnemyList.Clear();
             foreach (Collectable collectable in P1.Maze.StaticEntities)
             {
                 if (collectable != null)
                     collectable.DejaCollecte = true;
             }
-                
+            P1.Maze.StaticEntities = null;
+
             P1.Maze.FragmentList.Clear();
             P1.Maze.MazeForm.Dispose();
 
@@ -96,6 +106,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     P1.Maze.StaticEntities[x, y] = null;
                 }
             }
+            P1.moveTimer.Stop();
             P1 = null;
             Dispose();
         }

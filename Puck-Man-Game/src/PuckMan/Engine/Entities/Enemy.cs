@@ -15,7 +15,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         public int Damage { get; set; }
         public Maze Maze { get; set; }
 
-        private readonly Timer moveEnemyTimer;
+        public Timer moveEnemyTimer;
         public Point previousDirection;
         private readonly Dictionary<Enemy, DateTime> lastAttackTime = new Dictionary<Enemy, DateTime>();
         private readonly TimeSpan attackCooldown = TimeSpan.FromSeconds(10);
@@ -110,7 +110,6 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
 
     public class ConfusedEnemy : Enemy
     {
-        private readonly Timer moveEnemyTimer;
         private new Point previousDirection;
         private readonly Dictionary<Enemy, DateTime> lastAttackTime;
         private readonly TimeSpan attackCooldown;
@@ -133,9 +132,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
             foreach (Point direction in GetPossibleDirections())
             {
                 if (!CheckWallCollision(direction.X * Maze.cellSize, direction.Y * Maze.cellSize))
-                {
                     possibleMoves.Add(direction);
-                }
             }
 
             bool dontMove = false;
