@@ -33,7 +33,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
             else
             {
-                this.BackgroundImage = Puck_Man_Game.Properties.Resources.background2;
+                this.BackgroundImage = Puck_Man_Game.Properties.Resources.laboratoirePuck;
                 this.BackgroundImageLayout = ImageLayout.Stretch;
             }
 
@@ -53,10 +53,22 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     control.ForeColor = Program.TextColor;
                     control.BackColor = Program.BackgroundColor;
 
-                }
 
+                }
+                if (control is GroupBox)
+                {
+                    control.BackColor = Color.Transparent;
+                    control.ForeColor = Color.White;
+                }
                 if (control is Label)
                     control.BackColor = Color.Transparent;
+
+                if (control is CheckBox checkbox)
+                {
+                    checkbox.BackColor = Color.Transparent;
+                    checkbox.Click += MyCheckBox_Click;
+                }
+
 
                 if (control is Button button)
                 {
@@ -119,6 +131,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private void MyButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
+         
             if (button != null)
             {
                 button.BackColor = Color.Transparent;
@@ -126,6 +139,14 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
             Program.PlaySound("assets/audio/click.wav");
         }
+
+        private void MyCheckBox_Click(object sender, EventArgs e)
+        {
+            CheckBox checkbox = sender as CheckBox;
+            Program.PlaySound("assets/audio/click.wav");
+        }
+
+
 
         static private bool isClosed = false;
         public void FormComponent_FormClosing(object sender, FormClosingEventArgs e)

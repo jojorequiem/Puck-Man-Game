@@ -38,7 +38,8 @@ namespace Puck_Man_Game
         public static FrmClassement FrmClassement = null;
         public static FrmDialogue FrmDialogue = null;
         public static FrmMenu FrmMenu = null;
-        public static FrmJouer FrmJouer = null;
+        public static FrmCreateNewGame FrmCreateNewGame = null;
+        public static FrmPlay FrmPlay = null;
         public static FrmPause FrmPause = null;
         public static FrmModeHistoire FrmModeHistoire = null;
         public static FrmNiveauSuivant FrmNiveauSuivant = null;

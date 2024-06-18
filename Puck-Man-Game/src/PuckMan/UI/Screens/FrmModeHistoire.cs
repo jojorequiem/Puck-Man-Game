@@ -141,9 +141,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            if (Program.FrmJouer == null)
-                Program.FrmJouer = new FrmJouer();
-            Program.ChangeActiveForm(Program.FrmJouer, this);
+            if (Program.FrmPlay == null)
+                Program.FrmPlay = new FrmPlay();
+            Program.ChangeActiveForm(Program.FrmPlay, this);
         } 
 
     }

@@ -84,6 +84,7 @@
     <Compile Include="src\PuckMan\Engine\Entities\Enemy.cs" />
     <Compile Include="src\PuckMan\Engine\Components\Entity.cs" />
     <Compile Include="src\PuckMan\Engine\Entities\Collectable.cs" />
+    <Compile Include="src\PuckMan\Game\GameSession.cs" />
     <Compile Include="src\PuckMan\Game\Levels\Cell.cs" />
     <Compile Include="src\PuckMan\Game\Levels\Maze.cs" />
     <Compile Include="src\PuckMan\Game\Program.cs" />
@@ -93,6 +94,12 @@
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\FrmClassement.Designer.cs">
       <DependentUpon>FrmClassement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\FrmCreateNewGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\FrmCreateNewGame.Designer.cs">
+      <DependentUpon>FrmCreateNewGame.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\FrmDeath.cs">
       <SubType>Form</SubType>
@@ -151,6 +158,12 @@
     <Compile Include="src\PuckMan\UI\Screens\FrmParametres.Designer.cs">
       <DependentUpon>FrmParametres.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\FrmPlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\PuckMan\UI\Screens\FrmPlay.Designer.cs">
+      <DependentUpon>FrmPlay.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -161,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmClassement.resx">
       <DependentUpon>FrmClassement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmCreateNewGame.resx">
+      <DependentUpon>FrmCreateNewGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmDialogue.resx">
       <DependentUpon>FrmDialogue.cs</DependentUpon>
@@ -187,6 +203,9 @@
       <DependentUpon>FrmParametres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="assets\fonts\fonts_pixel_art.ttf" />
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmPlay.resx">
+      <DependentUpon>FrmPlay.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -278,6 +297,7 @@
     <Content Include="Resources\dialogueBackground.png" />
     <Content Include="Resources\egare.png" />
     <Content Include="Resources\hp.gif" />
+    <None Include="Resources\lab.png" />
     <Content Include="Resources\mort.png" />
     <Content Include="Resources\murModeInfini.png" />
     <Content Include="src\database\parametre_audio.txt">
