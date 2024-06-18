@@ -36,7 +36,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
 
             this.StartPosition = FormStartPosition.CenterScreen;
- 
             this.ClientSize = new Size(Program.LargeurFenetre, Program.HauteurFenetre);
             Debug.WriteLine("TAILLE FENETRE : " + ClientSize.ToString());
         }
@@ -60,6 +59,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     button.MouseLeave += MyButton_MouseLeave;
                     button.GotFocus += MyButton_GotFocus;
                     button.LostFocus += MyButton_LostFocus;
+                    button.Click += MyButton_Click;
                     button.Font = new Font(control.Font.FontFamily, 16);
                     button.ForeColor = Program.TextColor;
                     button.BackColor = Color.Transparent;
@@ -108,8 +108,14 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 button.ForeColor = Program.TextColor;
             }
         }
+
+        private void MyButton_Click(object sender, EventArgs e)
+        {
+            Program.PlaySound("assets/audio/click.wav");
+        }
+
         static private bool isClosed = false;
-        private void FormComponent_FormClosing(object sender, FormClosingEventArgs e)
+        public void FormComponent_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isClosed) return;
             if (MessageBox.Show("Voulez-vous vraiment quitter?", "Message Puck-Man", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)

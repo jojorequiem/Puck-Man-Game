@@ -324,6 +324,9 @@ namespace src.PuckMan.Game.Levels
                             startX = x;
                             startY = y;
                             break;
+                        case 'D':
+                            GenerateCollectable("fragment degat", 1, x, y);
+                            break;
                         case 'F':
                             GenerateCollectable("fragment", 1, x, y);
                             break;
@@ -371,7 +374,7 @@ namespace src.PuckMan.Game.Levels
                     string codeName = "F";
                     if (entity.EntityName == "égaré") codeName = "E";
                     if (entity.EntityName == "soin") codeName = "H";
-                    if (entity.EntityName == "potion degat") codeName = "D";
+                    if (entity.EntityName == "fragment degat") codeName = "D";
                     if (entity.EntityName == "portail teleportation") codeName = "T";
                     if (entity is Player) codeName = "J";
 

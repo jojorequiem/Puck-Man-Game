@@ -37,6 +37,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             if (Program.FrmNouvellePartie != null)
             {
+                //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
+                Program.FrmNouvellePartie.FormClosing -= Program.FrmNouvellePartie.FormComponent_FormClosing;
+                
                 Program.FrmNouvellePartie.Close();
                 Program.FrmNouvellePartie.Dispose();
             }

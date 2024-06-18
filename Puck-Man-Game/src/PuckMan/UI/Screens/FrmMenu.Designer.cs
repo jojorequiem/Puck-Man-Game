@@ -106,7 +106,7 @@ namespace Puck_Man_Game.src.PuckMan.UI
             // 
             // BtnAPropos
             // 
-            this.BtnAPropos.Location = new System.Drawing.Point(1100, 562);
+            this.BtnAPropos.Location = new System.Drawing.Point(710, 449);
             this.BtnAPropos.Name = "BtnAPropos";
             this.BtnAPropos.Size = new System.Drawing.Size(42, 42);
             this.BtnAPropos.TabIndex = 4;
@@ -120,16 +120,16 @@ namespace Puck_Man_Game.src.PuckMan.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.ClientSize = new System.Drawing.Size(882, 603);
             this.Controls.Add(this.BtnAPropos);
+            this.Controls.Add(this.LblTitreMenuPrincipal);
             this.Controls.Add(this.BtnClassement);
             this.Controls.Add(this.BtnQuitter);
             this.Controls.Add(this.BtnParametres);
-            this.Controls.Add(this.LblTitreMenuPrincipal);
             this.Controls.Add(this.BtnJouer);
-            this.MaximumSize = new System.Drawing.Size(Program.LargeurFenetre, Program.HauteurFenetre);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(900, 650);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puck-Man";

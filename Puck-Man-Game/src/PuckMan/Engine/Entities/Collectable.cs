@@ -26,7 +26,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
                 Image.Image = Puck_Man_Game.Properties.Resources.fragment;
             if (EntityName == "soin")
                 Image.Image = Puck_Man_Game.Properties.Resources.hp;
-            if (EntityName == "potion degat")
+            if (EntityName == "fragment degat")
                 Image.Image = Puck_Man_Game.Properties.Resources.death_fragment;
             if (EntityName == "portail teleportation")
                 Image.Image = Puck_Man_Game.Properties.Resources.portal;
@@ -44,6 +44,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
 
                 if (EntityName == "fragment")
                 {
+                    Program.PlaySound("assets/audio/fragment.wav");
                     player.Maze.FragmentList.Remove(this);
                     Formulaire.UpdateFragmentdisplay();
                     if (player.Maze.FragmentList.Count() <= 0)
@@ -53,14 +54,16 @@ namespace Puck_Man_Game.src.PuckMan.Game
                 else if (EntityName == "soin")
                     player.Heal(1);
 
-                else if (EntityName == "potion degat")
+                else if (EntityName == "fragment degat") {
+                    Program.PlaySound("assets/audio/deathFragment.wav");
                     player.DamageReceived(1);
-
+                    }
                 else if (EntityName == "portail teleportation")
                 {
+                    Program.PlaySound("assets/audio/teleportation.wav");
                     DejaCollecte = false;
                     Image.Show();
-                    int newX = 0; int newY = 0;
+                    int newX; int newY;
                     Random random = new Random();
 
                     // Téléportation du joueur

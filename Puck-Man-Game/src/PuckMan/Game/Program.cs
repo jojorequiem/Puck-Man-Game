@@ -49,9 +49,9 @@ namespace Puck_Man_Game
         static void Main()
         {
 
-            VolumePrincipale = 0;
-            VolumeSon = 0;
-            VolumeMusique = 0;
+            VolumePrincipale = 5;
+            VolumeSon = 5;
+            VolumeMusique = 5;
             PlayMusic("assets/audio/musiqueMenu.mp3");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -93,12 +93,12 @@ namespace Puck_Man_Game
 
         static public void PlayMusic(string path)
         {
-           if (music != null)
+            if (music != null)
                 music.close();
             music = new WindowsMediaPlayer{
                 URL = path
             };
-            
+            music.settings.setMode("loop", true);
             music.settings.volume = VolumePrincipale * 10;
             music.controls.play();
         }

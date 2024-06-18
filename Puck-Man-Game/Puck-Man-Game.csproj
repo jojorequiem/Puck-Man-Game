@@ -204,9 +204,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\click.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\audio\deathFragment.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\audio\finishLevel.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\audio\fragment.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\audio\heal.wav" />
+    <Content Include="assets\audio\modeInfini2.mp3" />
     <Content Include="assets\audio\musiqueDialogue.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -217,6 +228,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\audio\takeDamage.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\audio\teleportation.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\background2.jpg" />
