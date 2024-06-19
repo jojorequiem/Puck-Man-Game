@@ -139,9 +139,6 @@
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="deathIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\deathIcon.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bottomGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bottomGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -159,12 +156,6 @@
   </data>
   <data name="standardGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\standardGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="scoreIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\scoreIcon1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="scoreIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\scoreIcon.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="murModeInfini" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\murModeInfini.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,17 +175,11 @@
   <data name="rightGif128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rightGif128.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mort" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="fonts_pixel_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\fonts\fonts_pixel_art.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="score" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\score.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="murModeInfini" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\murModeInfini.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="spectrl" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spectrl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
