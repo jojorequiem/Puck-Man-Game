@@ -106,6 +106,8 @@ namespace Puck_Man_Game
             if (formulaire is FrmMenu && menuMusicFilepath != LastMusicPlayed)
                 PlayMusic(menuMusicFilepath);
 
+            
+            // actualiser l'affichage des formulaires
             if (formulaire is FrmDialogue && !(parent is FrmDialogue))
                 PlayMusic(transitionMusicFilepath);
 
@@ -114,6 +116,9 @@ namespace Puck_Man_Game
 
             if (formulaire is FrmClassement frmClassement)
                 frmClassement.DisplayClassement();
+            
+            if (formulaire is FrmModeHistoire frmModeHistoire)
+                frmModeHistoire.DisplayButtons();
 
             if (formulaire is FrmNouvellePartie frmNouvellePartie && parent is FrmPause)
             {

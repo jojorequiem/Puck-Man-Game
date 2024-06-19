@@ -34,6 +34,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 lines[Program.game - 1] = (NiveauActuel + 1).ToString();
                 NiveauActuel += 1;
                 File.WriteAllLines(filepath, lines, Encoding.UTF8);
+
             }
 
             nbrLine = 1;
@@ -103,19 +104,18 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             if (NiveauFini)
             {
-                if (NiveauActuel >= 5)
+                //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
+                Program.FrmDialogue.FormClosing -= Program.FrmDialogue.FormComponent_FormClosing;
+                this.Dispose();
+                this.Close();
+
+                if (NiveauActuel > 5)
                     Program.ChangeActiveForm(Program.FrmMenu, this);
                 else
                 {
-                    //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
-                    Program.FrmDialogue.FormClosing -= Program.FrmDialogue.FormComponent_FormClosing;
-
-                    this.Dispose();
-                    this.Close();
                     Program.FrmDialogue = new FrmDialogue(NiveauActuel, false);
                     Program.ChangeActiveForm(Program.FrmDialogue, this);
                 }
-
             }
             else
             {
