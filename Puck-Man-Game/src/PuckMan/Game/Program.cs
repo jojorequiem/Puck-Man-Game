@@ -109,6 +109,9 @@ namespace Puck_Man_Game
             if (formulaire is FrmDialogue && !(parent is FrmDialogue))
                 PlayMusic(transitionMusicFilepath);
 
+            if (formulaire is FrmNiveauSuivant)
+                PlayMusic("assets/audio/musiqueTransition.mp3");
+
             if (formulaire is FrmClassement frmClassement)
                 frmClassement.DisplayClassement();
 

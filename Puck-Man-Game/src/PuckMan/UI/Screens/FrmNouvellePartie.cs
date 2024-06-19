@@ -61,10 +61,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             {
                 this.BackgroundImageLayout = ImageLayout.Stretch;
                 this.BackgroundImage = Properties.Resources.background2;
-                Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
+                Random random = new Random();
+
+                string[] musicList = { "modeInfini", "niveau1", "niveau2", "niveau3", "niveau4", "niveau5" };
+                Program.PlayMusic("assets/audio/musique" + musicList[random.Next(0, musicList.Length)] + ".mp3");
 
                 //choisir le nombre d'entités en fonction de la difficulté
-                Random random = new Random();
                 int nbrEgare = 0;
                 int nbrBerserker = 0;
                 int nbrFragment = 0;
