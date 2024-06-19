@@ -63,9 +63,9 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap background {
+        internal static System.Drawing.Bitmap berserker {
             get {
-                object obj = ResourceManager.GetObject("background", resourceCulture);
+                object obj = ResourceManager.GetObject("berserker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap berserker {
+        internal static System.Drawing.Bitmap bgCell3 {
             get {
-                object obj = ResourceManager.GetObject("berserker", resourceCulture);
+                object obj = ResourceManager.GetObject("bgCell3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

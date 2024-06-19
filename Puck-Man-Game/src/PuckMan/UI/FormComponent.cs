@@ -31,7 +31,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.Icon = Puck_Man_Game.Properties.Resources.iconGame;
             if (this is FrmNouvellePartie)
             {
-                this.BackgroundImage = Puck_Man_Game.Properties.Resources.background;
+                this.BackgroundImage = Puck_Man_Game.Properties.Resources.bgCell3;
                 this.BackgroundImageLayout = ImageLayout.Tile;
             }
             else
