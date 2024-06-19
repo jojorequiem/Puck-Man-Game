@@ -130,7 +130,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 LblAlertPseudo.Text = "Le pseudo ne peut pas dépasser 8 caractères.";
                 LblAlertPseudo.ForeColor = Color.Red;
             }
-
+            else
+            {
+                LblAlertPseudo.Text = "";
+            }
         }
     }
 }
