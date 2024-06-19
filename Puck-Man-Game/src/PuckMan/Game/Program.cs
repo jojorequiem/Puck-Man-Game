@@ -112,7 +112,7 @@ namespace Puck_Man_Game
                 PlayMusic(transitionMusicFilepath);
 
             if (formulaire is FrmNextLevel)
-                PlayMusic("assets/audio/musiqueTransition.mp3");
+                PlayMusic("assets/audio/TransitionMusic.mp3");
 
             if (formulaire is FrmScoreRanking frmClassement)
                 frmClassement.DisplayClassement();

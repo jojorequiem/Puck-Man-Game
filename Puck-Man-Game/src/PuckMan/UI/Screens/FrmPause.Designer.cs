@@ -69,7 +69,7 @@
             this.BtnParametres.Name = "BtnParametres";
             this.BtnParametres.Size = new System.Drawing.Size(700, 69);
             this.BtnParametres.TabIndex = 1;
-            this.BtnParametres.Text = "PARAMÈTRES";
+            this.BtnParametres.Text = "PARAMETRES";
             this.BtnParametres.UseVisualStyleBackColor = true;
             this.BtnParametres.Click += new System.EventHandler(this.BtnParametres_Click);
             // 
@@ -92,13 +92,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 604);
+            this.ClientSize = new System.Drawing.Size(882, 605);
             this.Controls.Add(this.BtnQuitter);
             this.Controls.Add(this.BtnParametres);
             this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.LblTitrePause);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
