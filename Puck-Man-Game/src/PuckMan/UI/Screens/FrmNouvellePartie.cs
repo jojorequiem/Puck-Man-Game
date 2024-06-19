@@ -30,7 +30,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public int NiveauActuel;
         public Player P1 { get; set; }
         public int nbrFragmentGenere;
-        public FrmNouvellePartie(bool modeHistoire, int niveauActuel) : base()
+        public FrmNouvellePartie(byte difficulte, bool modeHistoire, int niveauActuel) : base()
         {
             this.ClientSize = new Size(Program.LargeurFenetre, Program.HauteurFenetre);
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.KeyUp += (sender, e) => P1.PlayerKeyUp(sender, e);
             ModeHistoire = modeHistoire;
             NiveauActuel = niveauActuel;
-            
+
             Maze maze = new Maze(this, Program.MazeWidth, Program.MazeHeight);
             P1 = new Player("joueur", 3, maze.startX * Maze.cellSize, maze.startY * Maze.cellSize, maze);
             maze.Entities[maze.startX * Maze.cellSize, maze.startY * Maze.cellSize] = P1;
@@ -48,7 +48,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             if (ModeHistoire)
             {
                 this.BackgroundImage = Properties.Resources.background;
-                Program.PlayMusic("assets/audio/musiqueNiveau"+NiveauActuel+".mp3");
+                Program.PlayMusic("assets/audio/musiqueNiveau" + NiveauActuel + ".mp3");
             }
 
             else
@@ -56,12 +56,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 this.BackgroundImageLayout = ImageLayout.Stretch;
                 this.BackgroundImage = Properties.Resources.background2;
                 Program.PlayMusic("assets/audio/musiqueModeInfini.mp3");
-                maze.GenerateCollectable("fragment", 4, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateCollectable("fragment degat", 3, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateCollectable("portail teleportation", 2, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("fragment", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("fragment degat", 0, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("portail teleportation", 0, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("soin", 3, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateEnemy("égaré", 3, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateEnemy("égaré berserker", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateEnemy("égaré", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateEnemy("égaré berserker", 0, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
 
             }
 
@@ -105,11 +105,13 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             if (P1 != null)
                 LblFragmentCollecte.Text = (nbrFragmentGenere - P1.Maze.FragmentList.Count()).ToString();
         }
+
         public void NiveauSuivant()
         {
-            
+
             Destructeur();
-            if (ModeHistoire) {
+            if (ModeHistoire)
+            {
                 if (Program.FrmDialogue == null)
                 {
                     Program.FrmDialogue.Close();
@@ -126,5 +128,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 Program.ChangeActiveForm(Program.FrmNiveauSuivant, this);
             }
         }
+
     }
 }

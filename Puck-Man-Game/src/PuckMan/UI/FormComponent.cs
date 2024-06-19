@@ -16,6 +16,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public class FormComponent : Form
     {
+
+        private readonly HashSet<string> excludedLabels = new HashSet<string> { "LblChoixDifficulte" };
         public FormComponent()
         {
             AutoScaleMode = AutoScaleMode.None;
@@ -63,21 +65,18 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 if (control is Label)
                     control.BackColor = Color.Transparent;
 
-                if (control is CheckBox checkbox)
-                {
-                    checkbox.BackColor = Color.Transparent;
-                    checkbox.Click += MyCheckBox_Click;
-                }
-
+                if (control is CheckBox)
+                    control.BackColor = Color.Transparent;
 
                 if (control is Button button)
                 {
+                    button.Font = new System.Drawing.Font("Minecraft", 12, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    button.Font = new Font(control.Font.FontFamily, 16);
                     button.MouseEnter += MyButton_MouseEnter;
                     button.MouseLeave += MyButton_MouseLeave;
                     button.GotFocus += MyButton_GotFocus;
                     button.LostFocus += MyButton_LostFocus;
                     button.Click += MyButton_Click;
-                    button.Font = new Font(control.Font.FontFamily, 16);
                     button.ForeColor = Program.TextColor;
                     button.BackColor = Color.Transparent;
                     button.FlatStyle = FlatStyle.Flat;
@@ -152,7 +151,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public void FormComponent_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isClosed) return;
-            if (MessageBox.Show("Voulez-vous vraiment quitter?", "Message Puck-Man", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show("Voulez-vous vraiment quitter ?", "Message Puck-Man", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 e.Cancel = true;
             else
             {

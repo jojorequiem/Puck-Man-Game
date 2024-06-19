@@ -198,7 +198,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         {
             Damage = 1;
             Image.Image = Puck_Man_Game.Properties.Resources.egare;
-            moveEnemyTimer = new Timer { Interval = 180 };
+            moveEnemyTimer = new Timer { Interval = 300 };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();
             previousDirection = new Point(0, 0);

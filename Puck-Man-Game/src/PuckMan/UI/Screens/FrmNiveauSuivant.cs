@@ -19,7 +19,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnNiveauSuivant_Click(object sender, EventArgs e)
         {
-            Program.FrmNouvellePartie = new FrmNouvellePartie(false,0);
+            Program.FrmNouvellePartie = new FrmNouvellePartie(0, false, 0);
             Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
         }
 

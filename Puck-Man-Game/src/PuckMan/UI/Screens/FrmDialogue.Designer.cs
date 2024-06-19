@@ -55,9 +55,9 @@
             this.LblTitre.BackColor = System.Drawing.Color.Black;
             this.LblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LblTitre.Location = new System.Drawing.Point(91, 42);
+            this.LblTitre.Location = new System.Drawing.Point(28, 40);
             this.LblTitre.Name = "LblTitre";
-            this.LblTitre.Size = new System.Drawing.Size(956, 58);
+            this.LblTitre.Size = new System.Drawing.Size(919, 55);
             this.LblTitre.TabIndex = 10;
             this.LblTitre.Text = "Chapitre 1 : Confrontation avec l’inconnue";
             this.LblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,11 +104,12 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 603);
+            this.ClientSize = new System.Drawing.Size(882, 604);
             this.Controls.Add(this.BtnSkip);
             this.Controls.Add(this.LblTitre);
             this.Controls.Add(this.BtnDialogueSuivant);
             this.Controls.Add(this.Panel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximumSize = new System.Drawing.Size(900, 650);

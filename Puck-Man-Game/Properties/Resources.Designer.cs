@@ -91,7 +91,7 @@ namespace Puck_Man_Game.Properties {
         }
         
         /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap bottomGif128 {
             get {
@@ -236,6 +236,16 @@ namespace Puck_Man_Game.Properties {
         internal static System.Drawing.Bitmap standardGif128 {
             get {
                 object obj = ResourceManager.GetObject("standardGif128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap title {
+            get {
+                object obj = ResourceManager.GetObject("title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

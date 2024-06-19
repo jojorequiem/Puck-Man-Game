@@ -66,22 +66,6 @@ namespace Puck_Man_Game
             FrmMenu = new src.PuckMan.UI.FrmMenu();
             Application.Run(FrmMenu);
 
-            //Application.Run(new src.PuckMan.UI.Screens.ModeHistoire());
-            //Application.Run(new src.PuckMan.UI.Screens.Dialogue());
-
-            //var rootDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            //var databaseDirectory = Path.Combine(rootDirectory, "Puck-Man-Game", "src", "database");
-            //var filePath = Path.Combine(databaseDirectory, "example.csv");
-            //var csvManager = new CsvFileManager(filePath);
-            //var records = new List<CsvRecord>
-            //{
-            //    new CsvRecord { Id = 1, NomSauvegarde = "Partie 1", NiveauActuel = 10, ModeJeu = "Mode A", Difficulte = "Facile", Score = 1000, MatriceLabyrinthe = "matrix1", PseudoJoueur = "Joueur1", NombreVies = 3, NombreCoeurs = 5 },
-            //    new CsvRecord { Id = 2, NomSauvegarde = "Partie 2", NiveauActuel = 5, ModeJeu = "Mode B", Difficulte = "Moyen", Score = 800, MatriceLabyrinthe = "matrix2", PseudoJoueur = "Joueur2", NombreVies = 2, NombreCoeurs = 3 }
-            //};
-            //csvManager.WriteRecords(records);
-
-            ////csvManager.ResetFile();
-            //Console.WriteLine("Fichier réinitialisé.");
         }
 
         static public void UpdateVolume()

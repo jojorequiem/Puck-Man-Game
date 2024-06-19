@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlay));
-            this.BtnNouvellePartie = new System.Windows.Forms.Button();
+            this.BtnModeHistoire = new System.Windows.Forms.Button();
             this.BtnRetour = new System.Windows.Forms.Button();
-            this.BtnReprendreSauvegarde = new System.Windows.Forms.Button();
+            this.BtnModeInfini = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // BtnNouvellePartie
+            // BtnModeHistoire
             // 
-            this.BtnNouvellePartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNouvellePartie.ForeColor = System.Drawing.Color.Black;
-            this.BtnNouvellePartie.Location = new System.Drawing.Point(91, 161);
-            this.BtnNouvellePartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnNouvellePartie.Name = "BtnNouvellePartie";
-            this.BtnNouvellePartie.Size = new System.Drawing.Size(700, 69);
-            this.BtnNouvellePartie.TabIndex = 12;
-            this.BtnNouvellePartie.Text = "NOUVELLE PARTIE";
-            this.BtnNouvellePartie.UseVisualStyleBackColor = true;
-            this.BtnNouvellePartie.Click += new System.EventHandler(this.BtnNouvellePartie_Click);
+            this.BtnModeHistoire.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModeHistoire.ForeColor = System.Drawing.Color.Black;
+            this.BtnModeHistoire.Location = new System.Drawing.Point(91, 267);
+            this.BtnModeHistoire.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnModeHistoire.Name = "BtnModeHistoire";
+            this.BtnModeHistoire.Size = new System.Drawing.Size(700, 69);
+            this.BtnModeHistoire.TabIndex = 14;
+            this.BtnModeHistoire.Text = "MODE HISTOIRE";
+            this.BtnModeHistoire.UseVisualStyleBackColor = true;
+            this.BtnModeHistoire.Click += new System.EventHandler(this.BtnModeHistoire_Click);
             // 
             // BtnRetour
             // 
@@ -60,18 +60,18 @@
             this.BtnRetour.UseVisualStyleBackColor = true;
             this.BtnRetour.Click += new System.EventHandler(this.BtnRetour_Click);
             // 
-            // BtnReprendreSauvegarde
+            // BtnModeInfini
             // 
-            this.BtnReprendreSauvegarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReprendreSauvegarde.ForeColor = System.Drawing.Color.Black;
-            this.BtnReprendreSauvegarde.Location = new System.Drawing.Point(91, 267);
-            this.BtnReprendreSauvegarde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnReprendreSauvegarde.Name = "BtnReprendreSauvegarde";
-            this.BtnReprendreSauvegarde.Size = new System.Drawing.Size(700, 69);
-            this.BtnReprendreSauvegarde.TabIndex = 14;
-            this.BtnReprendreSauvegarde.Text = "REPRENDRE PARTIE";
-            this.BtnReprendreSauvegarde.UseVisualStyleBackColor = true;
-            this.BtnReprendreSauvegarde.Click += new System.EventHandler(this.BtnReprendreSauvegarde_Click);
+            this.BtnModeInfini.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnModeInfini.ForeColor = System.Drawing.Color.Black;
+            this.BtnModeInfini.Location = new System.Drawing.Point(91, 161);
+            this.BtnModeInfini.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnModeInfini.Name = "BtnModeInfini";
+            this.BtnModeInfini.Size = new System.Drawing.Size(700, 69);
+            this.BtnModeInfini.TabIndex = 12;
+            this.BtnModeInfini.Text = "MODE INFINI";
+            this.BtnModeInfini.UseVisualStyleBackColor = true;
+            this.BtnModeInfini.Click += new System.EventHandler(this.BtnModeInfini_Click);
             // 
             // FrmPlay
             // 
@@ -80,9 +80,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(883, 604);
-            this.Controls.Add(this.BtnReprendreSauvegarde);
+            this.Controls.Add(this.BtnModeHistoire);
             this.Controls.Add(this.BtnRetour);
-            this.Controls.Add(this.BtnNouvellePartie);
+            this.Controls.Add(this.BtnModeInfini);
             this.DoubleBuffered = true;
             this.MaximumSize = new System.Drawing.Size(901, 651);
             this.MinimumSize = new System.Drawing.Size(899, 649);
@@ -94,8 +94,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button BtnNouvellePartie;
+        private System.Windows.Forms.Button BtnModeInfini;
         private System.Windows.Forms.Button BtnRetour;
-        private System.Windows.Forms.Button BtnReprendreSauvegarde;
+        private System.Windows.Forms.Button BtnModeHistoire;
     }
 } 

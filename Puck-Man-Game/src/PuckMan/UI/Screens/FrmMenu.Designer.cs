@@ -33,11 +33,12 @@ namespace Puck_Man_Game.src.PuckMan.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.BtnJouer = new System.Windows.Forms.Button();
-            this.LblTitreMenuPrincipal = new System.Windows.Forms.Label();
             this.BtnParametres = new System.Windows.Forms.Button();
             this.BtnQuitter = new System.Windows.Forms.Button();
             this.BtnClassement = new System.Windows.Forms.Button();
             this.BtnAPropos = new System.Windows.Forms.Button();
+            this.PcbTitle = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbTitle)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnJouer
@@ -54,18 +55,6 @@ namespace Puck_Man_Game.src.PuckMan.UI
             this.BtnJouer.Text = "JOUER";
             this.BtnJouer.UseVisualStyleBackColor = false;
             this.BtnJouer.Click += new System.EventHandler(this.BtnJouer_Click);
-            // 
-            // LblTitreMenuPrincipal
-            // 
-            this.LblTitreMenuPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.LblTitreMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTitreMenuPrincipal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LblTitreMenuPrincipal.Location = new System.Drawing.Point(91, 42);
-            this.LblTitreMenuPrincipal.Name = "LblTitreMenuPrincipal";
-            this.LblTitreMenuPrincipal.Size = new System.Drawing.Size(700, 94);
-            this.LblTitreMenuPrincipal.TabIndex = 9;
-            this.LblTitreMenuPrincipal.Text = "PUCK-MAN";
-            this.LblTitreMenuPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnParametres
             // 
@@ -107,7 +96,7 @@ namespace Puck_Man_Game.src.PuckMan.UI
             // BtnAPropos
             // 
             this.BtnAPropos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.BtnAPropos.Location = new System.Drawing.Point(820, 447);
+            this.BtnAPropos.Location = new System.Drawing.Point(812, 449);
             this.BtnAPropos.Name = "BtnAPropos";
             this.BtnAPropos.Size = new System.Drawing.Size(42, 42);
             this.BtnAPropos.TabIndex = 4;
@@ -115,25 +104,38 @@ namespace Puck_Man_Game.src.PuckMan.UI
             this.BtnAPropos.UseVisualStyleBackColor = true;
             this.BtnAPropos.Click += new System.EventHandler(this.BtnAPropos_Click);
             // 
+            // PcbTitle
+            // 
+            this.PcbTitle.BackColor = System.Drawing.Color.Transparent;
+            this.PcbTitle.BackgroundImage = global::Puck_Man_Game.Properties.Resources.title;
+            this.PcbTitle.Location = new System.Drawing.Point(192, -59);
+            this.PcbTitle.Name = "PcbTitle";
+            this.PcbTitle.Size = new System.Drawing.Size(498, 220);
+            this.PcbTitle.TabIndex = 5;
+            this.PcbTitle.TabStop = false;
+            this.PcbTitle.Click += new System.EventHandler(this.PcbTitle_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(883, 603);
-            this.MaximumSize = new System.Drawing.Size(901, 651);
-            this.MinimumSize = new System.Drawing.Size(899, 649);
+            this.ClientSize = new System.Drawing.Size(883, 604);
+            this.Controls.Add(this.PcbTitle);
             this.Controls.Add(this.BtnAPropos);
-            this.Controls.Add(this.LblTitreMenuPrincipal);
             this.Controls.Add(this.BtnClassement);
             this.Controls.Add(this.BtnQuitter);
             this.Controls.Add(this.BtnParametres);
             this.Controls.Add(this.BtnJouer);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(901, 651);
+            this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puck-Man";
+            ((System.ComponentModel.ISupportInitialize)(this.PcbTitle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -141,10 +143,10 @@ namespace Puck_Man_Game.src.PuckMan.UI
         #endregion
 
         private System.Windows.Forms.Button BtnJouer;
-        private System.Windows.Forms.Label LblTitreMenuPrincipal;
         private System.Windows.Forms.Button BtnParametres;
         private System.Windows.Forms.Button BtnQuitter;
         private System.Windows.Forms.Button BtnClassement;
         private System.Windows.Forms.Button BtnAPropos;
+        private System.Windows.Forms.PictureBox PcbTitle;
     }
 }
