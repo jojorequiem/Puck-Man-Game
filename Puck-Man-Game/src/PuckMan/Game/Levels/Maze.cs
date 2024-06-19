@@ -163,7 +163,7 @@ namespace src.PuckMan.Game.Levels
                         }
 
                         //remplit 80% des connections avec des murs
-                        else if (random.NextDouble() < 0.8)
+                        else if (random.NextDouble() < 0.88)
                         {
                             MazeMatrix[x, y].IsWall = true;
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
@@ -414,11 +414,21 @@ namespace src.PuckMan.Game.Levels
 
         public void GenerateCollectable(string name, int number, int x, int y)
         {
+            double heartSpawnProbability = 0.30; // Probabilité de 30% d'apparition des cœurs
             while (number > 0)
             {
                 // Vérifier s'il n'y a pas déjà une entité à l'endroit choisi
-                if (StaticEntities[x * cellSize, y * cellSize] is null && (x!=startX || y != startY))
+                if (StaticEntities[x * cellSize, y * cellSize] is null && (x != startX || y != startY))
                 {
+                    // Vérifier si l'entité est un cœur et appliquer la probabilité
+                    if (name == "soin" && random.NextDouble() > heartSpawnProbability)
+                    {
+                        // Si la probabilité n'est pas respectée, passer à la prochaine itération
+                        x = GetValidCoordinates(1, width - 1);
+                        y = GetValidCoordinates(1, height - 1);
+                        continue;
+                    }
+
                     Collectable instance = new Collectable(name, x * cellSize, y * cellSize);
                     if (name == "fragment")
                         FragmentList.Add(instance);
@@ -432,12 +442,13 @@ namespace src.PuckMan.Game.Levels
                     x = GetValidCoordinates(1, width - 1);
                     y = GetValidCoordinates(1, height - 1);
                 }
-
             }
-        }
+       
+
+    }
 
 
-        public void GenerateEnemy(string name, int number, int x, int y)
+    public void GenerateEnemy(string name, int number, int x, int y)
         {
             while (number > 0)
             {

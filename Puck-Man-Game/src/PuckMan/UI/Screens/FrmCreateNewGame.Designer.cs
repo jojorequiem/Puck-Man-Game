@@ -176,6 +176,7 @@
             this.Controls.Add(this.BtnNouvellePartie);
             this.Controls.Add(this.GrpPartie);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmCreateNewGame";

@@ -84,6 +84,7 @@
             this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.BtnModeInfini);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(901, 651);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmPlay";
