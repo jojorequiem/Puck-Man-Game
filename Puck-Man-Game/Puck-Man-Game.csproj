@@ -172,6 +172,9 @@
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmCreateNewGame.resx">
       <DependentUpon>FrmCreateNewGame.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmDeath.resx">
+      <DependentUpon>FrmDeath.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmDialogue.resx">
       <DependentUpon>FrmDialogue.cs</DependentUpon>
     </EmbeddedResource>

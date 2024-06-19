@@ -26,6 +26,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
             HP = 3;
             Maze = maze;
             EntitySpeed = Maze.cellSize;
+            Image.BringToFront();
 
             moveEnemyTimer = new Timer
             {

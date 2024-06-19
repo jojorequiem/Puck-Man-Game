@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNiveauSuivant));
             this.BtnRetourMenu = new System.Windows.Forms.Button();
             this.BtnNiveauSuivant = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LblTitre = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnRetourMenu
             // 
             this.BtnRetourMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRetourMenu.Location = new System.Drawing.Point(81, 490);
+            this.BtnRetourMenu.Location = new System.Drawing.Point(91, 422);
             this.BtnRetourMenu.Margin = new System.Windows.Forms.Padding(2);
             this.BtnRetourMenu.Name = "BtnRetourMenu";
             this.BtnRetourMenu.Size = new System.Drawing.Size(335, 69);
@@ -49,7 +49,7 @@
             // BtnNiveauSuivant
             // 
             this.BtnNiveauSuivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNiveauSuivant.Location = new System.Drawing.Point(475, 490);
+            this.BtnNiveauSuivant.Location = new System.Drawing.Point(475, 422);
             this.BtnNiveauSuivant.Margin = new System.Windows.Forms.Padding(2);
             this.BtnNiveauSuivant.Name = "BtnNiveauSuivant";
             this.BtnNiveauSuivant.Size = new System.Drawing.Size(335, 69);
@@ -58,17 +58,16 @@
             this.BtnNiveauSuivant.UseVisualStyleBackColor = true;
             this.BtnNiveauSuivant.Click += new System.EventHandler(this.BtnNiveauSuivant_Click);
             // 
-            // label1
+            // LblTitre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(99, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(558, 91);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Niveau suivant";
+            this.LblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F);
+            this.LblTitre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LblTitre.Location = new System.Drawing.Point(91, 42);
+            this.LblTitre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblTitre.Name = "LblTitre";
+            this.LblTitre.Size = new System.Drawing.Size(700, 94);
+            this.LblTitre.TabIndex = 2;
+            this.LblTitre.Text = "Niveau suivant";
             // 
             // FrmNiveauSuivant
             // 
@@ -78,9 +77,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(882, 603);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LblTitre);
             this.Controls.Add(this.BtnNiveauSuivant);
             this.Controls.Add(this.BtnRetourMenu);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(900, 650);
@@ -89,7 +89,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NiveauSuivant";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -97,6 +96,6 @@
 
         private System.Windows.Forms.Button BtnRetourMenu;
         private System.Windows.Forms.Button BtnNiveauSuivant;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblTitre;
     }
 }

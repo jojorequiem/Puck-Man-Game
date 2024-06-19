@@ -121,7 +121,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     Program.FrmNouvellePartie.Close();
                     Program.FrmNouvellePartie.Dispose();
                 }
-                Program.FrmNouvellePartie = new FrmNouvellePartie(0, true, NiveauActuel);
+                Program.FrmNouvellePartie = new FrmNouvellePartie(0, true, NiveauActuel, "");
                 Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
             }
         }

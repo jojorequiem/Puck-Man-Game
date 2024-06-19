@@ -12,14 +12,18 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public partial class FrmNiveauSuivant : FormComponent
     {
-        public FrmNiveauSuivant()
+        private string PseudoJoueur;
+        private byte DifficulteJeu;
+        public FrmNiveauSuivant(string pseudo, byte difficulte)
         {
             InitializeComponent();
+            PseudoJoueur = pseudo;
+            DifficulteJeu = difficulte;
         }
 
         private void BtnNiveauSuivant_Click(object sender, EventArgs e)
         {
-            Program.FrmNouvellePartie = new FrmNouvellePartie(0, false, 0);
+            Program.FrmNouvellePartie = new FrmNouvellePartie(DifficulteJeu, false, 0, PseudoJoueur);
             Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
         }
 

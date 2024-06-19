@@ -23,7 +23,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         public Maze Maze;
         public bool isDead;
 
-
         // gérer le déplacemet continu
         public bool deplacementContinuActive = false;
         public readonly Timer moveTimer;
@@ -204,8 +203,17 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             if (!Disposed)
             {   
                 Disposed = true;
-                Program.FrmNouvellePartie = new FrmNouvellePartie(0, Maze.MazeForm.ModeHistoire, Maze.MazeForm.NiveauActuel);
-                Program.ChangeActiveForm(Program.FrmNouvellePartie, Maze.MazeForm);
+                if (Maze.MazeForm.ModeHistoire)
+                {
+                    Program.FrmNouvellePartie = new FrmNouvellePartie(0, Maze.MazeForm.ModeHistoire, Maze.MazeForm.NiveauActuel, Maze.MazeForm.PseudoJoueur);
+                    Program.ChangeActiveForm(Program.FrmNouvellePartie, Maze.MazeForm);
+                }
+                else
+                {
+                    if (Program.FrmDeath == null)
+                        Program.FrmDeath = new FrmDeath();
+                    Program.ChangeActiveForm(Program.FrmDeath, Maze.MazeForm);
+                }
                 Dispose();
             }
         }

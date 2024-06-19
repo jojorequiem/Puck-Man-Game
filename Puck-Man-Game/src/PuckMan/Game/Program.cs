@@ -33,9 +33,9 @@ namespace Puck_Man_Game
         public static string LastMusicPlayed = "";
         static public string menuMusicFilepath = "assets/audio/musiqueMenu.mp3";
         static public string dialogueMusicFilepath = "assets/audio/musiqueDialogue.mp3";
-        
 
         public static FrmClassement FrmClassement = null;
+        public static FrmDeath FrmDeath = null;
         public static FrmDialogue FrmDialogue = null;
         public static FrmMenu FrmMenu = null;
         public static FrmCreateNewGame FrmCreateNewGame = null;
@@ -47,7 +47,7 @@ namespace Puck_Man_Game
         public static FrmParametres FrmParametres = null;
 
         public static int game;
-
+        public static int scoreJoueur = 0;
 
         /// <summary>
         /// Point d'entrée principal de l'application.

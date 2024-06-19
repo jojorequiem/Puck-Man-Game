@@ -32,13 +32,14 @@
             this.BtnModeHistoire = new System.Windows.Forms.Button();
             this.BtnRetour = new System.Windows.Forms.Button();
             this.BtnModeInfini = new System.Windows.Forms.Button();
+            this.lblTitreMenuPrincipal = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnModeHistoire
             // 
             this.BtnModeHistoire.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModeHistoire.ForeColor = System.Drawing.Color.Black;
-            this.BtnModeHistoire.Location = new System.Drawing.Point(91, 267);
+            this.BtnModeHistoire.Location = new System.Drawing.Point(91, 313);
             this.BtnModeHistoire.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnModeHistoire.Name = "BtnModeHistoire";
             this.BtnModeHistoire.Size = new System.Drawing.Size(700, 69);
@@ -51,7 +52,7 @@
             // 
             this.BtnRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRetour.ForeColor = System.Drawing.Color.Black;
-            this.BtnRetour.Location = new System.Drawing.Point(91, 373);
+            this.BtnRetour.Location = new System.Drawing.Point(91, 422);
             this.BtnRetour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRetour.Name = "BtnRetour";
             this.BtnRetour.Size = new System.Drawing.Size(700, 69);
@@ -64,7 +65,7 @@
             // 
             this.BtnModeInfini.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModeInfini.ForeColor = System.Drawing.Color.Black;
-            this.BtnModeInfini.Location = new System.Drawing.Point(91, 161);
+            this.BtnModeInfini.Location = new System.Drawing.Point(91, 204);
             this.BtnModeInfini.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnModeInfini.Name = "BtnModeInfini";
             this.BtnModeInfini.Size = new System.Drawing.Size(700, 69);
@@ -73,6 +74,18 @@
             this.BtnModeInfini.UseVisualStyleBackColor = true;
             this.BtnModeInfini.Click += new System.EventHandler(this.BtnModeInfini_Click);
             // 
+            // lblTitreMenuPrincipal
+            // 
+            this.lblTitreMenuPrincipal.BackColor = System.Drawing.Color.Black;
+            this.lblTitreMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitreMenuPrincipal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(91, 42);
+            this.lblTitreMenuPrincipal.Name = "lblTitreMenuPrincipal";
+            this.lblTitreMenuPrincipal.Size = new System.Drawing.Size(700, 94);
+            this.lblTitreMenuPrincipal.TabIndex = 15;
+            this.lblTitreMenuPrincipal.Text = "JOUER";
+            this.lblTitreMenuPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmPlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -80,6 +93,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(883, 604);
+            this.Controls.Add(this.lblTitreMenuPrincipal);
             this.Controls.Add(this.BtnModeHistoire);
             this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.BtnModeInfini);
@@ -98,5 +112,6 @@
         private System.Windows.Forms.Button BtnModeInfini;
         private System.Windows.Forms.Button BtnRetour;
         private System.Windows.Forms.Button BtnModeHistoire;
+        private System.Windows.Forms.Label lblTitreMenuPrincipal;
     }
 } 

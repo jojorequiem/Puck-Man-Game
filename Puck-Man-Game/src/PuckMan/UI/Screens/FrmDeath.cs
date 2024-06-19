@@ -16,5 +16,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             InitializeComponent();
         }
+
+        private void BtnNouvellePartie_Click(object sender, EventArgs e)
+        {
+            if (Program.FrmCreateNewGame == null)
+                Program.FrmCreateNewGame = new FrmCreateNewGame();
+            Program.ChangeActiveForm(Program.FrmCreateNewGame, this);
+        }
+
+        private void BtnMenu_Click(object sender, EventArgs e)
+        {
+            if (Program.FrmMenu == null)
+                Program.FrmMenu = new FrmMenu();
+            Program.ChangeActiveForm(Program.FrmMenu, this);
+        }
     }
 }
