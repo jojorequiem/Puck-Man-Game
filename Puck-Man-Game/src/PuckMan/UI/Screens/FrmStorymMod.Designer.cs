@@ -46,7 +46,7 @@
             this.BtnDelete3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete3.Name = "BtnDelete3";
             this.BtnDelete3.Size = new System.Drawing.Size(184, 50);
-            this.BtnDelete3.TabIndex = 21;
+            this.BtnDelete3.TabIndex = 5;
             this.BtnDelete3.Text = "SUPPRIMER";
             this.BtnDelete3.UseVisualStyleBackColor = true;
             this.BtnDelete3.Click += new System.EventHandler(this.BtnDelete3_Click);
@@ -58,7 +58,7 @@
             this.BtnDelete2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete2.Name = "BtnDelete2";
             this.BtnDelete2.Size = new System.Drawing.Size(184, 50);
-            this.BtnDelete2.TabIndex = 20;
+            this.BtnDelete2.TabIndex = 3;
             this.BtnDelete2.Text = "SUPPRIMER";
             this.BtnDelete2.UseVisualStyleBackColor = true;
             this.BtnDelete2.Click += new System.EventHandler(this.BtnDelete2_Click);
@@ -70,7 +70,7 @@
             this.BtnDelete1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDelete1.Name = "BtnDelete1";
             this.BtnDelete1.Size = new System.Drawing.Size(184, 50);
-            this.BtnDelete1.TabIndex = 19;
+            this.BtnDelete1.TabIndex = 1;
             this.BtnDelete1.Text = "SUPPRIMER";
             this.BtnDelete1.UseVisualStyleBackColor = true;
             this.BtnDelete1.Click += new System.EventHandler(this.BtnDelete1_Click);
@@ -82,7 +82,7 @@
             this.BtnGame3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnGame3.Name = "BtnGame3";
             this.BtnGame3.Size = new System.Drawing.Size(483, 50);
-            this.BtnGame3.TabIndex = 16;
+            this.BtnGame3.TabIndex = 4;
             this.BtnGame3.Text = "NOUVELLE PARTIE";
             this.BtnGame3.UseVisualStyleBackColor = true;
             this.BtnGame3.Click += new System.EventHandler(this.BtnGame3_Click);
@@ -94,7 +94,7 @@
             this.BtnGame2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnGame2.Name = "BtnGame2";
             this.BtnGame2.Size = new System.Drawing.Size(483, 50);
-            this.BtnGame2.TabIndex = 15;
+            this.BtnGame2.TabIndex = 2;
             this.BtnGame2.Text = "CHAPITRE 1";
             this.BtnGame2.UseVisualStyleBackColor = true;
             this.BtnGame2.Click += new System.EventHandler(this.BtnGame2_Click);
@@ -106,7 +106,7 @@
             this.BtnGame1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnGame1.Name = "BtnGame1";
             this.BtnGame1.Size = new System.Drawing.Size(483, 50);
-            this.BtnGame1.TabIndex = 13;
+            this.BtnGame1.TabIndex = 0;
             this.BtnGame1.Text = "CHAPITRE 9";
             this.BtnGame1.UseVisualStyleBackColor = true;
             this.BtnGame1.Click += new System.EventHandler(this.BtnGame1_Click);
@@ -118,7 +118,7 @@
             this.BtnRetour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRetour.Name = "BtnRetour";
             this.BtnRetour.Size = new System.Drawing.Size(700, 50);
-            this.BtnRetour.TabIndex = 12;
+            this.BtnRetour.TabIndex = 6;
             this.BtnRetour.Text = "RETOUR";
             this.BtnRetour.UseVisualStyleBackColor = true;
             this.BtnRetour.Click += new System.EventHandler(this.BtnRetour_Click);
@@ -139,9 +139,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 604);
+            this.ClientSize = new System.Drawing.Size(882, 605);
             this.Controls.Add(this.BtnDelete3);
             this.Controls.Add(this.BtnDelete2);
             this.Controls.Add(this.BtnDelete1);
@@ -152,6 +151,7 @@
             this.Controls.Add(this.lblTitreMenuPrincipal);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);

@@ -114,6 +114,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             if (textBox == null) return;
 
             string input = textBox.Text;
+
+            // Vérifier si le pseudo dépasse 8 caractères
             if (input.Length > 8)
             {
                 input = input.Substring(0, 8);
@@ -122,9 +124,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 LblAlertPseudo.Text = "Le pseudo ne peut pas dépasser 8 caractères.";
                 LblAlertPseudo.ForeColor = Color.Red;
             }
+            // Vérifier si le pseudo contient un point-virgule
+            else if (input.Contains(";"))
+            {
+                input = input.Replace(";", "");  // Supprimer les points-virgules
+                textBox.Text = input;
+                textBox.SelectionStart = input.Length;
+                LblAlertPseudo.Text = "Votre pseudo ne peut pas contenir de point virgule.";
+                LblAlertPseudo.ForeColor = Color.Red;
+            }
             else
+            {
                 LblAlertPseudo.Text = "";
+            }
         }
-
     }
 }

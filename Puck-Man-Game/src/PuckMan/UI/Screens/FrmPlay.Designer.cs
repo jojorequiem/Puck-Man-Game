@@ -43,7 +43,7 @@
             this.BtnModeHistoire.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnModeHistoire.Name = "BtnModeHistoire";
             this.BtnModeHistoire.Size = new System.Drawing.Size(700, 69);
-            this.BtnModeHistoire.TabIndex = 14;
+            this.BtnModeHistoire.TabIndex = 1;
             this.BtnModeHistoire.Text = "MODE HISTOIRE";
             this.BtnModeHistoire.UseVisualStyleBackColor = true;
             this.BtnModeHistoire.Click += new System.EventHandler(this.BtnModeHistoire_Click);
@@ -56,7 +56,7 @@
             this.BtnRetour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRetour.Name = "BtnRetour";
             this.BtnRetour.Size = new System.Drawing.Size(700, 69);
-            this.BtnRetour.TabIndex = 13;
+            this.BtnRetour.TabIndex = 2;
             this.BtnRetour.Text = "RETOUR";
             this.BtnRetour.UseVisualStyleBackColor = true;
             this.BtnRetour.Click += new System.EventHandler(this.BtnRetour_Click);
@@ -69,7 +69,7 @@
             this.BtnModeInfini.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnModeInfini.Name = "BtnModeInfini";
             this.BtnModeInfini.Size = new System.Drawing.Size(700, 69);
-            this.BtnModeInfini.TabIndex = 12;
+            this.BtnModeInfini.TabIndex = 0;
             this.BtnModeInfini.Text = "MODE INFINI";
             this.BtnModeInfini.UseVisualStyleBackColor = true;
             this.BtnModeInfini.Click += new System.EventHandler(this.BtnModeInfini_Click);
@@ -99,6 +99,7 @@
             this.Controls.Add(this.BtnModeInfini);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(901, 651);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmPlay";

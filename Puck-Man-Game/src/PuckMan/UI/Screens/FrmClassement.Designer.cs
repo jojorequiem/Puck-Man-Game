@@ -42,7 +42,7 @@
             this.BtnRetour.Location = new System.Drawing.Point(92, 422);
             this.BtnRetour.Name = "BtnRetour";
             this.BtnRetour.Size = new System.Drawing.Size(700, 69);
-            this.BtnRetour.TabIndex = 4;
+            this.BtnRetour.TabIndex = 1;
             this.BtnRetour.Text = "RETOUR";
             this.BtnRetour.UseVisualStyleBackColor = true;
             this.BtnRetour.Click += new System.EventHandler(this.btnRetour_Click);
@@ -91,7 +91,7 @@
             this.DgvClassement.RowHeadersWidth = 51;
             this.DgvClassement.RowTemplate.Height = 24;
             this.DgvClassement.Size = new System.Drawing.Size(700, 233);
-            this.DgvClassement.TabIndex = 11;
+            this.DgvClassement.TabIndex = 0;
             // 
             // FrmClassement
             // 

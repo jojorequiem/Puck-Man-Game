@@ -49,10 +49,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             // BtnRetour
             // 
             this.BtnRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.13913F);
-            this.BtnRetour.Location = new System.Drawing.Point(458, 422);
+            this.BtnRetour.Location = new System.Drawing.Point(458, 429);
             this.BtnRetour.Name = "BtnRetour";
             this.BtnRetour.Size = new System.Drawing.Size(334, 69);
-            this.BtnRetour.TabIndex = 3;
+            this.BtnRetour.TabIndex = 5;
             this.BtnRetour.Text = "RETOUR";
             this.BtnRetour.UseVisualStyleBackColor = true;
             this.BtnRetour.Click += new System.EventHandler(this.BtnRetour_Click);
@@ -60,10 +60,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             // BtnNouvellePartie
             // 
             this.BtnNouvellePartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.13913F);
-            this.BtnNouvellePartie.Location = new System.Drawing.Point(91, 422);
+            this.BtnNouvellePartie.Location = new System.Drawing.Point(91, 429);
             this.BtnNouvellePartie.Name = "BtnNouvellePartie";
             this.BtnNouvellePartie.Size = new System.Drawing.Size(334, 69);
-            this.BtnNouvellePartie.TabIndex = 2;
+            this.BtnNouvellePartie.TabIndex = 4;
             this.BtnNouvellePartie.Text = "NOUVELLE PARTIE";
             this.BtnNouvellePartie.UseVisualStyleBackColor = true;
             this.BtnNouvellePartie.Click += new System.EventHandler(this.BtnSauvegarder_Click);
@@ -78,13 +78,13 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.GrpPartie.Controls.Add(this.ChkDifficulteDifficile);
             this.GrpPartie.Controls.Add(this.ChkDifficulteFacile);
             this.GrpPartie.Controls.Add(this.LblChoixDifficulte);
-            this.GrpPartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrpPartie.Location = new System.Drawing.Point(92, 170);
+            this.GrpPartie.Font = new System.Drawing.Font("Minecraft", 11.13913F, System.Drawing.FontStyle.Bold);
+            this.GrpPartie.Location = new System.Drawing.Point(92, 138);
             this.GrpPartie.Name = "GrpPartie";
-            this.GrpPartie.Size = new System.Drawing.Size(700, 234);
+            this.GrpPartie.Size = new System.Drawing.Size(700, 265);
             this.GrpPartie.TabIndex = 1;
             this.GrpPartie.TabStop = false;
-            this.GrpPartie.Text = "Partie";
+            this.GrpPartie.Text = "PARTIE";
             // 
             // LblPseudo
             // 
@@ -103,7 +103,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.LblAlertPseudo.ForeColor = System.Drawing.Color.Red;
             this.LblAlertPseudo.Location = new System.Drawing.Point(19, 98);
             this.LblAlertPseudo.Name = "LblAlertPseudo";
-            this.LblAlertPseudo.Size = new System.Drawing.Size(96, 19);
+            this.LblAlertPseudo.Size = new System.Drawing.Size(99, 19);
             this.LblAlertPseudo.TabIndex = 11;
             this.LblAlertPseudo.Text = "ERREUR";
             // 
@@ -113,7 +113,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.TxtBoxPseudo.Location = new System.Drawing.Point(150, 46);
             this.TxtBoxPseudo.Name = "TxtBoxPseudo";
             this.TxtBoxPseudo.Size = new System.Drawing.Size(372, 30);
-            this.TxtBoxPseudo.TabIndex = 10;
+            this.TxtBoxPseudo.TabIndex = 0;
             this.TxtBoxPseudo.TextChanged += new System.EventHandler(this.TxtPseudo_TextChanged);
             // 
             // LblAlertPartie
@@ -123,7 +123,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.LblAlertPartie.ForeColor = System.Drawing.Color.Red;
             this.LblAlertPartie.Location = new System.Drawing.Point(19, 187);
             this.LblAlertPartie.Name = "LblAlertPartie";
-            this.LblAlertPartie.Size = new System.Drawing.Size(96, 19);
+            this.LblAlertPartie.Size = new System.Drawing.Size(99, 19);
             this.LblAlertPartie.TabIndex = 9;
             this.LblAlertPartie.Text = "ERREUR";
             // 
@@ -137,7 +137,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.ChkDifficulteNormal.Location = new System.Drawing.Point(400, 145);
             this.ChkDifficulteNormal.Name = "ChkDifficulteNormal";
             this.ChkDifficulteNormal.Size = new System.Drawing.Size(112, 27);
-            this.ChkDifficulteNormal.TabIndex = 6;
+            this.ChkDifficulteNormal.TabIndex = 2;
             this.ChkDifficulteNormal.Text = "Normal";
             this.ChkDifficulteNormal.UseVisualStyleBackColor = false;
             this.ChkDifficulteNormal.CheckedChanged += new System.EventHandler(this.ChkDifficulteNormal_CheckedChanged);
@@ -150,7 +150,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.ChkDifficulteDifficile.Location = new System.Drawing.Point(535, 145);
             this.ChkDifficulteDifficile.Name = "ChkDifficulteDifficile";
             this.ChkDifficulteDifficile.Size = new System.Drawing.Size(119, 27);
-            this.ChkDifficulteDifficile.TabIndex = 5;
+            this.ChkDifficulteDifficile.TabIndex = 3;
             this.ChkDifficulteDifficile.Text = "Difficile";
             this.ChkDifficulteDifficile.UseVisualStyleBackColor = false;
             this.ChkDifficulteDifficile.CheckedChanged += new System.EventHandler(this.ChkDifficulteDifficile_CheckedChanged);
@@ -163,7 +163,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.ChkDifficulteFacile.Location = new System.Drawing.Point(287, 145);
             this.ChkDifficulteFacile.Name = "ChkDifficulteFacile";
             this.ChkDifficulteFacile.Size = new System.Drawing.Size(97, 27);
-            this.ChkDifficulteFacile.TabIndex = 4;
+            this.ChkDifficulteFacile.TabIndex = 1;
             this.ChkDifficulteFacile.Text = "Facile";
             this.ChkDifficulteFacile.UseVisualStyleBackColor = false;
             this.ChkDifficulteFacile.CheckedChanged += new System.EventHandler(this.ChkDifficulteFacile_CheckedChanged);
@@ -203,6 +203,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.Controls.Add(this.GrpPartie);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmCreateNewGame";

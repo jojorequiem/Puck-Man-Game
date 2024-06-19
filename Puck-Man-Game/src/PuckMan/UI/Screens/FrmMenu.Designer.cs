@@ -119,7 +119,7 @@ namespace Puck_Man_Game.src.PuckMan.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(883, 604);
+            this.ClientSize = new System.Drawing.Size(882, 605);
             this.Controls.Add(this.PcbTitle);
             this.Controls.Add(this.BtnAPropos);
             this.Controls.Add(this.BtnClassement);
@@ -128,6 +128,7 @@ namespace Puck_Man_Game.src.PuckMan.UI
             this.Controls.Add(this.BtnJouer);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximumSize = new System.Drawing.Size(901, 651);
             this.MinimumSize = new System.Drawing.Size(899, 649);

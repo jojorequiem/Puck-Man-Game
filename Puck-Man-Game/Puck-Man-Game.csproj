@@ -181,6 +181,9 @@
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmModeHistoire.resx">
+      <DependentUpon>FrmModeHistoire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmPause.resx">
       <DependentUpon>FrmPause.cs</DependentUpon>
     </EmbeddedResource>

@@ -55,7 +55,7 @@
             this.BtnRetour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnRetour.Name = "BtnRetour";
             this.BtnRetour.Size = new System.Drawing.Size(700, 69);
-            this.BtnRetour.TabIndex = 11;
+            this.BtnRetour.TabIndex = 0;
             this.BtnRetour.Text = "RETOUR";
             this.BtnRetour.UseVisualStyleBackColor = true;
             this.BtnRetour.Click += new System.EventHandler(this.BtnRetour_Click);
@@ -68,7 +68,7 @@
             this.BtnParametres.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnParametres.Name = "BtnParametres";
             this.BtnParametres.Size = new System.Drawing.Size(700, 69);
-            this.BtnParametres.TabIndex = 12;
+            this.BtnParametres.TabIndex = 1;
             this.BtnParametres.Text = "PARAMÈTRES";
             this.BtnParametres.UseVisualStyleBackColor = true;
             this.BtnParametres.Click += new System.EventHandler(this.BtnParametres_Click);
@@ -81,7 +81,7 @@
             this.BtnQuitter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnQuitter.Name = "BtnQuitter";
             this.BtnQuitter.Size = new System.Drawing.Size(700, 69);
-            this.BtnQuitter.TabIndex = 13;
+            this.BtnQuitter.TabIndex = 2;
             this.BtnQuitter.Text = "QUITTER";
             this.BtnQuitter.UseVisualStyleBackColor = true;
             this.BtnQuitter.Click += new System.EventHandler(this.BtnQuitter_Click);
@@ -92,7 +92,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 603);
+            this.ClientSize = new System.Drawing.Size(882, 605);
             this.Controls.Add(this.BtnQuitter);
             this.Controls.Add(this.BtnParametres);
             this.Controls.Add(this.BtnRetour);

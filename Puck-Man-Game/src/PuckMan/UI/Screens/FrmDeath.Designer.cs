@@ -95,7 +95,7 @@
             this.BtnNouvellePartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnNouvellePartie.Name = "BtnNouvellePartie";
             this.BtnNouvellePartie.Size = new System.Drawing.Size(334, 69);
-            this.BtnNouvellePartie.TabIndex = 15;
+            this.BtnNouvellePartie.TabIndex = 1;
             this.BtnNouvellePartie.Text = "NOUVELLE PARTIE";
             this.BtnNouvellePartie.UseVisualStyleBackColor = true;
             this.BtnNouvellePartie.Click += new System.EventHandler(this.BtnNouvellePartie_Click);
@@ -107,7 +107,7 @@
             this.BtnMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnMenu.Name = "BtnMenu";
             this.BtnMenu.Size = new System.Drawing.Size(334, 69);
-            this.BtnMenu.TabIndex = 16;
+            this.BtnMenu.TabIndex = 0;
             this.BtnMenu.Text = "MENU";
             this.BtnMenu.UseVisualStyleBackColor = true;
             this.BtnMenu.Click += new System.EventHandler(this.BtnMenu_Click);
