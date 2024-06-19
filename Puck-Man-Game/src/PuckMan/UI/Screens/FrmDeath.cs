@@ -36,7 +36,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 string filepath = "src/database/classement.txt";
                 string[] lines = File.ReadAllLines(filepath, Encoding.UTF8);
 
-                string nomDifficulte = "histoire";
+                string nomDifficulte = "Hardcore";
                 switch (difficulte)
                 {
                     case 1:
@@ -49,16 +49,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                         nomDifficulte = "Difficile";
                         break;
                 }
-
-                if (difficulte > 0)
-
-                    if (lines.Length > 0)
-                        lines[lines.Length - 1] += "\n" + pseudo + ";" + Program.scoreJoueur.ToString() + ";" + nomDifficulte;
-                    else
-                        lines = new string[] { pseudo + ";" + Program.scoreJoueur.ToString() + ";" + nomDifficulte };
+                if (lines.Length > 0)
+                    lines[lines.Length - 1] += "\n" + pseudo + ";" + Program.scoreJoueur.ToString() + ";" + nomDifficulte;
+                else
+                    lines = new string[] { pseudo + ";" + Program.scoreJoueur.ToString() + ";" + nomDifficulte };
 
                 File.WriteAllLines(filepath, lines, Encoding.UTF8);
-                NiveauActuel = niveauActuel;
             }
         }
 

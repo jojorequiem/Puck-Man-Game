@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
@@ -21,7 +22,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             DifficulteJeu = difficulte; 
         }
 
-        //JONATHAN HELP
         private void FrmNiveauSuivant_Shown(object sender, EventArgs e)
         {
             BtnNiveauSuivant.Focus();
@@ -35,7 +35,34 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnRetourMenu_Click(object sender, EventArgs e)
         {
-            Program.ChangeActiveForm(Program.FrmMenu, this);
+            if (DifficulteJeu > 0) // mode infini (sauvegarder dans le classement)
+            {
+                string filepath = "src/database/classement.txt";
+                string[] lines = File.ReadAllLines(filepath, Encoding.UTF8);
+
+                string nomDifficulte = "histoire";
+                switch (DifficulteJeu)
+                {
+                    case 1:
+                        nomDifficulte = "Facile";
+                        break;
+                    case 2:
+                        nomDifficulte = "Moyen";
+                        break;
+                    case 3:
+                        nomDifficulte = "Difficile";
+                        break;
+                }
+
+                if (lines.Length > 0)
+                    lines[lines.Length - 1] += "\n" + PseudoJoueur + ";" + Program.scoreJoueur.ToString() + ";" + nomDifficulte;
+                else
+                    lines = new string[] { PseudoJoueur + ";" + Program.scoreJoueur.ToString() + ";" + nomDifficulte };
+
+                File.WriteAllLines(filepath, lines, Encoding.UTF8);
+            }
+
+        Program.ChangeActiveForm(Program.FrmMenu, this);
         }
 
     }
