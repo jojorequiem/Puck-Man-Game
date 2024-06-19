@@ -176,7 +176,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             Maze.MazeForm.UpdateHPdisplay();
             if (HP <= 0)
                 HandlePlayerDeath();
-            Program.PlaySound("assets/audio/takeDamage.wav");
+            Program.PlaySound("assets/audio/TakeDamage.wav");
         }
 
         public void Heal(int healValue)
@@ -187,7 +187,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             else
                 HP += healValue;
             Maze.MazeForm.UpdateHPdisplay();
-            Program.PlaySound("assets/audio/heal.wav");
+            Program.PlaySound("assets/audio/Heal.wav");
         }
 
         public void HandlePlayerDeath()

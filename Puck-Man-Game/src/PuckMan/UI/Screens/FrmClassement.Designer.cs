@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class FrmClassement
+    partial class FrmScoreRanking
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClassement));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmScoreRanking));
             this.BtnRetour = new System.Windows.Forms.Button();
             this.LblTitreClassement = new System.Windows.Forms.Label();
             this.DgvClassement = new System.Windows.Forms.DataGridView();

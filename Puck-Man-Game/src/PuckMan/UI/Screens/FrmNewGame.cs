@@ -25,7 +25,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class FrmNouvellePartie : FormComponent
+    public partial class FrmNewGame : FormComponent
     {
         public bool StoryMod;
         public int Level;
@@ -33,7 +33,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public int nbrGeneratedFragment;
         public string Pseudo = "";
         public byte Difficulty;
-        public FrmNouvellePartie(byte difficulty, bool storyMod, int level, string pseudo) : base()
+        public FrmNewGame(byte difficulty, bool storyMod, int level, string pseudo) : base()
         {
             InitializeComponent();
             this.KeyDown += (sender, e) => P1.PlayerKeyDown(sender, e);
@@ -51,7 +51,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
             if (StoryMod)
             {
-                Program.PlayMusic("assets/audio/musiqueNiveau" + Level + ".mp3");
+                Program.PlayMusic("assets/audio/MusicLevel" + Level + ".mp3");
                 LblScore.Hide();
                 PctBoxScore.Hide();
             }
@@ -60,8 +60,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             {
                 Random random = new Random();
 
-                string[] musicList = { "modeInfini", "niveau1", "niveau2", "niveau3", "niveau4", "niveau5" };
-                Program.PlayMusic("assets/audio/musique" + musicList[random.Next(0, musicList.Length)] + ".mp3");
+                string[] musicList = { "InfiniteMode", "Level1", "Level2", "Level3", "Level4", "Level5" };
+                Program.PlayMusic("assets/audio/Music" + musicList[random.Next(0, musicList.Length)] + ".mp3");
 
                 //choisir le nombre d'entités en fonction de la difficulté
                 int nbrEgare = 0;
@@ -160,9 +160,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
             else
             {
-                if (Program.FrmNiveauSuivant == null)
-                    Program.FrmNiveauSuivant = new FrmNiveauSuivant(Pseudo, Difficulty);
-                Program.ChangeActiveForm(Program.FrmNiveauSuivant, this);
+                if (Program.FrmNextLevel == null)
+                    Program.FrmNextLevel = new FrmNextLevel(Pseudo, Difficulty);
+                Program.ChangeActiveForm(Program.FrmNextLevel, this);
             }
         }
 

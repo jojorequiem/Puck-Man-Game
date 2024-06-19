@@ -28,9 +28,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnParametres_Click(object sender, EventArgs e)
         {
-            if (Program.FrmParametres == null)
-                Program.FrmParametres = new FrmParametres(this);
-            Program.ChangeActiveForm(Program.FrmParametres, this);
+            if (Program.FrmParameters == null)
+                Program.FrmParameters = new FrmParameters(this);
+            Program.ChangeActiveForm(Program.FrmParameters, this);
         }
 
         private void BtnRetour_Click(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class FrmNouvellePartie
+    partial class FrmNewGame
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNouvellePartie));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewGame));
             this.LblPV = new System.Windows.Forms.Label();
             this.LblFragmentCollecte = new System.Windows.Forms.Label();
             this.LblFragmentGenere = new System.Windows.Forms.Label();

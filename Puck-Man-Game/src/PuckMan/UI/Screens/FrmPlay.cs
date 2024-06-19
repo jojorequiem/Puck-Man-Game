@@ -34,9 +34,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnModeHistoire_Click(object sender, EventArgs e)
         {
-            if (Program.FrmModeHistoire == null)
-                Program.FrmModeHistoire = new FrmModeHistoire();
-            Program.ChangeActiveForm(Program.FrmModeHistoire, this);
+            if (Program.FrmStoryMode == null)
+                Program.FrmStoryMode = new FrmStoryMode();
+            Program.ChangeActiveForm(Program.FrmStoryMode, this);
         }
     }
 }

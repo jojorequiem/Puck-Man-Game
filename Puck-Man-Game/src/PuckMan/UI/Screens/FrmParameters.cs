@@ -13,11 +13,11 @@ using System.Runtime.CompilerServices;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class FrmParametres : FormComponent
+    public partial class FrmParameters : FormComponent
     {
         public FormComponent FormParent;
-        static private string filepath = "src/database/parametre_audio.txt";
-        public FrmParametres(FormComponent formParent)
+        static private string filepath = "src/database/AudioParameters.txt";
+        public FrmParameters(FormComponent formParent)
         {
             InitializeComponent();
             FormParent = formParent;

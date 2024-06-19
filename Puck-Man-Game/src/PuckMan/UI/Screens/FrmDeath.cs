@@ -20,7 +20,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             InitializeComponent();
             LblValeurScore.Text = Program.score.ToString();
-            Program.PlayMusic("assets/audio/musiqueMort.mp3");
+            Program.PlayMusic("assets/audio/DeathMusic.mp3");
 
             Level = level;
             if (Level > 0)
@@ -33,7 +33,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             
             if (difficulty > 0) // mode infini
             {
-                string filepath = "src/database/classement.txt";
+                string filepath = "src/database/ScoreRanking.txt";
                 string[] lines = File.ReadAllLines(filepath, Encoding.UTF8);
 
                 string difficultyName = "Hardcore";
@@ -61,8 +61,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private void BtnNouvellePartie_Click(object sender, EventArgs e)
         {
             if (Level > 0) {
-                Program.FrmNouvellePartie = new FrmNouvellePartie(0, true, Level, "");
-                Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
+                Program.FrmNewGame = new FrmNewGame(0, true, Level, "");
+                Program.ChangeActiveForm(Program.FrmNewGame, this);
             }
             else
             {

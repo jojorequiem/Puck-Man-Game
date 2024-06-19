@@ -37,8 +37,8 @@ namespace src.PuckMan.Game.Levels
         public int height;
         public int startX;
         public int startY;
-        public FrmNouvellePartie MazeForm;
-        public Maze(FrmNouvellePartie form, int mazeWidth, int mazeHeight)
+        public FrmNewGame MazeForm;
+        public Maze(FrmNewGame form, int mazeWidth, int mazeHeight)
         {
             MazeForm = form;
             width = mazeWidth;
@@ -273,7 +273,7 @@ namespace src.PuckMan.Game.Levels
 
         public void MazeGenerationFromMatrix(int niveau)
         {
-            string filePath = "src/database/matricesNiveaux.txt";
+            string filePath = "src/database/MazeStoryMod.txt";
             if (File.Exists(filePath))
             {
                 string[] lines = File.ReadAllLines(filePath, Encoding.UTF8);

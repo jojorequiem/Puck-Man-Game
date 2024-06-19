@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class FrmNiveauSuivant
+    partial class FrmNextLevel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNiveauSuivant));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNextLevel));
             this.BtnRetourMenu = new System.Windows.Forms.Button();
             this.BtnNiveauSuivant = new System.Windows.Forms.Button();
             this.LblTitre = new System.Windows.Forms.Label();

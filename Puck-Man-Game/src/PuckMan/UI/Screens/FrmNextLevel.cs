@@ -11,11 +11,11 @@ using System.IO;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class FrmNiveauSuivant : FormComponent
+    public partial class FrmNextLevel : FormComponent
     {
         private string Pseudo;
         private byte Difficulty;
-        public FrmNiveauSuivant(string pseudo, byte difficulty)
+        public FrmNextLevel(string pseudo, byte difficulty)
         {
             InitializeComponent();
             Pseudo = pseudo;
@@ -29,15 +29,15 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnNiveauSuivant_Click(object sender, EventArgs e)
         {
-            Program.FrmNouvellePartie = new FrmNouvellePartie(Difficulty, false, 0, Pseudo);
-            Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
+            Program.FrmNewGame = new FrmNewGame(Difficulty, false, 0, Pseudo);
+            Program.ChangeActiveForm(Program.FrmNewGame, this);
         }
 
         private void BtnRetourMenu_Click(object sender, EventArgs e)
         {
             if (Difficulty > 0) // mode infini (sauvegarder dans le classement)
             {
-                string filepath = "src/database/classement.txt";
+                string filepath = "src/database/ScoreRanking.txt";
                 string[] lines = File.ReadAllLines(filepath, Encoding.UTF8);
 
                 string nomDifficulte = "histoire";

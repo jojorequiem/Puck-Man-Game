@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class FrmParametres
+    partial class FrmParameters
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmParametres));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmParameters));
             this.LblSoundValue = new System.Windows.Forms.Label();
             this.LblMusicValue = new System.Windows.Forms.Label();
             this.LblMainValue = new System.Windows.Forms.Label();

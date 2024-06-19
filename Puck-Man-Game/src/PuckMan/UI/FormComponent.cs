@@ -29,7 +29,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             AutoScaleMode = AutoScaleMode.None;
             ChangeAllTextColors(this);
             this.Icon = Puck_Man_Game.Properties.Resources.iconGame;
-            if (this is FrmNouvellePartie)
+            if (this is FrmNewGame)
             {
                 this.BackgroundImage = Puck_Man_Game.Properties.Resources.bgCell3;
                 this.BackgroundImageLayout = ImageLayout.Tile;
@@ -137,12 +137,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 button.BackColor = Color.Transparent;
                 button.ForeColor = Program.TextColor;
             }
-            Program.PlaySound("assets/audio/click.wav");
+            Program.PlaySound("assets/audio/Click.wav");
         }
 
         private void MyCheckBox_Click(object sender, EventArgs e)
         {
-            Program.PlaySound("assets/audio/click.wav");
+            Program.PlaySound("assets/audio/Click.wav");
         }
 
         static private bool isClosed = false;

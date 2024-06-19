@@ -13,9 +13,9 @@ using System.Diagnostics;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class FrmClassement : FormComponent
+    public partial class FrmScoreRanking : FormComponent
     {
-        public FrmClassement()
+        public FrmScoreRanking()
         {
             InitializeComponent();
             this.Load += new EventHandler(FrmClassement_Load);
@@ -39,7 +39,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             DgvClassement.Columns[2].Name = "Difficulté";
 
 
-            string filePath = "src/database/classement.txt";
+            string filePath = "src/database/ScoreRanking.txt";
             if (File.Exists(filePath))
             {
                 string[] lines = File.ReadAllLines(filePath);

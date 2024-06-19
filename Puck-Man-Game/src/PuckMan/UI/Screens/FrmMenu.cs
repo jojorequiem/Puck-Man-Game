@@ -21,9 +21,9 @@ namespace Puck_Man_Game.src.PuckMan.UI
 
         private void BtnParametres_Click(object sender, EventArgs e)
         {
-            if (Program.FrmParametres == null)
-                Program.FrmParametres = new FrmParametres(this);
-            Program.ChangeActiveForm(Program.FrmParametres, this);
+            if (Program.FrmParameters == null)
+                Program.FrmParameters = new FrmParameters(this);
+            Program.ChangeActiveForm(Program.FrmParameters, this);
         }
 
         private void BtnQuitter_Click(object sender, EventArgs e)
@@ -45,9 +45,9 @@ namespace Puck_Man_Game.src.PuckMan.UI
 
         private void BtnClassement_Click(object sender, EventArgs e)
         {
-            if (Program.FrmClassement == null)
-                Program.FrmClassement = new FrmClassement();
-            Program.ChangeActiveForm(Program.FrmClassement, this);
+            if (Program.FrmScoreRanking == null)
+                Program.FrmScoreRanking = new FrmScoreRanking();
+            Program.ChangeActiveForm(Program.FrmScoreRanking, this);
         }
     }
 }

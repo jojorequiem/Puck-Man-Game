@@ -73,14 +73,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="assets\fonts\UseCustomFont.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\database\SaveData.cs" />
-    <Compile Include="src\database\ShareData.cs" />
     <Compile Include="src\PuckMan\Engine\Entities\Player.cs" />
     <Compile Include="src\PuckMan\Engine\Entities\Enemy.cs" />
     <Compile Include="src\PuckMan\Engine\Components\Entity.cs" />
@@ -89,11 +86,11 @@
     <Compile Include="src\PuckMan\Game\Levels\Maze.cs" />
     <Compile Include="src\PuckMan\Game\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\PuckMan\UI\Screens\FrmClassement.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmScoreRanking.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\FrmClassement.Designer.cs">
-      <DependentUpon>FrmClassement.cs</DependentUpon>
+      <DependentUpon>FrmScoreRanking.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\FrmCreateNewGame.cs">
       <SubType>Form</SubType>
@@ -128,29 +125,29 @@
     <Compile Include="src\PuckMan\UI\Screens\FrmPause.Designer.cs">
       <DependentUpon>FrmPause.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmModeHistoire.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmStoryMode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmStorymMod.Designer.cs">
-      <DependentUpon>FrmModeHistoire.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmStoryMode.Designer.cs">
+      <DependentUpon>FrmStoryMode.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmNiveauSuivant.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmNextLevel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmNiveauSuivant.Designer.cs">
-      <DependentUpon>FrmNiveauSuivant.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmNextLevel.Designer.cs">
+      <DependentUpon>FrmNextLevel.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmNouvellePartie.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmNewGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmNouvellePartie.Designer.cs">
-      <DependentUpon>FrmNouvellePartie.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmNewGame.Designer.cs">
+      <DependentUpon>FrmNewGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmParametres.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmParameters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmParametres.Designer.cs">
-      <DependentUpon>FrmParametres.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmParameters.Designer.cs">
+      <DependentUpon>FrmParameters.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\FrmPlay.cs">
       <SubType>Form</SubType>
@@ -167,7 +164,7 @@
       <DependentUpon>FormComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmClassement.resx">
-      <DependentUpon>FrmClassement.cs</DependentUpon>
+      <DependentUpon>FrmScoreRanking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmCreateNewGame.resx">
       <DependentUpon>FrmCreateNewGame.cs</DependentUpon>
@@ -181,25 +178,21 @@
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmModeHistoire.resx">
-      <DependentUpon>FrmModeHistoire.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmStoryMode.resx">
+      <DependentUpon>FrmStoryMode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmPause.resx">
       <DependentUpon>FrmPause.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmStorymMod.resx">
-      <DependentUpon>FrmModeHistoire.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmNextLevel.resx">
+      <DependentUpon>FrmNextLevel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmNiveauSuivant.resx">
-      <DependentUpon>FrmNiveauSuivant.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmNewGame.resx">
+      <DependentUpon>FrmNewGame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmNouvellePartie.resx">
-      <DependentUpon>FrmNouvellePartie.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmParameters.resx">
+      <DependentUpon>FrmParameters.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmParametres.resx">
-      <DependentUpon>FrmParametres.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="assets\fonts\fonts_pixel_art.ttf" />
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmPlay.resx">
       <DependentUpon>FrmPlay.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,52 +207,51 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="README.md" />
-    <None Include="src\database\example.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\audio\click.wav">
+    <Content Include="assets\audio\Click.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\deathFragment.wav">
+    <Content Include="assets\audio\DeathFragment.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\fragment.wav">
+    <Content Include="assets\audio\TakeFragment.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\heal.wav">
+    <Content Include="assets\audio\Heal.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\musiqueMort.mp3">
+    <Content Include="assets\audio\DeathMusic.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\musiqueNiveau1.mp3">
+    <Content Include="assets\audio\MusicLevel1.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\musiqueNiveau2.mp3">
+    <Content Include="assets\audio\MusicLevel2.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\musiqueModeInfini.mp3">
+    <Content Include="assets\audio\MusicInfiniteMod.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\musiqueNiveau4.mp3">
+    <Content Include="assets\audio\MusicLevel4.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\musiqueNiveau3.mp3">
+    <Content Include="assets\audio\MusicLevel3.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\musiqueNiveau5.mp3">
+    <Content Include="assets\audio\MusicLevel5.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\musiqueTransition.mp3">
+    <Content Include="assets\audio\TransitionMusic.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\takeDamage.wav">
+    <Content Include="assets\audio\TakeDamage.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\teleportation.wav">
+    <Content Include="assets\audio\Teleportation.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\dialogue\chapitre2_p1.txt">
@@ -302,28 +294,27 @@
     <Content Include="Resources\score.gif" />
     <None Include="Resources\skullIcon.gif" />
     <None Include="Resources\skullIcon1.gif" />
-    <Content Include="src\database\classement.txt">
+    <Content Include="src\database\ScoreRanking.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="src\database\parametre_audio.txt">
+    <Content Include="src\database\AudioParameters.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\fragment.gif" />
     <None Include="Resources\death-fragment.gif" />
     <Content Include="Resources\portal.gif" />
     <None Include="Resources\standardGif128.gif" />
-    <Content Include="src\database\matricesNiveaux.txt">
+    <Content Include="src\database\MazeStoryMod.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="src\database\modeHistoire.txt">
+    <Content Include="src\database\StoryMod.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\rightGif128.gif" />
     <None Include="Resources\leftGif128.gif" />
     <None Include="Resources\bottomGif128.gif" />
     <None Include="Resources\topGif128.gif" />
-    <None Include="Resources\background.png" />
-    <Content Include="assets\audio\musiqueMenu.mp3">
+    <Content Include="assets\audio\MenuMusic.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\dialogue\chapitre1_p1.txt">

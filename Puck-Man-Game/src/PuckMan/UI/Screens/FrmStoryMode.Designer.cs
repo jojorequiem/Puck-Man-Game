@@ -1,6 +1,6 @@
 ﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class FrmModeHistoire
+    partial class FrmStoryMode
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModeHistoire));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStoryMode));
             this.BtnDelete3 = new System.Windows.Forms.Button();
             this.BtnDelete2 = new System.Windows.Forms.Button();
             this.BtnDelete1 = new System.Windows.Forms.Button();

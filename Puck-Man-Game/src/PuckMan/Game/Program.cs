@@ -31,20 +31,20 @@ namespace Puck_Man_Game
         public static int SoundVolume;
         public static int MusicVolume;
         public static string LastMusicPlayed = "";
-        static public string menuMusicFilepath = "assets/audio/musiqueMenu.mp3";
-        static public string transitionMusicFilepath = "assets/audio/musiqueTransition.mp3";
+        static public string menuMusicFilepath = "assets/audio/MenuMusic.mp3";
+        static public string transitionMusicFilepath = "assets/audio/TransitionMusic.mp3";
 
-        public static FrmClassement FrmClassement = null;
+        public static FrmScoreRanking FrmScoreRanking = null;
         public static FrmDeath FrmDeath = null;
         public static FrmDialogue FrmDialogue = null;
         public static FrmMenu FrmMenu = null;
         public static FrmCreateNewGame FrmCreateNewGame = null;
         public static FrmPlay FrmPlay = null;
         public static FrmPause FrmPause = null;
-        public static FrmModeHistoire FrmModeHistoire = null;
-        public static FrmNiveauSuivant FrmNiveauSuivant = null;
-        public static FrmNouvellePartie FrmNouvellePartie = null;
-        public static FrmParametres FrmParametres = null;
+        public static FrmStoryMode FrmStoryMode = null;
+        public static FrmNextLevel FrmNextLevel = null;
+        public static FrmNewGame FrmNewGame = null;
+        public static FrmParameters FrmParameters = null;
 
         public static int game;
         public static int score = 0;
@@ -55,7 +55,7 @@ namespace Puck_Man_Game
         [STAThread]
         static void Main()
         {
-            string[] lines = File.ReadAllLines("src/database/parametre_audio.txt", Encoding.UTF8);
+            string[] lines = File.ReadAllLines("src/database/AudioParameters.txt", Encoding.UTF8);
             MainVolume = int.Parse(lines[0]);
             SoundVolume = int.Parse(lines[1]);
             MusicVolume = int.Parse(lines[2]);
@@ -111,16 +111,16 @@ namespace Puck_Man_Game
             if (formulaire is FrmDialogue && !(parent is FrmDialogue))
                 PlayMusic(transitionMusicFilepath);
 
-            if (formulaire is FrmNiveauSuivant)
+            if (formulaire is FrmNextLevel)
                 PlayMusic("assets/audio/musiqueTransition.mp3");
 
-            if (formulaire is FrmClassement frmClassement)
+            if (formulaire is FrmScoreRanking frmClassement)
                 frmClassement.DisplayClassement();
             
-            if (formulaire is FrmModeHistoire frmModeHistoire)
+            if (formulaire is FrmStoryMode frmModeHistoire)
                 frmModeHistoire.DisplayButtons();
 
-            if (formulaire is FrmNouvellePartie frmNouvellePartie && parent is FrmPause)
+            if (formulaire is FrmNewGame frmNouvellePartie && parent is FrmPause)
             {
                 //mettre en pause le joueur et les ennemis
                 if (frmNouvellePartie.P1.deplacementContinuActive)

@@ -17,7 +17,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public bool LevelFinished;
         public FrmDialogue(int level, bool levelIsFinished) : base()
         {
-            string filepath = "src/database/modeHistoire.txt";
+            string filepath = "src/database/StoryMod.txt";
 
             InitializeComponent();
             Level = level;
@@ -117,16 +117,16 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
             else
             {
-                if (Program.FrmNouvellePartie != null)
+                if (Program.FrmNewGame != null)
                 {
                     //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
-                    Program.FrmNouvellePartie.FormClosing -= Program.FrmNouvellePartie.FormComponent_FormClosing;
+                    Program.FrmNewGame.FormClosing -= Program.FrmNewGame.FormComponent_FormClosing;
 
-                    Program.FrmNouvellePartie.Close();
-                    Program.FrmNouvellePartie.Dispose();
+                    Program.FrmNewGame.Close();
+                    Program.FrmNewGame.Dispose();
                 }
-                Program.FrmNouvellePartie = new FrmNouvellePartie(0, true, Level, "");
-                Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
+                Program.FrmNewGame = new FrmNewGame(0, true, Level, "");
+                Program.ChangeActiveForm(Program.FrmNewGame, this);
             }
         }
 

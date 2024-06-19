@@ -12,13 +12,13 @@ using System.Diagnostics;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    public partial class FrmModeHistoire : FormComponent
+    public partial class FrmStoryMode : FormComponent
     {
         private int lvlGame1;
         private int lvlGame2;
         private int lvlGame3;
-        static private readonly string chemin = "src/database/modeHistoire.txt";
-        public FrmModeHistoire() : base()
+        static private readonly string chemin = "src/database/StoryMod.txt";
+        public FrmStoryMode() : base()
         {
             InitializeComponent();
             DisplayButtons();

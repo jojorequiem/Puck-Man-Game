@@ -69,13 +69,13 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
            
             LblAlertPartie.Text = "";
             {
-                if (Program.FrmNouvellePartie != null)
+                if (Program.FrmNewGame != null)
                 {
                     //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
-                    Program.FrmNouvellePartie.FormClosing -= Program.FrmNouvellePartie.FormComponent_FormClosing;
+                    Program.FrmNewGame.FormClosing -= Program.FrmNewGame.FormComponent_FormClosing;
 
-                    Program.FrmNouvellePartie.Close();
-                    Program.FrmNouvellePartie.Dispose();
+                    Program.FrmNewGame.Close();
+                    Program.FrmNewGame.Dispose();
                 }
                 if (ChkDifficulteFacile.Checked)
                     difficulty = 1;
@@ -84,10 +84,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 else if (ChkDifficulteDifficile.Checked)
                     difficulty = 3;
 
-                Program.FrmNouvellePartie = new FrmNouvellePartie(difficulty, false, 0, TxtBoxPseudo.Text);
+                Program.FrmNewGame = new FrmNewGame(difficulty, false, 0, TxtBoxPseudo.Text);
                 Program.score = 0;
                 ReinitialiseDisplay();
-                Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
+                Program.ChangeActiveForm(Program.FrmNewGame, this);
             }
         }
         private void ReinitialiseDisplay()

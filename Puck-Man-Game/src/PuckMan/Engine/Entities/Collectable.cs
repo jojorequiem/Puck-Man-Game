@@ -31,7 +31,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
             if (EntityName == "portail teleportation")
                 Image.Image = Puck_Man_Game.Properties.Resources.portal;
         }
-        public void Collecte(FrmNouvellePartie Formulaire)
+        public void Collecte(FrmNewGame Formulaire)
         {
             if  (!DejaCollecte)
             {
@@ -45,7 +45,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
                 if (EntityName == "fragment")
                 {
                     Program.score += 1;
-                    Program.PlaySound("assets/audio/fragment.wav");
+                    Program.PlaySound("assets/audio/TakeFragment.wav");
                     player.Maze.FragmentList.Remove(this);
                     Formulaire.UpdateFragmentdisplay();
                     if (player.Maze.FragmentList.Count() <= 0)
@@ -56,12 +56,12 @@ namespace Puck_Man_Game.src.PuckMan.Game
                     player.Heal(1);
 
                 else if (EntityName == "fragment degat") {
-                    Program.PlaySound("assets/audio/deathFragment.wav");
+                    Program.PlaySound("assets/audio/DeathFragment.wav");
                     player.DamageReceived(1);
                     }
                 else if (EntityName == "portail teleportation")
                 {
-                    Program.PlaySound("assets/audio/teleportation.wav");
+                    Program.PlaySound("assets/audio/Teleportation.wav");
                     DejaCollecte = false;
                     Image.Show();
                     int newX; int newY;
