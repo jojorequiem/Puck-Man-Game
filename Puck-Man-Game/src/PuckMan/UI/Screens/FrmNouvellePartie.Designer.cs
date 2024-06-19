@@ -49,7 +49,7 @@
             this.LblPV.BackColor = System.Drawing.Color.Transparent;
             this.LblPV.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPV.ForeColor = System.Drawing.Color.Transparent;
-            this.LblPV.Location = new System.Drawing.Point(770, 87);
+            this.LblPV.Location = new System.Drawing.Point(770, 89);
             this.LblPV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblPV.Name = "LblPV";
             this.LblPV.Size = new System.Drawing.Size(23, 23);
@@ -62,7 +62,7 @@
             this.LblFragmentCollecte.BackColor = System.Drawing.Color.Transparent;
             this.LblFragmentCollecte.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFragmentCollecte.ForeColor = System.Drawing.Color.Transparent;
-            this.LblFragmentCollecte.Location = new System.Drawing.Point(768, 166);
+            this.LblFragmentCollecte.Location = new System.Drawing.Point(768, 168);
             this.LblFragmentCollecte.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LblFragmentCollecte.Name = "LblFragmentCollecte";
             this.LblFragmentCollecte.Size = new System.Drawing.Size(23, 23);
@@ -75,7 +75,7 @@
             this.LblFragmentGenere.BackColor = System.Drawing.Color.Transparent;
             this.LblFragmentGenere.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFragmentGenere.ForeColor = System.Drawing.Color.Transparent;
-            this.LblFragmentGenere.Location = new System.Drawing.Point(817, 165);
+            this.LblFragmentGenere.Location = new System.Drawing.Point(817, 168);
             this.LblFragmentGenere.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LblFragmentGenere.Name = "LblFragmentGenere";
             this.LblFragmentGenere.Size = new System.Drawing.Size(25, 23);
@@ -88,7 +88,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(797, 166);
+            this.label1.Location = new System.Drawing.Point(796, 168);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 23);
@@ -127,9 +127,9 @@
             this.LblPseudo.ForeColor = System.Drawing.Color.White;
             this.LblPseudo.Location = new System.Drawing.Point(712, 24);
             this.LblPseudo.Name = "LblPseudo";
-            this.LblPseudo.Size = new System.Drawing.Size(202, 24);
+            this.LblPseudo.Size = new System.Drawing.Size(101, 24);
             this.LblPseudo.TabIndex = 7;
-            this.LblPseudo.Text = "mmmmmmmm";
+            this.LblPseudo.Text = "Pseudo";
             // 
             // PctBoxScore
             // 

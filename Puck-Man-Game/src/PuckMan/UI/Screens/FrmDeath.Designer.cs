@@ -43,11 +43,11 @@
             // PctDeathLogo
             // 
             this.PctDeathLogo.BackColor = System.Drawing.Color.Transparent;
-            this.PctDeathLogo.BackgroundImage = global::Puck_Man_Game.Properties.Resources.mort;
             this.PctDeathLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PctDeathLogo.Location = new System.Drawing.Point(367, 139);
+            this.PctDeathLogo.Image = global::Puck_Man_Game.Properties.Resources.skullIcon1;
+            this.PctDeathLogo.Location = new System.Drawing.Point(361, 137);
             this.PctDeathLogo.Name = "PctDeathLogo";
-            this.PctDeathLogo.Size = new System.Drawing.Size(152, 152);
+            this.PctDeathLogo.Size = new System.Drawing.Size(160, 160);
             this.PctDeathLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PctDeathLogo.TabIndex = 1;
             this.PctDeathLogo.TabStop = false;
@@ -57,9 +57,9 @@
             this.LblTitreMort.BackColor = System.Drawing.Color.Black;
             this.LblTitreMort.Font = new System.Drawing.Font("Microsoft Sans Serif", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitreMort.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LblTitreMort.Location = new System.Drawing.Point(91, 42);
+            this.LblTitreMort.Location = new System.Drawing.Point(286, 40);
             this.LblTitreMort.Name = "LblTitreMort";
-            this.LblTitreMort.Size = new System.Drawing.Size(700, 94);
+            this.LblTitreMort.Size = new System.Drawing.Size(311, 94);
             this.LblTitreMort.TabIndex = 12;
             this.LblTitreMort.Text = "MORT";
             this.LblTitreMort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -70,7 +70,7 @@
             this.LblScore.BackColor = System.Drawing.Color.Transparent;
             this.LblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.03478F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblScore.ForeColor = System.Drawing.Color.White;
-            this.LblScore.Location = new System.Drawing.Point(402, 322);
+            this.LblScore.Location = new System.Drawing.Point(395, 334);
             this.LblScore.Name = "LblScore";
             this.LblScore.Size = new System.Drawing.Size(121, 39);
             this.LblScore.TabIndex = 13;
@@ -82,7 +82,7 @@
             this.LblValeurScore.BackColor = System.Drawing.Color.Transparent;
             this.LblValeurScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.03478F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblValeurScore.ForeColor = System.Drawing.Color.White;
-            this.LblValeurScore.Location = new System.Drawing.Point(519, 322);
+            this.LblValeurScore.Location = new System.Drawing.Point(523, 334);
             this.LblValeurScore.Name = "LblValeurScore";
             this.LblValeurScore.Size = new System.Drawing.Size(37, 39);
             this.LblValeurScore.TabIndex = 14;
@@ -118,6 +118,7 @@
             this.PcbScore.Image = global::Puck_Man_Game.Properties.Resources.score;
             this.PcbScore.InitialImage = ((System.Drawing.Image)(resources.GetObject("PcbScore.InitialImage")));
             this.PcbScore.Location = new System.Drawing.Point(330, 297);
+            this.PcbScore.Location = new System.Drawing.Point(316, 300);
             this.PcbScore.Name = "PcbScore";
             this.PcbScore.Size = new System.Drawing.Size(80, 80);
             this.PcbScore.TabIndex = 17;
