@@ -26,7 +26,6 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
             HP = 3;
             Maze = maze;
             EntitySpeed = Maze.cellSize;
-            Image.BringToFront();
             previousDirection = new Point(0, 0);
         }
 
@@ -143,13 +142,14 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         {
             Damage = 3;
             Image.Image = Puck_Man_Game.Properties.Resources.spectrl;
-            moveEnemyTimer = new Timer { Interval = 450 
+            moveEnemyTimer = new Timer { Interval = 450
             };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();
             previousDirection = new Point(0, 0);
             lastAttackTime = new Dictionary<Enemy, DateTime>();
             attackCooldown = TimeSpan.FromSeconds(2);
+            Image.BringToFront();
         }
     }
 
@@ -168,6 +168,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
             previousDirection = new Point(0, 0);
             lastAttackTime = new Dictionary<Enemy, DateTime>();
             attackCooldown = TimeSpan.FromSeconds(2);
+            Image.BringToFront();
         }
     }
 

@@ -63,7 +63,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         }
         ~Player()  //destructeur
         {
-            Debug.WriteLine("DESTRUCTEUR JOUEUR");
             Dispose();
         }
         public void Dispose()
@@ -71,7 +70,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
             if (!Disposed)
             {
-                Debug.WriteLine("DISPOSE JOUEUR");
                 Disposed = true;
                 isDead = true;
                 if (Maze != null) {
@@ -82,8 +80,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 moveTimer.Dispose();
                 GC.SuppressFinalize(this);    
             }
-            else
-                Debug.WriteLine("JOUEUR DEJA DISPOSED");
         }
 
         private void MoveTimer_Tick(object sender, EventArgs e)
@@ -129,8 +125,8 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 return false; // Le joueur entre en collision avec un mur, on ne le déplace pas
             }
 
-            Maze.Entities[X, Y] = null;
             // Déplacement uniquement si aucune collision
+            Maze.Entities[X, Y] = null;
             X += deltaX * EntitySpeed;
             Y += deltaY * EntitySpeed ;
             Maze.Entities[X, Y] = this;
@@ -175,8 +171,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         public void DamageReceived(int hitDamage)
         {
-            if (Disposed)
-                Console.WriteLine("FILS DE PUTE");
             if (Disposed) return;
             HP -= hitDamage;
             Maze.MazeForm.UpdateHPdisplay();
@@ -198,21 +192,17 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
 
         public void HandlePlayerDeath()
         {
-            if (Disposed)
-                Console.WriteLine("ERREUR LE JOUEUR EST DEJA MORT"); //(pour le debugage) ce message ne doit jamais apparaitre
             if (!Disposed)
             {
                 Program.PlaySound("assets/audio/dead.wav");
                 Disposed = true;
                 if (Maze.MazeForm.ModeHistoire)
                 {
-                    if (Program.FrmDeath == null)
-                        Program.FrmDeath = new FrmDeath(Maze.MazeForm.PseudoJoueur, Maze.MazeForm.NiveauActuel);
+                    Program.FrmDeath = new FrmDeath(Maze.MazeForm.PseudoJoueur, Maze.MazeForm.NiveauActuel, Maze.MazeForm.DifficulteJeu);
                 }
                 else
                 {
-                    if (Program.FrmDeath == null)
-                        Program.FrmDeath = new FrmDeath(Maze.MazeForm.PseudoJoueur,0); 
+                    Program.FrmDeath = new FrmDeath(Maze.MazeForm.PseudoJoueur,0, Maze.MazeForm.DifficulteJeu); 
                 }
                 Program.ChangeActiveForm(Program.FrmDeath, Maze.MazeForm);
                 Dispose();

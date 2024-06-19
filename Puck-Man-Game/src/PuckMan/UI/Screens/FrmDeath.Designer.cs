@@ -55,7 +55,7 @@
             // LblTitreMort
             // 
             this.LblTitreMort.BackColor = System.Drawing.Color.Black;
-            this.LblTitreMort.Font = new System.Drawing.Font("Minecraft", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitreMort.Font = new System.Drawing.Font("Microsoft Sans Serif", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitreMort.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LblTitreMort.Location = new System.Drawing.Point(286, 40);
             this.LblTitreMort.Name = "LblTitreMort";
@@ -68,11 +68,11 @@
             // 
             this.LblScore.AutoSize = true;
             this.LblScore.BackColor = System.Drawing.Color.Transparent;
-            this.LblScore.Font = new System.Drawing.Font("Minecraft", 20.03478F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.03478F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblScore.ForeColor = System.Drawing.Color.White;
             this.LblScore.Location = new System.Drawing.Point(404, 353);
             this.LblScore.Name = "LblScore";
-            this.LblScore.Size = new System.Drawing.Size(122, 32);
+            this.LblScore.Size = new System.Drawing.Size(121, 39);
             this.LblScore.TabIndex = 13;
             this.LblScore.Text = "Score ";
             // 
@@ -80,11 +80,11 @@
             // 
             this.LblValeurScore.AutoSize = true;
             this.LblValeurScore.BackColor = System.Drawing.Color.Transparent;
-            this.LblValeurScore.Font = new System.Drawing.Font("Minecraft", 20.03478F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblValeurScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.03478F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblValeurScore.ForeColor = System.Drawing.Color.White;
             this.LblValeurScore.Location = new System.Drawing.Point(528, 354);
             this.LblValeurScore.Name = "LblValeurScore";
-            this.LblValeurScore.Size = new System.Drawing.Size(33, 32);
+            this.LblValeurScore.Size = new System.Drawing.Size(37, 39);
             this.LblValeurScore.TabIndex = 14;
             this.LblValeurScore.Text = "0";
             // 
@@ -117,7 +117,7 @@
             this.PcbScore.BackColor = System.Drawing.Color.Transparent;
             this.PcbScore.Image = global::Puck_Man_Game.Properties.Resources.score;
             this.PcbScore.InitialImage = ((System.Drawing.Image)(resources.GetObject("PcbScore.InitialImage")));
-            this.PcbScore.Location = new System.Drawing.Point(322, 319);
+            this.PcbScore.Location = new System.Drawing.Point(318, 313);
             this.PcbScore.Name = "PcbScore";
             this.PcbScore.Size = new System.Drawing.Size(80, 80);
             this.PcbScore.TabIndex = 17;

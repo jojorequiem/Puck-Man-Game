@@ -33,10 +33,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             DgvClassement.Columns.Clear();
 
             // Afficher les données
-            DgvClassement.ColumnCount = 2;
+            DgvClassement.ColumnCount = 3;
             DgvClassement.Columns[0].Name = "Pseudo";
             DgvClassement.Columns[1].Name = "Score";
-            
+            DgvClassement.Columns[2].Name = "Difficulté";
+
 
             string filePath = "src/database/classement.txt";
             if (File.Exists(filePath))
@@ -47,8 +48,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     if (line.Contains(";"))
                     {
                         string[] parts = line.Split(';');
-                        if (parts.Length == 2)
-                            DgvClassement.Rows.Add(parts[0], parts[1]);
+                        if (parts.Length == 3)
+                            DgvClassement.Rows.Add(parts[0], parts[1], parts[2]);
                     }
                 }
             }
