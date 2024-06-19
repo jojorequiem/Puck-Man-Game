@@ -17,7 +17,6 @@ namespace Puck_Man_Game.src.PuckMan.UI
         public FrmMenu() : base()
         {
             InitializeComponent();
-            this.BackgroundImage = Properties.Resources.background;
         }
 
         private void BtnParametres_Click(object sender, EventArgs e)
