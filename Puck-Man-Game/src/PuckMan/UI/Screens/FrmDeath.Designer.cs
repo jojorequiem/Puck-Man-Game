@@ -44,7 +44,7 @@
             // 
             this.PctDeathLogo.BackColor = System.Drawing.Color.Transparent;
             this.PctDeathLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PctDeathLogo.Image = global::Puck_Man_Game.Properties.Resources.skullIcon1;
+            this.PctDeathLogo.Image = global::Puck_Man_Game.Properties.Resources.skullIcon;
             this.PctDeathLogo.Location = new System.Drawing.Point(361, 137);
             this.PctDeathLogo.Name = "PctDeathLogo";
             this.PctDeathLogo.Size = new System.Drawing.Size(160, 160);
