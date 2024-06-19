@@ -68,6 +68,7 @@
             this.LblTitre.Size = new System.Drawing.Size(700, 94);
             this.LblTitre.TabIndex = 2;
             this.LblTitre.Text = "Niveau suivant";
+            this.LblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmNiveauSuivant
             // 
@@ -88,6 +89,7 @@
             this.Name = "FrmNiveauSuivant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NiveauSuivant";
+            this.Shown += new System.EventHandler(this.FrmNiveauSuivant_Shown);
             this.ResumeLayout(false);
 
         }

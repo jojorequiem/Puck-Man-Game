@@ -18,7 +18,13 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             InitializeComponent();
             PseudoJoueur = pseudo;
-            DifficulteJeu = difficulte;
+            DifficulteJeu = difficulte; 
+        }
+
+        //JONATHAN HELP
+        private void FrmNiveauSuivant_Shown(object sender, EventArgs e)
+        {
+            BtnNiveauSuivant.Focus();
         }
 
         private void BtnNiveauSuivant_Click(object sender, EventArgs e)
@@ -31,5 +37,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             Program.ChangeActiveForm(Program.FrmMenu, this);
         }
+
     }
 }

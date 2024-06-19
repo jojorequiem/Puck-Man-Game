@@ -414,21 +414,11 @@ namespace src.PuckMan.Game.Levels
 
         public void GenerateCollectable(string name, int number, int x, int y)
         {
-            double heartSpawnProbability = 0.30; // Probabilité de 30% d'apparition des cœurs
             while (number > 0)
             {
                 // Vérifier s'il n'y a pas déjà une entité à l'endroit choisi
                 if (StaticEntities[x * cellSize, y * cellSize] is null && (x != startX || y != startY))
                 {
-                    // Vérifier si l'entité est un cœur et appliquer la probabilité
-                    if (name == "soin" && random.NextDouble() > heartSpawnProbability)
-                    {
-                        // Si la probabilité n'est pas respectée, passer à la prochaine itération
-                        x = GetValidCoordinates(1, width - 1);
-                        y = GetValidCoordinates(1, height - 1);
-                        continue;
-                    }
-
                     Collectable instance = new Collectable(name, x * cellSize, y * cellSize);
                     if (name == "fragment")
                         FragmentList.Add(instance);
@@ -511,7 +501,8 @@ namespace src.PuckMan.Game.Levels
                 {
                     MazeMatrix[x, y].IsWall = false;
                     MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
-                    GenerateCollectable("soin", 1, x, y);
+                    if (random.NextDouble()>0.3)
+                        GenerateCollectable("soin", 1, x, y);
                 }
             }
         }

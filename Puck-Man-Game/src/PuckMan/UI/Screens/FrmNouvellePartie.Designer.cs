@@ -35,8 +35,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LblPseudo = new System.Windows.Forms.Label();
+            this.PctBoxScore = new System.Windows.Forms.PictureBox();
+            this.LblScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBoxScore)).BeginInit();
             this.SuspendLayout();
             // 
             // LblPV
@@ -45,7 +48,7 @@
             this.LblPV.BackColor = System.Drawing.Color.Transparent;
             this.LblPV.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPV.ForeColor = System.Drawing.Color.Transparent;
-            this.LblPV.Location = new System.Drawing.Point(779, 80);
+            this.LblPV.Location = new System.Drawing.Point(779, 87);
             this.LblPV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblPV.Name = "LblPV";
             this.LblPV.Size = new System.Drawing.Size(26, 29);
@@ -119,13 +122,38 @@
             // 
             this.LblPseudo.AutoSize = true;
             this.LblPseudo.BackColor = System.Drawing.Color.Transparent;
-            this.LblPseudo.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPseudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPseudo.ForeColor = System.Drawing.Color.White;
             this.LblPseudo.Location = new System.Drawing.Point(707, 29);
             this.LblPseudo.Name = "LblPseudo";
-            this.LblPseudo.Size = new System.Drawing.Size(90, 23);
+            this.LblPseudo.Size = new System.Drawing.Size(102, 29);
             this.LblPseudo.TabIndex = 7;
             this.LblPseudo.Text = "Pseudo";
+            // 
+            // PctBoxScore
+            // 
+            this.PctBoxScore.BackColor = System.Drawing.Color.Transparent;
+            this.PctBoxScore.Image = global::Puck_Man_Game.Properties.Resources.score;
+            this.PctBoxScore.Location = new System.Drawing.Point(711, 229);
+            this.PctBoxScore.Margin = new System.Windows.Forms.Padding(5);
+            this.PctBoxScore.Name = "PctBoxScore";
+            this.PctBoxScore.Size = new System.Drawing.Size(60, 60);
+            this.PctBoxScore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PctBoxScore.TabIndex = 8;
+            this.PctBoxScore.TabStop = false;
+            // 
+            // LblScore
+            // 
+            this.LblScore.AutoSize = true;
+            this.LblScore.BackColor = System.Drawing.Color.Transparent;
+            this.LblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblScore.ForeColor = System.Drawing.Color.Transparent;
+            this.LblScore.Location = new System.Drawing.Point(779, 250);
+            this.LblScore.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.LblScore.Name = "LblScore";
+            this.LblScore.Size = new System.Drawing.Size(26, 29);
+            this.LblScore.TabIndex = 9;
+            this.LblScore.Text = "0";
             // 
             // FrmNouvellePartie
             // 
@@ -134,7 +162,9 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.BackgroundImage = global::Puck_Man_Game.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 604);
+            this.ClientSize = new System.Drawing.Size(882, 603);
+            this.Controls.Add(this.LblScore);
+            this.Controls.Add(this.PctBoxScore);
             this.Controls.Add(this.LblPseudo);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -153,6 +183,7 @@
             this.Text = "Puck Man";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBoxScore)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,5 +198,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label LblPseudo;
+        private System.Windows.Forms.PictureBox PctBoxScore;
+        private System.Windows.Forms.Label LblScore;
     }
 }

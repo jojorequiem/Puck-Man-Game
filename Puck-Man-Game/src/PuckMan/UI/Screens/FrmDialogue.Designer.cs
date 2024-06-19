@@ -57,7 +57,7 @@
             this.LblTitre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LblTitre.Location = new System.Drawing.Point(28, 40);
             this.LblTitre.Name = "LblTitre";
-            this.LblTitre.Size = new System.Drawing.Size(919, 55);
+            this.LblTitre.Size = new System.Drawing.Size(956, 58);
             this.LblTitre.TabIndex = 10;
             this.LblTitre.Text = "Chapitre 1 : Confrontation avec l’inconnue";
             this.LblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,7 +104,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 604);
+            this.ClientSize = new System.Drawing.Size(882, 603);
             this.Controls.Add(this.BtnSkip);
             this.Controls.Add(this.LblTitre);
             this.Controls.Add(this.BtnDialogueSuivant);

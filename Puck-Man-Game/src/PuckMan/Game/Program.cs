@@ -32,7 +32,7 @@ namespace Puck_Man_Game
         public static int VolumeMusique;
         public static string LastMusicPlayed = "";
         static public string menuMusicFilepath = "assets/audio/musiqueMenu.mp3";
-        static public string dialogueMusicFilepath = "assets/audio/musiqueDialogue.mp3";
+        static public string transitionMusicFilepath = "assets/audio/musiqueTransition.mp3";
 
         public static FrmClassement FrmClassement = null;
         public static FrmDeath FrmDeath = null;
@@ -107,7 +107,10 @@ namespace Puck_Man_Game
                 PlayMusic(menuMusicFilepath);
 
             if (formulaire is FrmDialogue && !(parent is FrmDialogue))
-                PlayMusic(dialogueMusicFilepath);
+                PlayMusic(transitionMusicFilepath);
+
+            if (formulaire is FrmClassement frmClassement)
+                frmClassement.DisplayClassement();
 
             if (formulaire is FrmNouvellePartie frmNouvellePartie && parent is FrmPause)
             {

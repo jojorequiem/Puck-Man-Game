@@ -201,7 +201,8 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
             if (Disposed)
                 Console.WriteLine("ERREUR LE JOUEUR EST DEJA MORT"); //(pour le debugage) ce message ne doit jamais apparaitre
             if (!Disposed)
-            {   
+            {
+                Program.PlaySound("assets/audio/dead.wav");
                 Disposed = true;
                 if (Maze.MazeForm.ModeHistoire)
                 {
@@ -211,7 +212,7 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 else
                 {
                     if (Program.FrmDeath == null)
-                        Program.FrmDeath = new FrmDeath();
+                        Program.FrmDeath = new FrmDeath(Maze.MazeForm.PseudoJoueur);
                     Program.ChangeActiveForm(Program.FrmDeath, Maze.MazeForm);
                 }
                 Dispose();

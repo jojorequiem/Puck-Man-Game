@@ -223,7 +223,7 @@
     <Content Include="assets\audio\deathFragment.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\finishLevel.wav">
+    <Content Include="assets\audio\dead.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\audio\fragment.wav">
@@ -232,10 +232,7 @@
     <Content Include="assets\audio\heal.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\audio\musiqueModeInfini2.mp3" />
-    <Content Include="assets\audio\musiqueDialogue.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="assets\audio\musiqueMort.mp3" />
     <Content Include="assets\audio\musiqueNiveau1.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -252,6 +249,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\audio\musiqueNiveau5.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\audio\musiqueTransition.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\audio\takeDamage.wav">
@@ -296,6 +296,10 @@
     <Content Include="Resources\mort.png" />
     <Content Include="Resources\murModeInfini.png" />
     <None Include="Resources\title.png" />
+    <Content Include="Resources\score.gif" />
+    <Content Include="src\database\classement.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="src\database\parametre_audio.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

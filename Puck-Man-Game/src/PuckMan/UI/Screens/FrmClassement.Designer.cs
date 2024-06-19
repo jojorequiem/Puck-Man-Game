@@ -30,8 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClassement));
             this.BtnRetour = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.LblTitreClassement = new System.Windows.Forms.Label();
+            this.DgvClassement = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvClassement)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnRetour
@@ -43,14 +44,6 @@
             this.BtnRetour.Text = "RETOUR";
             this.BtnRetour.UseVisualStyleBackColor = true;
             this.BtnRetour.Click += new System.EventHandler(this.btnRetour_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(90, 182);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(672, 24);
-            this.comboBox1.TabIndex = 6;
             // 
             // LblTitreClassement
             // 
@@ -64,6 +57,17 @@
             this.LblTitreClassement.Text = "CLASSEMENT";
             this.LblTitreClassement.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // DgvClassement
+            // 
+            this.DgvClassement.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.DgvClassement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvClassement.Location = new System.Drawing.Point(92, 180);
+            this.DgvClassement.Name = "DgvClassement";
+            this.DgvClassement.RowHeadersWidth = 51;
+            this.DgvClassement.RowTemplate.Height = 24;
+            this.DgvClassement.Size = new System.Drawing.Size(700, 220);
+            this.DgvClassement.TabIndex = 11;
+            // 
             // FrmClassement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -71,15 +75,17 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(882, 603);
+            this.Controls.Add(this.DgvClassement);
             this.Controls.Add(this.LblTitreClassement);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.BtnRetour);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmClassement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Classement";
+            ((System.ComponentModel.ISupportInitialize)(this.DgvClassement)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -87,7 +93,7 @@
         #endregion
 
         private System.Windows.Forms.Button BtnRetour;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label LblTitreClassement;
+        private System.Windows.Forms.DataGridView DgvClassement;
     }
 }
