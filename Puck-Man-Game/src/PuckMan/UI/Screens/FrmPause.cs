@@ -21,7 +21,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnQuitter_Click(object sender, EventArgs e)
         {
-            ParentForm.Dispose();
+            if (ParentForm != null)
+                ParentForm.Dispose();
             Program.ChangeActiveForm(Program.FrmMenu, this);
         }
 

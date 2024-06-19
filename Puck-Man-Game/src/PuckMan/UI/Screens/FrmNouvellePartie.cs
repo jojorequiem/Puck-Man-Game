@@ -49,9 +49,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             P1 = new Player("joueur", nbrHp, maze.startX * Maze.cellSize, maze.startY * Maze.cellSize, maze);
             maze.Entities[maze.startX * Maze.cellSize, maze.startY * Maze.cellSize] = P1;
 
+            this.BackgroundImage = Properties.Resources.background;
             if (ModeHistoire)
             {
-                this.BackgroundImage = Properties.Resources.background;
                 Program.PlayMusic("assets/audio/musiqueNiveau" + NiveauActuel + ".mp3");
                 LblScore.Hide();
                 PctBoxScore.Hide();
@@ -59,8 +59,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
             else
             {
-                this.BackgroundImageLayout = ImageLayout.Stretch;
-                this.BackgroundImage = Properties.Resources.background2;
                 Random random = new Random();
 
                 string[] musicList = { "modeInfini", "niveau1", "niveau2", "niveau3", "niveau4", "niveau5" };

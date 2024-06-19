@@ -206,15 +206,17 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
                 Disposed = true;
                 if (Maze.MazeForm.ModeHistoire)
                 {
-                    Program.FrmNouvellePartie = new FrmNouvellePartie(0, Maze.MazeForm.ModeHistoire, Maze.MazeForm.NiveauActuel, Maze.MazeForm.PseudoJoueur);
-                    Program.ChangeActiveForm(Program.FrmNouvellePartie, Maze.MazeForm);
+                    //Program.FrmNouvellePartie = new FrmNouvellePartie(0, Maze.MazeForm.ModeHistoire, Maze.MazeForm.NiveauActuel, Maze.MazeForm.PseudoJoueur);
+                    //Program.ChangeActiveForm(Program.FrmNouvellePartie, Maze.MazeForm);
+                    if (Program.FrmDeath == null)
+                        Program.FrmDeath = new FrmDeath(Maze.MazeForm.PseudoJoueur, Maze.MazeForm.NiveauActuel);
                 }
                 else
                 {
                     if (Program.FrmDeath == null)
-                        Program.FrmDeath = new FrmDeath(Maze.MazeForm.PseudoJoueur);
-                    Program.ChangeActiveForm(Program.FrmDeath, Maze.MazeForm);
+                        Program.FrmDeath = new FrmDeath(Maze.MazeForm.PseudoJoueur,0); 
                 }
+                Program.ChangeActiveForm(Program.FrmDeath, Maze.MazeForm);
                 Dispose();
             }
         }

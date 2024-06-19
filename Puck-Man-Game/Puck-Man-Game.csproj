@@ -284,12 +284,10 @@
     <Content Include="assets\dialogue\chapitre5_p2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\background2.jpg" />
     <Content Include="assets\dialogue\chapitre1_p2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\berserker.png" />
-    <Content Include="Resources\dialogueBackground.png" />
     <Content Include="Resources\egare.png" />
     <Content Include="Resources\hp.gif" />
     <None Include="Resources\lab.png" />
@@ -298,8 +296,6 @@
     <Content Include="Resources\murModeInfini.png" />
     <None Include="Resources\title.png" />
     <Content Include="Resources\score.gif" />
-    <None Include="Resources\scoreIcon.gif" />
-    <None Include="Resources\scoreIcon1.gif" />
     <Content Include="src\database\classement.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -307,8 +303,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\fragment.gif" />
-    <None Include="Resources\hp-1.png" />
-    <None Include="Resources\hp.png" />
     <None Include="Resources\death-fragment.gif" />
     <Content Include="Resources\portal.gif" />
     <None Include="Resources\standardGif128.gif" />

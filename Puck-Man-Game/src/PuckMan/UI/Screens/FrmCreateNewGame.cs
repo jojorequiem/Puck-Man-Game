@@ -49,28 +49,22 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             bool entreePseudo = !string.IsNullOrEmpty(TxtBoxPseudo.Text) && TxtBoxPseudo.Text.Length > 0;
             bool difficulteChoisie = ChkDifficulteFacile.Checked || ChkDifficulteNormal.Checked || ChkDifficulteDifficile.Checked;
-
-            if (!entreePseudo && !difficulteChoisie)
-            {
-                LblAlertPartie.Text = "Vous devez entrer un pseudo et sélectionner une difficulté.";
-                LblAlertPartie.ForeColor = Color.Red;
-                return;
-            }
+            
+            bool willReturn = false;
             if (!entreePseudo)
             {
-                LblAlertPartie.Text = "Vous devez entrer un pseudo.";
-                LblAlertPartie.ForeColor = Color.Red;
-                return;
+                LblAlertPseudo.Text = "Vous devez entrer un pseudo.";
+                LblAlertPseudo.ForeColor = Color.Red;
+                willReturn = true;
             }
 
-          
             if (!difficulteChoisie)
             {
                 LblAlertPartie.Text = "Vous devez sélectionner une difficulté.";
                 LblAlertPartie.ForeColor = Color.Red;
-                return;
-
+                willReturn = true;
             }
+            if (willReturn) return;
 
            
             LblAlertPartie.Text = "";
