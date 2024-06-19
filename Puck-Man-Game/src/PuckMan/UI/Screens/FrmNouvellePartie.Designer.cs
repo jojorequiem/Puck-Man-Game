@@ -119,11 +119,11 @@
             // 
             this.LblPseudo.AutoSize = true;
             this.LblPseudo.BackColor = System.Drawing.Color.Transparent;
-            this.LblPseudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.LblPseudo.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPseudo.ForeColor = System.Drawing.Color.White;
-            this.LblPseudo.Location = new System.Drawing.Point(711, 22);
+            this.LblPseudo.Location = new System.Drawing.Point(707, 29);
             this.LblPseudo.Name = "LblPseudo";
-            this.LblPseudo.Size = new System.Drawing.Size(96, 29);
+            this.LblPseudo.Size = new System.Drawing.Size(90, 23);
             this.LblPseudo.TabIndex = 7;
             this.LblPseudo.Text = "Pseudo";
             // 
@@ -134,7 +134,7 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.BackgroundImage = global::Puck_Man_Game.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 603);
+            this.ClientSize = new System.Drawing.Size(882, 604);
             this.Controls.Add(this.LblPseudo);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

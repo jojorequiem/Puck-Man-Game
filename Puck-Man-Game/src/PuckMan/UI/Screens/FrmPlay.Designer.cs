@@ -77,9 +77,9 @@
             // lblTitreMenuPrincipal
             // 
             this.lblTitreMenuPrincipal.BackColor = System.Drawing.Color.Black;
-            this.lblTitreMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitreMenuPrincipal.Font = new System.Drawing.Font("Minecraft", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitreMenuPrincipal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(91, 42);
+            this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(91, 45);
             this.lblTitreMenuPrincipal.Name = "lblTitreMenuPrincipal";
             this.lblTitreMenuPrincipal.Size = new System.Drawing.Size(700, 94);
             this.lblTitreMenuPrincipal.TabIndex = 15;

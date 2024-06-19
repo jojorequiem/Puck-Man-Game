@@ -21,7 +21,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             InitializeComponent();
             ReinitialiseDisplay();
         }
-    
+
+        private void FrmCreateNewGame_Shown(object sender, EventArgs e)
+        {
+            TxtBoxPseudo.Focus();
+        }
+
         private void ChkDifficulteFacile_CheckedChanged(object sender, EventArgs e)
         {
             if (ChkDifficulteFacile.Checked)
@@ -43,6 +48,14 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private void BtnSauvegarder_Click(object sender, EventArgs e)
         {
             bool entreePseudo = !string.IsNullOrEmpty(TxtBoxPseudo.Text) && TxtBoxPseudo.Text.Length > 0;
+            bool difficulteChoisie = ChkDifficulteFacile.Checked || ChkDifficulteNormal.Checked || ChkDifficulteDifficile.Checked;
+
+            if (!entreePseudo && !difficulteChoisie)
+            {
+                LblAlertPartie.Text = "Vous devez entrer un pseudo et sélectionner une difficulté.";
+                LblAlertPartie.ForeColor = Color.Red;
+                return;
+            }
             if (!entreePseudo)
             {
                 LblAlertPartie.Text = "Vous devez entrer un pseudo.";
@@ -50,18 +63,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 return;
             }
 
-            bool difficulteChoisie = ChkDifficulteFacile.Checked || ChkDifficulteNormal.Checked || ChkDifficulteDifficile.Checked;
+          
             if (!difficulteChoisie)
             {
                 LblAlertPartie.Text = "Vous devez sélectionner une difficulté.";
                 LblAlertPartie.ForeColor = Color.Red;
                 return;
-                
+
             }
 
+           
             LblAlertPartie.Text = "";
             {
-            if (Program.FrmNouvellePartie != null)
+                if (Program.FrmNouvellePartie != null)
                 {
                     //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
                     Program.FrmNouvellePartie.FormClosing -= Program.FrmNouvellePartie.FormComponent_FormClosing;
@@ -89,6 +103,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             LblAlertPartie.Text = "";
             ChkDifficulteFacile.Checked = ChkDifficulteDifficile.Checked = false;
             ChkDifficulteNormal.Checked = true;
+            TxtBoxPseudo.Focus();
         }
 
         private void BtnRetour_Click(object sender, EventArgs e)
@@ -116,5 +131,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             else
                 LblAlertPseudo.Text = "";
         }
+
     }
 }

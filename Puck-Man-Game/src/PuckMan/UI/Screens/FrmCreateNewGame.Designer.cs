@@ -1,4 +1,6 @@
-﻿namespace Puck_Man_Game.src.PuckMan.UI.Screens
+﻿using System;
+
+namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     partial class FrmCreateNewGame
     {
@@ -32,6 +34,7 @@
             this.BtnRetour = new System.Windows.Forms.Button();
             this.BtnNouvellePartie = new System.Windows.Forms.Button();
             this.GrpPartie = new System.Windows.Forms.GroupBox();
+            this.LblPseudo = new System.Windows.Forms.Label();
             this.LblAlertPseudo = new System.Windows.Forms.Label();
             this.TxtBoxPseudo = new System.Windows.Forms.TextBox();
             this.LblAlertPartie = new System.Windows.Forms.Label();
@@ -67,6 +70,7 @@
             // 
             // GrpPartie
             // 
+            this.GrpPartie.Controls.Add(this.LblPseudo);
             this.GrpPartie.Controls.Add(this.LblAlertPseudo);
             this.GrpPartie.Controls.Add(this.TxtBoxPseudo);
             this.GrpPartie.Controls.Add(this.LblAlertPartie);
@@ -82,34 +86,46 @@
             this.GrpPartie.TabStop = false;
             this.GrpPartie.Text = "Partie";
             // 
+            // LblPseudo
+            // 
+            this.LblPseudo.AutoSize = true;
+            this.LblPseudo.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPseudo.Location = new System.Drawing.Point(17, 51);
+            this.LblPseudo.Name = "LblPseudo";
+            this.LblPseudo.Size = new System.Drawing.Size(108, 23);
+            this.LblPseudo.TabIndex = 12;
+            this.LblPseudo.Text = "PSEUDO";
+            // 
             // LblAlertPseudo
             // 
             this.LblAlertPseudo.AutoSize = true;
-            this.LblAlertPseudo.Location = new System.Drawing.Point(19, 95);
+            this.LblAlertPseudo.Font = new System.Drawing.Font("Minecraft", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAlertPseudo.ForeColor = System.Drawing.Color.Red;
+            this.LblAlertPseudo.Location = new System.Drawing.Point(19, 98);
             this.LblAlertPseudo.Name = "LblAlertPseudo";
-            this.LblAlertPseudo.Size = new System.Drawing.Size(23, 17);
+            this.LblAlertPseudo.Size = new System.Drawing.Size(96, 19);
             this.LblAlertPseudo.TabIndex = 11;
-            this.LblAlertPseudo.Text = "   ";
+            this.LblAlertPseudo.Text = "ERREUR";
             // 
             // TxtBoxPseudo
             // 
-            this.TxtBoxPseudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBoxPseudo.Location = new System.Drawing.Point(22, 47);
+            this.TxtBoxPseudo.Font = new System.Drawing.Font("Minecraft", 13.14783F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBoxPseudo.Location = new System.Drawing.Point(150, 46);
             this.TxtBoxPseudo.Name = "TxtBoxPseudo";
-            this.TxtBoxPseudo.Size = new System.Drawing.Size(372, 32);
+            this.TxtBoxPseudo.Size = new System.Drawing.Size(372, 30);
             this.TxtBoxPseudo.TabIndex = 10;
             this.TxtBoxPseudo.TextChanged += new System.EventHandler(this.TxtPseudo_TextChanged);
             // 
             // LblAlertPartie
             // 
             this.LblAlertPartie.AutoSize = true;
-            this.LblAlertPartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.13913F);
+            this.LblAlertPartie.Font = new System.Drawing.Font("Minecraft", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblAlertPartie.ForeColor = System.Drawing.Color.Red;
-            this.LblAlertPartie.Location = new System.Drawing.Point(51, 225);
+            this.LblAlertPartie.Location = new System.Drawing.Point(19, 187);
             this.LblAlertPartie.Name = "LblAlertPartie";
-            this.LblAlertPartie.Size = new System.Drawing.Size(48, 26);
+            this.LblAlertPartie.Size = new System.Drawing.Size(96, 19);
             this.LblAlertPartie.TabIndex = 9;
-            this.LblAlertPartie.Text = "      ";
+            this.LblAlertPartie.Text = "ERREUR";
             // 
             // ChkDifficulteNormal
             // 
@@ -117,10 +133,10 @@
             this.ChkDifficulteNormal.BackColor = System.Drawing.Color.Transparent;
             this.ChkDifficulteNormal.Checked = true;
             this.ChkDifficulteNormal.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkDifficulteNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChkDifficulteNormal.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChkDifficulteNormal.Location = new System.Drawing.Point(400, 145);
             this.ChkDifficulteNormal.Name = "ChkDifficulteNormal";
-            this.ChkDifficulteNormal.Size = new System.Drawing.Size(120, 33);
+            this.ChkDifficulteNormal.Size = new System.Drawing.Size(112, 27);
             this.ChkDifficulteNormal.TabIndex = 6;
             this.ChkDifficulteNormal.Text = "Normal";
             this.ChkDifficulteNormal.UseVisualStyleBackColor = false;
@@ -130,10 +146,10 @@
             // 
             this.ChkDifficulteDifficile.AutoSize = true;
             this.ChkDifficulteDifficile.BackColor = System.Drawing.Color.Transparent;
-            this.ChkDifficulteDifficile.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChkDifficulteDifficile.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChkDifficulteDifficile.Location = new System.Drawing.Point(535, 145);
             this.ChkDifficulteDifficile.Name = "ChkDifficulteDifficile";
-            this.ChkDifficulteDifficile.Size = new System.Drawing.Size(123, 33);
+            this.ChkDifficulteDifficile.Size = new System.Drawing.Size(119, 27);
             this.ChkDifficulteDifficile.TabIndex = 5;
             this.ChkDifficulteDifficile.Text = "Difficile";
             this.ChkDifficulteDifficile.UseVisualStyleBackColor = false;
@@ -143,10 +159,10 @@
             // 
             this.ChkDifficulteFacile.AutoSize = true;
             this.ChkDifficulteFacile.BackColor = System.Drawing.Color.Transparent;
-            this.ChkDifficulteFacile.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChkDifficulteFacile.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChkDifficulteFacile.Location = new System.Drawing.Point(287, 145);
             this.ChkDifficulteFacile.Name = "ChkDifficulteFacile";
-            this.ChkDifficulteFacile.Size = new System.Drawing.Size(107, 33);
+            this.ChkDifficulteFacile.Size = new System.Drawing.Size(97, 27);
             this.ChkDifficulteFacile.TabIndex = 4;
             this.ChkDifficulteFacile.Text = "Facile";
             this.ChkDifficulteFacile.UseVisualStyleBackColor = false;
@@ -155,17 +171,17 @@
             // LblChoixDifficulte
             // 
             this.LblChoixDifficulte.AutoSize = true;
-            this.LblChoixDifficulte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblChoixDifficulte.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblChoixDifficulte.Location = new System.Drawing.Point(17, 146);
             this.LblChoixDifficulte.Name = "LblChoixDifficulte";
-            this.LblChoixDifficulte.Size = new System.Drawing.Size(249, 29);
+            this.LblChoixDifficulte.Size = new System.Drawing.Size(241, 23);
             this.LblChoixDifficulte.TabIndex = 3;
             this.LblChoixDifficulte.Text = "CHOIX DIFFICULTE";
             // 
             // lblTitreMenuPrincipal
             // 
             this.lblTitreMenuPrincipal.BackColor = System.Drawing.Color.Black;
-            this.lblTitreMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitreMenuPrincipal.Font = new System.Drawing.Font("Minecraft", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitreMenuPrincipal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTitreMenuPrincipal.Location = new System.Drawing.Point(91, 42);
             this.lblTitreMenuPrincipal.Name = "lblTitreMenuPrincipal";
@@ -180,7 +196,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 603);
+            this.ClientSize = new System.Drawing.Size(882, 604);
             this.Controls.Add(this.lblTitreMenuPrincipal);
             this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.BtnNouvellePartie);
@@ -192,6 +208,7 @@
             this.Name = "FrmCreateNewGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNewGame";
+            this.Shown += new System.EventHandler(this.FrmCreateNewGame_Shown);
             this.GrpPartie.ResumeLayout(false);
             this.GrpPartie.PerformLayout();
             this.ResumeLayout(false);
@@ -210,5 +227,6 @@
         private System.Windows.Forms.Label lblTitreMenuPrincipal;
         private System.Windows.Forms.TextBox TxtBoxPseudo;
         private System.Windows.Forms.Label LblAlertPseudo;
+        private System.Windows.Forms.Label LblPseudo;
     }
 }
