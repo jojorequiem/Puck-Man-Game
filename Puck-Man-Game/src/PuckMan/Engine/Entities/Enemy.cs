@@ -114,7 +114,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                     Image.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
                     isFacingRight = false;
                 }
-
+                Image.BringToFront();
                 Maze.Entities[X, Y] = this;
             }
         }
@@ -149,7 +149,6 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
             previousDirection = new Point(0, 0);
             lastAttackTime = new Dictionary<Enemy, DateTime>();
             attackCooldown = TimeSpan.FromSeconds(2);
-            Image.BringToFront();
         }
     }
 
@@ -168,7 +167,6 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
             previousDirection = new Point(0, 0);
             lastAttackTime = new Dictionary<Enemy, DateTime>();
             attackCooldown = TimeSpan.FromSeconds(2);
-            Image.BringToFront();
         }
     }
 

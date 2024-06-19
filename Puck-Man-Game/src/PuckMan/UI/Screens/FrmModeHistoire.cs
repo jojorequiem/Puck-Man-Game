@@ -81,7 +81,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             //renvoit le niveau actuel de la partie game (partie 1, 2 ou 3)
             string[] lines = File.ReadAllLines(chemin, Encoding.UTF8);
-            Debug.WriteLine(lines[game - 1]);
             return int.Parse(lines[game - 1]);
         }
 
@@ -89,9 +88,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             string[] lines = File.ReadAllLines(chemin, Encoding.UTF8);
             lines[game - 1] = (value).ToString();
-            for(int i = 0; i < lines.Length; i++)
-                Debug.WriteLine(lines[i]);
-            Debug.WriteLine("");
             File.WriteAllLines(chemin, lines, Encoding.UTF8);
         }
 

@@ -271,12 +271,8 @@ namespace src.PuckMan.Game.Levels
 
         }
 
-
-
-        //MATRIX CODE -----------------------------------------------------------------------------------------------------
         public void MazeGenerationFromMatrix(int niveau)
         {
-            Debug.Write(niveau);
             string filePath = "src/database/matricesNiveaux.txt";
             if (File.Exists(filePath))
             {

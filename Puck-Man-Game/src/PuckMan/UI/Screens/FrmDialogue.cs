@@ -47,7 +47,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 LblTitre.Text = lines[0];
                 GenererDialogue(lines[1]);
             }
-            else { Debug.WriteLine(filePath + "was not found"); }
 
             FlowPanel.FlowDirection = FlowDirection.TopDown;
             FlowPanel.WrapContents = false;
@@ -81,7 +80,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 string filePath = "assets/dialogue/" + Chapitre;
                 if (File.Exists(filePath))
                 {
-                    Debug.WriteLine(filePath + "ouvert");
                     nbrLine++;
                     string[] lines = File.ReadAllLines(filePath, Encoding.UTF8);
                     if (nbrLine + 1 > lines.Count())

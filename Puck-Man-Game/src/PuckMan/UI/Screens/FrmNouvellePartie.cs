@@ -49,7 +49,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             P1 = new Player("joueur", nbrHp, maze.startX * Maze.cellSize, maze.startY * Maze.cellSize, maze);
             maze.Entities[maze.startX * Maze.cellSize, maze.startY * Maze.cellSize] = P1;
 
-            this.BackgroundImage = Properties.Resources.background;
             if (ModeHistoire)
             {
                 Program.PlayMusic("assets/audio/musiqueNiveau" + NiveauActuel + ".mp3");
