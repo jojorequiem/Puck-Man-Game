@@ -85,7 +85,7 @@
             // 
             this.TrackBarMain.BackColor = System.Drawing.Color.Black;
             this.TrackBarMain.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TrackBarMain.Location = new System.Drawing.Point(313, 163);
+            this.TrackBarMain.Location = new System.Drawing.Point(324, 163);
             this.TrackBarMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TrackBarMain.Name = "TrackBarMain";
             this.TrackBarMain.Size = new System.Drawing.Size(390, 53);
@@ -96,37 +96,37 @@
             // 
             this.LblMusicVolume.AutoSize = true;
             this.LblMusicVolume.BackColor = System.Drawing.Color.Black;
-            this.LblMusicVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.LblMusicVolume.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMusicVolume.ForeColor = System.Drawing.Color.White;
             this.LblMusicVolume.Location = new System.Drawing.Point(96, 262);
             this.LblMusicVolume.Name = "LblMusicVolume";
-            this.LblMusicVolume.Size = new System.Drawing.Size(211, 30);
+            this.LblMusicVolume.Size = new System.Drawing.Size(185, 23);
             this.LblMusicVolume.TabIndex = 16;
-            this.LblMusicVolume.Text = "Volume Musique:";
+            this.LblMusicVolume.Text = "Volume Musique";
             // 
             // LblSoundVolume
             // 
             this.LblSoundVolume.AutoSize = true;
             this.LblSoundVolume.BackColor = System.Drawing.Color.Black;
-            this.LblSoundVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.LblSoundVolume.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblSoundVolume.ForeColor = System.Drawing.Color.White;
             this.LblSoundVolume.Location = new System.Drawing.Point(96, 347);
             this.LblSoundVolume.Name = "LblSoundVolume";
-            this.LblSoundVolume.Size = new System.Drawing.Size(159, 30);
+            this.LblSoundVolume.Size = new System.Drawing.Size(143, 23);
             this.LblSoundVolume.TabIndex = 15;
-            this.LblSoundVolume.Text = "Volume Son:";
+            this.LblSoundVolume.Text = "Volume Son";
             // 
             // LblMainVolume
             // 
             this.LblMainVolume.AutoSize = true;
             this.LblMainVolume.BackColor = System.Drawing.Color.Black;
-            this.LblMainVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.LblMainVolume.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMainVolume.ForeColor = System.Drawing.Color.White;
             this.LblMainVolume.Location = new System.Drawing.Point(96, 170);
             this.LblMainVolume.Name = "LblMainVolume";
-            this.LblMainVolume.Size = new System.Drawing.Size(227, 30);
+            this.LblMainVolume.Size = new System.Drawing.Size(216, 23);
             this.LblMainVolume.TabIndex = 14;
-            this.LblMainVolume.Text = "Volume Principale:";
+            this.LblMainVolume.Text = "Volume Principale";
             // 
             // BtnRetour
             // 
@@ -156,7 +156,7 @@
             // 
             this.TrackBarMusic.BackColor = System.Drawing.Color.Black;
             this.TrackBarMusic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TrackBarMusic.Location = new System.Drawing.Point(313, 254);
+            this.TrackBarMusic.Location = new System.Drawing.Point(325, 251);
             this.TrackBarMusic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TrackBarMusic.Name = "TrackBarMusic";
             this.TrackBarMusic.Size = new System.Drawing.Size(390, 53);
@@ -168,7 +168,7 @@
             this.TrackBarSound.BackColor = System.Drawing.Color.Black;
             this.TrackBarSound.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TrackBarSound.LargeChange = 1;
-            this.TrackBarSound.Location = new System.Drawing.Point(313, 340);
+            this.TrackBarSound.Location = new System.Drawing.Point(324, 339);
             this.TrackBarSound.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TrackBarSound.Name = "TrackBarSound";
             this.TrackBarSound.Size = new System.Drawing.Size(390, 53);
@@ -195,6 +195,7 @@
             this.Controls.Add(this.TrackBarSound);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);

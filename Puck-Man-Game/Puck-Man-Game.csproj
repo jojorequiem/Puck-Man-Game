@@ -293,6 +293,7 @@
     <Content Include="Resources\egare.png" />
     <Content Include="Resources\hp.gif" />
     <None Include="Resources\lab.png" />
+    <None Include="Resources\icon_game.ico" />
     <Content Include="Resources\mort.png" />
     <Content Include="Resources\murModeInfini.png" />
     <None Include="Resources\title.png" />

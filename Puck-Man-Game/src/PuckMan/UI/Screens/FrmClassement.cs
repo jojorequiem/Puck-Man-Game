@@ -28,11 +28,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
     
         public void DisplayClassement()
         {
-            // reinitialiser DgvClassement
+            // Réinitialiser DgvClassement
             DgvClassement.Rows.Clear();
             DgvClassement.Columns.Clear();
 
-            // afficher les données
+            // Afficher les données
             DgvClassement.ColumnCount = 2;
             DgvClassement.Columns[0].Name = "Pseudo";
             DgvClassement.Columns[1].Name = "Score";
@@ -54,6 +54,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
             // Ajuster les colonnes pour remplir l'espace disponible
             DgvClassement.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // Trier la colonne "Score" en ordre décroissant
+            DgvClassement.Sort(DgvClassement.Columns["Score"], ListSortDirection.Descending);
         }
 
         private void btnRetour_Click(object sender, EventArgs e)

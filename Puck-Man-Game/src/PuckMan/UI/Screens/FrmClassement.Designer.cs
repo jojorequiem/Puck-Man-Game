@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClassement));
             this.BtnRetour = new System.Windows.Forms.Button();
             this.LblTitreClassement = new System.Windows.Forms.Label();
@@ -48,7 +50,7 @@
             // LblTitreClassement
             // 
             this.LblTitreClassement.BackColor = System.Drawing.Color.Black;
-            this.LblTitreClassement.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitreClassement.Font = new System.Drawing.Font("Minecraft", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitreClassement.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LblTitreClassement.Location = new System.Drawing.Point(92, 42);
             this.LblTitreClassement.Name = "LblTitreClassement";
@@ -59,13 +61,36 @@
             // 
             // DgvClassement
             // 
-            this.DgvClassement.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.DgvClassement.AllowUserToAddRows = false;
+            this.DgvClassement.AllowUserToDeleteRows = false;
+            this.DgvClassement.AllowUserToOrderColumns = true;
+            this.DgvClassement.AllowUserToResizeColumns = false;
+            this.DgvClassement.AllowUserToResizeRows = false;
+            this.DgvClassement.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Minecraft", 11.89565F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvClassement.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvClassement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvClassement.Location = new System.Drawing.Point(92, 180);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Minecraft", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvClassement.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvClassement.GridColor = System.Drawing.Color.White;
+            this.DgvClassement.Location = new System.Drawing.Point(92, 160);
             this.DgvClassement.Name = "DgvClassement";
+            this.DgvClassement.ReadOnly = true;
             this.DgvClassement.RowHeadersWidth = 51;
             this.DgvClassement.RowTemplate.Height = 24;
-            this.DgvClassement.Size = new System.Drawing.Size(700, 220);
+            this.DgvClassement.Size = new System.Drawing.Size(700, 233);
             this.DgvClassement.TabIndex = 11;
             // 
             // FrmClassement
@@ -74,12 +99,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 603);
+            this.ClientSize = new System.Drawing.Size(882, 604);
             this.Controls.Add(this.DgvClassement);
             this.Controls.Add(this.LblTitreClassement);
             this.Controls.Add(this.BtnRetour);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmClassement";

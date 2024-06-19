@@ -28,6 +28,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             AutoScaleMode = AutoScaleMode.None;
             ChangeAllTextColors(this);
+            this.Icon = Puck_Man_Game.Properties.Resources.iconGame;
             if (this is FrmNouvellePartie)
             {
                 this.BackgroundImage = Puck_Man_Game.Properties.Resources.background;
