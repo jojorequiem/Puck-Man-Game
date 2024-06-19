@@ -35,36 +35,61 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             previousDirection = new Point(0, 0);
             moveEnemyTimer.Start();
-            switch (name)
+        }
+
+        public void Move()
+        {
+            List<Point> possibleMoves = new List<Point>();
+            foreach (Point direction in GetPossibleDirections())
             {
-                case "Égaré Confus":
-                    Damage = 1;
-                    break;
-                case "Égaré Standard":
-                    Damage = 1;
-                    break;
-                case "Égaré Éclaireur":
-                    Damage = 1;
-                    break;
-                case "Égaré Spectral":
-                    Damage = 1;
-                    break;
-                case "Égaré Berserker":
-                    Damage = 2;
-                    break;
-                case "Égaré Enchanteur":
-                    Damage = 1;
-                    break;
-                case "Système 0":
-                    Damage = 3;
-                    break;
-                case "Système":
-                    Damage = 4;
-                    break;
+                if (!CheckWallCollision(direction.X * Maze.cellSize, direction.Y * Maze.cellSize))
+                    possibleMoves.Add(direction);
+            }
+
+            bool dontMove = false;
+            if (possibleMoves.Count > 0)
+            {
+                // Exclure la direction opposée à la précédente pour éviter les allers-retours
+                Point oppositePreviousDirection = new Point(-previousDirection.X, -previousDirection.Y);
+                possibleMoves.Remove(oppositePreviousDirection);
+
+                // Si après avoir exclu la direction opposée, il n'y a plus de mouvements possibles
+                if (possibleMoves.Count == 0)
+                    possibleMoves.Add(oppositePreviousDirection); // Réajouter la direction opposée
+
+                Random random = new Random();
+                Point selectedMove = possibleMoves[random.Next(possibleMoves.Count)];
+                // Chercher une case qui n'est pas déjà occupée
+                while (possibleMoves.Count > 0 && (Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize] != null))
+                {
+                    var targetEntity = Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize];
+                    if (targetEntity is Player player &&
+                        (!lastAttackTime.ContainsKey(this) || DateTime.Now - lastAttackTime[this] > attackCooldown))
+                    {
+                        player.DamageReceived(Damage);
+                        dontMove = true;
+                        lastAttackTime[this] = DateTime.Now;
+                    }
+                    possibleMoves.Remove(selectedMove);
+                    if (possibleMoves.Count > 0)
+                        selectedMove = possibleMoves[random.Next(possibleMoves.Count)];
+                }
+
+                // Si après avoir exclu la direction opposée, il n'y a plus de mouvements possibles
+                if (possibleMoves.Count == 0)
+                    selectedMove = oppositePreviousDirection; // Réajouter la direction opposée
+
+                if (!dontMove && Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize] == null)
+                {
+                    MoveEnemy(selectedMove.X * Maze.cellSize, selectedMove.Y * Maze.cellSize);
+                    previousDirection = selectedMove;
+                }
             }
         }
 
-        public abstract void Move();
+
+
+
 
         public void MoveEnemyTimer_Tick(object sender, EventArgs e)
         {
@@ -118,7 +143,6 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         }
     }
 
-    
     public class BerserkerEnemy : Enemy
     {
         private new Point previousDirection;
@@ -129,72 +153,20 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         {
             Damage = 3;
             Image.Image = Puck_Man_Game.Properties.Resources.berserker;
-            moveEnemyTimer = new Timer { Interval = 90 };
+            moveEnemyTimer = new Timer { Interval = 150 };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();
             previousDirection = new Point(0, 0);
             lastAttackTime = new Dictionary<Enemy, DateTime>();
             attackCooldown = TimeSpan.FromSeconds(2);
         }
-
-        public override void Move()
-        {
-            List<Point> possibleMoves = new List<Point>();
-            foreach (Point direction in GetPossibleDirections())
-            {
-                if (!CheckWallCollision(direction.X * Maze.cellSize, direction.Y * Maze.cellSize))
-                    possibleMoves.Add(direction);
-            }
-
-            bool dontMove = false;
-            if (possibleMoves.Count > 0)
-            {
-                // Exclure la direction opposée à la précédente pour éviter les allers-retours
-                Point oppositePreviousDirection = new Point(-previousDirection.X, -previousDirection.Y);
-                possibleMoves.Remove(oppositePreviousDirection);
-
-                // Si après avoir exclu la direction opposée, il n'y a plus de mouvements possibles
-                if (possibleMoves.Count == 0)
-                    possibleMoves.Add(oppositePreviousDirection); // Réajouter la direction opposée
-
-                Random random = new Random();
-                Point selectedMove = possibleMoves[random.Next(possibleMoves.Count)];
-                // Chercher une case qui n'est pas déjà occupée
-                while (possibleMoves.Count > 0 && (Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize] != null))
-                {
-                    var targetEntity = Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize];
-                    if (targetEntity is Player player &&
-                        (!lastAttackTime.ContainsKey(this) || DateTime.Now - lastAttackTime[this] > attackCooldown))
-                    {
-                        player.DamageReceived(Damage);
-                        dontMove = true;
-                        lastAttackTime[this] = DateTime.Now;
-                    }
-                    possibleMoves.Remove(selectedMove);
-                    if (possibleMoves.Count > 0)
-                        selectedMove = possibleMoves[random.Next(possibleMoves.Count)];
-                }
-
-                // Si après avoir exclu la direction opposée, il n'y a plus de mouvements possibles
-                if (possibleMoves.Count == 0)
-                    selectedMove = oppositePreviousDirection; // Réajouter la direction opposée
-
-                if (!dontMove && Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize] == null)
-                {
-                    MoveEnemy(selectedMove.X * Maze.cellSize, selectedMove.Y * Maze.cellSize);
-                    previousDirection = selectedMove;
-                }
-            }
-        }
     }
-
 
     public class ConfusedEnemy : Enemy
     {
         private new Point previousDirection;
         private readonly Dictionary<Enemy, DateTime> lastAttackTime;
         private readonly TimeSpan attackCooldown;
-
         public ConfusedEnemy(int x, int y, Maze maze) : base("Égaré Confus", x, y, maze)
         {
             Damage = 1;
@@ -205,56 +177,6 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
             previousDirection = new Point(0, 0);
             lastAttackTime = new Dictionary<Enemy, DateTime>();
             attackCooldown = TimeSpan.FromSeconds(2);
-        }
-
-        public override void Move()
-        {
-            List<Point> possibleMoves = new List<Point>();
-            foreach (Point direction in GetPossibleDirections())
-            {
-                if (!CheckWallCollision(direction.X * Maze.cellSize, direction.Y * Maze.cellSize))
-                    possibleMoves.Add(direction);
-            }
-
-            bool dontMove = false;
-            if (possibleMoves.Count > 0)
-            {
-                // Exclure la direction opposée à la précédente pour éviter les allers-retours
-                Point oppositePreviousDirection = new Point(-previousDirection.X, -previousDirection.Y);
-                possibleMoves.Remove(oppositePreviousDirection);
-
-                // Si après avoir exclu la direction opposée, il n'y a plus de mouvements possibles
-                if (possibleMoves.Count == 0)
-                    possibleMoves.Add(oppositePreviousDirection); // Réajouter la direction opposée
-
-                Random random = new Random();
-                Point selectedMove = possibleMoves[random.Next(possibleMoves.Count)];
-                // Chercher une case qui n'est pas déjà occupée
-                while (possibleMoves.Count > 0 && (Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize] != null))
-                {
-                    var targetEntity = Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize];
-                    if (targetEntity is Player player &&
-                        (!lastAttackTime.ContainsKey(this) || DateTime.Now - lastAttackTime[this] > attackCooldown))
-                    {
-                        player.DamageReceived(Damage);
-                        dontMove = true;
-                        lastAttackTime[this] = DateTime.Now;
-                    }
-                    possibleMoves.Remove(selectedMove);
-                    if (possibleMoves.Count > 0)
-                        selectedMove = possibleMoves[random.Next(possibleMoves.Count)];
-                }
-
-                // Si après avoir exclu la direction opposée, il n'y a plus de mouvements possibles
-                if (possibleMoves.Count == 0)
-                    selectedMove = oppositePreviousDirection; // Réajouter la direction opposée
-
-                if (!dontMove && Maze.Entities[X + selectedMove.X * Maze.cellSize, Y + selectedMove.Y * Maze.cellSize] == null)
-                {
-                    MoveEnemy(selectedMove.X * Maze.cellSize, selectedMove.Y * Maze.cellSize);
-                    previousDirection = selectedMove;
-                }
-            }
         }
     }
 

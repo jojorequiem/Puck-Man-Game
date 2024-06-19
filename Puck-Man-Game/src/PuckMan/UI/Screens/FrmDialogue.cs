@@ -103,13 +103,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             if (NiveauFini)
             {
-                //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
-                Program.FrmDialogue.FormClosing -= Program.FrmDialogue.FormComponent_FormClosing;
+                if (NiveauActuel >= 5)
+                    Program.ChangeActiveForm(Program.FrmMenu, this);
+                else
+                {
+                    //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
+                    Program.FrmDialogue.FormClosing -= Program.FrmDialogue.FormComponent_FormClosing;
 
-                this.Dispose();
-                this.Close();
-                Program.FrmDialogue = new FrmDialogue(NiveauActuel, false);
-                Program.ChangeActiveForm(Program.FrmDialogue, this);
+                    this.Dispose();
+                    this.Close();
+                    Program.FrmDialogue = new FrmDialogue(NiveauActuel, false);
+                    Program.ChangeActiveForm(Program.FrmDialogue, this);
+                }
+
             }
             else
             {
