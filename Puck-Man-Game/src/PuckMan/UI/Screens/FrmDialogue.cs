@@ -61,7 +61,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 Text = dialogue,
                 AutoSize = true,
                 MaximumSize = new Size(500, 0), // Largeur maximale, hauteur automatique
-                Font = new System.Drawing.Font("Minecraft", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                Font = new System.Drawing.Font("Minecraft", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 BackColor = Color.Transparent,
                 Margin = new Padding(0, 0, 0, 15) // Ajouter une marge pour l'espacement
             };

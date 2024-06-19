@@ -80,7 +80,7 @@
             this.FlowPanel.AutoSize = true;
             this.FlowPanel.BackColor = System.Drawing.Color.Black;
             this.FlowPanel.Font = new System.Drawing.Font("Minecraft", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FlowPanel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FlowPanel.ForeColor = System.Drawing.Color.White;
             this.FlowPanel.Location = new System.Drawing.Point(20, 20);
             this.FlowPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FlowPanel.Name = "FlowPanel";
