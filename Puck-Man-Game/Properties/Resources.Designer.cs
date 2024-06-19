@@ -293,6 +293,26 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap skullIcon {
+            get {
+                object obj = ResourceManager.GetObject("skullIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap skullIcon1 {
+            get {
+                object obj = ResourceManager.GetObject("skullIcon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap standardGif128 {
             get {
                 object obj = ResourceManager.GetObject("standardGif128", resourceCulture);

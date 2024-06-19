@@ -44,10 +44,10 @@
             // 
             this.PctDeathLogo.BackColor = System.Drawing.Color.Transparent;
             this.PctDeathLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PctDeathLogo.Image = global::Puck_Man_Game.Properties.Resources.deadSkullIcon;
-            this.PctDeathLogo.Location = new System.Drawing.Point(377, 156);
+            this.PctDeathLogo.Image = global::Puck_Man_Game.Properties.Resources.skullIcon1;
+            this.PctDeathLogo.Location = new System.Drawing.Point(361, 137);
             this.PctDeathLogo.Name = "PctDeathLogo";
-            this.PctDeathLogo.Size = new System.Drawing.Size(128, 128);
+            this.PctDeathLogo.Size = new System.Drawing.Size(160, 160);
             this.PctDeathLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PctDeathLogo.TabIndex = 1;
             this.PctDeathLogo.TabStop = false;
@@ -70,7 +70,7 @@
             this.LblScore.BackColor = System.Drawing.Color.Transparent;
             this.LblScore.Font = new System.Drawing.Font("Minecraft", 20.03478F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblScore.ForeColor = System.Drawing.Color.White;
-            this.LblScore.Location = new System.Drawing.Point(395, 322);
+            this.LblScore.Location = new System.Drawing.Point(395, 334);
             this.LblScore.Name = "LblScore";
             this.LblScore.Size = new System.Drawing.Size(122, 32);
             this.LblScore.TabIndex = 13;
@@ -82,7 +82,7 @@
             this.LblValeurScore.BackColor = System.Drawing.Color.Transparent;
             this.LblValeurScore.Font = new System.Drawing.Font("Minecraft", 20.03478F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblValeurScore.ForeColor = System.Drawing.Color.White;
-            this.LblValeurScore.Location = new System.Drawing.Point(519, 322);
+            this.LblValeurScore.Location = new System.Drawing.Point(523, 334);
             this.LblValeurScore.Name = "LblValeurScore";
             this.LblValeurScore.Size = new System.Drawing.Size(33, 32);
             this.LblValeurScore.TabIndex = 14;
@@ -117,7 +117,7 @@
             this.PcbScore.BackColor = System.Drawing.Color.Transparent;
             this.PcbScore.Image = global::Puck_Man_Game.Properties.Resources.scoreIcon1;
             this.PcbScore.InitialImage = ((System.Drawing.Image)(resources.GetObject("PcbScore.InitialImage")));
-            this.PcbScore.Location = new System.Drawing.Point(327, 290);
+            this.PcbScore.Location = new System.Drawing.Point(316, 300);
             this.PcbScore.Name = "PcbScore";
             this.PcbScore.Size = new System.Drawing.Size(62, 77);
             this.PcbScore.TabIndex = 17;
