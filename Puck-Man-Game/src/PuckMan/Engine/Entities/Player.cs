@@ -194,7 +194,6 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         {
             if (!Disposed)
             {
-                Program.PlaySound("assets/audio/dead.wav");
                 Disposed = true;
                 if (Maze.MazeForm.ModeHistoire)
                 {
