@@ -43,6 +43,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             {
                 nbrLine++;
                 string[] lines = File.ReadAllLines(filePath, Encoding.UTF8);
+                
                 //affiche le titre et le premier dialogue
                 LblTitre.Text = lines[0];
                 GenererDialogue(lines[1]);

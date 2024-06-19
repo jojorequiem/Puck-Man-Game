@@ -17,7 +17,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private int niveauPartie1;
         private int niveauPartie2;
         private int niveauPartie3;
-        static private string chemin = "src/database/modeHistoire.txt";
+        static private readonly string chemin = "src/database/modeHistoire.txt";
         public FrmModeHistoire() : base()
         {
             InitializeComponent();
@@ -47,17 +47,17 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 AfficherBoutonsPartieSupprimer(BtnGame3, BtnDelete3);
 
             // si le joueur a complété tout les chapitres
-            if (niveauPartie1 >= 5)
+            if (niveauPartie1 > 5)
             {
                 AfficherBoutonsPartieExistante(BtnGame1, BtnDelete1, "A SUIVRE ...");
                 BtnGame1.Enabled = false;
             }
-            if (niveauPartie2 >= 5)
+            if (niveauPartie2 > 5)
             {
                 AfficherBoutonsPartieExistante(BtnGame2, BtnDelete2, "A SUIVRE ...");
                 BtnGame2.Enabled = false;
             }
-            if (niveauPartie3 >= 5)
+            if (niveauPartie3 > 5)
             {
                 AfficherBoutonsPartieExistante(BtnGame3, BtnDelete3, "A SUIVRE ...");
                 BtnGame3.Enabled = false;

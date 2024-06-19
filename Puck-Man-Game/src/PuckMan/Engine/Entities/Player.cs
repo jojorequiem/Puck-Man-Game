@@ -242,18 +242,19 @@ namespace Puck_Man_Game.src.PuckMan.Game.Entities
         public void PlayerKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
-            {
-                // mettre en pause le joueur et les ennemis
-                if (moveTimer.Enabled)
-                    moveTimer.Stop();
-                foreach (Enemy enemy in Maze.EnemyList)
-                    enemy.moveEnemyTimer.Stop();
+                Maze.MazeForm.NiveauSuivant();
+            //{
+            //    // mettre en pause le joueur et les ennemis
+            //    if (moveTimer.Enabled)
+            //        moveTimer.Stop();
+            //    foreach (Enemy enemy in Maze.EnemyList)
+            //        enemy.moveEnemyTimer.Stop();
 
-                if (Program.FrmPause == null)
-                    Program.FrmPause = new FrmPause(Maze.MazeForm);
-                Program.FrmPause.FormParent = Maze.MazeForm;
-                Program.ChangeActiveForm(Program.FrmPause, Maze.MazeForm);
-            }
+            //    if (Program.FrmPause == null)
+            //        Program.FrmPause = new FrmPause(Maze.MazeForm);
+            //    Program.FrmPause.FormParent = Maze.MazeForm;
+            //    Program.ChangeActiveForm(Program.FrmPause, Maze.MazeForm);
+            //}
         }
     }
 }
