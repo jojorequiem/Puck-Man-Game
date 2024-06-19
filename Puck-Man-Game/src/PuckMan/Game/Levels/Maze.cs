@@ -50,8 +50,8 @@ namespace src.PuckMan.Game.Levels
             FragmentList = new List<Collectable>();
 
             InitMaze();
-            if (form.ModeHistoire)
-                MazeGenerationFromMatrix(MazeForm.NiveauActuel);
+            if (form.StoryMod)
+                MazeGenerationFromMatrix(MazeForm.Level);
             else
                 MazeGenerationByDFS();
             DisplayMaze();
@@ -147,7 +147,7 @@ namespace src.PuckMan.Game.Levels
                     cell.IsWall = false;
                     cell.Image.Image = Puck_Man_Game.Properties.Resources.vide;
                     
-                    if (!MazeForm.ModeHistoire)
+                    if (!MazeForm.StoryMod)
                     {
                         //on génére une bordure de mur solide sur les côtés et un semi quadrillage
                         if ((x == 0 || x == width - 1 || y == 0 || y == height - 1)

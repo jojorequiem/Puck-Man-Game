@@ -113,7 +113,6 @@ namespace Puck_Man_Game.src.PuckMan.UI
             this.PcbTitle.Size = new System.Drawing.Size(498, 220);
             this.PcbTitle.TabIndex = 5;
             this.PcbTitle.TabStop = false;
-            this.PcbTitle.Click += new System.EventHandler(this.PcbTitle_Click);
             // 
             // FrmMenu
             // 

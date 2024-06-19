@@ -49,10 +49,5 @@ namespace Puck_Man_Game.src.PuckMan.UI
                 Program.FrmClassement = new FrmClassement();
             Program.ChangeActiveForm(Program.FrmClassement, this);
         }
-
-        private void PcbTitle_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -40,9 +40,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 this.BackgroundImageLayout = ImageLayout.Stretch;
             }
 
-            this.MinimumSize = new Size(Program.LargeurFenetre - 1, Program.HauteurFenetre - 1);
-            this.MaximumSize = new Size(Program.LargeurFenetre + 1, Program.HauteurFenetre +1);
-            this.ClientSize = new Size(Program.LargeurFenetre, Program.HauteurFenetre);
+            this.MinimumSize = new Size(Program.WindowWidth, Program.WindowHeight);
+            this.MaximumSize = new Size(Program.WindowWidth, Program.WindowHeight);
+            this.ClientSize = new Size(Program.WindowWidth, Program.WindowHeight);
         }
 
         private void ChangeAllTextColors(Control parent)
@@ -53,14 +53,17 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 {
                     control.ForeColor = Program.TextColor;
                     control.BackColor = Program.BackgroundColor;
-
-
                 }
+
+                if (control is CheckBox)
+                    control.Click += MyCheckBox_Click;
+
                 if (control is GroupBox)
                 {
                     control.BackColor = Color.Transparent;
                     control.ForeColor = Color.White;
                 }
+
                 if (control is Label)
                     control.BackColor = Color.Transparent;
 
@@ -129,7 +132,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private void MyButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-         
             if (button != null)
             {
                 button.BackColor = Color.Transparent;
@@ -140,11 +142,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void MyCheckBox_Click(object sender, EventArgs e)
         {
-            CheckBox checkbox = sender as CheckBox;
             Program.PlaySound("assets/audio/click.wav");
         }
-
-
 
         static private bool isClosed = false;
         public void FormComponent_FormClosing(object sender, FormClosingEventArgs e)

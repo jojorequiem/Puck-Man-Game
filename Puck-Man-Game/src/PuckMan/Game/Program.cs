@@ -17,8 +17,8 @@ namespace Puck_Man_Game
 {
     public static class Program
     {
-        public static int LargeurFenetre = 900;
-        public static int HauteurFenetre = 650;
+        public static int WindowWidth = 900;
+        public static int WindowHeight = 650;
         public static int MazeWidth = 17;
         public static int MazeHeight = 15;
 
@@ -27,9 +27,9 @@ namespace Puck_Man_Game
         public static Color ButtonColor = Color.SkyBlue;
 
         private static WindowsMediaPlayer music;
-        public static int VolumePrincipale;
-        public static int VolumeSon;
-        public static int VolumeMusique;
+        public static int MainVolume;
+        public static int SoundVolume;
+        public static int MusicVolume;
         public static string LastMusicPlayed = "";
         static public string menuMusicFilepath = "assets/audio/musiqueMenu.mp3";
         static public string transitionMusicFilepath = "assets/audio/musiqueTransition.mp3";
@@ -47,7 +47,7 @@ namespace Puck_Man_Game
         public static FrmParametres FrmParametres = null;
 
         public static int game;
-        public static int scoreJoueur = 0;
+        public static int score = 0;
 
         /// <summary>
         /// Point d'entrée principal de l'application.
@@ -56,9 +56,9 @@ namespace Puck_Man_Game
         static void Main()
         {
             string[] lines = File.ReadAllLines("src/database/parametre_audio.txt", Encoding.UTF8);
-            VolumePrincipale = int.Parse(lines[0]);
-            VolumeSon = int.Parse(lines[1]);
-            VolumeMusique = int.Parse(lines[2]);
+            MainVolume = int.Parse(lines[0]);
+            SoundVolume = int.Parse(lines[1]);
+            MusicVolume = int.Parse(lines[2]);
 
             PlayMusic(menuMusicFilepath);
             Application.EnableVisualStyles();
@@ -70,7 +70,7 @@ namespace Puck_Man_Game
 
         static public void UpdateVolume()
         {
-            music.settings.volume = VolumeMusique * VolumePrincipale;
+            music.settings.volume = MusicVolume * MainVolume;
         }
 
         static public void PlaySound(string path)
@@ -79,7 +79,7 @@ namespace Puck_Man_Game
             {
                 URL = path
             };
-            sound.settings.volume = VolumeSon * VolumePrincipale;
+            sound.settings.volume = SoundVolume * MainVolume;
             sound.controls.play();
         }
 
@@ -92,7 +92,7 @@ namespace Puck_Man_Game
                 URL = path
             };
             music.settings.setMode("loop", true);
-            music.settings.volume = VolumePrincipale * 10;
+            music.settings.volume = MainVolume * 10;
             music.controls.play();
         }
         static public void ChangeActiveForm(Form formulaire, Form parent)

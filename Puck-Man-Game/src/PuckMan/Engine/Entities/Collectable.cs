@@ -44,7 +44,7 @@ namespace Puck_Man_Game.src.PuckMan.Game
 
                 if (EntityName == "fragment")
                 {
-                    Program.scoreJoueur += 1;
+                    Program.score += 1;
                     Program.PlaySound("assets/audio/fragment.wav");
                     player.Maze.FragmentList.Remove(this);
                     Formulaire.UpdateFragmentdisplay();

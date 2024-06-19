@@ -15,7 +15,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public partial class FrmCreateNewGame : FormComponent
     {
-        public byte difficulte;
+        public byte difficulty;
         public FrmCreateNewGame()
         {
             InitializeComponent();
@@ -47,18 +47,18 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnSauvegarder_Click(object sender, EventArgs e)
         {
-            bool entreePseudo = !string.IsNullOrEmpty(TxtBoxPseudo.Text) && TxtBoxPseudo.Text.Length > 0;
-            bool difficulteChoisie = ChkDifficulteFacile.Checked || ChkDifficulteNormal.Checked || ChkDifficulteDifficile.Checked;
+            bool enterPseudo = !string.IsNullOrEmpty(TxtBoxPseudo.Text) && TxtBoxPseudo.Text.Length > 0;
+            bool ChoosedDifficulty = ChkDifficulteFacile.Checked || ChkDifficulteNormal.Checked || ChkDifficulteDifficile.Checked;
             
             bool willReturn = false;
-            if (!entreePseudo)
+            if (!enterPseudo)
             {
                 LblAlertPseudo.Text = "Vous devez entrer un pseudo.";
                 LblAlertPseudo.ForeColor = Color.Red;
                 willReturn = true;
             }
 
-            if (!difficulteChoisie)
+            if (!ChoosedDifficulty)
             {
                 LblAlertPartie.Text = "Vous devez sélectionner une difficulté.";
                 LblAlertPartie.ForeColor = Color.Red;
@@ -78,14 +78,14 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     Program.FrmNouvellePartie.Dispose();
                 }
                 if (ChkDifficulteFacile.Checked)
-                    difficulte = 1;
+                    difficulty = 1;
                 else if (ChkDifficulteNormal.Checked)
-                    difficulte = 2;
+                    difficulty = 2;
                 else if (ChkDifficulteDifficile.Checked)
-                    difficulte = 3;
+                    difficulty = 3;
 
-                Program.FrmNouvellePartie = new FrmNouvellePartie(difficulte, false, 0, TxtBoxPseudo.Text);
-                Program.scoreJoueur = 0;
+                Program.FrmNouvellePartie = new FrmNouvellePartie(difficulty, false, 0, TxtBoxPseudo.Text);
+                Program.score = 0;
                 ReinitialiseDisplay();
                 Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
             }

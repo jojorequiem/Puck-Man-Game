@@ -131,7 +131,7 @@
     <Compile Include="src\PuckMan\UI\Screens\FrmModeHistoire.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmModeHistoire.Designer.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmStorymMod.Designer.cs">
       <DependentUpon>FrmModeHistoire.cs</DependentUpon>
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\FrmNiveauSuivant.cs">
@@ -184,7 +184,7 @@
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmPause.resx">
       <DependentUpon>FrmPause.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmModeHistoire.resx">
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmStorymMod.resx">
       <DependentUpon>FrmModeHistoire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmNiveauSuivant.resx">

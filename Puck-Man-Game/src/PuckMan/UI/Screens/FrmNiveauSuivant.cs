@@ -13,13 +13,13 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public partial class FrmNiveauSuivant : FormComponent
     {
-        private string PseudoJoueur;
-        private byte DifficulteJeu;
-        public FrmNiveauSuivant(string pseudo, byte difficulte)
+        private string Pseudo;
+        private byte Difficulty;
+        public FrmNiveauSuivant(string pseudo, byte difficulty)
         {
             InitializeComponent();
-            PseudoJoueur = pseudo;
-            DifficulteJeu = difficulte; 
+            Pseudo = pseudo;
+            Difficulty = difficulty; 
         }
 
         private void FrmNiveauSuivant_Shown(object sender, EventArgs e)
@@ -29,19 +29,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnNiveauSuivant_Click(object sender, EventArgs e)
         {
-            Program.FrmNouvellePartie = new FrmNouvellePartie(DifficulteJeu, false, 0, PseudoJoueur);
+            Program.FrmNouvellePartie = new FrmNouvellePartie(Difficulty, false, 0, Pseudo);
             Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
         }
 
         private void BtnRetourMenu_Click(object sender, EventArgs e)
         {
-            if (DifficulteJeu > 0) // mode infini (sauvegarder dans le classement)
+            if (Difficulty > 0) // mode infini (sauvegarder dans le classement)
             {
                 string filepath = "src/database/classement.txt";
                 string[] lines = File.ReadAllLines(filepath, Encoding.UTF8);
 
                 string nomDifficulte = "histoire";
-                switch (DifficulteJeu)
+                switch (Difficulty)
                 {
                     case 1:
                         nomDifficulte = "Facile";
@@ -55,9 +55,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 }
 
                 if (lines.Length > 0)
-                    lines[lines.Length - 1] += "\n" + PseudoJoueur + ";" + Program.scoreJoueur.ToString() + ";" + nomDifficulte;
+                    lines[lines.Length - 1] += "\n" + Pseudo + ";" + Program.score.ToString() + ";" + nomDifficulte;
                 else
-                    lines = new string[] { PseudoJoueur + ";" + Program.scoreJoueur.ToString() + ";" + nomDifficulte };
+                    lines = new string[] { Pseudo+ ";" + Program.score.ToString() + ";" + nomDifficulte };
 
                 File.WriteAllLines(filepath, lines, Encoding.UTF8);
             }

@@ -14,9 +14,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public partial class FrmModeHistoire : FormComponent
     {
-        private int niveauPartie1;
-        private int niveauPartie2;
-        private int niveauPartie3;
+        private int lvlGame1;
+        private int lvlGame2;
+        private int lvlGame3;
         static private readonly string chemin = "src/database/modeHistoire.txt";
         public FrmModeHistoire() : base()
         {
@@ -26,38 +26,38 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         public void DisplayButtons()
         {
-            niveauPartie1 = GetActualLevel(1);
-            niveauPartie2 = GetActualLevel(2);
-            niveauPartie3 = GetActualLevel(3);
+            lvlGame1 = GetActualLevel(1);
+            lvlGame2 = GetActualLevel(2);
+            lvlGame3 = GetActualLevel(3);
 
 
-            if (niveauPartie1 > 0)
-                AfficherBoutonsPartieExistante(BtnGame1, BtnDelete1, "CHAPITRE " + niveauPartie1);
+            if (lvlGame1 > 0)
+                AfficherBoutonsPartieExistante(BtnGame1, BtnDelete1, "CHAPITRE " + lvlGame1);
             else
                 AfficherBoutonsPartieSupprimer(BtnGame1, BtnDelete1);
 
-            if (niveauPartie2 > 0)
-                AfficherBoutonsPartieExistante(BtnGame2, BtnDelete2, "CHAPITRE " + niveauPartie2);
+            if (lvlGame2 > 0)
+                AfficherBoutonsPartieExistante(BtnGame2, BtnDelete2, "CHAPITRE " + lvlGame2);
             else
                 AfficherBoutonsPartieSupprimer(BtnGame2, BtnDelete2);
 
-            if (niveauPartie3 > 0)
-                AfficherBoutonsPartieExistante(BtnGame3, BtnDelete3, "CHAPITRE " + niveauPartie3);
+            if (lvlGame3 > 0)
+                AfficherBoutonsPartieExistante(BtnGame3, BtnDelete3, "CHAPITRE " + lvlGame3);
             else
                 AfficherBoutonsPartieSupprimer(BtnGame3, BtnDelete3);
 
             // si le joueur a complété tout les chapitres
-            if (niveauPartie1 > 5)
+            if (lvlGame1 > 5)
             {
                 AfficherBoutonsPartieExistante(BtnGame1, BtnDelete1, "A SUIVRE ...");
                 BtnGame1.Enabled = false;
             }
-            if (niveauPartie2 > 5)
+            if (lvlGame2 > 5)
             {
                 AfficherBoutonsPartieExistante(BtnGame2, BtnDelete2, "A SUIVRE ...");
                 BtnGame2.Enabled = false;
             }
-            if (niveauPartie3 > 5)
+            if (lvlGame3 > 5)
             {
                 AfficherBoutonsPartieExistante(BtnGame3, BtnDelete3, "A SUIVRE ...");
                 BtnGame3.Enabled = false;
@@ -94,35 +94,35 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private void BtnGame1_Click(object sender, EventArgs e)
         {
             Program.game = 1;
-            if (niveauPartie1 <= 0)
+            if (lvlGame1 <= 0)
             {
                 ChangeActualLevel(1, 1);
-                niveauPartie1 = 1;
+                lvlGame1 = 1;
             }
-            Program.FrmDialogue = new FrmDialogue(niveauPartie1, false);
+            Program.FrmDialogue = new FrmDialogue(lvlGame1, false);
             Program.ChangeActiveForm(Program.FrmDialogue, this);
         }
         private void BtnGame2_Click(object sender, EventArgs e)
         {
             Program.game = 2;
-            if (niveauPartie2 <= 0)
+            if (lvlGame2 <= 0)
             {
                 ChangeActualLevel(2, 1);
-                niveauPartie2 = 1;
+                lvlGame2 = 1;
             }
-            Program.FrmDialogue = new FrmDialogue(niveauPartie2, false);
+            Program.FrmDialogue = new FrmDialogue(lvlGame2, false);
             Program.ChangeActiveForm(Program.FrmDialogue, this);
         }
 
         private void BtnGame3_Click(object sender, EventArgs e)
         {
             Program.game = 3;
-            if (niveauPartie3 <= 0)
+            if (lvlGame3 <= 0)
             {
                 ChangeActualLevel(3, 1);
-                niveauPartie3 = 1;
+                lvlGame3 = 1;
             }
-            Program.FrmDialogue = new FrmDialogue(niveauPartie3, false);
+            Program.FrmDialogue = new FrmDialogue(lvlGame3, false);
             Program.ChangeActiveForm(Program.FrmDialogue, this);
         }
         public bool DemandeSuppresionPartie(Button boutonPartie, Button boutonSupprimer, int game)
@@ -142,18 +142,18 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private void BtnDelete1_Click(object sender, EventArgs e)
         {
             if (DemandeSuppresionPartie(BtnGame1, BtnDelete1, 1))
-                niveauPartie1 = 0;
+                lvlGame1 = 0;
         }
 
         private void BtnDelete2_Click(object sender, EventArgs e)
         {
             if (DemandeSuppresionPartie(BtnGame2, BtnDelete2, 2))
-                niveauPartie2 = 0;
+                lvlGame2 = 0;
         }
         private void BtnDelete3_Click(object sender, EventArgs e)
         {
             if (DemandeSuppresionPartie(BtnGame3, BtnDelete3, 3))
-                niveauPartie3 = 0;
+                lvlGame3 = 0;
         }
 
         private void BtnRetour_Click(object sender, EventArgs e)

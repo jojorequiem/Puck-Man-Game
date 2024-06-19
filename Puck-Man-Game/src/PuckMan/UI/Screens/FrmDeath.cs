@@ -15,15 +15,15 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public partial class FrmDeath : FormComponent
     {
-        public int NiveauActuel;
-        public FrmDeath(string pseudo, int niveauActuel, int difficulte)
+        public int Level;
+        public FrmDeath(string pseudo, int level, int difficulty)
         {
             InitializeComponent();
-            LblValeurScore.Text = Program.scoreJoueur.ToString();
+            LblValeurScore.Text = Program.score.ToString();
             Program.PlayMusic("assets/audio/musiqueMort.mp3");
-            
-            NiveauActuel = niveauActuel;
-            if (NiveauActuel > 0)
+
+            Level = level;
+            if (Level > 0)
             {
                 LblScore.Hide();
                 LblValeurScore.Hide();
@@ -31,28 +31,28 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 BtnNouvellePartie.Text = "REJOUER";
             }
             
-            if (difficulte > 0) // mode infini
+            if (difficulty > 0) // mode infini
             {
                 string filepath = "src/database/classement.txt";
                 string[] lines = File.ReadAllLines(filepath, Encoding.UTF8);
 
-                string nomDifficulte = "Hardcore";
-                switch (difficulte)
+                string difficultyName = "Hardcore";
+                switch (difficulty)
                 {
                     case 1:
-                        nomDifficulte = "Facile";
+                        difficultyName = "Facile";
                         break;
                     case 2:
-                        nomDifficulte = "Moyen";
+                        difficultyName = "Moyen";
                         break;
                     case 3:
-                        nomDifficulte = "Difficile";
+                        difficultyName = "Difficile";
                         break;
                 }
                 if (lines.Length > 0)
-                    lines[lines.Length - 1] += "\n" + pseudo + ";" + Program.scoreJoueur.ToString() + ";" + nomDifficulte;
+                    lines[lines.Length - 1] += "\n" + pseudo + ";" + Program.score.ToString() + ";" + difficultyName;
                 else
-                    lines = new string[] { pseudo + ";" + Program.scoreJoueur.ToString() + ";" + nomDifficulte };
+                    lines = new string[] { pseudo + ";" + Program.score.ToString() + ";" + difficultyName };
 
                 File.WriteAllLines(filepath, lines, Encoding.UTF8);
             }
@@ -60,8 +60,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnNouvellePartie_Click(object sender, EventArgs e)
         {
-            if (NiveauActuel > 0) {
-                Program.FrmNouvellePartie = new FrmNouvellePartie(0, true, NiveauActuel, "");
+            if (Level > 0) {
+                Program.FrmNouvellePartie = new FrmNouvellePartie(0, true, Level, "");
                 Program.ChangeActiveForm(Program.FrmNouvellePartie, this);
             }
             else

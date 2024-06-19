@@ -27,31 +27,31 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
     public partial class FrmNouvellePartie : FormComponent
     {
-        public bool ModeHistoire;
-        public int NiveauActuel;
+        public bool StoryMod;
+        public int Level;
         public Player P1 { get; set; }
-        public int nbrFragmentGenere;
-        public string PseudoJoueur = "";
-        public byte DifficulteJeu;
-        public FrmNouvellePartie(byte difficulte, bool modeHistoire, int niveauActuel, string pseudo) : base()
+        public int nbrGeneratedFragment;
+        public string Pseudo = "";
+        public byte Difficulty;
+        public FrmNouvellePartie(byte difficulty, bool storyMod, int level, string pseudo) : base()
         {
             InitializeComponent();
             this.KeyDown += (sender, e) => P1.PlayerKeyDown(sender, e);
             this.KeyUp += (sender, e) => P1.PlayerKeyUp(sender, e);
-            ModeHistoire = modeHistoire;
-            NiveauActuel = niveauActuel;
-            DifficulteJeu = difficulte;
+            StoryMod = storyMod;
+            Level = level;
+            Difficulty = difficulty;
             LblPseudo.Text = pseudo;
-            PseudoJoueur = pseudo;
+            Pseudo = pseudo;
 
             Maze maze = new Maze(this, Program.MazeWidth, Program.MazeHeight);
-            int nbrHp = (modeHistoire) ? 3 : 4 - difficulte;
+            int nbrHp = (StoryMod) ? 3 : 4 - Difficulty;
             P1 = new Player("joueur", nbrHp, maze.startX * Maze.cellSize, maze.startY * Maze.cellSize, maze);
             maze.Entities[maze.startX * Maze.cellSize, maze.startY * Maze.cellSize] = P1;
 
-            if (ModeHistoire)
+            if (StoryMod)
             {
-                Program.PlayMusic("assets/audio/musiqueNiveau" + NiveauActuel + ".mp3");
+                Program.PlayMusic("assets/audio/musiqueNiveau" + Level + ".mp3");
                 LblScore.Hide();
                 PctBoxScore.Hide();
             }
@@ -68,19 +68,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 int nbrBerserker = 0;
                 int nbrFragment = 0;
                 int nbrFragmentDegat = random.Next(2);
-                if (difficulte == 1)
+                if (Difficulty == 1)
                 {
                     nbrEgare = 2 + random.Next(2);
                     nbrFragment = 2 + random.Next(2);
                 }
-                else if (difficulte == 2)
+                else if (Difficulty == 2)
                 {
                     nbrEgare = 3;
                     nbrBerserker = random.Next(2);
                     nbrFragment = 3 + random.Next(2); ;
                     nbrFragmentDegat += 1;
                 }
-                else if (difficulte == 3)
+                else if (Difficulty == 3)
                 {
                     nbrEgare = 3;
                     nbrBerserker = 1 + random.Next(2);
@@ -91,17 +91,17 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 //généré les entités
                 maze.GenerateEnemy("égaré berserker", nbrBerserker, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateEnemy("égaré", nbrEgare, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateCollectable("soin", difficulte, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("soin", Difficulty, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("fragment", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("fragment degat", 0, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("portail teleportation", random.Next(3), maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));    
             }
 
-            nbrFragmentGenere = maze.FragmentList.Count();
+            nbrGeneratedFragment = maze.FragmentList.Count();
             this.Controls.Add(P1.Image);
 
             P1.Image.BringToFront();
-            LblFragmentGenere.Text = nbrFragmentGenere.ToString();
+            LblFragmentGenere.Text = nbrGeneratedFragment.ToString();
             UpdateScoredisplay();
             UpdateHPdisplay();
         }
@@ -136,11 +136,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public void UpdateFragmentdisplay()
         {
             if (P1 != null)
-                LblFragmentCollecte.Text = (nbrFragmentGenere - P1.Maze.FragmentList.Count()).ToString();
+                LblFragmentCollecte.Text = (nbrGeneratedFragment - P1.Maze.FragmentList.Count()).ToString();
         }
         public void UpdateScoredisplay()
         {
-            LblScore.Text = Program.scoreJoueur.ToString();
+            LblScore.Text = Program.score.ToString();
         }
         
 
@@ -148,20 +148,20 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
 
             Destructeur();
-            if (ModeHistoire)
+            if (StoryMod)
             {
                 if (Program.FrmDialogue == null)
                 {
                     Program.FrmDialogue.Close();
                     Program.FrmDialogue.Dispose();
                 }
-                Program.FrmDialogue = new FrmDialogue(NiveauActuel, true);
+                Program.FrmDialogue = new FrmDialogue(Level, true);
                 Program.ChangeActiveForm(Program.FrmDialogue, this);
             }
             else
             {
                 if (Program.FrmNiveauSuivant == null)
-                    Program.FrmNiveauSuivant = new FrmNiveauSuivant(PseudoJoueur, DifficulteJeu);
+                    Program.FrmNiveauSuivant = new FrmNiveauSuivant(Pseudo, Difficulty);
                 Program.ChangeActiveForm(Program.FrmNiveauSuivant, this);
             }
         }

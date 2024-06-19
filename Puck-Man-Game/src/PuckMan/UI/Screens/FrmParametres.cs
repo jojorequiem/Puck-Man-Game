@@ -21,12 +21,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         {
             InitializeComponent();
             FormParent = formParent;
-            LblMainValue.Text = Program.VolumePrincipale.ToString();
-            TrackBarMain.Value = Program.VolumePrincipale;
-            LblMusicValue.Text = Program.VolumeMusique.ToString();
-            TrackBarMusic.Value = Program.VolumeMusique;
-            LblSoundValue.Text = Program.VolumeSon.ToString();
-            TrackBarSound.Value = Program.VolumeSon;
+            LblMainValue.Text = Program.MainVolume.ToString();
+            TrackBarMain.Value = Program.MainVolume;
+            LblMusicValue.Text = Program.MusicVolume.ToString();
+            TrackBarMusic.Value = Program.MusicVolume;
+            LblSoundValue.Text = Program.SoundVolume.ToString();
+            TrackBarSound.Value = Program.SoundVolume;
         }
 
         private void BtnRetour_Click(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void TrackBarMain_ValueChanged(object sender, EventArgs e)
         {
-            Program.VolumePrincipale = TrackBarMain.Value;
+            Program.MainVolume = TrackBarMain.Value;
             LblMainValue.Text = TrackBarMain.Value.ToString();
             Program.UpdateVolume();
             
@@ -47,7 +47,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void TrackBarMusic_ValueChanged(object sender, EventArgs e)
         {
-            Program.VolumeMusique = TrackBarMusic.Value;
+            Program.MusicVolume = TrackBarMusic.Value;
             LblMusicValue.Text = TrackBarMusic.Value.ToString();
             Program.UpdateVolume();
 
@@ -58,7 +58,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void TrackBarSound_ValueChanged(object sender, EventArgs e)
         {
-            Program.VolumeSon = TrackBarSound.Value;
+            Program.SoundVolume = TrackBarSound.Value;
             LblSoundValue.Text = TrackBarSound.Value.ToString();
             Program.UpdateVolume();
 
