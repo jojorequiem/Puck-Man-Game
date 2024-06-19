@@ -27,14 +27,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
             Maze = maze;
             EntitySpeed = Maze.cellSize;
             Image.BringToFront();
-
-            moveEnemyTimer = new Timer
-            {
-                Interval = 1000
-            };
-            moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             previousDirection = new Point(0, 0);
-            moveEnemyTimer.Start();
         }
 
         public void Move()
@@ -86,9 +79,6 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
                 }
             }
         }
-
-
-
 
 
         public void MoveEnemyTimer_Tick(object sender, EventArgs e)
