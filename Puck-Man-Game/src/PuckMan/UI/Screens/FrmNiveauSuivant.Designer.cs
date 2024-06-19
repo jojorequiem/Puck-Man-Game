@@ -60,7 +60,7 @@
             // 
             // LblTitre
             // 
-            this.LblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F);
+            this.LblTitre.Font = new System.Drawing.Font("Minecraft", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LblTitre.Location = new System.Drawing.Point(91, 42);
             this.LblTitre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -77,12 +77,13 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 603);
+            this.ClientSize = new System.Drawing.Size(882, 604);
             this.Controls.Add(this.LblTitre);
             this.Controls.Add(this.BtnNiveauSuivant);
             this.Controls.Add(this.BtnRetourMenu);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);

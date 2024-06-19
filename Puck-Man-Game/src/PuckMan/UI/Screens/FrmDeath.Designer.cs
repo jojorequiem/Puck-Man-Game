@@ -35,7 +35,9 @@
             this.LblValeurScore = new System.Windows.Forms.Label();
             this.BtnNouvellePartie = new System.Windows.Forms.Button();
             this.BtnMenu = new System.Windows.Forms.Button();
+            this.PcbScore = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PctDeathLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbScore)).BeginInit();
             this.SuspendLayout();
             // 
             // PctDeathLogo
@@ -43,7 +45,7 @@
             this.PctDeathLogo.BackColor = System.Drawing.Color.Transparent;
             this.PctDeathLogo.BackgroundImage = global::Puck_Man_Game.Properties.Resources.mort;
             this.PctDeathLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PctDeathLogo.Location = new System.Drawing.Point(352, 139);
+            this.PctDeathLogo.Location = new System.Drawing.Point(367, 139);
             this.PctDeathLogo.Name = "PctDeathLogo";
             this.PctDeathLogo.Size = new System.Drawing.Size(152, 152);
             this.PctDeathLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -53,7 +55,7 @@
             // LblTitreMort
             // 
             this.LblTitreMort.BackColor = System.Drawing.Color.Black;
-            this.LblTitreMort.Font = new System.Drawing.Font("Microsoft Sans Serif", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitreMort.Font = new System.Drawing.Font("Minecraft", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitreMort.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LblTitreMort.Location = new System.Drawing.Point(91, 42);
             this.LblTitreMort.Name = "LblTitreMort";
@@ -66,23 +68,23 @@
             // 
             this.LblScore.AutoSize = true;
             this.LblScore.BackColor = System.Drawing.Color.Transparent;
-            this.LblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblScore.Font = new System.Drawing.Font("Minecraft", 20.03478F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblScore.ForeColor = System.Drawing.Color.White;
-            this.LblScore.Location = new System.Drawing.Point(329, 321);
+            this.LblScore.Location = new System.Drawing.Point(402, 322);
             this.LblScore.Name = "LblScore";
-            this.LblScore.Size = new System.Drawing.Size(133, 39);
+            this.LblScore.Size = new System.Drawing.Size(122, 32);
             this.LblScore.TabIndex = 13;
-            this.LblScore.Text = "Score : ";
+            this.LblScore.Text = "Score ";
             // 
             // LblValeurScore
             // 
             this.LblValeurScore.AutoSize = true;
             this.LblValeurScore.BackColor = System.Drawing.Color.Transparent;
-            this.LblValeurScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblValeurScore.Font = new System.Drawing.Font("Minecraft", 20.03478F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblValeurScore.ForeColor = System.Drawing.Color.White;
-            this.LblValeurScore.Location = new System.Drawing.Point(468, 321);
+            this.LblValeurScore.Location = new System.Drawing.Point(519, 322);
             this.LblValeurScore.Name = "LblValeurScore";
-            this.LblValeurScore.Size = new System.Drawing.Size(36, 39);
+            this.LblValeurScore.Size = new System.Drawing.Size(33, 32);
             this.LblValeurScore.TabIndex = 14;
             this.LblValeurScore.Text = "0";
             // 
@@ -110,6 +112,17 @@
             this.BtnMenu.UseVisualStyleBackColor = true;
             this.BtnMenu.Click += new System.EventHandler(this.BtnMenu_Click);
             // 
+            // PcbScore
+            // 
+            this.PcbScore.BackColor = System.Drawing.Color.Transparent;
+            this.PcbScore.Image = global::Puck_Man_Game.Properties.Resources.scoreIcon1;
+            this.PcbScore.InitialImage = ((System.Drawing.Image)(resources.GetObject("PcbScore.InitialImage")));
+            this.PcbScore.Location = new System.Drawing.Point(331, 290);
+            this.PcbScore.Name = "PcbScore";
+            this.PcbScore.Size = new System.Drawing.Size(62, 77);
+            this.PcbScore.TabIndex = 17;
+            this.PcbScore.TabStop = false;
+            // 
             // FrmDeath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -117,6 +130,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(883, 604);
+            this.Controls.Add(this.PcbScore);
             this.Controls.Add(this.BtnMenu);
             this.Controls.Add(this.BtnNouvellePartie);
             this.Controls.Add(this.LblValeurScore);
@@ -124,11 +138,13 @@
             this.Controls.Add(this.LblTitreMort);
             this.Controls.Add(this.PctDeathLogo);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(901, 651);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmDeath";
             this.Text = "FrmDeath";
             ((System.ComponentModel.ISupportInitialize)(this.PctDeathLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcbScore)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +158,6 @@
         private System.Windows.Forms.Label LblValeurScore;
         private System.Windows.Forms.Button BtnNouvellePartie;
         private System.Windows.Forms.Button BtnMenu;
+        private System.Windows.Forms.PictureBox PcbScore;
     }
 }

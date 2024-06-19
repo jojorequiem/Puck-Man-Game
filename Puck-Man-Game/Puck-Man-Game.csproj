@@ -298,6 +298,8 @@
     <Content Include="Resources\murModeInfini.png" />
     <None Include="Resources\title.png" />
     <Content Include="Resources\score.gif" />
+    <None Include="Resources\scoreIcon.gif" />
+    <None Include="Resources\scoreIcon1.gif" />
     <Content Include="src\database\classement.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

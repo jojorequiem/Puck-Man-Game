@@ -55,5 +55,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 Program.FrmMenu = new FrmMenu();
             Program.ChangeActiveForm(Program.FrmMenu, this);
         }
+
+       
     }
 }

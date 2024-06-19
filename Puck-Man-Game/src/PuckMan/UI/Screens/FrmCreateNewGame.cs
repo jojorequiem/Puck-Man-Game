@@ -120,12 +120,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             if (textBox == null) return;
 
             string input = textBox.Text;
-            if (input.Length > 20)
+            if (input.Length > 8)
             {
-                input = input.Substring(0, 20);
+                input = input.Substring(0, 8);
                 textBox.Text = input;
                 textBox.SelectionStart = input.Length;
-                LblAlertPseudo.Text = "Le pseudo ne peut pas dépasser 15 caractères.";
+                LblAlertPseudo.Text = "Le pseudo ne peut pas dépasser 8 caractères.";
                 LblAlertPseudo.ForeColor = Color.Red;
             }
             else
