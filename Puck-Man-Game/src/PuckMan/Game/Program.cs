@@ -59,6 +59,7 @@ namespace Puck_Man_Game
             MainVolume = int.Parse(lines[0]);
             SoundVolume = int.Parse(lines[1]);
             MusicVolume = int.Parse(lines[2]);
+
             PlayMusic(menuMusicFilepath);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -91,7 +92,7 @@ namespace Puck_Man_Game
                 URL = path
             };
             music.settings.setMode("loop", true);
-            UpdateVolume();
+            music.settings.volume = MainVolume * 10;
             music.controls.play();
         }
         static public void ChangeActiveForm(Form formulaire, Form parent)

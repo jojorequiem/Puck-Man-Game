@@ -38,7 +38,7 @@
             // LblTitrePause
             // 
             this.LblTitrePause.BackColor = System.Drawing.Color.Transparent;
-            this.LblTitrePause.Font = new System.Drawing.Font("Microsoft Sans Serif", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitrePause.Font = new System.Drawing.Font("Minecraft", 48.20869F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitrePause.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LblTitrePause.Location = new System.Drawing.Point(91, 42);
             this.LblTitrePause.Name = "LblTitrePause";
@@ -92,21 +92,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 605);
+            this.ClientSize = new System.Drawing.Size(882, 604);
             this.Controls.Add(this.BtnQuitter);
             this.Controls.Add(this.BtnParametres);
             this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.LblTitrePause);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmPause";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPause";
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmPause_KeyUp);
             this.ResumeLayout(false);
 
         }

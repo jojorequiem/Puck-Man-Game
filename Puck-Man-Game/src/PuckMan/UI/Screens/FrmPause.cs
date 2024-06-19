@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,7 +16,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public FrmPause(Form formParent)
         {
             InitializeComponent();
-            this.KeyPreview = true;
             FormParent = formParent;
         }
 
@@ -37,17 +35,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            GoBackToPreviousForm();
-        }
-        
-        public void GoBackToPreviousForm()
-        {
             Program.ChangeActiveForm(FormParent, this);
-        }
-
-        private void FrmPause_KeyUp(object sender, KeyEventArgs e)
-        {
-            GoBackToPreviousForm();
         }
     }
 }
