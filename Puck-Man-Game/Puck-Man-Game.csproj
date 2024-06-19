@@ -304,6 +304,8 @@
     <None Include="Resources\scoreIcon1.gif" />
     <None Include="Resources\skullIcon.gif" />
     <None Include="Resources\skullIcon1.gif" />
+    <None Include="Resources\spectrl-export.png" />
+    <None Include="Resources\spectrl.png" />
     <Content Include="src\database\classement.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

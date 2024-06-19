@@ -152,8 +152,9 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         public BerserkerEnemy(int x, int y, Maze maze) : base("Égaré Confus", x, y, maze)
         {
             Damage = 3;
-            Image.Image = Puck_Man_Game.Properties.Resources.berserker;
-            moveEnemyTimer = new Timer { Interval = 150 };
+            Image.Image = Puck_Man_Game.Properties.Resources.spectrl;
+            moveEnemyTimer = new Timer { Interval = 450 
+            };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();
             previousDirection = new Point(0, 0);
