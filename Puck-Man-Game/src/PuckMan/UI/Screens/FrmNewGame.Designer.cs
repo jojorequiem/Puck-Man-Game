@@ -75,7 +75,7 @@
             this.LblFragmentGenere.BackColor = System.Drawing.Color.Transparent;
             this.LblFragmentGenere.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFragmentGenere.ForeColor = System.Drawing.Color.Transparent;
-            this.LblFragmentGenere.Location = new System.Drawing.Point(817, 168);
+            this.LblFragmentGenere.Location = new System.Drawing.Point(830, 168);
             this.LblFragmentGenere.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LblFragmentGenere.Name = "LblFragmentGenere";
             this.LblFragmentGenere.Size = new System.Drawing.Size(25, 23);
@@ -88,7 +88,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Minecraft", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(796, 168);
+            this.label1.Location = new System.Drawing.Point(806, 168);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 23);

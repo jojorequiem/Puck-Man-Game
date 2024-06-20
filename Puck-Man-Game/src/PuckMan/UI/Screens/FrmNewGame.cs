@@ -89,7 +89,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 }
                 else if (Difficulty == 2)
                 {
-                    nbrEgare = 1 + random.Next(2);
+                    nbrEgare = 1 ;
                     nbrStandard = 1 + random.Next(2);
                     nbrBerserker = random.Next(2);
                     nbrFragment = 12 + random.Next(2); ;
@@ -97,9 +97,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 }
                 else if (Difficulty == 3)
                 {
-                    nbrEgare = 2 + random.Next(2);
+                    nbrEgare = 1 + random.Next(2);
                     nbrStandard = 1 + random.Next(2);
-                    nbrBerserker = 1 + random.Next(2);
+                    nbrBerserker = 1;
                     nbrFragment = 15 + random.Next(3);
                     nbrFragmentDegat += 2;
                 }
@@ -111,7 +111,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 maze.GenerateCollectable("soin", Difficulty, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("fragment", nbrFragment, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("fragment degat", nbrFragmentDegat, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateCollectable("portail teleportation", random.Next(3), maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("portail teleportation", 1 + random.Next(2), maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
             }
 
             nbrGeneratedFragment = maze.FragmentList.Count();
@@ -119,7 +119,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.Controls.Add(P1.Image);
             P1.Image.BringToFront();
             LblFragmentGenere.Text = nbrGeneratedFragment.ToString();
-            UpdateFragmentdisplay();
             UpdateScoredisplay();
             UpdateHPdisplay();
         }

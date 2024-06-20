@@ -243,6 +243,24 @@ namespace src.PuckMan.Game.Levels
         /// <summary>
         /// Génère aléatoirement le labyrinthe en ajustant les murs et les espaces vides. (SAE 2.2)
         /// </summary>
+        public void RandomMazeGeneration()
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    if ((x != 0 && y != 0 && x != width - 1 && y != height - 1)
+                        && ((x + y) % 2 != 0))
+                    {
+                        if (random.NextDouble() < 0.5)
+                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
+                        else
+                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Génère le labyrinthe en utilisant l'algorithme de recherche en profondeur (DFS).
         /// </summary>
@@ -517,7 +535,8 @@ namespace src.PuckMan.Game.Levels
                 if (StaticEntities[x * cellSize, y * cellSize] is null && (x != startX || y != startY))
                 {
                     Collectable instance = new Collectable(name, x * cellSize, y * cellSize);
-
+                    if (name == "fragment")
+                        FragmentList.Add(instance);
                     // Ajout de l'image du collectable au formulaire
                     MazeForm.Controls.Add(instance.Image);
                     instance.Image.BringToFront();
