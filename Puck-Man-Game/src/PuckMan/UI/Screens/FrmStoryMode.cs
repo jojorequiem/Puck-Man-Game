@@ -19,7 +19,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         private int lvlGame1; // Niveau de la partie 1
         private int lvlGame2; // Niveau de la partie 2
         private int lvlGame3; // Niveau de la partie 3
-        static private readonly string chemin = "src/database/StoryMod.txt"; // Chemin du fichier de sauvegarde des niveaux
+        static private readonly string chemin = "src/database/StoryMode.txt"; // Chemin du fichier de sauvegarde des niveaux
 
         /// <summary>
         /// Constructeur de la classe FrmStoryMode.
