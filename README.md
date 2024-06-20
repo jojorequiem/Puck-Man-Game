@@ -15,26 +15,47 @@ Le Dr Puck, confronté à ses erreurs, trouve une forme de rédemption en aidant
 
 ## Structure du projet
 Puck-Man-Game/
+
 │
+
 ├── assets/
+
 │   ├── audio/
+
 │   └── dialogue/
+
 │
+
 ├── Ressources/
+
 │   └── images/
+
 │
+
 └── src/
+
     ├── database/
+
     │
+
     ├── PuckMan/
+
        ├── Engine/
+
        │   ├── Components/
+
        │   └── Entities/
+
        │
+
        ├── Game/
+
        │   └── Levels/
+
        │
+
        └── UI/
+
            └── Screens/
     
 
