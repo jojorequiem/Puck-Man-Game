@@ -70,14 +70,14 @@
             this.LblTitre.Text = "Niveau suivant";
             this.LblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmNiveauSuivant
+            // FrmNextLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 604);
+            this.ClientSize = new System.Drawing.Size(882, 605);
             this.Controls.Add(this.LblTitre);
             this.Controls.Add(this.BtnNiveauSuivant);
             this.Controls.Add(this.BtnRetourMenu);
@@ -85,11 +85,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
-            this.Name = "FrmNiveauSuivant";
+            this.Name = "FrmNextLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NiveauSuivant";
+            this.Text = "Puck-Man - Niveau suivant";
             this.Shown += new System.EventHandler(this.FrmNiveauSuivant_Shown);
             this.ResumeLayout(false);
 

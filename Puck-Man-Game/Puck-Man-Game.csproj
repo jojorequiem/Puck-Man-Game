@@ -92,11 +92,11 @@
     <Compile Include="src\PuckMan\UI\Screens\FrmClassement.Designer.cs">
       <DependentUpon>FrmScoreRanking.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmCreateNewGame.cs">
+    <Compile Include="src\PuckMan\UI\Screens\FrmInfiniteMode..cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\PuckMan\UI\Screens\FrmCreateNewGame.Designer.cs">
-      <DependentUpon>FrmCreateNewGame.cs</DependentUpon>
+    <Compile Include="src\PuckMan\UI\Screens\FrmInfiniteMode..Designer.cs">
+      <DependentUpon>FrmInfiniteMode..cs</DependentUpon>
     </Compile>
     <Compile Include="src\PuckMan\UI\Screens\FrmDeath.cs">
       <SubType>Form</SubType>
@@ -166,8 +166,8 @@
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmClassement.resx">
       <DependentUpon>FrmScoreRanking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmCreateNewGame.resx">
-      <DependentUpon>FrmCreateNewGame.cs</DependentUpon>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmInfiniteMode..resx">
+      <DependentUpon>FrmInfiniteMode..cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmDeath.resx">
       <DependentUpon>FrmDeath.cs</DependentUpon>
@@ -177,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmScoreRanking.resx">
+      <DependentUpon>FrmScoreRanking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\PuckMan\UI\Screens\FrmStoryMode.resx">
       <DependentUpon>FrmStoryMode.cs</DependentUpon>

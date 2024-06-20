@@ -183,7 +183,7 @@
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmNewGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Puck Man";
+            this.Text = "Puck-Man - En jeu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBoxScore)).EndInit();

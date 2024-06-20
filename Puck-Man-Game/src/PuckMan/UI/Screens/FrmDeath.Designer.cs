@@ -138,11 +138,13 @@
             this.Controls.Add(this.LblTitreMort);
             this.Controls.Add(this.PctDeathLogo);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(901, 651);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmDeath";
-            this.Text = "FrmDeath";
+            this.Text = "Puck-Man - Vous êtes mort !";
             ((System.ComponentModel.ISupportInitialize)(this.PctDeathLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PcbScore)).EndInit();
             this.ResumeLayout(false);

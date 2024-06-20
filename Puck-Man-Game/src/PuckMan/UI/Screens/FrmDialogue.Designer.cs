@@ -120,7 +120,7 @@
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmDialogue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Dialoguecs";
+            this.Text = "Puck-Man - Dialogues";
             this.Panel.ResumeLayout(false);
             this.Panel.PerformLayout();
             this.ResumeLayout(false);

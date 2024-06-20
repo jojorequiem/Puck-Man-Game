@@ -30,9 +30,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         /// </summary>
         private void BtnModeInfini_Click(object sender, EventArgs e)
         {
-            if (Program.FrmCreateNewGame == null)
-                Program.FrmCreateNewGame = new FrmCreateNewGame();
-            Program.ChangeActiveForm(Program.FrmCreateNewGame, this);
+            if (Program.FrmInfiniteMode == null)
+                Program.FrmInfiniteMode = new FrmInfiniteMode();
+            Program.ChangeActiveForm(Program.FrmInfiniteMode, this);
         }
 
         /// <summary>

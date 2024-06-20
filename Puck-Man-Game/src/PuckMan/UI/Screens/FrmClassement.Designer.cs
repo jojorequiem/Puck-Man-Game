@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmScoreRanking));
             this.BtnRetour = new System.Windows.Forms.Button();
             this.LblTitreClassement = new System.Windows.Forms.Label();
             this.DgvClassement = new System.Windows.Forms.DataGridView();
@@ -93,11 +92,10 @@
             this.DgvClassement.Size = new System.Drawing.Size(700, 233);
             this.DgvClassement.TabIndex = 0;
             // 
-            // FrmClassement
+            // FrmScoreRanking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(882, 604);
             this.Controls.Add(this.DgvClassement);
@@ -105,12 +103,12 @@
             this.Controls.Add(this.BtnRetour);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
-            this.Name = "FrmClassement";
+            this.Name = "FrmScoreRanking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Classement";
+            this.Text = "Puck-Man - Classement";
             ((System.ComponentModel.ISupportInitialize)(this.DgvClassement)).EndInit();
             this.ResumeLayout(false);
 

@@ -175,13 +175,13 @@
             this.TrackBarSound.TabIndex = 2;
             this.TrackBarSound.ValueChanged += new System.EventHandler(this.TrackBarSound_ValueChanged);
             // 
-            // FrmParametres
+            // FrmParameters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 604);
+            this.ClientSize = new System.Drawing.Size(882, 605);
             this.Controls.Add(this.LblSoundValue);
             this.Controls.Add(this.LblMusicValue);
             this.Controls.Add(this.LblMainValue);
@@ -197,11 +197,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
-            this.Name = "FrmParametres";
+            this.Name = "FrmParameters";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Parametres";
+            this.Text = "Puck-Man - Paramètres";
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarMusic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBarSound)).EndInit();
