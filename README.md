@@ -14,7 +14,7 @@ Le Dr Puck, confronté à ses erreurs, trouve une forme de rédemption en aidant
 - **Son et musique** : Ajoutez une ambiance sonore au jeu.
 
 ## Structure du projet
-```py
+```md
 Puck-Man-Game/
 │
 ├── assets/
