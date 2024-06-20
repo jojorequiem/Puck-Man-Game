@@ -12,32 +12,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Drawing.Printing;
-using System.Xml; // Importe le namespace System.Timers
-
+using System.Xml;
 
 namespace src.PuckMan.Game.Levels
 {
+    /// <summary>
+    /// Classe représentant le labyrinthe du jeu.
+    /// </summary>
     public class Maze
     {
-        private static readonly Random random = new Random();
-        public static int cellSize = 40;
+        private static readonly Random random = new Random(); // Générateur de nombres aléatoires
+        public static int cellSize = 40; // Taille d'une cellule en pixels
 
-        //on effectue des step de 2 en 2 car on ne veut intéragir que avec les nodes, step avec les connections
+        // Step pour le parcours du labyrinthe, utilisé pour les connexions entre cellules
         public static int step = cellSize * 2;
-        public Cell[,] MazeMatrix { get; set; }
-        public Cell[,] VisitedNodes { get; set; }
-        public Entity[,] Entities { get; set; }
-        public List<Enemy> EnemyList { get; set; }
-        public List<Collectable> FragmentList { get; set; }
-        public Collectable[,] StaticEntities{ get; set; }
-        public List<Cell> EulerianPath { get; private set; }
 
-        public string stringMazeMatrix;
-        public int width;
-        public int height;
-        public int startX;
-        public int startY;
-        public FrmNewGame MazeForm;
+        public Cell[,] MazeMatrix { get; set; } // Matrice des cellules du labyrinthe
+        public Cell[,] VisitedNodes { get; set; } // Matrice des noeuds visités
+        public Entity[,] Entities { get; set; } // Matrice des entités
+        public List<Enemy> EnemyList { get; set; } // Liste des ennemis
+        public List<Collectable> FragmentList { get; set; } // Liste des objets collectables
+        public Collectable[,] StaticEntities { get; set; } // Matrice des entités statiques
+        public List<Cell> EulerianPath { get; private set; } // Chemin eulérien du labyrinthe
+
+        public string stringMazeMatrix; // Représentation en chaîne de caractères du labyrinthe
+        public int width; // Largeur du labyrinthe
+        public int height; // Hauteur du labyrinthe
+        public int startX; // Coordonnée X de départ
+        public int startY; // Coordonnée Y de départ
+        public FrmNewGame MazeForm; // Formulaire de jeu contenant le labyrinthe
+
+        /// <summary>
+        /// Constructeur de la classe Maze.
+        /// </summary>
+        /// <param name="form">Formulaire de jeu contenant le labyrinthe.</param>
+        /// <param name="mazeWidth">Largeur du labyrinthe.</param>
+        /// <param name="mazeHeight">Hauteur du labyrinthe.</param>
         public Maze(FrmNewGame form, int mazeWidth, int mazeHeight)
         {
             MazeForm = form;
@@ -50,24 +60,35 @@ namespace src.PuckMan.Game.Levels
             FragmentList = new List<Collectable>();
 
             InitMaze();
+
             if (form.StoryMod)
                 MazeGenerationFromMatrix(MazeForm.Level);
             else
                 MazeGenerationByDFS();
+
             DisplayMaze();
         }
 
+        /// <summary>
+        /// Obtient des coordonnées valides entre une valeur de départ et une valeur de fin.
+        /// </summary>
+        /// <param name="start">Valeur de départ.</param>
+        /// <param name="end">Valeur de fin.</param>
+        /// <returns>Coordonnée valide (impair) entre start et end.</returns>
         public int GetValidCoordinates(int start, int end)
         {
-            //une coordinate est valide si elle est impair et entre start et end
             int coordinate = random.Next(start, end);
-            
-            // Si le nombre aléatoire est pair, on l'incrémente de 1 pour le rendre impair
             if (coordinate % 2 == 0)
                 coordinate++;
             return coordinate;
         }
 
+        /// <summary>
+        /// Obtient la coordonnée de connexion entre un noeud et son voisin.
+        /// </summary>
+        /// <param name="node">Coordonnée du noeud.</param>
+        /// <param name="neighbors">Coordonnée du voisin.</param>
+        /// <returns>Coordonnée de connexion entre le noeud et le voisin.</returns>
         public int GetConnectionCoordinate(int node, int neighbors)
         {
             int connection;
@@ -80,7 +101,13 @@ namespace src.PuckMan.Game.Levels
             return connection;
         }
 
-        //return respectivement le neighbor du dessus, du dessous, à gauche, à droite
+        /// <summary>
+        /// Obtient la cellule voisine en haut de la cellule actuelle.
+        /// </summary>
+        /// <param name="x">Coordonnée X de la cellule actuelle.</param>
+        /// <param name="y">Coordonnée Y de la cellule actuelle.</param>
+        /// <param name="step">Step pour la connexion.</param>
+        /// <returns>Cellule voisine en haut.</returns>
         public Cell Top(int x, int y, int step)
         {
             int newY = (y - step) / cellSize;
@@ -89,6 +116,13 @@ namespace src.PuckMan.Game.Levels
             return null;
         }
 
+        /// <summary>
+        /// Obtient la cellule voisine en bas de la cellule actuelle.
+        /// </summary>
+        /// <param name="x">Coordonnée X de la cellule actuelle.</param>
+        /// <param name="y">Coordonnée Y de la cellule actuelle.</param>
+        /// <param name="step">Step pour la connexion.</param>
+        /// <returns>Cellule voisine en bas.</returns>
         public Cell Bottom(int x, int y, int step)
         {
             int newY = (y + step) / cellSize;
@@ -97,6 +131,13 @@ namespace src.PuckMan.Game.Levels
             return null;
         }
 
+        /// <summary>
+        /// Obtient la cellule voisine à gauche de la cellule actuelle.
+        /// </summary>
+        /// <param name="x">Coordonnée X de la cellule actuelle.</param>
+        /// <param name="y">Coordonnée Y de la cellule actuelle.</param>
+        /// <param name="step">Step pour la connexion.</param>
+        /// <returns>Cellule voisine à gauche.</returns>
         public Cell Left(int x, int y, int step)
         {
             int newX = (x - step) / cellSize;
@@ -105,6 +146,13 @@ namespace src.PuckMan.Game.Levels
             return null;
         }
 
+        /// <summary>
+        /// Obtient la cellule voisine à droite de la cellule actuelle.
+        /// </summary>
+        /// <param name="x">Coordonnée X de la cellule actuelle.</param>
+        /// <param name="y">Coordonnée Y de la cellule actuelle.</param>
+        /// <param name="step">Step pour la connexion.</param>
+        /// <returns>Cellule voisine à droite.</returns>
         public Cell Right(int x, int y, int step)
         {
             int newX = (x + step) / cellSize;
@@ -113,7 +161,13 @@ namespace src.PuckMan.Game.Levels
             return null;
         }
 
-        //return les voisins non null
+
+        /// <summary>
+        /// Obtient les cellules voisines d'une position donnée dans le labyrinthe.
+        /// </summary>
+        /// <param name="X">Coordonnée X de la cellule.</param>
+        /// <param name="Y">Coordonnée Y de la cellule.</param>
+        /// <returns>Liste des cellules voisines valides.</returns>
         public List<Cell> GetNeighborCells(int X, int Y)
         {
             List<Cell> neighbors = new List<Cell>();
@@ -121,13 +175,21 @@ namespace src.PuckMan.Game.Levels
             Cell bottom = Bottom(X, Y, cellSize);
             Cell left = Left(X, Y, cellSize);
             Cell right = Right(X, Y, cellSize);
+
+            // Ajout des voisins non null à la liste
             if (top != null) neighbors.Add(top);
             if (bottom != null) neighbors.Add(bottom);
             if (left != null) neighbors.Add(left);
             if (right != null) neighbors.Add(right);
+
             return neighbors;
         }
 
+        /// <summary>
+        /// Vérifie si une cellule est un mur.
+        /// </summary>
+        /// <param name="node">Cellule à vérifier.</param>
+        /// <returns>Vrai si la cellule est un mur, sinon faux.</returns>
         public bool IsWall(Cell node)
         {
             if (node != null)
@@ -135,21 +197,23 @@ namespace src.PuckMan.Game.Levels
             return false;
         }
 
+        /// <summary>
+        /// Initialise le labyrinthe en créant les cellules et en définissant leurs propriétés initiales.
+        /// </summary>
         public void InitMaze()
         {
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
-
                     Cell cell = new Cell(x * cellSize, y * cellSize, "Cell");
                     MazeMatrix[x, y] = cell;
                     cell.IsWall = false;
                     cell.Image.Image = Puck_Man_Game.Properties.Resources.vide;
-                    
+
                     if (!MazeForm.StoryMod)
                     {
-                        //on génére une bordure de mur solide sur les côtés et un semi quadrillage
+                        // Génère une bordure de mur solide sur les côtés et un semi-quadrillage
                         if ((x == 0 || x == width - 1 || y == 0 || y == height - 1)
                             || ((x + y) % 2 == 0 && x % 2 == 0))
                         {
@@ -161,9 +225,8 @@ namespace src.PuckMan.Game.Levels
                             cell.Image.Image = Puck_Man_Game.Properties.Resources.vide;
                             cell.IsWall = false;
                         }
-
-                        //remplit 80% des connections avec des murs
-                        else if (random.NextDouble() < 0.80)
+                        // Remplit 85% des connections avec des murs
+                        else if (random.NextDouble() < 0.85)
                         {
                             MazeMatrix[x, y].IsWall = true;
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
@@ -174,32 +237,20 @@ namespace src.PuckMan.Game.Levels
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
                         }
                     }
-
                 }
             }
         }
-        public void RandomMazeGeneration()
-        {
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    if ((x != 0 && y != 0 && x != width - 1 && y != height - 1)
-                        && ((x + y) % 2 != 0))
-                    {
-                        if (random.NextDouble() < 0.5)
-                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
-                        else
-                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
-                    }
-                }
-            }
-        }
-
+        /// <summary>
+        /// Génère aléatoirement le labyrinthe en ajustant les murs et les espaces vides. (SAE 2.2)
+        /// </summary>
+        /// <summary>
+        /// Génère le labyrinthe en utilisant l'algorithme de recherche en profondeur (DFS).
+        /// </summary>
         public void MazeGenerationByDFS()
         {
             VisitedNodes = new Cell[width * cellSize, height * cellSize];
 
+            // Sélection d'une position de départ aléatoire
             int startPositionX = GetValidCoordinates(1, width - 1);
             int startPositionY = GetValidCoordinates(1, height - 1);
             Cell node = MazeMatrix[startPositionX, startPositionY];
@@ -214,10 +265,10 @@ namespace src.PuckMan.Game.Levels
             Stack<Cell> pile = new Stack<Cell>();
             pile.Push(node);
 
-            // Tant que la pile n'est step vide
+            // Tant que la pile n'est pas vide
             while (pile.Count > 0)
             {
-                // Recuperer un node
+                // Récupération du nœud en haut de la pile
                 node = pile.Peek();
 
                 List<Cell> unvisitedNeighbors = new List<Cell>();
@@ -227,7 +278,7 @@ namespace src.PuckMan.Game.Levels
                 Cell leftConnection = Left(node.X, node.Y, step);
                 Cell rightConnection = Right(node.X, node.Y, step);
 
-                //on ajoute les neighborss valides non VisitedNodes
+                // Ajout des voisins valides non visités
                 if (topConnection != null && VisitedNodes[topConnection.X, (topConnection.Y)] == null)
                     unvisitedNeighbors.Add(topConnection);
                 if (bottomConnection != null && VisitedNodes[bottomConnection.X, bottomConnection.Y] == null)
@@ -237,111 +288,130 @@ namespace src.PuckMan.Game.Levels
                 if (rightConnection != null && VisitedNodes[rightConnection.X, rightConnection.Y] == null)
                     unvisitedNeighbors.Add(rightConnection);
 
-                // Si la Cell actuelle a des neighborss non VisitedNodes
+                // Si le nœud actuel a des voisins non visités
                 if (unvisitedNeighbors.Count > 0)
                 {
-                    //Choisit un neighbors aléatoire non visité
+                    // Choix d'un voisin aléatoire non visité
                     Cell neighbors = unvisitedNeighbors[random.Next(0, unvisitedNeighbors.Count)];
 
-                    //coordinates de la liason entre le node et son neighbors
+                    // Coordonnées de la connexion entre le nœud et son voisin
                     int connectionX = GetConnectionCoordinate(node.X, neighbors.X);
                     int connectionY = GetConnectionCoordinate(node.Y, neighbors.Y);
 
-                    //on crée un chemin entre le node et son neighbors
+                    // Création d'un chemin entre le nœud et son voisin
                     MazeMatrix[connectionX / cellSize, connectionY / cellSize].IsWall = false;
                     MazeMatrix[connectionX / cellSize, connectionY / cellSize].Image.Image = Puck_Man_Game.Properties.Resources.vide;
 
-                    //on marque le neighbors comme visité
+                    // Marquer le voisin comme visité
                     VisitedNodes[neighbors.X, neighbors.Y] = neighbors;
 
-                    //on met le neighbors dans la pile pour exploration future
+                    // Ajouter le voisin à la pile pour exploration future
                     pile.Push(neighbors);
                 }
                 else
                 {
-                    pile.Pop(); //si le node n'a plus de neighbors a exploré, on le depile
+                    pile.Pop(); // Si le nœud n'a plus de neighbors à explorer, le retirer de la pile
                 }
             }
 
+            // Retirer les murs isolés après la génération du labyrinthe
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                     RemoveIsolatedWalls(x, y);
             }
-
         }
 
+        /// <summary>
+        /// Génère le labyrinthe à partir d'une matrice spécifiée dans un fichier texte.
+        /// </summary>
+        /// <param name="niveau">Niveau du labyrinthe à générer.</param>
         public void MazeGenerationFromMatrix(int niveau)
         {
+            // Chemin du fichier contenant les données du labyrinthe
             string filePath = "src/database/MazeStoryMod.txt";
+
+            // Vérifie si le fichier existe
             if (File.Exists(filePath))
             {
+                // Lecture de toutes les lignes du fichier
                 string[] lines = File.ReadAllLines(filePath, Encoding.UTF8);
+
                 bool isCorrectLevel = false;
                 List<string> matrixLines = new List<string>();
 
+                // Parcours des lignes du fichier
                 foreach (string line in lines)
                 {
-                    // Vérifiez si nous avons trouvé le niveau correct
+                    // Vérifie si nous avons trouvé le niveau correct dans le fichier
                     if (line == niveau.ToString())
                     {
                         isCorrectLevel = true;
                         continue;
                     }
 
-                    // Si nous sommes dans le bon niveau, ajoutez les lignes de la matrice
+                    // Si nous sommes dans le bon niveau, ajoutons les lignes de la matrice
                     if (isCorrectLevel)
                     {
                         if (string.IsNullOrWhiteSpace(line))
-                            break; // Terminez la lecture lorsque vous trouvez une ligne vide après la matrice
+                            break; // Arrête la lecture lorsqu'une ligne vide est rencontrée après la matrice
+
                         matrixLines.Add(line);
                     }
                 }
+
+                // Si des lignes de matrice ont été récupérées, générer le labyrinthe
                 if (matrixLines.Count > 0)
                     GenerateMaze(matrixLines);
             }
         }
 
+        /// <summary>
+        /// Génère le labyrinthe en utilisant les lignes de matrice spécifiées.
+        /// </summary>
+        /// <param name="matrixLines">Lignes de la matrice représentant le labyrinthe.</param>
         private void GenerateMaze(List<string> matrixLines)
         {
             for (int y = 0; y < matrixLines.Count; y++)
             {
+                // Divise la ligne en éléments séparés par un espace
                 string[] elements = matrixLines[y].Split(' ');
-                for (int x = 0; x < elements.Length-1; x++)
+
+                for (int x = 0; x < elements.Length - 1; x++)
                 {
+                    // Traite chaque élément en fonction de son caractère spécifique
                     switch (elements[x][0])
                     {
-                        case 'X':
+                        case 'X': // Mur
                             MazeMatrix[x, y].IsWall = true;
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeHistoire;
                             MazeForm.Controls.Add(MazeMatrix[x, y].Image);
-                            MazeForm.Controls.Add(MazeMatrix[x, y].Image);
                             break;
-                        case '.':
+                        case '.': // Espace vide
                             MazeMatrix[x, y].IsWall = false;
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
                             MazeForm.Controls.Add(MazeMatrix[x, y].Image);
                             break;
-                        case 'J':
+                        case 'J': // Position de départ du joueur
                             startX = x;
                             startY = y;
                             break;
-                        case 'D':
+                        case 'D': // Fragment de dégât
                             GenerateCollectable("fragment degat", 1, x, y);
                             break;
-                        case 'F':
+                        case 'F': // Fragment normal
                             GenerateCollectable("fragment", 1, x, y);
                             break;
-                        case 'E':
+                        case 'E': // Ennemi égaré
                             GenerateEnemy("égaré", 1, x, y);
                             break;
-                        case 'B':
+                        case 'B': // Ennemi égaré berserker
                             GenerateEnemy("égaré berserker", 1, x, y);
                             break;
-                        case 'H':
+                        case 'H': // Fragment de soin
                             GenerateCollectable("soin", 1, x, y);
                             break;
-                        case 'T':
+                        case 'T': // Portail de téléportation
                             GenerateCollectable("portail teleportation", 1, x, y);
                             break;
                     }
@@ -349,27 +419,44 @@ namespace src.PuckMan.Game.Levels
             }
         }
 
+        /// <summary>
+        /// Remplace la position de la matrice par le code d'entité spécifié.
+        /// </summary>
+        /// <param name="entityCodeName">Code d'entité à placer dans la matrice.</param>
+        /// <param name="X">Coordonnée X dans la matrice.</param>
+        /// <param name="Y">Coordonnée Y dans la matrice.</param>
         public void ReplaceMatrixWithEntity(string entityCodeName, int X, int Y)
         {
+            // Calcul de l'index dans la chaîne représentant la matrice
             int index = (Y * (width * 2 + 1)) + (X * 2);
+
+            // Vérification des limites
             if (index < stringMazeMatrix.Length)
                 stringMazeMatrix = stringMazeMatrix.Substring(0, index) + entityCodeName + stringMazeMatrix.Substring(index + 1);
         }
+
+
+        /// <summary>
+        /// Construit une représentation textuelle du labyrinthe pour affichage.
+        /// </summary>
+        /// <returns>Chaîne représentant le labyrinthe.</returns>
         public string DisplayMazeMatrix()
         {
+            // Remplacer les positions de départ du joueur, des ennemis et des collectables dans la matrice
             ReplaceMatrixWithEntity("J", startX, startY);
-            foreach(Enemy enemy in EnemyList)
+            foreach (Enemy enemy in EnemyList)
             {
-                ReplaceMatrixWithEntity("E", enemy.X/cellSize, enemy.Y / cellSize);
+                ReplaceMatrixWithEntity("E", enemy.X / cellSize, enemy.Y / cellSize);
             }
             foreach (Collectable fragment in FragmentList)
             {
                 ReplaceMatrixWithEntity("F", fragment.X / cellSize, fragment.Y / cellSize);
             }
 
+            // Remplacer les entités génériques dans la matrice
             foreach (Entity entity in Entities)
             {
-                if (entity!= null)
+                if (entity != null)
                 {
                     string codeName = "F";
                     if (entity.EntityName == "égaré") codeName = "E";
@@ -380,17 +467,23 @@ namespace src.PuckMan.Game.Levels
                     if (entity is Player) codeName = "J";
                     ReplaceMatrixWithEntity(codeName, entity.X / cellSize, entity.Y / cellSize);
                 }
-                    
             }
 
+            // Affichage de la matrice dans la console (pour le débogage)
             for (int i = 0; i < stringMazeMatrix.Length; i++)
                 Debug.Write(stringMazeMatrix[i]);
+
             return stringMazeMatrix;
         }
 
+        /// <summary>
+        /// Affiche visuellement le labyrinthe dans le formulaire.
+        /// </summary>
         public void DisplayMaze()
         {
             string strMazeMatrix = "";
+
+            // Construction de la représentation textuelle du labyrinthe
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
@@ -400,41 +493,56 @@ namespace src.PuckMan.Game.Levels
                     else
                         strMazeMatrix += ". ";
 
-                    //on ajoute les Cells au formulaire (sinon aucun affichage)
+                    // Ajout des images des Cells au formulaire pour l'affichage visuel
                     MazeForm.Controls.Add(MazeMatrix[x, y].Image);
                 }
                 strMazeMatrix += "\n";
             }
-            stringMazeMatrix = strMazeMatrix;
+
+            stringMazeMatrix = strMazeMatrix; // Stockage de la représentation textuelle
         }
 
+        /// <summary>
+        /// Génère un collectable à la position spécifiée dans le labyrinthe.
+        /// </summary>
+        /// <param name="name">Nom du collectable.</param>
+        /// <param name="number">Nombre de collectables à générer.</param>
+        /// <param name="x">Coordonnée X du collectable.</param>
+        /// <param name="y">Coordonnée Y du collectable.</param>
         public void GenerateCollectable(string name, int number, int x, int y)
         {
             while (number > 0)
             {
-                // Vérifier s'il n'y a pas déjà une entité à l'endroit choisi
+                // Vérification si la position est libre et différente du point de départ
                 if (StaticEntities[x * cellSize, y * cellSize] is null && (x != startX || y != startY))
                 {
                     Collectable instance = new Collectable(name, x * cellSize, y * cellSize);
-                    if (name == "fragment")
-                        FragmentList.Add(instance);
+
+                    // Ajout de l'image du collectable au formulaire
                     MazeForm.Controls.Add(instance.Image);
                     instance.Image.BringToFront();
+
                     number -= 1;
-                    StaticEntities[x * cellSize, y * cellSize] = instance;
+                    StaticEntities[x * cellSize, y * cellSize] = instance; // Enregistrement de l'entité statique
                 }
                 else
                 {
+                    // Génération de nouvelles coordonnées valides si la position est déjà occupée
                     x = GetValidCoordinates(1, width - 1);
                     y = GetValidCoordinates(1, height - 1);
                 }
             }
-       
-
-    }
+        }
 
 
-    public void GenerateEnemy(string name, int number, int x, int y)
+        /// <summary>
+        /// Génère un ennemi à la position spécifiée dans le labyrinthe.
+        /// </summary>
+        /// <param name="name">Nom de l'ennemi.</param>
+        /// <param name="number">Nombre d'ennemis à générer.</param>
+        /// <param name="x">Coordonnée X de l'ennemi.</param>
+        /// <param name="y">Coordonnée Y de l'ennemi.</param>
+        public void GenerateEnemy(string name, int number, int x, int y)
         {
             while (number > 0)
             {
@@ -450,24 +558,6 @@ namespace src.PuckMan.Game.Levels
                         case "égaré berserker":
                             instance = new BerserkerEnemy(x * cellSize, y * cellSize, this);
                             break;
-                        //case "Égaré Standard":
-                        //    instance = new StandardEnemy(x * cellSize, y * cellSize, this);
-                        //    break;
-                        //case "Égaré Éclaireur":
-                        //    instance = new ScoutEnemy(x * cellSize, y * cellSize, this);
-                        //    break;
-                        //case "spec":
-                        //    instance = new SpectralEnemy(x * cellSize, y * cellSize, this);
-                        //    break;
-                        //case "Égaré Enchanteur":
-                        //    instance = new EnchanterEnemy(x * cellSize, y * cellSize, this);
-                        //    break;
-                        //case "Système 0":
-                        //    instance = new System0Enemy(x * cellSize, y * cellSize, this);
-                        //    break;
-                        //case "Système":
-                        //    instance = new SystemEnemy(x * cellSize, y * cellSize, this);
-                        //    break;
                         default:
                             throw new ArgumentException("Type d'ennemi non reconnu", nameof(name));
                     }
@@ -476,28 +566,39 @@ namespace src.PuckMan.Game.Levels
                     MazeForm.Controls.Add(instance.Image);
                     instance.Image.BringToFront();
                     number -= 1;
-                    Entities[x * cellSize, y * cellSize] = instance;
+                    Entities[x * cellSize, y * cellSize] = instance; // Enregistrement de l'entité dans la matrice
                 }
                 else
                 {
+                    // Génération de nouvelles coordonnées valides si la position est déjà occupée
                     x = GetValidCoordinates(1, width - 1);
                     y = GetValidCoordinates(1, height - 1);
                 }
             }
         }
 
+
+        /// <summary>
+        /// Supprime les murs isolés aux coordonnées spécifiées dans le labyrinthe.
+        /// </summary>
+        /// <param name="x">Coordonnée X du mur.</param>
+        /// <param name="y">Coordonnée Y du mur.</param>
         public void RemoveIsolatedWalls(int x, int y)
         {
             if (x % 2 == 0 && y % 2 == 0)
             {
+                // Vérifier si les murs adjacents ne sont pas présents
                 if (!IsWall(Top(x * cellSize, y * cellSize, cellSize)) &&
                     !IsWall(Bottom(x * cellSize, y * cellSize, cellSize)) &&
                     !IsWall(Left(x * cellSize, y * cellSize, cellSize)) &&
                     !IsWall(Right(x * cellSize, y * cellSize, cellSize)))
                 {
+                    // Supprimer le mur et mettre à jour visuellement
                     MazeMatrix[x, y].IsWall = false;
                     MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
-                    if (random.NextDouble()>0.3)
+
+                    // Générer un collectable avec une certaine probabilité
+                    if (random.NextDouble() > 0.3)
                         GenerateCollectable("soin", 1, x, y);
                 }
             }

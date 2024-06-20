@@ -25,6 +25,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
+    /// <summary>
+    /// Fenêtre de création d'une nouvelle partie dans le jeu Puck-Man.
+    /// Permet de démarrer un nouveau jeu avec des paramètres de difficulté et des personnalisations.
+    /// </summary>
     public partial class FrmNewGame : FormComponent
     {
         public bool StoryMod;
@@ -33,6 +37,15 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public int nbrGeneratedFragment;
         public string Pseudo = "";
         public byte Difficulty;
+
+        /// <summary>
+        /// Constructeur de la classe FrmNewGame.
+        /// Initialise une nouvelle partie avec les paramètres spécifiés.
+        /// </summary>
+        /// <param name="difficulty">Niveau de difficulté de la partie.</param>
+        /// <param name="storyMod">Indicateur si le mode histoire est activé.</param>
+        /// <param name="level">Niveau actuel du jeu.</param>
+        /// <param name="pseudo">Pseudo du joueur.</param>
         public FrmNewGame(byte difficulty, bool storyMod, int level, string pseudo) : base()
         {
             InitializeComponent();
@@ -55,7 +68,6 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 LblScore.Hide();
                 PctBoxScore.Hide();
             }
-
             else
             {
                 Random random = new Random();
@@ -94,18 +106,21 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 maze.GenerateCollectable("soin", Difficulty, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("fragment", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("fragment degat", 0, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateCollectable("portail teleportation", random.Next(3), maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));    
+                maze.GenerateCollectable("portail teleportation", random.Next(3), maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
             }
 
             nbrGeneratedFragment = maze.FragmentList.Count();
             this.Controls.Add(P1.Image);
-
             P1.Image.BringToFront();
             LblFragmentGenere.Text = nbrGeneratedFragment.ToString();
             UpdateScoredisplay();
             UpdateHPdisplay();
         }
 
+        /// <summary>
+        /// Méthode de nettoyage des ressources et de fin de partie.
+        /// Arrête les timers des ennemis, efface les entités statiques et nettoie la mémoire.
+        /// </summary>
         public void Destructeur()
         {
             foreach (Enemy enemy in P1.Maze.EnemyList)
@@ -128,25 +143,38 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             Dispose();
         }
 
+        /// <summary>
+        /// Met à jour l'affichage des points de vie du joueur.
+        /// </summary>
         public void UpdateHPdisplay()
         {
             if (P1 != null)
                 LblPV.Text = P1.HP.ToString();
         }
+
+        /// <summary>
+        /// Met à jour l'affichage des fragments collectés par le joueur.
+        /// </summary>
         public void UpdateFragmentdisplay()
         {
             if (P1 != null)
                 LblFragmentCollecte.Text = (nbrGeneratedFragment - P1.Maze.FragmentList.Count()).ToString();
         }
+
+        /// <summary>
+        /// Met à jour l'affichage du score actuel du joueur.
+        /// </summary>
         public void UpdateScoredisplay()
         {
             LblScore.Text = Program.score.ToString();
         }
-        
 
+        /// <summary>
+        /// Méthode appelée pour passer au niveau suivant après la fin d'un niveau.
+        /// Effectue le nettoyage des ressources et ouvre la fenêtre appropriée en fonction du mode de jeu.
+        /// </summary>
         public void NiveauSuivant()
         {
-
             Destructeur();
             if (StoryMod)
             {

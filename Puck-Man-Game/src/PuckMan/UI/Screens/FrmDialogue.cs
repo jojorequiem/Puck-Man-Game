@@ -8,13 +8,25 @@ using System.Windows.Forms;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
+    /// <summary>
+    /// Fenêtre de dialogue affichant les textes de l'histoire du jeu par chapitre.
+    /// Gère l'affichage séquentiel des dialogues et les transitions entre les niveaux.
+    /// </summary>
     public partial class FrmDialogue : FormComponent
     {
-        private int LineNbr;
-        private string Chapter;
-        private bool DialogueFinished;
-        private int Level;
-        public bool LevelFinished;
+        private int LineNbr;           // Numéro de ligne actuelle dans le fichier de dialogue
+        private string Chapter;        // Fichier de dialogue actuel
+        private bool DialogueFinished; // Indicateur de fin de dialogue
+        private int Level;             // Niveau actuel du jeu
+        public bool LevelFinished;     // Indique si le niveau est terminé
+
+        /// <summary>
+        /// Constructeur de la classe FrmDialogue.
+        /// Initialise la fenêtre de dialogue en fonction du niveau et de l'état du jeu.
+        /// Charge le fichier de dialogue correspondant au chapitre en cours.
+        /// </summary>
+        /// <param name="level">Niveau actuel du jeu.</param>
+        /// <param name="levelIsFinished">Indique si le niveau est terminé.</param>
         public FrmDialogue(int level, bool levelIsFinished) : base()
         {
             string filepath = "src/database/StoryMod.txt";
@@ -29,12 +41,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             {
                 Chapter = "chapitre" + Level + "_p2.txt";
 
-                //si le niveau est fini, on incrémente le niveau actuel de 1
+                // Si le niveau est fini, on incrémente le niveau actuel de 1 dans le fichier de progression
                 string[] lines = File.ReadAllLines(filepath, Encoding.UTF8);
                 lines[Program.game - 1] = (Level + 1).ToString();
                 Level += 1;
                 File.WriteAllLines(filepath, lines, Encoding.UTF8);
-
             }
 
             LineNbr = 1;
@@ -43,8 +54,8 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             {
                 LineNbr++;
                 string[] lines = File.ReadAllLines(filePath, Encoding.UTF8);
-                
-                //affiche le titre et le premier dialogue
+
+                // Affiche le titre et le premier dialogue
                 LblTitre.Text = lines[0];
                 GenererDialogue(lines[1]);
             }
@@ -54,6 +65,10 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             FlowPanel.Padding = new Padding(10);
         }
 
+        /// <summary>
+        /// Génère un contrôle Label affichant un dialogue dans le panneau FlowPanel.
+        /// </summary>
+        /// <param name="dialogue">Texte du dialogue à afficher.</param>
         public void GenererDialogue(string dialogue)
         {
             Label label = new Label
@@ -66,12 +81,16 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 Margin = new Padding(0, 0, 0, 15) // Ajouter une marge pour l'espacement
             };
             FlowPanel.Controls.Add(label);
-            
-            //scroll automatiquement pour le confort de l'utilisateur
+
+            // Scroll automatiquement pour le confort de l'utilisateur
             Panel.VerticalScroll.Value = Panel.VerticalScroll.Maximum;
             Panel.PerformLayout();
         }
 
+        /// <summary>
+        /// Événement déclenché lorsque le bouton "Dialogue Suivant" est cliqué.
+        /// Affiche le prochain dialogue dans le fichier si disponible, sinon termine le dialogue.
+        /// </summary>
         private void BtnDialogueSuivant_Click(object sender, EventArgs e)
         {
             if (DialogueFinished)
@@ -93,16 +112,23 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
         }
 
+        /// <summary>
+        /// Événement déclenché lorsque le bouton "Passer" est cliqué.
+        /// Passe au dialogue suivant immédiatement.
+        /// </summary>
         private void BtnSkip_Click(object sender, EventArgs e)
         {
             Suivant();
         }
 
+        /// <summary>
+        /// Méthode privée qui gère l'action à effectuer une fois le dialogue terminé.
+        /// Selon l'état du jeu, redirige vers le menu principal ou commence une nouvelle partie.
+        /// </summary>
         private void Suivant()
         {
             if (LevelFinished)
             {
-                //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
                 Program.FrmDialogue.FormClosing -= Program.FrmDialogue.FormComponent_FormClosing;
                 this.Dispose();
                 this.Close();
@@ -119,9 +145,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             {
                 if (Program.FrmNewGame != null)
                 {
-                    //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
                     Program.FrmNewGame.FormClosing -= Program.FrmNewGame.FormComponent_FormClosing;
-
                     Program.FrmNewGame.Close();
                     Program.FrmNewGame.Dispose();
                 }
@@ -129,6 +153,5 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 Program.ChangeActiveForm(Program.FrmNewGame, this);
             }
         }
-
     }
 }

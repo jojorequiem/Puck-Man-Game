@@ -13,9 +13,21 @@ using src.PuckMan.Game.Levels;
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
+    /// <summary>
+    /// Fenêtre affichée lorsque le joueur perd dans le jeu, gérant les actions après la défaite.
+    /// </summary>
     public partial class FrmDeath : FormComponent
     {
-        public int Level;
+        public int Level;  // Niveau actuel où le joueur est décédé
+
+        /// <summary>
+        /// Constructeur de la classe FrmDeath.
+        /// Initialise la fenêtre de mort en affichant le score du joueur et en jouant la musique de mort.
+        /// Enregistre le score dans le classement si le jeu est en mode infini.
+        /// </summary>
+        /// <param name="pseudo">Le pseudo du joueur.</param>
+        /// <param name="level">Le niveau actuel.</param>
+        /// <param name="difficulty">Le niveau de difficulté du jeu (0 pour le mode histoire, >0 pour le mode infini).</param>
         public FrmDeath(string pseudo, int level, int difficulty)
         {
             InitializeComponent();
@@ -30,7 +42,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 PcbScore.Hide();
                 BtnNouvellePartie.Text = "REJOUER";
             }
-            
+
             if (difficulty > 0) // mode infini
             {
                 string filepath = "src/database/ScoreRanking.txt";
@@ -58,9 +70,14 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
         }
 
+        /// <summary>
+        /// Événement déclenché lorsque le bouton "Nouvelle Partie" est cliqué.
+        /// Redirige vers le formulaire de création d'une nouvelle partie ou de rejouer au niveau actuel.
+        /// </summary>
         private void BtnNouvellePartie_Click(object sender, EventArgs e)
         {
-            if (Level > 0) {
+            if (Level > 0)
+            {
                 Program.FrmNewGame = new FrmNewGame(0, true, Level, "");
                 Program.ChangeActiveForm(Program.FrmNewGame, this);
             }
@@ -70,25 +87,29 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                     Program.FrmCreateNewGame = new FrmCreateNewGame();
                 Program.ChangeActiveForm(Program.FrmCreateNewGame, this);
             }
-            CloseForm();
+            CloseForm();  // Ferme le formulaire de mort
         }
 
+        /// <summary>
+        /// Ferme proprement le formulaire actuel en supprimant les événements de fermeture et en libérant les ressources.
+        /// </summary>
         private void CloseForm()
-        {   
-            //pour éviter de probleme de demander à l'utilisateur s'il veut quitter
+        {
             this.FormClosing -= this.FormComponent_FormClosing;
             this.Close();
             this.Dispose();
         }
 
+        /// <summary>
+        /// Événement déclenché lorsque le bouton "Menu" est cliqué.
+        /// Redirige vers le menu principal du jeu.
+        /// </summary>
         private void BtnMenu_Click(object sender, EventArgs e)
         {
             if (Program.FrmMenu == null)
                 Program.FrmMenu = new FrmMenu();
             Program.ChangeActiveForm(Program.FrmMenu, this);
-            CloseForm();
+            CloseForm();  // Ferme le formulaire de mort
         }
-
-       
     }
 }
