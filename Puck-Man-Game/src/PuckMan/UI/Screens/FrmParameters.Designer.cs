@@ -49,11 +49,11 @@
             // 
             this.LblSoundValue.AutoSize = true;
             this.LblSoundValue.BackColor = System.Drawing.Color.Black;
-            this.LblSoundValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.LblSoundValue.Font = new System.Drawing.Font("Minecraft", 16.27826F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblSoundValue.ForeColor = System.Drawing.Color.White;
             this.LblSoundValue.Location = new System.Drawing.Point(747, 344);
             this.LblSoundValue.Name = "LblSoundValue";
-            this.LblSoundValue.Size = new System.Drawing.Size(41, 30);
+            this.LblSoundValue.Size = new System.Drawing.Size(40, 27);
             this.LblSoundValue.TabIndex = 19;
             this.LblSoundValue.Text = "10";
             // 
@@ -61,11 +61,11 @@
             // 
             this.LblMusicValue.AutoSize = true;
             this.LblMusicValue.BackColor = System.Drawing.Color.Black;
-            this.LblMusicValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.LblMusicValue.Font = new System.Drawing.Font("Minecraft", 16.27826F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMusicValue.ForeColor = System.Drawing.Color.White;
             this.LblMusicValue.Location = new System.Drawing.Point(748, 252);
             this.LblMusicValue.Name = "LblMusicValue";
-            this.LblMusicValue.Size = new System.Drawing.Size(41, 30);
+            this.LblMusicValue.Size = new System.Drawing.Size(40, 27);
             this.LblMusicValue.TabIndex = 18;
             this.LblMusicValue.Text = "10";
             // 
@@ -73,11 +73,11 @@
             // 
             this.LblMainValue.AutoSize = true;
             this.LblMainValue.BackColor = System.Drawing.Color.Black;
-            this.LblMainValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.LblMainValue.Font = new System.Drawing.Font("Minecraft", 16.27826F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMainValue.ForeColor = System.Drawing.Color.White;
             this.LblMainValue.Location = new System.Drawing.Point(747, 163);
             this.LblMainValue.Name = "LblMainValue";
-            this.LblMainValue.Size = new System.Drawing.Size(41, 30);
+            this.LblMainValue.Size = new System.Drawing.Size(40, 27);
             this.LblMainValue.TabIndex = 17;
             this.LblMainValue.Text = "10";
             // 
