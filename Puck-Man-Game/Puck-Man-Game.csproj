@@ -280,22 +280,15 @@
     <Content Include="assets\dialogue\chapitre1_p2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\berserker.png" />
-    <None Include="Resources\deathIcon.gif" />
-    <None Include="Resources\deadSkullIcon.gif" />
-    <None Include="Resources\ConfusedEnemy1.png" />
     <None Include="Resources\berserkerEnemy.png" />
     <None Include="Resources\confusedEnemy.png" />
-    <Content Include="Resources\egare.png" />
     <Content Include="Resources\hp.gif" />
     <None Include="Resources\lab.png" />
     <None Include="Resources\icon_game.ico" />
-    <Content Include="Resources\mort.png" />
     <None Include="Resources\title.png" />
     <None Include="Resources\murModeInfini.png" />
     <Content Include="Resources\score.gif" />
     <None Include="Resources\skullIcon.gif" />
-    <None Include="Resources\skullIcon1.gif" />
     <None Include="Resources\spectrl-export.png" />
     <None Include="Resources\standardEnemy.png" />
     <Content Include="src\database\ScoreRanking.txt">
