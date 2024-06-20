@@ -106,7 +106,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
                 //généré les entités
                 maze.GenerateEnemy("égaré berserker", nbrBerserker, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                //maze.GenerateEnemy("égaré standard", nbrStandard, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateEnemy("égaré standard", nbrStandard, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateEnemy("égaré", nbrEgare, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("soin", Difficulty, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("fragment", nbrFragment, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
