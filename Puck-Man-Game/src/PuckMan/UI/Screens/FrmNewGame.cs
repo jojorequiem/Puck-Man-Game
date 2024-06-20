@@ -37,7 +37,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         public int nbrGeneratedFragment;
         public string Pseudo = "";
         public byte Difficulty;
-
+       
         /// <summary>
         /// Constructeur de la classe FrmNewGame.
         /// Initialise une nouvelle partie avec les paramètres spécifiés.
@@ -77,42 +77,49 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
 
                 //choisir le nombre d'entités en fonction de la difficulté
                 int nbrEgare = 0;
-                int nbrBerserker = 0;
+                int nbrStandard = 0;
+                int nbrBerserker = 0; 
                 int nbrFragment = 0;
                 int nbrFragmentDegat = random.Next(2);
                 if (Difficulty == 1)
                 {
-                    nbrEgare = 2 + random.Next(2);
-                    nbrFragment = 2 + random.Next(2);
+                    nbrStandard = 1;
+                    nbrEgare = 1 + random.Next(2);
+                    nbrFragment = 10 + random.Next(2);
                 }
                 else if (Difficulty == 2)
                 {
-                    nbrEgare = 3;
+                    nbrEgare = 1 + random.Next(2);
+                    nbrStandard = 1 + random.Next(2);
                     nbrBerserker = random.Next(2);
-                    nbrFragment = 3 + random.Next(2); ;
+                    nbrFragment = 12 + random.Next(2); ;
                     nbrFragmentDegat += 1;
                 }
                 else if (Difficulty == 3)
                 {
-                    nbrEgare = 3;
+                    nbrEgare = 2 + random.Next(2);
+                    nbrStandard = 1 + random.Next(2);
                     nbrBerserker = 1 + random.Next(2);
-                    nbrFragment = 4 + random.Next(3);
-                    nbrFragmentDegat += 3;
+                    nbrFragment = 15 + random.Next(3);
+                    nbrFragmentDegat += 2;
                 }
 
                 //généré les entités
                 maze.GenerateEnemy("égaré berserker", nbrBerserker, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                //maze.GenerateEnemy("égaré standard", nbrStandard, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateEnemy("égaré", nbrEgare, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("soin", Difficulty, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateCollectable("fragment", 1, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
-                maze.GenerateCollectable("fragment degat", 0, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("fragment", nbrFragment, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("fragment degat", nbrFragmentDegat, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("portail teleportation", random.Next(3), maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
             }
 
             nbrGeneratedFragment = maze.FragmentList.Count();
+            Debug.Write("nbrGeneratedFragment" + nbrGeneratedFragment);
             this.Controls.Add(P1.Image);
             P1.Image.BringToFront();
             LblFragmentGenere.Text = nbrGeneratedFragment.ToString();
+            UpdateFragmentdisplay();
             UpdateScoredisplay();
             UpdateHPdisplay();
         }

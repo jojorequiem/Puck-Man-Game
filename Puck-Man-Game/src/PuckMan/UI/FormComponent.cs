@@ -48,7 +48,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle; // Définit le style de bordure de la fenêtre à Fixe
             if (this is FrmNewGame)
             {
-                this.BackgroundImage = Puck_Man_Game.Properties.Resources.bgCell3; // Définit l'image de fond spécifique pour FrmNewGame
+                this.BackgroundImage = Puck_Man_Game.Properties.Resources.backgroundCell; // Définit l'image de fond spécifique pour FrmNewGame
                 this.BackgroundImageLayout = ImageLayout.Tile;
             }
             else

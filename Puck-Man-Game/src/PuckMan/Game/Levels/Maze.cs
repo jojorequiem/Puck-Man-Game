@@ -225,8 +225,8 @@ namespace src.PuckMan.Game.Levels
                             cell.Image.Image = Puck_Man_Game.Properties.Resources.vide;
                             cell.IsWall = false;
                         }
-                        // Remplit 85% des connections avec des murs
-                        else if (random.NextDouble() < 0.85)
+                        // Remplit 83% des connections avec des murs
+                        else if (random.NextDouble() < 0.83)
                         {
                             MazeMatrix[x, y].IsWall = true;
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
@@ -552,12 +552,17 @@ namespace src.PuckMan.Game.Levels
                     Enemy instance;
                     switch (name)
                     {
+
                         case "égaré":
                             instance = new ConfusedEnemy(x * cellSize, y * cellSize, this);
                             break;
                         case "égaré berserker":
                             instance = new BerserkerEnemy(x * cellSize, y * cellSize, this);
                             break;
+                        case "égaré standard":
+                            instance = new StandardEnemy(x * cellSize, y * cellSize, this);
+                            break;
+
                         default:
                             throw new ArgumentException("Type d'ennemi non reconnu", nameof(name));
                     }
