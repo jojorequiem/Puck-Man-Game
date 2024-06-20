@@ -284,8 +284,8 @@
     <None Include="Resources\deathIcon.gif" />
     <None Include="Resources\deadSkullIcon.gif" />
     <None Include="Resources\ConfusedEnemy1.png" />
-    <None Include="Resources\confusedEnemy.png" />
     <None Include="Resources\berserkerEnemy.png" />
+    <None Include="Resources\confusedEnemy.png" />
     <Content Include="Resources\egare.png" />
     <Content Include="Resources\hp.gif" />
     <None Include="Resources\lab.png" />
