@@ -156,13 +156,14 @@
             this.LblScore.TabIndex = 9;
             this.LblScore.Text = "0";
             // 
-            // FrmNouvellePartie
+            // FrmNewGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(882, 604);
+            this.ClientSize = new System.Drawing.Size(882, 605);
             this.Controls.Add(this.LblScore);
             this.Controls.Add(this.PctBoxScore);
             this.Controls.Add(this.LblPseudo);
@@ -177,9 +178,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
-            this.Name = "FrmNouvellePartie";
+            this.Name = "FrmNewGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puck Man";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

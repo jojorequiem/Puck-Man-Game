@@ -214,7 +214,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         public BerserkerEnemy(int x, int y, Maze maze) : base("Égaré Berserker", x, y, maze)
         {
             Damage = 3;
-            Image.Image = Puck_Man_Game.Properties.Resources.berserker;
+            Image.Image = Puck_Man_Game.Properties.Resources.berserkerEnemy;
             moveEnemyTimer = new Timer { Interval = 180 };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();
@@ -247,7 +247,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         public ConfusedEnemy(int x, int y, Maze maze) : base("Égaré Confus", x, y, maze)
         {
             Damage = 1;
-            Image.Image = Puck_Man_Game.Properties.Resources.egare;
+            Image.Image = Puck_Man_Game.Properties.Resources.confusedEnemy;
             moveEnemyTimer = new Timer { Interval = 320 };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();
@@ -269,7 +269,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         private readonly TimeSpan attackCooldown;
 
         /// <summary>
-        /// Initialise une nouvelle instance de la classe ConfusedEnemy.
+        /// Initialise une nouvelle instance de la classe StandardEnemy.
         /// </summary>
         /// <param name="x">Position X initiale de l'ennemi.</param>
         /// <param name="y">Position Y initiale de l'ennemi.</param>
@@ -277,7 +277,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         public StandardEnemy(int x, int y, Maze maze) : base("Égaré Standard", x, y, maze)
         {
             Damage = 1;
-            Image.Image = Puck_Man_Game.Properties.Resources.egare;
+            Image.Image = Puck_Man_Game.Properties.Resources.standardEnemy;
             moveEnemyTimer = new Timer { Interval = 250 };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();

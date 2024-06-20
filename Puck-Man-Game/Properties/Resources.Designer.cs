@@ -63,9 +63,9 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap berserker {
+        internal static System.Drawing.Bitmap backgroundCell {
             get {
-                object obj = ResourceManager.GetObject("berserker", resourceCulture);
+                object obj = ResourceManager.GetObject("backgroundCell", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bgCell3 {
+        internal static System.Drawing.Bitmap berserkerEnemy {
             get {
-                object obj = ResourceManager.GetObject("bgCell3", resourceCulture);
+                object obj = ResourceManager.GetObject("berserkerEnemy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap death_fragment {
+        internal static System.Drawing.Bitmap confusedEnemy {
             get {
-                object obj = ResourceManager.GetObject("death_fragment", resourceCulture);
+                object obj = ResourceManager.GetObject("confusedEnemy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Puck_Man_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap egare {
+        internal static System.Drawing.Bitmap death_fragment {
             get {
-                object obj = ResourceManager.GetObject("egare", resourceCulture);
+                object obj = ResourceManager.GetObject("death_fragment", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +216,16 @@ namespace Puck_Man_Game.Properties {
         internal static System.Drawing.Bitmap skullIcon {
             get {
                 object obj = ResourceManager.GetObject("skullIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap standardEnemy {
+            get {
+                object obj = ResourceManager.GetObject("standardEnemy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
