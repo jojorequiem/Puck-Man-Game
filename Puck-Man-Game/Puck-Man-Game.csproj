@@ -293,6 +293,7 @@
     <Content Include="Resources\score.gif" />
     <None Include="Resources\skullIcon.gif" />
     <None Include="Resources\skullIcon1.gif" />
+    <None Include="Resources\spectrl-export.png" />
     <Content Include="src\database\ScoreRanking.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

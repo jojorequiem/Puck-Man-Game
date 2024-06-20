@@ -53,11 +53,11 @@
             // 
             this.LblTitre.AutoSize = true;
             this.LblTitre.BackColor = System.Drawing.Color.Black;
-            this.LblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitre.Font = new System.Drawing.Font("Minecraft", 30.05217F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LblTitre.Location = new System.Drawing.Point(81, 36);
             this.LblTitre.Name = "LblTitre";
-            this.LblTitre.Size = new System.Drawing.Size(961, 55);
+            this.LblTitre.Size = new System.Drawing.Size(1051, 48);
             this.LblTitre.TabIndex = 10;
             this.LblTitre.Text = "Chapitre 1 : Confrontation avec l’inconnue";
             this.LblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -115,6 +115,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmDialogue";

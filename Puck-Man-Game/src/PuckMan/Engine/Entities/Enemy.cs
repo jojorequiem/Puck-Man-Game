@@ -211,11 +211,11 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         /// <param name="x">Position X initiale de l'ennemi.</param>
         /// <param name="y">Position Y initiale de l'ennemi.</param>
         /// <param name="maze">Labyrinthe dans lequel l'ennemi se trouve.</param>
-        public BerserkerEnemy(int x, int y, Maze maze) : base("Égaré Confus", x, y, maze)
+        public BerserkerEnemy(int x, int y, Maze maze) : base("Égaré Berserker", x, y, maze)
         {
             Damage = 3;
-            Image.Image = Puck_Man_Game.Properties.Resources.spectrl;
-            moveEnemyTimer = new Timer { Interval = 450 };
+            Image.Image = Puck_Man_Game.Properties.Resources.berserker;
+            moveEnemyTimer = new Timer { Interval = 180 };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();
             previousDirection = new Point(0, 0);
@@ -248,7 +248,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         {
             Damage = 1;
             Image.Image = Puck_Man_Game.Properties.Resources.egare;
-            moveEnemyTimer = new Timer { Interval = 300 };
+            moveEnemyTimer = new Timer { Interval = 320 };
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();
             previousDirection = new Point(0, 0);
@@ -257,4 +257,34 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         }
     }
 
+    public class StandardEnemy : Enemy
+    {
+        // Dernière direction prise par l'ennemi
+        private new Point previousDirection;
+
+        // Dictionnaire pour stocker le temps du dernier attaque pour chaque ennemi
+        private readonly Dictionary<Enemy, DateTime> lastAttackTime;
+
+        // Délai de récupération entre deux attaques
+        private readonly TimeSpan attackCooldown;
+
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe ConfusedEnemy.
+        /// </summary>
+        /// <param name="x">Position X initiale de l'ennemi.</param>
+        /// <param name="y">Position Y initiale de l'ennemi.</param>
+        /// <param name="maze">Labyrinthe dans lequel l'ennemi se trouve.</param>
+        public StandardEnemy(int x, int y, Maze maze) : base("Égaré Standard", x, y, maze)
+        {
+            Damage = 1;
+            Image.Image = Puck_Man_Game.Properties.Resources.egare;
+            moveEnemyTimer = new Timer { Interval = 250 };
+            moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
+            moveEnemyTimer.Start();
+            previousDirection = new Point(0, 0);
+            lastAttackTime = new Dictionary<Enemy, DateTime>();
+            attackCooldown = TimeSpan.FromSeconds(2);
+        }
+
+    }
 }
