@@ -83,9 +83,9 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             }
             else
             {
-                if (Program.FrmCreateNewGame == null)
-                    Program.FrmCreateNewGame = new FrmCreateNewGame();
-                Program.ChangeActiveForm(Program.FrmCreateNewGame, this);
+                if (Program.FrmInfiniteMode == null)
+                    Program.FrmInfiniteMode = new FrmInfiniteMode();
+                Program.ChangeActiveForm(Program.FrmInfiniteMode, this);
             }
             CloseForm();  // Ferme le formulaire de mort
         }

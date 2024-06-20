@@ -2,7 +2,7 @@
 
 namespace Puck_Man_Game.src.PuckMan.UI.Screens
 {
-    partial class FrmCreateNewGame
+    partial class FrmInfiniteMode
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCreateNewGame));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInfiniteMode));
             this.BtnRetour = new System.Windows.Forms.Button();
             this.BtnNouvellePartie = new System.Windows.Forms.Button();
             this.GrpPartie = new System.Windows.Forms.GroupBox();
@@ -190,7 +190,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.lblTitreMenuPrincipal.Text = "MODE INFINI";
             this.lblTitreMenuPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmCreateNewGame
+            // FrmInfiniteMode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -204,11 +204,12 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 650);
             this.MinimumSize = new System.Drawing.Size(899, 649);
-            this.Name = "FrmCreateNewGame";
+            this.Name = "FrmInfiniteMode";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmNewGame";
+            this.Text = "Puck-Man - Mode Infini";
             this.Shown += new System.EventHandler(this.FrmCreateNewGame_Shown);
             this.GrpPartie.ResumeLayout(false);
             this.GrpPartie.PerformLayout();

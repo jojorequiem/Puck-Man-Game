@@ -16,11 +16,11 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
     /// <summary>
     /// Formulaire pour créer une nouvelle partie dans le jeu.
     /// </summary>
-    public partial class FrmCreateNewGame : FormComponent
+    public partial class FrmInfiniteMode : FormComponent
     {
         public byte difficulty;  // Niveau de difficulté choisi par le joueur
 
-        public FrmCreateNewGame()
+        public FrmInfiniteMode()
         {
             InitializeComponent();
             ReinitialiseDisplay();  // Initialise l'affichage lors de la création de la fenêtre

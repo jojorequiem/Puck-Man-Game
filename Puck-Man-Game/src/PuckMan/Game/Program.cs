@@ -50,7 +50,7 @@ namespace Puck_Man_Game
         public static FrmDeath FrmDeath = null;                      // Fenêtre de fin de jeu (décès du joueur)
         public static FrmDialogue FrmDialogue = null;                // Fenêtre de dialogue
         public static FrmMenu FrmMenu = null;                        // Fenêtre principale du menu
-        public static FrmCreateNewGame FrmCreateNewGame = null;      // Fenêtre de création d'une nouvelle partie
+        public static FrmInfiniteMode FrmInfiniteMode = null;      // Fenêtre de création d'une nouvelle partie
         public static FrmPlay FrmPlay = null;                        // Fenêtre de jeu en cours
         public static FrmPause FrmPause = null;                      // Fenêtre de pause
         public static FrmStoryMode FrmStoryMode = null;              // Fenêtre de mode histoire

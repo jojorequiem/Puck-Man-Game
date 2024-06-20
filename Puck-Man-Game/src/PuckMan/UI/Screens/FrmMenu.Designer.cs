@@ -130,11 +130,12 @@ namespace Puck_Man_Game.src.PuckMan.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(901, 651);
             this.MinimumSize = new System.Drawing.Size(899, 649);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Puck-Man";
+            this.Text = "Puck-Man - Menu";
             ((System.ComponentModel.ISupportInitialize)(this.PcbTitle)).EndInit();
             this.ResumeLayout(false);
 
