@@ -40,7 +40,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 LblScore.Hide();
                 LblValeurScore.Hide();
                 PcbScore.Hide();
-                BtnNouvellePartie.Text = "REJOUER";
+                BtnNouvellePartie.Text = "RECOMMENCER";
             }
 
             if (difficulty > 0) // mode infini

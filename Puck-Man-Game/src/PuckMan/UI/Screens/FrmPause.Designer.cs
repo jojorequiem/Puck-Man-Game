@@ -56,7 +56,7 @@
             this.BtnRetour.Name = "BtnRetour";
             this.BtnRetour.Size = new System.Drawing.Size(700, 69);
             this.BtnRetour.TabIndex = 0;
-            this.BtnRetour.Text = "RETOUR";
+            this.BtnRetour.Text = "REPRENDRE";
             this.BtnRetour.UseVisualStyleBackColor = true;
             this.BtnRetour.Click += new System.EventHandler(this.BtnRetour_Click);
             // 

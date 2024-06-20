@@ -29,7 +29,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
         /// <param name="levelIsFinished">Indique si le niveau est terminé.</param>
         public FrmDialogue(int level, bool levelIsFinished) : base()
         {
-            string filepath = "src/database/StoryMod.txt";
+            string filepath = "src/database/StoryMode.txt";
 
             InitializeComponent();
             Level = level;

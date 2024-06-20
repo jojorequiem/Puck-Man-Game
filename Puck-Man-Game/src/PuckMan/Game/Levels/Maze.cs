@@ -347,7 +347,7 @@ namespace src.PuckMan.Game.Levels
         public void MazeGenerationFromMatrix(int niveau)
         {
             // Chemin du fichier contenant les données du labyrinthe
-            string filePath = "src/database/MazeStoryMod.txt";
+            string filePath = "src/database/MazeStoryMode.txt";
 
             // Vérifie si le fichier existe
             if (File.Exists(filePath))
@@ -419,6 +419,9 @@ namespace src.PuckMan.Game.Levels
                             break;
                         case 'F': // Fragment normal
                             GenerateCollectable("fragment", 1, x, y);
+                            break;
+                        case 'S': // Ennemi égaré
+                            GenerateEnemy("égaré standard", 1, x, y);
                             break;
                         case 'E': // Ennemi égaré
                             GenerateEnemy("égaré", 1, x, y);
