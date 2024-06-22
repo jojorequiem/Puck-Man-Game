@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Drawing.Printing;
 using System.Xml;
+using System.Xml.Linq;
+using System.Drawing;
 
 namespace src.PuckMan.Game.Levels
 {
@@ -26,7 +28,7 @@ namespace src.PuckMan.Game.Levels
 
         // Step pour le parcours du labyrinthe, utilisé pour les connexions entre cellules
         public static int step = cellSize * 2;
-
+        public Player Player { get; private set; }
         public Cell[,] MazeMatrix { get; set; } // Matrice des cellules du labyrinthe
         public Cell[,] VisitedNodes { get; set; } // Matrice des noeuds visités
         public Entity[,] Entities { get; set; } // Matrice des entités
@@ -67,6 +69,11 @@ namespace src.PuckMan.Game.Levels
                 MazeGenerationByDFS();
 
             DisplayMaze();
+        }
+
+        public Point PlayerPosition()
+        {
+            return new Point(startX, startY);
         }
 
         /// <summary>
@@ -196,7 +203,6 @@ namespace src.PuckMan.Game.Levels
                 return node.IsWall;
             return false;
         }
-
         /// <summary>
         /// Initialise le labyrinthe en créant les cellules et en définissant leurs propriétés initiales.
         /// </summary>
@@ -226,7 +232,7 @@ namespace src.PuckMan.Game.Levels
                             cell.IsWall = false;
                         }
                         // Remplit 83% des connections avec des murs
-                        else if (random.NextDouble() < 0.83)
+                        else if (random.NextDouble() < 0.90)
                         {
                             MazeMatrix[x, y].IsWall = true;
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
@@ -435,6 +441,14 @@ namespace src.PuckMan.Game.Levels
                         case 'T': // Portail de téléportation
                             GenerateCollectable("portail teleportation", 1, x, y);
                             break;
+                        case 'Z':
+                            GenerateEnemy("égaré dfs", 1, x, y);
+                            break;
+                        case 'O':
+                            GenerateEnemy("égaré bfs", 1, x, y);
+                            break;
+                        default:
+                            throw new ArgumentException("Lettre non reconnu");
                     }
                 }
             }
@@ -584,7 +598,15 @@ namespace src.PuckMan.Game.Levels
                         case "égaré standard":
                             instance = new StandardEnemy(x * cellSize, y * cellSize, this);
                             break;
-
+                        case "égaré dfs":
+                            instance = new DFSEnemy(x * cellSize, y * cellSize, this);
+                            break;
+                        case "égaré bfs":
+                            instance = new ScoutEnemy(x * cellSize, y * cellSize, this);
+                            break;
+                        case "égaré dijkstra":
+                            instance = new DijkstraEnemy(x * cellSize, y * cellSize, this);
+                            break;
                         default:
                             throw new ArgumentException("Type d'ennemi non reconnu", nameof(name));
                     }
