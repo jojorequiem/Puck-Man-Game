@@ -233,7 +233,7 @@ namespace src.PuckMan.Game.Levels
                             cell.IsWall = false;
                         }
                         // Remplit 83% des connections avec des murs
-                        else if (random.NextDouble() < 0.90)
+                        else if (random.NextDouble() < 0.83)
                         {
                             MazeMatrix[x, y].IsWall = true;
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
