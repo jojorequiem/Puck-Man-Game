@@ -92,7 +92,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 else if (Difficulty == 2)
                 {
                     nbrEgare = 1 ;
-                    nbrDFS = random.Next(3);
+                    nbrDFS = random.Next(1);
                     nbrStandard = 1 + random.Next(2);
                     nbrBerserker = random.Next(2);
                     nbrFragment = 12 + random.Next(2); ;
