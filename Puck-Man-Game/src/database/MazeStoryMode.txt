@@ -1,6 +1,6 @@
 1
 X X X X X X X X X X X X X X X X X 
-X Z . F . F . F X F . F . F . F X 
+X . . F . F . F X F . F . F . F X 
 X . X X X X X . X . X X X X X . X 
 X J X F . F X F X F . F . F . F X 
 X . X . X . X . X . X X X X X . X 

@@ -304,7 +304,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         /// <param name="maze">Labyrinthe dans lequel l'ennemi se trouve.</param>
         public DFSEnemy(int x, int y, Maze maze) : base("DFSEnemy", x, y, maze)
         {
-            Damage = 0;
+            Damage = 1;
             Image.Image = Puck_Man_Game.Properties.Resources.skullIcon; // Changer l'image en conséquence
             moveEnemyTimer = new Timer { Interval = 220 }; // Intervalle de déplacement
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
