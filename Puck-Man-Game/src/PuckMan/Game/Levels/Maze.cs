@@ -67,6 +67,7 @@ namespace src.PuckMan.Game.Levels
                 MazeGenerationFromMatrix(MazeForm.Level);
             else
                 MazeGenerationByDFS();
+            //RandomMazeGeneration();
 
             DisplayMaze();
         }
@@ -258,8 +259,8 @@ namespace src.PuckMan.Game.Levels
                     if ((x != 0 && y != 0 && x != width - 1 && y != height - 1)
                         && ((x + y) % 2 != 0))
                     {
-                        if (random.NextDouble() < 0.5)
-                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.murModeInfini;
+                        if (random.NextDouble() < 0.50)
+                            MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.score;
                         else
                             MazeMatrix[x, y].Image.Image = Puck_Man_Game.Properties.Resources.vide;
                     }
@@ -601,12 +602,12 @@ namespace src.PuckMan.Game.Levels
                         case "égaré dfs":
                             instance = new DFSEnemy(x * cellSize, y * cellSize, this);
                             break;
-                        case "égaré bfs":
-                            instance = new ScoutEnemy(x * cellSize, y * cellSize, this);
-                            break;
-                        case "égaré dijkstra":
-                            instance = new DijkstraEnemy(x * cellSize, y * cellSize, this);
-                            break;
+                        //case "égaré bfs":
+                        //    instance = new ScoutEnemy(x * cellSize, y * cellSize, this);
+                        //    break;
+                        //case "égaré dijkstra":
+                        //    instance = new DijkstraEnemy(x * cellSize, y * cellSize, this);
+                            //break;
                         default:
                             throw new ArgumentException("Type d'ennemi non reconnu", nameof(name));
                     }
