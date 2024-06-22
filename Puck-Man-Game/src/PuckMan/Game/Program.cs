@@ -69,8 +69,8 @@ namespace Puck_Man_Game
         {
             string[] lines = File.ReadAllLines("src/database/AudioParameters.txt", Encoding.UTF8);
             MainVolume = int.Parse(lines[0]);       // Charge le volume principal depuis le fichier de paramètres
-            SoundVolume = int.Parse(lines[1]);      
-            MusicVolume = int.Parse(lines[2]);      
+            MusicVolume = int.Parse(lines[1]);
+            SoundVolume = int.Parse(lines[2]);      
 
             PlayMusic(menuMusicFilepath);           
             Application.EnableVisualStyles();
