@@ -73,7 +73,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             Program.UpdateVolume();
 
             string[] lines = File.ReadAllLines(filepath, Encoding.UTF8);
-            lines[1] = TrackBarMain.Value.ToString();
+            lines[1] = TrackBarMusic.Value.ToString();
             File.WriteAllLines(filepath, lines, Encoding.UTF8);
         }
 
@@ -88,7 +88,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
             Program.UpdateVolume();
 
             string[] lines = File.ReadAllLines(filepath, Encoding.UTF8);
-            lines[2] = TrackBarMain.Value.ToString();
+            lines[2] = TrackBarSound.Value.ToString();
             File.WriteAllLines(filepath, lines, Encoding.UTF8);
         }
     }
