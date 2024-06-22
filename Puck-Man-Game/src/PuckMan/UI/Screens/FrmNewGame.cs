@@ -80,16 +80,19 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 int nbrStandard = 0;
                 int nbrBerserker = 0; 
                 int nbrFragment = 0;
+                int nbrDFS = 0;
                 int nbrFragmentDegat = random.Next(2);
                 if (Difficulty == 1)
                 {
                     nbrStandard = 1;
+                    nbrDFS = 0;
                     nbrEgare = 1 + random.Next(2);
                     nbrFragment = 10 + random.Next(2);
                 }
                 else if (Difficulty == 2)
                 {
                     nbrEgare = 1 ;
+                    nbrDFS = random.Next(3);
                     nbrStandard = 1 + random.Next(2);
                     nbrBerserker = random.Next(2);
                     nbrFragment = 12 + random.Next(2); ;
@@ -97,6 +100,7 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 }
                 else if (Difficulty == 3)
                 {
+                    nbrDFS = random.Next(2);
                     nbrEgare = 1 + random.Next(2);
                     nbrStandard = 1 + random.Next(2);
                     nbrBerserker = 1;
@@ -108,14 +112,15 @@ namespace Puck_Man_Game.src.PuckMan.UI.Screens
                 maze.GenerateEnemy("égaré berserker", nbrBerserker, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateEnemy("égaré standard", nbrStandard, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateEnemy("égaré", nbrEgare, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateEnemy("égaré dfs",nbrDFS, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("soin", Difficulty, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("fragment", nbrFragment, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
+                maze.GenerateCollectable("fragment", 5, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("fragment degat", nbrFragmentDegat, maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
                 maze.GenerateCollectable("portail teleportation", 1 + random.Next(2), maze.GetValidCoordinates(1, maze.width - 1), maze.GetValidCoordinates(1, maze.height - 1));
             }
 
             nbrGeneratedFragment = maze.FragmentList.Count();
-            Debug.Write("nbrGeneratedFragment" + nbrGeneratedFragment);
             this.Controls.Add(P1.Image);
             P1.Image.BringToFront();
             LblFragmentGenere.Text = nbrGeneratedFragment.ToString();
