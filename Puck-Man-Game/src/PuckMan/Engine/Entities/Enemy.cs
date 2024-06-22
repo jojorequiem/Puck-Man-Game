@@ -306,7 +306,7 @@ namespace Puck_Man_Game.src.PuckMan.Engine.Entities
         {
             Damage = 0;
             Image.Image = Puck_Man_Game.Properties.Resources.skullIcon; // Changer l'image en conséquence
-            moveEnemyTimer = new Timer { Interval = 100 }; // Intervalle de déplacement
+            moveEnemyTimer = new Timer { Interval = 220 }; // Intervalle de déplacement
             moveEnemyTimer.Tick += MoveEnemyTimer_Tick;
             moveEnemyTimer.Start();
             dfsStack = new Stack<Point>();
